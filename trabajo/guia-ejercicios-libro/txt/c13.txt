@@ -1,0 +1,246 @@
+ PROBLEMAS
+13.1 En el ejemplo 13.1 se hizo el supuesto que los promedios de todos los factores distintos de
+ educ han permanecido constantes en el tiempo y que el nivel promedio de educación es 12.2
+ para la muestra de 1972 y 13.3 para la muestra de 1984. Utilizando las estimaciones de la tabla
+ 13.1, calcule el cambio estimado en la fertilidad promedio entre 1972 y 1984. (Asegúrese de
+ considerar el cambio del intercepto y el cambio en el nivel medio de educación.)
+472 Parte 3 Temas avanzados
+ 13.2 Las siguientes ecuaciones se estimaron usando la base de datos KIELMC.RAW para los años
+ 1978 y 1981:
+ log(price) 11.49 .547 nearinc .394 y81nearinc
+ (.26) (.058) (.080)
+ n 321, R2 .220
+ y
+ log(price) 11.18 .563 y81 .403 y81nearinc
+ (.27) (.044) (.067)
+ n 321, R2 .337.
+ Compare las estimaciones para el término de interacción y81nearinc con aquéllas de la ecua-
+ ción (13.9). ¿Por qué son tan diferentes las estimaciones?
+ 13.3 ¿Por qué no se pueden usar primeras diferencias cuando se tienen cortes transversales inde-
+ pendientes en dos años (contrariamente a los datos de panel)?
+ 13.4 Si considera que 1 es positivo en la ecuación (13.14) y que ui y unemi están correlaciona-
+ dos negativamente, ¿cuál es el sesgo en el estimador de MCO de 1 en la ecuación en primera
+ diferencia? [Sugerencia: revise la ecuación (5.4.).]
+ 13.5 Suponga que se desea estimar el efecto de varias variables sobre el ahorro anual y se tiene una
+ base de datos de panel sobre personas, recolectada el 31 de enero de 1990 y el 31 de enero de
+ 1992. Si se incluye una variable binaria para 1992 y se utiliza la primera diferenciación, ¿es
+ posible incluir además la edad en el modelo original? Explique.
+ 13.6 En 1985, ni Florida ni Georgia tenían leyes que prohibían portar recipientes abiertos con bebi-
+ das alcohólicas en los compartimentos de los vehículos de pasajeros. Para 1990, Florida había
+ aprobado esta ley, pero Georgia no.
+ i) Suponga que puede reunir muestras aleatorias de población en edad de conducir en los
+ dos estados, para 1985 y 1990. Sea arrest una variable binaria igual a la unidad si una
+ persona fue arrestada por conducir en estado de ebriedad durante el año. Sin controlar
+ ningún otro factor, elabore un modelo de probabilidad lineal que le permita demostrar si
+ la ley de recipientes abiertos redujo la probabilidad de ser arrestado por conducir en
+ estado de ebriedad. ¿Cuál coeficiente de su modelo mide el efecto de la ley?
+ ii) ¿Por qué querría usted controlar otros factores del modelo? ¿Cuáles serían estos fac-
+ tores?
+ iii) Ahora, suponga que sólo puede reunir datos para 1985 y 1990 a nivel de condado para
+ los dos estados. La variable dependiente sería la fracción de los conductores con licen-
+ cia arrestados por conducir en estado de ebriedad durante el año. ¿Cómo difiere esta
+ estructura de datos de los datos sobre personas descritos en el inciso i)? ¿Qué método
+ econométrico usaría usted?
+ 13.7 i) Usando la base de datos INJURY.RAW para Kentucky, la ecuación estimada cuando
+ afchnge se omite en la ecuación (13.12) es
+ log(durat) 1.129 .253 highearn .198 afchnge·highearn
+ (0.022) (.042) (.052)
+ n 5,626, R2 .021.
+ Capítulo 13 Combinación de cortes transversales en el tiempo: métodos simples para datos de panel 473
+ ¿Es de sorprender que la estimación de la interacción sea muy cercana a aquella de la
+ ecuación (13.12)? Explique por qué.
+ ii) Cuando afchnge se incluye pero highearn se omite, el resultado es
+ log(durat) 1.233 .100 afchnge .447 afchnge·highearn
+ (0.023) (.040) (.050)
+ n 5,626, R2 .016.
+ ¿Por qué el coeficiente del término de interacción ahora es mucho mayor que en la ecua-
+ ción (13.12)? [Sugerencia: en la ecuación (13.10), ¿cuál es el supuesto que se hace sobre
+ los grupos de tratamiento y control si 1 0?]
+ EJERCICIOS EN COMPUTADORA
+C13.1 Utilice la base de datos FERTIL1.RAW para este ejercicio.
+ i) En la ecuación estimada del ejemplo 13.1, pruebe si las condiciones de vida a los
+ 16 años influyen sobre la fertilidad. (El grupo base es una ciudad grande.) Informe el
+ valor del estadístico F y el valor-p.
+ ii) Pruebe si la región del país a los 16 años (el Sur es el grupo base) influye sobre la
+ fertilidad.
+ iii) Sea u el término de error en la ecuación de la población. Suponga que piensa que la
+ varianza de u cambia con el tiempo (pero no con educ, age, etc.). Un modelo que
+ captura esto es
+ u2 0 1 y74 2 y76 ... 6 y84 v.
+ Usando este modelo, pruebe si hay heterocedasticidad en u. (Sugerencia: su prueba F
+ debe tener 6 y 1,122 grados de libertad.)
+ iv) Añada los términos de interacción y74educ, y76educ, ..., y84·educ al modelo esti-
+ mado de la tabla 13.1. Explique qué representan estos términos. ¿Son conjuntamente
+ significativos?
+C13.2 Utilice la base de datos CPS78_85.RAW para este ejercicio.
+ i) ¿Cómo interpreta el coeficiente de y85 en la ecuación (13.2)? ¿Tiene una interpreta-
+ ción interesante? (Tenga cuidado aquí; debe considerar los términos de interacción
+ y85educ y y85female.)
+ ii) Si se mantienen otros factores fijos, ¿cuál es el incremento porcentual estimado en el
+ salario nominal para un hombre con 12 años de educación? Proponga una regresión
+ para obtener un intervalo de confianza para esta estimación. [Sugerencia: para obtener
+ el intervalo de confianza, remplace y85educ con y85(educ 12); remítase al ejem-
+ plo 6.3.]
+ iii) Vuelva a estimar la ecuación (13.2) pero mida todos los salarios en dólares de 1978.
+ En particular, defina el salario real como rwage wage para 1978 y como rwage 
+ wage/1.65 para 1985. Ahora, use log(rwage) en lugar de log(wage) al estimar la ecua-
+ ción (13.2). ¿Cuáles coeficientes difieren de aquéllos de la ecuación (13.2)?
+ iv) Explique por qué la R-cuadrada de su regresión del inciso iii) no es igual a aquélla de
+ la ecuación (13.2). (Sugerencia: los residuales y, por ende, la suma de los residuales
+ cuadrados, de las dos regresiones son idénticos.)
+474 Parte 3 Temas avanzados
+ v) Describa cómo la afiliación a un sindicato cambió de 1978 a 1985.
+ vi) A partir de la ecuación (13.2), pruebe si el diferencial de salarios por afiliación a un
+ sindicato cambió con el tiempo. (Debe ser una prueba t simple.)
+ vii) ¿Sus hallazgos de los incisos v) y vi) entran en conflicto?
+ C13.3 Use los datos de KIELMC.RAW para este ejercicio.
+ i) La variable dist es la distancia de cada casa al incinerador, en pies. Considere el
+ modelo
+ log(price) 0 0 y81 1log(dist) 1y81log(dist) u.
+ Si la construcción del incinerador reduce el valor de las casas más cercanas a su ubi-
+ cación, ¿cuál es el signo de 1? ¿Qué significa si 1 0?
+ ii) Estime el modelo del inciso i) e informe los resultados de la manera acostumbrada.
+ Interprete el coeficiente de y81log(dist). ¿Qué concluye a partir de esto?
+ iii) Añada age, age2, rooms, baths, log(intst), log(land) y log(area) a la ecuación. Ahora,
+ ¿cuál es su conclusión acerca del efecto del incinerador sobre los valores de las
+ casas?
+ iv) ¿Por qué el coeficiente de log(dist) es positivo y estadísticamente significativo en el
+ inciso ii) pero no en el inciso iii)? ¿Qué dice esto sobre los controles usados en el in-
+ ciso iii)?
+ C13.4 Utilice la base de datos INJURY.RAW para este ejercicio.
+ i) Con los datos de Kentucky, vuelva a estimar la ecuación (13.12) añadiendo como
+ variables explicativas male, married y un conjunto completo de variables binarias
+ de la industria y el tipo de lesión. ¿Cómo cambia la estimación de afchngehighearn
+ cuando se controlan estos otros factores? ¿El estimador sigue siendo estadísticamente
+ significativo?
+ ii) ¿Qué significa la pequeña R-cuadrada del inciso i)? ¿Quiere decir esto que la ecuación
+ no es útil?
+ iii) Estime la ecuación (13.12) con los datos de Michigan. Compare las estimaciones del
+ término de interacción para Michigan y Kentucky. ¿El estimador de Michigan es esta-
+ dísticamente significativo? ¿Qué significa esto?
+ C13.5 Utilice los datos de RENTAL.RAW para este ejercicio. Los datos para los años 1980 y 1990
+ incluyen precios de arrendamiento (rent) y otras variables de las ciudades universitarias. La
+ idea es ver si una mayor presencia de los estudiantes influye en las tasas de arrendamiento.
+ El modelo de efectos inobservables es
+ log(rentit) 0 0 y90t 1log( popit) 2log(avgincit) 3 pctstuit ai uit,
+ donde pop es la población de la ciudad, avginc es el ingreso promedio y pctstu es la pobla-
+ ción estudiantil expresada como un porcentaje de la población de la ciudad (durante el año
+ escolar).
+ i) Obtenga la estimación combinada por MCO y reporte los resultados en la forma acos-
+ tumbrada. ¿Qué significa el coeficiente estimado de la variable binaria de 1990? ¿Qué
+ obtiene para ^pctstu?
+ ii) ¿Son válidos los errores estándar que reportó en el inciso i)? Explique las razones.
+ iii) Ahora diferencie la ecuación y estime por MCO. Compare el estimador de pctstu con el
+ estimador del inciso ii). ¿El tamaño relativo de la población estudiantil parece influir
+ en el precio de la renta?
+ iv) Obtenga los errores estándar robustos a la heterocedasticidad de la ecuación en prime-
+ ra diferencia del inciso iii). ¿Cambian sus conclusiones?
+ Capítulo 13 Combinación de cortes transversales en el tiempo: métodos simples para datos de panel 475
+C13.6 Utilice la base de datos CRIME3.RAW para este ejercicio.
+ i) En el modelo del ejemplo 13.6, pruebe la hipótesis H0: 1 2. (Sugerencia: defina
+ 1 1 2 y escriba 1 en función de 1 y 2. Sustituya esto en la ecuación y ordene
+ los términos. Haga una prueba t para 1.)
+ ii) Si 1 2, demuestre que la ecuación en diferencia puede escribirse como
+ log(crimei) 0 1avgclri ui ,
+ donde 1 21 y avgclri (clrprci,1 clrprci,2)/2 es el promedio del porcentaje de
+ casos resueltos en los dos años anteriores.
+ iii) Estime la ecuación del inciso ii). Compare la R-cuadrada ajustada con aquélla de la
+ ecuación (13.22). ¿Qué modelo utilizaría finalmente?
+C13.7 Utilice la base de datos GPA3.RAW para este ejercicio. La base de datos es para 366 estu-
+ diantes atletas de una universidad grande, para los semestres de otoño y primavera. [Un
+ análisis similar se halla en Maloney y McCormick (1993), pero aquí se utiliza un verdadero
+ conjunto de datos de panel]. Como se cuenta con datos de dos semestres para cada estudian-
+ te, resulta adecuado un modelo de efectos inobservables. La primera interrogante de interés
+ es la siguiente: ¿los estudiantes atletas tienen un menor aprovechamiento en la escuela
+ durante el semestre en que su deporte está en temporada?
+ i) Utilice MCO combinados para estimar un modelo con el promedio de calificacio-
+ nes del semestre (trmgpa) como variable dependiente y como variables explicativas
+ spring, sat, hsperc, female, black, white, frstsem, tothrs, crsgpa y season. Interprete
+ el coeficiente de season (variable binaria igual a uno si el deporte está en temporada).
+ ¿Es estadísticamente significativo?
+ ii) La mayoría de los atletas que realiza su deporte sólo en el otoño son jugadores de
+ fútbol americano. Suponga que sus niveles de capacidad innata difieren de forma siste-
+ mática de los de otros atletas. Si la capacidad no se captura adecuadamente por medio
+ de las puntuaciones de la prueba de admisión a la universidad (sat) y el percentil que
+ ocupó en el bachillerato (hsperc), explique por qué los estimadores obtenidos estarán
+ sesgados.
+ iii) Utilice los datos diferenciados entre los dos semestres. ¿Qué variables se eliminan?
+ Ahora pruebe el efecto de que el deporte esté en temporada.
+ iv) ¿Considera que hay una o más variables potencialmente importantes que varían en el
+ tiempo y que se hayan omitido del análisis?
+C13.8 La base de datos VOTE2.RAW incluye datos de panel sobre las elecciones para la Cámara
+ de Representantes de los Estados Unidos en 1988 y 1990. Sólo los ganadores de 1988 que
+ también compitieron en 1990 aparecen en la muestra; se trata de titulares del cargo. Un
+ modelo de efectos inobservables que explica el porcentaje del voto obtenido por los titulares
+ del cargo (vote) en términos de gastos de los dos candidatos es
+ voteit 0 0d90t 1log(inexpit) 2log(chexpit) 3incshrit ai uit,
+ donde incshrit es la parte del total de gastos de campaña correspondiente a los titulares
+ del cargo (en forma de porcentaje), inexp y chexp son los gastos en dólares del candi-
+ dato titular del cargo y del candidato opositor, respectivamente. El efecto inobservable
+ ai contiene características del titular del cargo, como la "calidad", además de aspectos
+ sobre el distrito que son constantes. El género y el partido del titular son constantes en el
+ tiempo, de manera que están contenidos en ai. Lo que interesa es el efecto de los gastos
+ de campaña en los resultados de las elecciones.
+ i) Diferencie la ecuación dada a lo largo de los dos años y estime por MCO la ecuación
+ en diferencias. ¿Qué variables son significativas individualmente al nivel de 5%, con-
+ tra una alternativa de dos colas?
+476 Parte 3 Temas avanzados
+ ii) En la ecuación del inciso i), haga una prueba de significancia conjunta para log(inexp)
+ y log(chexp). Reporte el valor-p.
+ iii) Vuelva a estimar la ecuación del inciso i) con incshr como la única variable inde-
+ pendiente. Interprete el coeficiente de incshr. Por ejemplo, si la parte de gastos del
+ titular del cargo aumenta 10 puntos porcentuales, según su predicción ¿cómo se afecta
+ el porcentaje de votos obtenido por el titular?
+ iv) Vuelva a realizar el inciso iii), pero ahora sólo use los datos en los que en ambas
+ elecciones se repite el mismo candidato opositor (rptchall 1). [Esto nos permite
+ controlar características de los candidatos opositores también, que estarían en ai. Levitt
+ (1994) realiza un análisis mucho más exhaustivo.]
+ C13.9 Utilice la base de datos CRIME4.RAW para este ejercicio.
+ i) A la ecuación del ejemplo 13.9, añada los logaritmos de cada variable de salario en la
+ base de datos y estime el modelo en primera diferencia. ¿Cómo afecta la inclusión de
+ estas variables a los coeficientes de las variables de justicia penal del ejemplo 13.9?
+ ii) ¿Tienen todas las variables del inciso i) el signo esperado? ¿Son conjuntamente signi-
+ ficativas? Explique por qué.
+ C13.10 Para este ejercicio se utiliza la base de datos JTRAIN.RAW con el propósito de determinar
+ el efecto de las subvenciones para la capacitación laboral (grant) sobre las horas de capaci-
+ tación para el trabajo por empleado (hrsemp). El modelo básico para los tres años es
+ hrsempit 0 1d88t 2d89t 1grantit
+ 2granti, t1 3log(employit) ai uit.
+ i) Estime la ecuación utilizando las primeras diferencias. ¿Cuántas empresas se emplean
+ en la estimación? ¿Cuántas observaciones totales se podrían usar si cada empresa tuvie-
+ ra datos para todas las variables (en particular, para hrsemp) para los tres periodos?
+ ii) Interprete el coeficiente de grant (variable binaria igual a uno si recibió subvención) y
+ comente su significancia.
+ iii) ¿Le extraña que grant1 sea insignificante? Explique sus razones.
+ iv) ¿Las empresas más grandes (employ es número de empleados) capacitan más o menos
+ en promedio a sus empleados? ¿Son muy grandes las diferencias en la capacitación?
+ C13.11 La base de datos MATHPNL.RAW contiene datos de panel sobre los distritos escolares
+ en Michigan para los años 1992 a 1998. Es el análogo a nivel distrital de los datos a nivel
+ escolar usados por Papke (2005). La variable de respuesta que interesa en esta pregunta es
+ math4, el porcentaje de estudiantes de cuarto grado en un distrito que recibe una calificación
+ aprobatoria en un examen estandarizado de matemáticas. La variable explicativa clave es
+ rexpp, que son los gastos reales por alumno en el distrito. Los montos están expresados en
+ dólares de 1997. La variable del gasto aparecerá de forma logarítmica.
+ i) Considere el modelo estático de efectos inobservables
+ math4it 1y93t ... 6y98t 1log(rexppit)
+ 2log(enrolit) 3lunchit ai uit,
+ donde enrolit es la matrícula total del distrito y lunchit es el porcentaje de estudiantes
+ en el distrito elegibles para el programa de almuerzos escolares. (De modo que lunchit
+ es una medida bastante aceptable de la tasa de pobreza en todo el distrito). Sostenga
+ que 1/10 es el cambio en puntos porcentuales en math4it cuando el gasto real por
+ estudiante aumenta aproximadamente 10%.
+Capítulo 13 Combinación de cortes transversales en el tiempo: métodos simples para datos de panel 477
+ ii) Use la primera diferencia para estimar el modelo del inciso i). El método más sencillo
+ es permitir un intercepto en la ecuación en primeras diferencias e incluir variables bina-
+ rias para los años de 1994 a 1998. Interprete el coeficiente de la variable del gasto.
+ iii) Ahora, añada un rezago de la variable del gasto y vuelva a estimar usando las primeras
+ diferencias. Observe que perdió otro año de datos, así que sólo está usando los cambios
+ a partir de 1994. Comente los coeficientes y la significancia de las variables del gasto
+ actual y rezagado.
+ iv) Obtenga los errores estándar robustos a la heterocedasticidad para la regresión en
+ primeras diferencias del inciso iii). ¿Cómo se comparan estos errores estándar con
+ aquéllos del inciso iii) para las variables del gasto?
+ v) Ahora, obtenga los errores estándar robustos a la heterocedasticidad y a la correlación
+ serial. ¿Cómo afecta esto a la significancia de la variable del gasto rezagado?
+ vi) Verifique que los errores diferenciados rit uit tengan correlación serial negativa al
+ realizar una prueba de correlación serial AR(1).

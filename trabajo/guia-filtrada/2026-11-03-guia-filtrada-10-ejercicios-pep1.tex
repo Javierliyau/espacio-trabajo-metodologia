@@ -1,0 +1,325 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper,margin=1.8cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{array,booktabs}
+\usepackage{xcolor}
+\pagestyle{plain}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% Ejercicio: título y probabilidad de que salga una pregunta de ese tipo
+\newcommand{\prob}[1]{\colorbox{red!15}{\textbf{#1}}}
+\newtcolorbox{ej}[2]{colback=blue!3,colframe=blue!50!black,colbacktitle=blue!12,coltitle=black,boxrule=0.5pt,
+  left=5pt,right=5pt,top=3pt,bottom=3pt,title={\textbf{#1}\hfill #2}}
+\newcommand{\fuente}[1]{{\small\textcolor{blue!50!black}{\textbf{Fuente:} #1}}\par}
+% Comentario: por qué es probable y qué mirar
+\newtcolorbox{porque}{colback=orange!6,colframe=orange!70!black,boxrule=0.4pt,left=4pt,top=2pt,bottom=2pt,fontupper=\small}
+\newcommand{\bloque}[2]{\section*{Bloque #1 · #2}}
+\newtcolorbox{pauta}[1]{colback=green!4,colframe=green!40!black,boxrule=0.4pt,left=5pt,right=5pt,top=3pt,bottom=3pt,title={\small\textbf{Pauta · #1}}}
+
+\begin{document}
+
+{\Large\textbf{Econometría II · PEP 1 · Los 10 ejercicios más probables}}\\[2pt]
+2 por cada bloque que evalúa Pfeng · mar 3-11-2026 · PEP: vie 6-11 (un bloque, ~80 min, con calculadora; hasta DiD, panel no)
+
+\begin{tcolorbox}[colback=black!3,colframe=black!40,boxrule=0.4pt]
+\small
+\textbf{Cómo se filtró.} Los bloques salen de lo que Pfeng dijo que iba a preguntar (transcripciones de las clases 1 a 6). Cada uno trae el ejercicio con el formato más parecido a esa pista. Puede venir del libro, de la clase o estar creado aquí con el mismo formato.
+\begin{itemize}[itemsep=0pt,topsep=2pt]
+\item \textbf{[W]} Wooldridge (2010), \emph{Introducción a la econometría}, 4.ª ed., Cengage. \textbf{[SW]} Stock y Watson (2012), \emph{Introducción a la econometría}, 3.ª ed., Pearson. \textbf{[Clase]}: láminas o ejemplo del profe. \textbf{[Creado]}: datos ficticios con el formato de la pista.
+\item El \prob{\%} es la probabilidad estimada (C) de que la PEP traiga \textbf{una pregunta de ese tipo}, no de que salga ese ejercicio literal. Sale de la predicción de la estructura del 31-10, ajustada con las pistas del 3-11.
+\end{itemize}
+\end{tcolorbox}
+
+\begin{center}\small
+\begin{tabular}{p{3.6cm}p{1.3cm}p{5.4cm}p{5.4cm}}
+\toprule
+\textbf{Bloque (pts estimados)} & \textbf{Tipo} & \textbf{Ejercicio 1} & \textbf{Ejercicio 2}\\\midrule
+1. Logit a mano (25) & 85\,\% & 1A Spector, PSI $=0$ y $1$ [Clase 3] & 1B Atletas [W] 17.2\\
+2. Clasificación (10) & 55\,\% & 2A Matriz con dos cortes [Creado] & 2B \% correctamente predicho [W] 17.1\\
+3. WOE e IV (30) & 80\,\% & 3A WOE, IV y monotonía [Creado] & 3B Leer una \emph{scorecard} [Clase 5]\\
+4. DiD (25) & 80\,\% & 4A SLEP y SIMCE desde medias [Creado] & 4B Incinerador [W] ej.~13.3\\
+5. Teoría (10) & 70\,\% & 5A Amenazas [SW] 13.5 & 5B V/F justificados [Creado]\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Si solo te queda 1 hora:} 1A $\to$ 3A $\to$ 4A $\to$ 2A, en ese orden, cronometrados (son los de pista directa más fuerte). Pauta al final; escribe una frase de interpretación tras cada número.
+
+% ============================================================
+\bloque{1}{Logit a mano: $\hat P$ de dos perfiles, efecto parcial, efecto marginal y odds}
+
+\begin{ej}{1A. Sistema PSI (Spector y Mazzeo)}{\prob{85\,\%}}
+\fuente{[Clase 3], ejemplo de Spector y Mazzeo (1980), recogido en Gujarati. No está en [W] ni en [SW].}
+32 alumnos; $GRADE=1$ si obtiene una A (definición de Gujarati; confírmala con tus apuntes). $GPA$: promedio de notas; $TUCE$: puntaje de un test inicial; $PSI=1$ si estuvo en el sistema de enseñanza personalizada.
+\[\hat z=-13{,}0213+2{,}8261\,GPA+0{,}0952\,TUCE+2{,}3787\,PSI,\qquad \hat P=\frac{1}{1+e^{-\hat z}}\]
+Fija $GPA=3{,}117$ y $TUCE=21{,}938$ (las medias).
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=2pt]
+\item $\hat P$ con $PSI=0$ y con $PSI=1$. ¿Cuál es el efecto parcial de PSI? Interprétalo.
+\item Efecto marginal de GPA en los dos perfiles. ¿Cuánto cambia $\hat P$ si GPA sube 0,1? ¿Por qué el efecto es distinto si $\hat\beta_{GPA}$ es uno solo?
+\item Calcula e interpreta $e^{\hat\beta_{PSI}}$ y $100(e^{\hat\beta_{PSI}}-1)$.
+\item Clase estimada de cada perfil con corte 0,5.
+\end{enumerate}
+\end{ej}
+\begin{porque}
+\textbf{Por qué es el más probable de toda la prueba.} Es la pista más directa: «Cuando PSI igual 0 (\dots) esto va a entrar en la prueba» (clase 3 [01:06:33]), y «le voy a pasar [la función], usted va a tener que probar puntos, calcular efectos parciales, efectos promedios» ([01:47:21]). Puede venir con otra ecuación (como la del banco de la práctica P1), pero las preguntas serán estas. \textbf{Ojo:} el efecto de la dummy es una \textbf{resta} de $\hat P$; el de la continua es $\hat P(1-\hat P)\hat\beta$. Todo va en \textbf{pp}.
+\end{porque}
+
+\begin{ej}{1B. Graduación de atletas universitarios}{\prob{85\,\%}}
+\fuente{[W] cap.~17, problema 17.2, p.~614.}
+Con 420 atletas: $\hat P(grad=1)=\Lambda(-1{,}17+0{,}24\,hsGPA+0{,}00058\,SAT+0{,}073\,study)$. \emph{grad}: se gradúa en 5 años; \emph{hsGPA}: promedio de la secundaria; \emph{SAT}: puntaje de admisión; \emph{study}: horas semanales en sala de estudio. Fija $hsGPA=3{,}0$ y $SAT=1.200$.
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=2pt]
+\item Diferencia en la probabilidad de graduarse entre quien estudia 10 h y quien estudia 5 h (la pregunta del libro).
+\item Efecto marginal de \emph{study} en el perfil de 5 h, con su interpretación.
+\item ¿En cuánto cambian los odds de graduarse por una hora más de estudio?
+\end{enumerate}
+\end{ej}
+\begin{porque}
+Es la versión del libro de 1A, y Pfeng dijo que saca ejercicios del libro «a propósito» (clase 1 [00:06:37]). Aquí la variable que cambia es \textbf{continua}: el cambio discreto (a) y el marginal (b) no dan lo mismo, y conviene saber cuál pide el enunciado. Las preguntas b y c son las variantes que agregaría el profe.
+\end{porque}
+
+% ============================================================
+\bloque{2}{Clasificación: corte, matriz de confusión y métricas}
+
+\begin{ej}{2A. Riesgo de crédito con dos cortes}{\prob{55\,\%}}
+\fuente{[Creado], con el formato de la clase 3 [01:58:13]. $y=1$ si el cliente es \textbf{malo}.}
+\begin{center}\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{l*{12}{c}}\toprule
+Cliente & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12\\\midrule
+$\hat P$ & 0,92 & 0,81 & 0,66 & 0,58 & 0,47 & 0,41 & 0,36 & 0,33 & 0,27 & 0,22 & 0,15 & 0,08\\
+$y$ real & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & 0 & 0\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=2pt]
+\item Con corte 0,5, arma la matriz de confusión y calcula la exactitud, la sensibilidad, la especificidad y la precisión.
+\item Repite con corte 0,3.
+\item La exactitud no cambia. ¿Qué corte le conviene al banco y por qué?
+\end{enumerate}
+\end{ej}
+\begin{porque}
+Pista directa: «Arma la matriz de confusión y calcula lo indicado. Esas cosas tienen que aprendérselas» (clase 3 [01:58:13]). En un solo bloque lo más probable es que venga pegada a la pregunta de logit. La c) es la lección que busca el profe: «son todas importantes» (clase 3 [01:25:56]). Para el banco, un malo aprobado (FN) cuesta más que un bueno rechazado (FP).
+\end{porque}
+
+\begin{ej}{2B. Porcentaje correctamente predicho}{\prob{30\,\%}}
+\fuente{[W] cap.~17, problema 17.1, p.~614 (concepto en la sección 17.1).}
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=2pt]
+\item Sea $\bar y$ la proporción de unos, $\hat q_0$ el \% de aciertos cuando $y=0$ y $\hat q_1$ cuando $y=1$. Muestra que el \% total de aciertos es $\hat p=(1-\bar y)\hat q_0+\bar y\,\hat q_1$.
+\item $n=300$ y $\bar y=0{,}70$; aciertos del 80\,\% cuando $y=0$ y del 40\,\% cuando $y=1$. Calcula $\hat p$ y arma la matriz con conteos.
+\item ¿Por qué un 52\,\% de aciertos puede esconder un modelo malo para el grupo que importa?
+\end{enumerate}
+\end{ej}
+\begin{porque}
+Es lo mismo que 2A, pero con el lenguaje del libro: $\hat q_1$ es la sensibilidad, $\hat q_0$ la especificidad y $\hat p$ la exactitud. Sirve si el profe da tasas en vez de conteos. Su probabilidad es más baja porque pide una demostración.
+\end{porque}
+
+% ============================================================
+\bloque{3}{Scoring: WOE, IV, monotonía y \emph{scorecard}}
+
+\begin{ej}{3A. Antigüedad laboral en un \emph{scoring} de consumo}{\prob{80\,\%}}
+\fuente{[Creado] con la convención del profe: $\text{WOE}=\ln(\%B/\%M)\cdot100$, buenos arriba (ayudantía 3 [00:15:09]). $\text{IV}=\sum(\%B-\%M)\ln(\%B/\%M)$.}
+\begin{center}\small
+\begin{tabular}{lrrrrr}\toprule
+Antigüedad (años) & $<1$ & 1--3 & 3--5 & 5--10 & 10 o más\\\midrule
+Buenos & 300 & 900 & 700 & 1.100 & 1.000\\
+Malos & 150 & 250 & 120 & 150 & 180\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=2pt]
+\item Tasa de malos de la cartera.
+\item WOE de cada tramo e IV total. ¿La antigüedad predice, según Siddiqi?
+\item ¿Es monótono el WOE? Si no lo es, fusiona los tramos que corresponda y recalcula el WOE y el IV.
+\item Con los tramos finales, ¿con qué valor entra al modelo una persona con 7 años de antigüedad?
+\item ¿Cuántos $\beta$ estima el logit si la antigüedad entra (i) continua, (ii) como factor de los tramos finales, (iii) como WOE?
+\end{enumerate}
+\end{ej}
+\begin{porque}
+Pista directa: «En la PEP yo le voy a preguntar cosas de este estilo, pero con los datos ahí. Usted tiene que traer su calculadora, quizá va a tener que calcular algún [WOE]» (clase 5 [01:22:31]). Ninguno de los dos libros trae \emph{scoring}, así que este bloque saldrá de la clase. \textbf{Ojo:} usa la convención del profe (buenos arriba, $\times100$), salvo que el enunciado diga otra. La tasa de malos la pidió como «importante» (clase 5 [00:02:37]).
+\end{porque}
+
+\begin{ej}{3B. Leer una \emph{scorecard}}{\prob{45\,\%}}
+\fuente{[Clase 5]: los puntos de edad (40, 52, 62) y de antigüedad (43, 53, 65, 60) son los que mostró el profe. La base, el historial, el corte y el PDO son [Creados].}
+\begin{center}\small
+\begin{tabular}{llr|llr}\toprule
+Variable & Tramo & Puntos & Variable & Tramo & Puntos\\\midrule
+Edad & $<25$ & 40 & Antigüedad & $<1$ año & 43\\
+ & 25--39 & 52 & & 1--3 & 53\\
+ & 40 o más & 62 & & 3--7 & 65\\
+Historial & con atrasos & 20 & & 7 o más & 60\\
+ & sin historial & 35 & \multicolumn{3}{l}{Puntos base: 450 · PDO $=20$}\\
+ & al día & 50 & \multicolumn{3}{l}{Se aprueba con 600 puntos o más}\\\bottomrule
+\end{tabular}
+\end{center}
+Ana tiene 30 años, 8 meses en su trabajo y atrasos previos. Bruno tiene 45 años, 4 años en su trabajo y no tiene historial.
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=2pt]
+\item Puntaje de cada uno. ¿A quién se aprueba?
+\item ¿Cuántas veces mayores son los odds bueno:malo de Bruno que los de Ana?
+\item ¿Por qué $<25$ años tiene menos puntos? (relaciónalo con el WOE).
+\item ¿Qué tiene de raro la antigüedad (65 y luego 60)? ¿Qué harías?
+\end{enumerate}
+\end{ej}
+\begin{porque}
+La frase «cosas de este estilo» la dijo \textbf{mostrando esta \emph{scorecard}} (clase 5 [01:22:31]). Por eso no basta calcular el WOE: también hay que saber leer los puntos. La d) une este ejercicio con la monotonía de 3A. El PDO a mano tiene probabilidad baja (10\,\%); la b) es la versión más simple que podría pedir.
+\end{porque}
+
+% ============================================================
+\bloque{4}{Diferencias en diferencias}
+
+\begin{ej}{4A. ¿Los SLEP mejoraron el SIMCE?}{\prob{80\,\%}}
+\fuente{[Creado] con el caso que anunció el profe (clase 6). Puntajes promedio ficticios de 4.º básico.}
+Un diario titula: «Los establecimientos traspasados a los SLEP subieron 8 puntos en el SIMCE». Los datos son:
+\begin{center}\small
+\begin{tabular}{lcc}\toprule
+ & 2017 (antes) & 2019 (después)\\\midrule
+Traspasados a un SLEP & 262 & 270\\
+Siguen municipales & 255 & 261\\\bottomrule
+\end{tabular}
+\end{center}
+Modelo: $SIMCE=\beta_0+\beta_1\,SLEP+\beta_2\,Post+\beta_3\,SLEP\cdot Post+u$, con $ee(\hat\beta_3)=3{,}1$.
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=2pt]
+\item Calcula las dos comparaciones ingenuas (antes y después de los SLEP; SLEP frente a municipales en 2019). ¿Por qué fallan?
+\item Calcula el DiD.
+\item Valor e interpretación de $\hat\beta_0$, $\hat\beta_1$, $\hat\beta_2$ y $\hat\beta_3$.
+\item Prueba si $\beta_3$ es significativo al 5\,\%. ¿Es correcta la conclusión del diario?
+\item ¿Qué supuesto necesitas para que $\hat\beta_3$ sea causal? ¿Se puede verificar con estos datos? ¿Qué datos pedirías?
+\item ¿El efecto es para todos los establecimientos o para cuáles? Nombra una amenaza a este diseño.
+\end{enumerate}
+\end{ej}
+\begin{porque}
+Junta las dos pistas del DiD: «les podría poner en la prueba las medias, y ustedes podían calcular automáticamente el DiD» (clase 6 [00:05:57]) y el estudio de prensa sobre los SLEP, que «está mal hecha esa conclusión (\dots) la diferencia no es significativa (\dots) capaz que aparezca en la prueba» (clase 6 [00:26:44]). El remate es la d): la nota sube, pero el efecto no es significativo. \textbf{Ojo:} aquí el DiD es $\beta_3$, como en las láminas del profe; en [SW] es $\beta_1$.
+\end{porque}
+
+\begin{ej}{4B. El incinerador de North Andover}{\prob{40\,\%}}
+\fuente{[W] cap.~13, ejemplo 13.3 (pp.~449--451) y problema 13.2 (p.~472). Está en las láminas de la clase 6 (pp.~42--43).}
+Precio real de las casas (\emph{rprice}) sobre \emph{nearinc} (1 si la casa está cerca del incinerador):
+1981 (ya construido): $\widehat{rprice}=101.307{,}5-30.688{,}27\,nearinc$; 1978 (antes de los rumores): $\widehat{rprice}=82.517{,}23-18.824{,}37\,nearinc$.
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=2pt]
+\item ¿Por qué la regresión de 1981 sola \emph{no} mide el efecto del incinerador?
+\item Calcula el DiD e interprétalo en dólares.
+\item Con $\log(price)$, la ecuación completa es $\widehat{\log(price)}=11{,}29+0{,}457\,y81-0{,}340\,nearinc-0{,}063\,y81\cdot nearinc$. Interpreta $-0{,}063$. Si se omite $y81$, la interacción da $0{,}394$; si se omite $nearinc$, da $-0{,}403$. ¿Por qué?
+\end{enumerate}
+\end{ej}
+\begin{porque}
+Es el ejemplo del libro que el profe puso en sus láminas, así que el \textbf{tipo} es probable (DiD desde dos regresiones y qué pasa si falta un término). Que salga \textbf{con estos números} es poco probable (10\,\%). Entrena lo que 4A no cubre: el DiD con la $y$ en logaritmo y por qué hacen falta los tres términos.
+\end{porque}
+
+% ============================================================
+\bloque{5}{Teoría: amenazas y V/F justificados}
+
+\begin{ej}{5A. Internet de alta velocidad en un dormitorio}{\prob{40\,\%}}
+\fuente{[SW] cap.~13, ejercicio 13.5, p.~367 (amenazas de la sección 13.2).}
+A la mitad de las piezas, elegida al azar, se le da internet de alta velocidad (tratamiento) y se miden las notas finales. Nombra la amenaza a la validez interna en cada caso y explica cómo sesga el resultado.
+\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=2pt]
+\item A mitad de año, los deportistas hombres se van a una fraternidad y salen del estudio.
+\item Los de ingeniería del grupo de control arman su propia red pagada.
+\item Los de arte del grupo de tratamiento no saben conectarse.
+\item Los de economía del tratamiento venden acceso a los del control.
+\end{enumerate}
+\end{ej}
+\begin{porque}
+El profe dijo que de las amenazas internas «lo que más se puede encontrar es el 1, el 2 y el 5» (falla de aleatorización, no seguir el protocolo, muestra pequeña) (clase 6 [00:40:22]). Este ejercicio entrena justo la 2 y el desgaste. Aprende también las dos externas: muestra no representativa y programa no representativo.
+\end{porque}
+
+\begin{ej}{5B. Verdadero o falso (justifica en dos líneas)}{\prob{70\,\%}}
+\fuente{[Creado] con lo que el profe marcó como «importante» en las clases 2 a 6.}
+\begin{enumerate}[label=\arabic*.,itemsep=1pt,topsep=2pt]
+\item En un logit con $y=1$ si el cliente \textbf{paga}, un $\hat\beta$ negativo de la carga financiera indica que la carga reduce el riesgo.
+\item Como el coeficiente de la experiencia en el logit (0,040) es casi 7 veces el del MPL (0,006), el logit le atribuye a la experiencia un efecto mucho mayor.
+\item Con dos periodos, el supuesto de tendencias paralelas se comprueba viendo que ambos grupos tenían la misma media antes de la política.
+\item Una variable con IV de 0,015 debe excluirse siempre del modelo de \emph{scoring}.
+\item Con la convención del profe, un tramo con WOE positivo tiene menos riesgo que el promedio de la cartera.
+\item Excluir a los funcionarios del banco al construir el modelo de \emph{scoring} es correcto.
+\item En un experimento, si muchos tratados abandonan el programa por razones ligadas al resultado, la diferencia de medias sigue siendo insesgada, porque la asignación fue aleatoria.
+\end{enumerate}
+\end{ej}
+\begin{porque}
+La predicción para un bloque deja unos 10 puntos de teoría corta. Cada afirmación es una frase que el profe dijo en clase (las fuentes están en la pauta). La trampa típica es que la afirmación \emph{suena} bien.
+\end{porque}
+
+% ============================================================
+\newpage
+\section*{Pauta (verificada en Python)}
+
+\begin{pauta}{1A · Spector}
+a) $PSI=0$: $\hat z=-2{,}124\Rightarrow\hat P=0{,}107$. $PSI=1$: $\hat z=0{,}255\Rightarrow\hat P=0{,}563$. Efecto $=0{,}457$: «Con GPA y TUCE en sus medias, estar en el PSI aumenta la probabilidad estimada de sacar A en unos \textbf{45,7 pp}.»\\
+b) $PSI=0$: $0{,}107\cdot0{,}893\cdot2{,}8261=0{,}270$, así que $+0{,}1$ de GPA sube $\hat P$ unos \textbf{2,7 pp}. $PSI=1$: $0{,}563\cdot0{,}437\cdot2{,}8261=0{,}695$, unos \textbf{7,0 pp} (los mismos números que dio el profe). Son distintos porque $g(z)=\hat P(1-\hat P)$ depende del punto: es máximo en $\hat P=0{,}5$, y el perfil con PSI está más cerca de 0,5.\\
+c) $e^{2{,}3787}=10{,}79$: los odds de sacar A se multiplican por 10,8 con PSI, es decir, suben un 979\,\%, manteniendo lo demás constante.\\
+d) $PSI=0$: $0{,}107<0{,}5\Rightarrow\hat y=0$. $PSI=1$: $0{,}563>0{,}5\Rightarrow\hat y=1$.
+\end{pauta}
+
+\begin{pauta}{1B · [W] 17.2}
+a) $z(5)=0{,}611\Rightarrow\hat P=0{,}648$; $z(10)=0{,}976\Rightarrow\hat P=0{,}726$. Diferencia $=$ \textbf{7,8 pp}.\\
+b) $0{,}648\cdot0{,}352\cdot0{,}073=0{,}0166$: una hora semanal más sube la probabilidad de graduarse en unos \textbf{1,7 pp}, con 5 h de partida.\\
+c) $100(e^{0{,}073}-1)=7{,}6$: los odds de graduarse suben un \textbf{7,6\,\%} por hora.
+\end{pauta}
+
+\begin{pauta}{2A · Dos cortes}
+a) Corte 0,5: los clientes 1 a 4 son predichos malos. VP $=3$ (1, 2, 4), FP $=1$ (3), FN $=2$ (5, 7), VN $=6$. Exactitud $9/12=0{,}75$; sensibilidad $3/5=0{,}60$; especificidad $6/7=0{,}857$; precisión $3/4=0{,}75$.\\
+b) Corte 0,3: los clientes 1 a 8 son predichos malos. VP $=5$, FP $=3$ (3, 6, 8), FN $=0$, VN $=4$. Exactitud $0{,}75$; sensibilidad $\mathbf{1{,}00}$; especificidad $4/7=0{,}571$; precisión $5/8=0{,}625$.\\
+c) El corte 0,3 detecta a todos los malos y a cambio rechaza a 2 buenos más. Si un malo aprobado (pérdida del crédito) cuesta más que un bueno rechazado (margen perdido), conviene 0,3. La exactitud sola no basta para decidir.
+\end{pauta}
+
+\begin{pauta}{2B · [W] 17.1}
+a) Aciertos $=n_0\hat q_0+n_1\hat q_1$; al dividir por $n$, con $n_1/n=\bar y$, queda $\hat p=(1-\bar y)\hat q_0+\bar y\,\hat q_1$.\\
+b) $\hat p=0{,}30\cdot0{,}80+0{,}70\cdot0{,}40=\mathbf{0{,}52}$. Matriz: VP $=84$, FN $=126$, VN $=72$, FP $=18$.\\
+c) El modelo falla en el 60\,\% de los unos. Si los unos son los que importan (los malos de un banco), es un mal modelo aunque acierte la mitad del total.
+\end{pauta}
+
+\begin{pauta}{3A · WOE e IV}
+a) $850/4.850=$ \textbf{17,5\,\%} de malos.\\
+b) Totales: 4.000 buenos y 850 malos.\\[2pt]
+{\small\begin{tabular}{lrrrrr}\toprule
+Tramo & $<1$ & 1--3 & 3--5 & 5--10 & 10+\\\midrule
+\%B & 7,5 & 22,5 & 17,5 & 27,5 & 25,0\\
+\%M & 17,6 & 29,4 & 14,1 & 17,6 & 21,2\\
+WOE ($\times100$) & $-85{,}6$ & $-26{,}8$ & 21,5 & 44,4 & 16,6\\
+IV del tramo & 0,087 & 0,019 & 0,007 & 0,044 & 0,006\\\bottomrule
+\end{tabular}}\\[2pt]
+IV $=$ \textbf{0,163}: según Siddiqi (0,1 a 0,3), poder predictivo \textbf{medio}.\\
+c) No es monótono: sube hasta 5--10 (44,4) y \textbf{baja} en 10+ (16,6). Al fusionar 5--10 y 10+ (2.100 buenos y 330 malos) queda WOE $=\mathbf{30{,}2}$, y la secuencia $-85{,}6<-26{,}8<21{,}5<30{,}2$ ya es monótona. IV nuevo $=0{,}154$: baja un poco, porque fusionar siempre pierde algo de información.\\
+d) Con 7 años está en el tramo «5 o más», así que entra con su WOE: \textbf{30,2} (0,302 si no se multiplica por 100). No entra con el 7.\\
+e) (i) 1; (ii) 4 tramos, así que 3 $\beta$ (uno queda como base); (iii) 1.
+\end{pauta}
+
+\begin{pauta}{3B · \emph{Scorecard}}
+a) Ana: $450+52+43+20=\mathbf{565}$, rechazada. Bruno: $450+62+65+35=\mathbf{612}$, aprobado.\\
+b) Diferencia de 47 puntos; con PDO $=20$, los odds se duplican cada 20 puntos: $2^{47/20}=\mathbf{5{,}1}$ veces.\\
+c) Los puntos son proporcionales al WOE (con buenos arriba, más WOE da más puntos). Los menores de 25 tienen proporcionalmente más malos que buenos, así que su WOE es más bajo.\\
+d) La antigüedad no es monótona: a más años debería bajar el riesgo, y el tramo de 7 o más tiene menos puntos que el de 3--7. Se fusionan esos dos tramos (como en 3A) o se justifica con el negocio.
+\end{pauta}
+
+\begin{pauta}{4A · SLEP}
+a) Antes y después de los SLEP: $270-262=8$, que mezcla la política con lo que subieron \textbf{todos} (los municipales también subieron 6). SLEP frente a municipales en 2019: $270-261=9$, que mezcla la política con la \textbf{brecha previa} (en 2017 ya había 7 puntos de diferencia).\\
+b) DiD $=(270-262)-(261-255)=8-6=$ \textbf{2 puntos}.\\
+c) $\hat\beta_0=255$ (municipales, 2017); $\hat\beta_1=262-255=7$ (brecha previa); $\hat\beta_2=261-255=6$ (cambio común, el de los municipales); $\hat\beta_3=$ \textbf{2} (el DiD).\\
+d) $t=2/3{,}1=0{,}65<1{,}96$: \textbf{no significativo}. El diario atribuye a los SLEP 8 puntos, de los cuales 6 se habrían ganado igual; los 2 restantes no se distinguen de cero.\\
+e) \textbf{Tendencias paralelas}: sin los SLEP, los traspasados habrían subido lo mismo que los municipales (6). Con dos periodos \textbf{no se puede verificar}; se piden 2014--2016 para comparar las tendencias previas. Que los niveles de 2017 sean distintos no importa.\\
+f) Es el \textbf{ATT}: el efecto en los establecimientos traspasados, no en todos. Amenazas: los primeros territorios no se eligieron al azar (selección); otra política coincidió en 2018--2019; la comparación cambia si los alumnos se mueven entre sistemas (desgaste).
+\end{pauta}
+
+\begin{pauta}{4B · [W] ejemplo 13.3 y problema 13.2}
+a) Las casas cercanas ya valían menos antes del incinerador (en 1978 la brecha era $-18.824$), así que en 1981 el efecto queda mezclado con esa brecha.\\
+b) $-30.688{,}27-(-18.824{,}37)=\mathbf{-11.863{,}9}$: «Por el incinerador, las casas cercanas perdieron unos US\$\,11.864 respecto de las lejanas.»\\
+c) $-0{,}063$: las casas cercanas bajaron un 6,3\,\% aprox. respecto de las lejanas ($t\approx-0{,}76$, no significativo). Sin $y81$, la interacción absorbe el alza general: $-0{,}063+0{,}457=0{,}394$. Sin $nearinc$, absorbe la brecha previa: $-0{,}063-0{,}340=-0{,}403$. Moraleja: el DiD exige los \textbf{tres} términos.
+\end{pauta}
+
+\begin{pauta}{5A · [SW] 13.5}
+a) \textbf{Desgaste}: si los que salen no se reparten al azar (deportistas de un grupo), los grupos dejan de ser comparables.\\
+b) \textbf{Incumplimiento} (no seguir el protocolo, la amenaza 2): el control recibe un sustituto, así que el efecto se \textbf{subestima}.\\
+c) \textbf{Incumplimiento} en el tratamiento: asignados que no lo reciben; también lo subestima.\\
+d) \textbf{Contaminación}: el tratamiento llega al control. En b), c) y d) lo que se estima es el efecto de la \emph{asignación} (ITT).
+\end{pauta}
+
+\begin{pauta}{5B · V/F}
+1. \textbf{F}: $y=1$ es el evento modelado (pagar). Un $\hat\beta<0$ baja la probabilidad de pagar, es decir, \emph{sube} el riesgo (clase 2 [00:21:14]).\\
+2. \textbf{F}: los coeficientes de MPL, logit y probit no son comparables, porque miden en escalas distintas; se comparan los efectos marginales (clase 3 [00:37:03]).\\
+3. \textbf{F}: las medias previas pueden ser distintas; lo que debe ser igual es la \emph{tendencia}, y con dos periodos no se puede verificar (clase 6 B2 [00:00:00]).\\
+4. \textbf{F}: Siddiqi la clasifica como no predictiva, pero puede entrar por juicio experto si el negocio la justifica (clase 4 [01:21:19]).\\
+5. \textbf{V}: WOE $>0$ significa que el tramo tiene proporcionalmente más buenos que malos.\\
+6. \textbf{V}: es una exclusión. Los funcionarios tienen condiciones distintas (descuento por planilla, tasas preferentes) y sesgarían el modelo (clase 5 [00:25:50]).\\
+7. \textbf{F}: el desgaste ligado al resultado rompe la comparabilidad que dio el azar. Es una amenaza a la validez interna (clase 6 [00:40:22]).
+\end{pauta}
+
+\end{document}

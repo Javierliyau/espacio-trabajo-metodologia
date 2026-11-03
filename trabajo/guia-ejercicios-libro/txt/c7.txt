@@ -1,0 +1,331 @@
+ PROBLEMAS
+7.1 Con ayuda de los datos del archivo SLEEP75.RAW (vea también el problema 3.3) se obtiene
+ la ecuación estimada
+ sleep 3,840.83 .163 totwrk 11.71 educ 8.70 age
+ (235.11) (.018) (5.86) (11.21)
+ .128 age2 87.75 male
+ (.134) (34.33)
+ n 706, R2 .123, - .117.
+ 2
+ R
+La variable sleep es la cantidad total de minutos, por semana, dormidos durante la noche, totwrk
+es la cantidad total de minutos que se trabajó por semana, educ y age (edad) están dadas en años
+y male (hombre) es una binaria para género.
+i) Permaneciendo todo lo demás constante, ¿hay alguna evidencia de que los hombres duer-
+ man más que las mujeres? ¿Qué tan fuerte es esa evidencia?
+ii) ¿Hay un costo de oportunidad estadísticamente significativo entre trabajar y dormir? ¿Cuál
+ es el costo de oportunidad estimado?
+iii) ¿Qué otra regresión necesita correr para probar la hipótesis nula de que, manteniendo
+ todos los demás factores constantes, la edad no afecta el dormir?
+7.2 Las ecuaciones siguientes se estimaron empleando los datos del archivo BWGHT.RAW:
+ log(bwght) 4.66 .0044 cigs .0093 log( faminc) .016 parity
+ (.22) (.0009) (.0059) (.006)
+ .027 male .055 white
+ (.010) (.013)
+ n 1,388, R2 .0472
+y
+ log(bwght) 4.65 .0052 cigs .0110 log( faminc) .017 parity
+ (.38) (.0010) (.0085) (.006)
+ .034 male .045 white .0030 motheduc .0032 fatheduc
+ (.011) (.015) (.0030) (.0026)
+ n 1,191, R2 .0493.
+256 Parte 1 Análisis de regresión con datos de corte transversal
+ Las variables se han definido como en el ejemplo 4.9, pero se ha agregado una variable binaria
+ que indica si el niño es varón (male) y que indica si el niño se clasifica como blanco (white).
+ i) Interprete el coeficiente de la variable cigs en la primera ecuación. En particular, ¿qué
+ efecto tiene sobre el peso al nacer que la madre haya fumado 10 cigarros más por día?
+ ii) En la primera ecuación, permaneciendo todos los demás factores constantes, ¿cuánto más
+ se predice que pese un niño blanco en comparación con uno no blanco? ¿Es esta diferencia
+ significativa?
+ iii) Analice el efecto estimado y la significancia estadística de motheduc.
+ iv) Con base en la información dada, ¿por qué no puede usted calcular el estadístico F para la
+ significancia conjunta de motheduc y fatheduc? ¿Qué tendría que hacer para calcular este
+ estadístico F?
+ 7.3 Con ayuda de los datos del archivo GPA2.RAW se obtuvo la ecuación estimada siguiente:
+ sat 1,028.10 19.30 hsize 2.19 hsize2 45.09 female
+ (6.29) (3.83) (.53) (4.29)
+ 169.81 black 62.31 femaleblack
+ (12.71) (18.15)
+ n 4,137, R2 .0858.
+ La variable sat es la puntuación combinada en el examen de admisión (SAT), hsize es la can-
+ tidad de alumnos, dada en cientos, que en la escuela del estudiante terminaron con él el bachi-
+ llerato, female es una variable binaria para el género femenino y black es una variable binaria
+ para raza, que es igual a uno para negros y cero para los no negros.
+ i) ¿Existe alguna evidencia fuerte de que hsize2 deba ser incluida en el modelo? Con base en
+ esta ecuación, ¿cuál es el tamaño óptimo de una escuela?
+ ii) Manteniendo hsize constante, ¿cuál es la diferencia estimada en la puntuación del SAT entre
+ mujeres no negras y hombres no negros? ¿Qué tan estadísticamente significativa es esta dife-
+ rencia?
+ iii) ¿Cuál es la diferencia estimada en la puntuación del SAT entre hombres no negros y hom-
+ bres negros? Pruebe la hipótesis nula de que no hay diferencia entre estas puntuaciones
+ contra la alternativa de que sí hay diferencia.
+ iv) ¿Cuál es la diferencia estimada en la puntuación del SAT entre mujeres negras y mujeres
+ no negras? ¿Qué se necesita hacer para probar si esta diferencia es estadísticamente signifi-
+ cativa?
+ 7.4 Una ecuación que explica el sueldo de los presidentes de consejos de administración es
+ log(salary) 4.59 .257 log(sales) .011 roe .158 finance
+ (.30) (.032) (.004) (.089)
+ .181 consprod .283 utility
+ (.085) (.099)
+ n 209, R2 .357.
+ Los datos que se emplearon son los del archivo CEOSAL1.RAW, donde finance, consprod y
+ utility son variables binarias que corresponden a las industrias financiera, de productos de con-
+ sumo y de servicios. La industria que se ha omitido es la del transporte.
+ i) Calcule la diferencia porcentual aproximada entre los sueldos estimados de las industrias
+ de servicios y de transporte, manteniendo sales y roe constantes. ¿Es esta diferencia esta-
+ dísticamente significativa al nivel de significancia de 1%?
+Capítulo 7 Análisis de regresión múltiple con información cualitativa: variables binarias (o dummy) 257
+ii) Emplee la ecuación (7.10) para obtener una diferencia porcentual exacta entre los sueldos
+ estimados de las industrias de servicios y de transporte, y compare el resultado con el
+ obtenido en el inciso i).
+iii) ¿Cuál es la diferencia porcentual aproximada entre los sueldos estimados de la industria
+ de productos de consumo y en el sector financiero? Dé una ecuación que permita probar
+ si esta diferencia es estadísticamente significativa.
+7.5 En el ejemplo 7.2 sea noPC una variable binaria igual a uno si el estudiante no posee una PC e
+igual a cero en caso contrario.
+i) Si en la ecuación (7.6) se usa noPC en lugar de PC, ¿qué pasa con el intercepto de la ecua-
+ción estimada? ¿Cuál será el coeficiente de noPC? (Sugerencia: escriba PC 1 noPC y
+ ^ ^0PC ^1hsGPA ^
+sustituya esto en la ecuación colGPA ACT.)
+ 0 2
+ii) ¿Qué ocurre con la R-cuadrada si en lugar de PC se usa noPC?
+iii) ¿Deben incluirse ambas, PC y noPC como variables independientes en el modelo? Ex-
+plique.
+7.6 Para probar la eficacia de un programa de capacitación laboral sobre los salarios de los trabaja-
+ dores, se especifica el modelo
+ log(wage) 0 1train 2educ 3exper u,
+ donde train es una variable binaria que es igual a uno si el trabajador participó en el programa.
+ Considere que el término de error u comprende capacidades no observadas del trabajador. Si
+ los trabajadores con menos capacidades tienen más probabilidades de ser elegidos para parti-
+ cipar en el programa y se emplea un análisis por MCO, ¿qué se puede decir acerca del posible
+ sesgo en 1? (Sugerencia: como referencia vuelva al capítulo 3.)
+7.7 En la ecuación (7.29), suponga que se define outlf igual a uno si la mujer se encuentra fuera de
+ la fuerza de trabajo y cero si no es así.
+ i) Si se regresa outlf sobre todas las variables independientes de la ecuación (7.29), ¿qué
+ pasará con el intercepto y con las pendientes estimadas? (Sugerencia: inlf 1 outlf.
+ Sustituya esto en la ecuación poblacional inlf 0 1nwifeinc 2educ ... y
+ reordene.)
+ ii) ¿Qué pasará con los errores estándar del intercepto y de las pendientes estimadas?
+ iii) ¿Qué pasará con la R-cuadrada?
+7.8 Suponga que mediante una encuesta recolecta usted datos sobre salarios, educación, experien-
+ cia y género. Solicita también información sobre uso de la mariguana. La pregunta original es
+ "¿Cuántas veces fumó mariguana el mes pasado?".
+ i) Dé una ecuación que permita estimar el efecto de fumar mariguana sobre el salario, contro-
+ lando los demás factores. La ecuación deberá permitir hacer afirmaciones como "se estima
+ que fumar mariguana cinco veces más al mes hace que el salario varíe x%".
+ ii) Formule una ecuación que permita probar si el uso de drogas tiene efectos diferentes sobre
+ los salarios de hombres y mujeres. ¿Cómo puede probarse que los efectos del uso de dro-
+ gas no son diferentes entre hombres y mujeres?
+ iii) Suponga que considera que es mejor medir el uso de mariguana clasificando a las personas
+ en cuatro categorías: no usuario, usuario suave (1 a 5 veces por mes), usuario moderado (6
+ a 10 veces por mes) y usuario fuerte (más de 10 veces por mes). Ahora, diseñe un modelo
+ que permita estimar el efecto del uso de la mariguana sobre el salario.
+ iv) Usando el modelo del inciso iii), explique detalladamente cómo probar la hipótesis nula
+ de que fumar mariguana no tiene ningún efecto sobre el salario. Sea muy específico y dé
+ una lista detallada de los grados de libertad.
+258 Parte 1 Análisis de regresión con datos de corte transversal
+ v) ¿Cuáles son algunos de los problemas potenciales de hacer inferencias causales a partir de
+ los datos recolectados por usted?
+ 7.9 Sea d una variable binaria y sea z una variable cuantitativa. Considere el modelo
+ y 0 0d 1z 1d z u;
+ esta es la versión general de un modelo con una interacción entre una variable binaria y una
+ variable cuantitativa. [La ecuación (7.17) es un ejemplo.]
+ i) Como no se altera nada, haga el error igual a cero, u 0. Entonces, cuando d 0 la re-
+ lación entre y y z puede expresarse mediante la función f0(z) 0 1z. Escriba la mis-
+ ma relación para el caso en que d 1, donde, en el lado izquierdo debe usar f1(z) para
+ denotar la función lineal de z.
+ ii) Suponiendo que 1 0 (lo que significa que las dos rectas no son paralelas), muestre que el
+ valor z* para el que f0(z*) f1(z*) es z* 0/1. Este es el punto en el que se interceptan
+ las dos rectas [como en la figura 7.2(b)]. Argumente que z* es positivo si y sólo si 0 y 1
+ tienen signos contrarios.
+ iii) Empleando los datos del archivo TWOYEAR.RAW, puede estimarse la ecuación si-
+ guiente:
+ log(wage) 2.289 .357 female .50 totcoll .030 female totcoll
+ (0.011) (.015) (.003) (.005)
+ n 6,763, R2 .202,
+ donde todos los coeficientes y desviaciones estándar se han redondeado a dos cifras deci-
+ males. Empleando esta ecuación, encuentre un valor de totcoll, tal que los valores que se
+ predicen para log(wage) sean iguales para hombres y para mujeres.
+ iv) Con base en la ecuación del inciso iii), ¿es realmente posible que las mujeres logren
+ suficientes años de universidad de manera que sus ingresos estén al nivel de los de los
+ hombres? Explique.
+ 7.10 Dado un niño i que vive en un determinado distrito escolar, sea voucheri una variable binaria
+ que sea igual a uno si el niño es elegido para participar en un programa de vales escolares, y sea
+ scorei la puntuación del niño en un examen estandarizado subsecuente. Suponga que la variable
+ de participación voucheri, es completamente aleatorizada en el sentido de que es independiente,
+ tanto de los factores observados como de los no observados que pueden afectar la puntuación
+ del examen.
+ i) Si corre una regresión simple de scorei sobre voucheri empleando una muestra aleatoria de
+ tamaño n, ¿proporciona el estimador de MCO un estimador insesgado del efecto del programa
+ de vales?
+ ii) Suponga que logra obtener información adicional sobre antecedentes del niño, tales como
+ ingreso familiar, estructura familiar (por ejemplo, si el niño vive con sus padres) y nivel
+ de educación de los padres. ¿Necesita controlar estos factores para obtener un estimador
+ insesgado de los efectos del programa de vales? Explique.
+ iii) ¿Cuál es la razón para incluir en la regresión las variables sobre los antecedentes familia-
+ res? ¿Hay alguna situación en la que usted no incluiría tales variables?
+ EJERCICIOS EN COMPUTADORA
+ C7.1 Para este ejercicio emplee los datos del archivo GPA1.RAW.
+ i) A la ecuación estimada en (7.6) agregue las variables mothcoll y fathcoll y dé los resul-
+ tados en la forma habitual. ¿Qué pasa con el efecto estimado de la posesión de una PC?
+ ¿Sigue siendo PC estadísticamente significativa?
+Capítulo 7 Análisis de regresión múltiple con información cualitativa: variables binarias (o dummy) 259
+ ii) Pruebe la significancia conjunta de mothcoll y fathcoll en la ecuación del inciso i) y no
+ olvide dar el valor-p.
+ iii) Al modelo del inciso i) agregue hsGPA2 y decida si es necesaria esta generalización.
+C7.2 Para este ejercicio emplee los datos del archivo WAGE2.RAW.
+ i) Estime el modelo
+ log(wage) 0 1educ 2exper 3tenure 4married
+ 5black 6south 7urban u
+ y dé el resultado en la forma habitual. Manteniendo todos los demás factores constantes,
+ ¿cuál es la diferencia aproximada entre el salario mensual de negros y no negros? ¿Es
+ esta diferencia estadísticamente significativa?
+ ii) Agregue a esta ecuación las variables exper 2 y tenure2 y muestre que no son conjunta-
+ mente significativas al nivel de 20%.
+ iii) Amplíe el modelo original de manera que el rendimiento a la educación dependa de la
+ raza y pruebe si en realidad el rendimiento de la educación depende de la raza.
+ iv) Partiendo nuevamente del modelo original, permita que los salarios difieran entre cuatro
+ grupos: casados negros, casados no negros, solteros negros y solteros no negros. ¿Cuál
+ es la diferencia de salario estimada entre negros casados y no negros casados?
+C7.3 Un modelo en el que se consideran variaciones en los sueldos de los jugadores de la liga ma-
+ yor de béisbol de acuerdo con su posición es
+ log(salary) 0 1years 2gamesyr 3bavg 4hrunsyr
+ 5rbisyr 6runsyr 7 fldperc 8allstar
+ 9 frstbase 10scndbase 11thrdbase 12shrtstop
+ 13catcher u,
+ donde el grupo base es jardineros (outfield).
+ i) Dé la hipótesis nula que afirma que, controlando los demás factores, receptores (catchers)
+ y jardineros ganan, en promedio lo mismo. Pruebe esta hipótesis empleando los datos del
+ archivo MLB1.RAW y analice la magnitud de la diferencia salarial estimada.
+ ii) Dé y pruebe la hipótesis nula que afirma que, una vez controlados otros factores, no hay
+ diferencia entre los sueldos de acuerdo con las posiciones.
+ iii) ¿Hay coherencia entre los resultados de los incisos i) y ii)? Si no es así, explique lo que
+ sucede.
+C7.4 Para este ejercicio emplee los datos del archivo GPA2.RAW.
+ i) Considere la ecuación
+ colgpa 0 1hsize 2hsize2 3hsperc 4sat
+ 5 female 6athlete u,
+ en donde colgpa es el promedio acumulado de calificaciones en la universidad, hsize es
+ el tamaño del grupo de graduación del bachillerato dado en cientos, hsperc es el percen-
+ til académico dentro del grupo de graduados de bachillerato, sat es la puntuación en la
+ prueba SAT combinada de admisión a la universidad, female es una variable binaria para
+ género femenino y athlete es una variable binaria, que es uno para estudiantes atletas.
+ ¿Cómo espera que sean los coeficientes de esta ecuación? ¿De cuáles no está seguro?
+ ii) Estime la ecuación del inciso i) y dé los resultados en la forma usual. ¿Cuál es la diferen-
+ cia estimada entre las calificaciones de los atletas y de los no atletas? ¿Es esta diferencia
+ estadísticamente significativa?
+260 Parte 1 Análisis de regresión con datos de corte transversal
+ iii) Elimine sat de este modelo y vuelva a estimar la ecuación. ¿Cuál es ahora el efecto
+ estimado de ser atleta? Analice por qué esta estimación es distinta de la obtenida en el
+ inciso ii).
+ iv) En el modelo del inciso i), tome en consideración que el efecto de ser atleta difiera en-
+ tre hombres y mujeres y pruebe la hipótesis nula de que no hay ninguna diferencia ce-
+ teris paribus entre mujeres atletas y mujeres no atletas.
+ v) ¿Difiere el efecto de sat sobre colgpa con base en el género? Justifique su respuesta.
+ C7.5 En el problema 4.2 al modelo que explica el sueldo de los CEO se agregó el rendimiento de las
+ acciones de una empresa, ros, el cual resultó ser no significativo. Ahora, defina una variable
+ binaria, rosneg, que sea igual a uno si ros 0 e igual a cero si ros 0. Utilice CEOSAL1.
+ RAW para estimar el modelo
+ log(salary) 0 1log(sales) 2roe 3rosneg u.
+ Analice la interpretación y la significancia estadística de ^3.
+ C7.6 Para este ejercicio use la base de datos SLEEP75.RAW. La ecuación de interés es
+ sleep 0 1totwrk 2educ 3age 4age2 5yngkid u.
+ i) Estime esta ecuación por separado para hombres y mujeres y dé los resultados de la
+ manera habitual. ¿Hay diferencias importantes entre las dos ecuaciones estimadas?
+ ii) Realice la prueba de Chow para la igualdad entre los parámetros para hombres y mujeres
+ en la ecuación del sueño. Utilice la forma de la prueba en la que se agrega male (hombre)
+ y los términos de interacción maletotwrk, ..., maleyngkid y se usa el conjunto completo
+ de observaciones. ¿Cuáles son los gl pertinentes en esta prueba? ¿Debe rechazarse la
+ hipótesis nula al nivel de significancia de 5%?
+ iii) Ahora tome en consideración interceptos diferentes entre hombres y mujeres y determine
+ si los términos de interacción en los que parece male son conjuntamente significativos.
+ iv) Dados los resultados de los incisos ii) y iii), ¿cuál es el modelo final?
+ C7.7 Para este ejercicio utilice los datos del archivo WAGE1.RAW.
+ i) Utilice la ecuación (7.18) para estimar la diferencia entre los géneros cuando educ 
+ 12.5. Compare con la diferencia estimada cuando educ 0.
+ ii) Corra la regresión usada para obtener (7.18), pero con female(educ 12.5) en vez de
+ femaleeduc. ¿Cómo interpreta ahora el coeficiente de female?
+ iii) En el inciso ii), ¿es el coeficiente de female estadísticamente significativo? Compare con
+ (7.18) y comente.
+ C7.8 Para este ejercicio utilice los datos del archivo LOANAPP.RAW. La variable binaria a expli-
+ car es approve, que es igual a uno si a un individuo se le aprueba el préstamo hipotecario. La
+ variable explicativa clave es white, una variable binaria igual a uno si el solicitante es blanco.
+ En esta base de datos, los demás solicitantes son negros e hispanos.
+ Para probar si hay discriminación en el mercado de préstamos hipotecarios, puede emplear-
+ se un modelo de probabilidad lineal:
+ approve 0 1white other factors.
+ i) Si existe discriminación contra las minorías y se han controlado los factores adecuados,
+ ¿cuál es el signo de 1?
+ ii) Regrese approve sobre white y dé los resultados en la forma habitual. Interprete el coefi-
+ ciente de white ¿es estadísticamente significativo? ¿Es grande en sentido práctico?
+ Capítulo 7 Análisis de regresión múltiple con información cualitativa: variables binarias (o dummy) 261
+ iii) Agregue, como controles, las variables hrat, obrat, loanprc, unem, male, married, dep, sch,
+ cosign, chist, pubrec, mortlat1, mortlat2 y vr. ¿Qué ocurre con el coeficiente de white?
+ ¿Sigue habiendo evidencias de discriminación contra las personas que no son blancas?
+ iv) Ahora permita que el efecto de la raza interactúe con la variable que mide otras obligacio-
+ nes como porcentaje del ingreso (obrat). ¿Es significativo este término de interacción?
+ v) Utilizando el modelo del inciso (iv), ¿qué efecto tiene ser blanco sobre la probabilidad de
+ aprobación cuando obrat 32, que es aproximadamente el valor medio en la muestra?
+ Obtenga un intervalo de confianza de 95% para este efecto.
+C7.9 Ha existido un gran interés por determinar si la presencia del plan de pensiones 401(k), disponi-
+ ble para muchos trabajadores de Estados Unidos, incrementa los ahorros netos. La base de datos
+ 401KSUBS.RAW contiene información sobre activos financieros (nettfa), ingreso familiar
+ (inc), una variable binaria para elegibilidad en un plan 401(k) plan (e401k), y otras variables.
+ i) ¿Qué proporción de las familias de la muestra son elegibles para participar en un plan
+ 401(k)?
+ ii) Estime un modelo de probabilidad lineal que explique la elegibilidad para un plan 401(k)
+ en términos de ingreso, edad y género. Incluya ingreso y edad en forma cuadrática y dé
+ los resultados en la forma habitual.
+ iii) ¿Diría usted que la elegibilidad para un plan 401(k) es independiente del ingreso y de la
+ edad? ¿Y del género? Explique.
+ iv) Obtenga los valores ajustados para el modelo de probabilidad lineal estimado en el inciso
+ ii). ¿Es negativo o mayor a uno alguno de los valores ajustados?
+ v) Utilizando los valores ajustados e401ki del inciso iv), defina e401ki 1 si 2e401k .5
+ y 401k 0 si 2e401k .5. De 9,275 familias, ¿cuántas se predice que sean elegibles
+ para un plan 401(k)?
+ vi) De las 5,638 familias que no son elegibles para un plan 401(k), empleando el predictor
+ e401ki ¿qué porcentaje se predice que no tenga un plan 401(k)? De las 3,637 familias
+ elegibles para un plan 401(k), ¿qué porcentaje se predice que tenga uno? (Es útil que su
+ paquete para econometría tenga el comando "tabulate".)
+ vii) El porcentaje general que se predice de manera correcta es aproximadamente 64.9%
+ ¿Considera que esta sea una descripción completa de qué tan bien funciona el modelo,
+ dada su respuesta del inciso vi)?
+ viii) A este modelo de probabilidad lineal agregue como variable explicativa la variable
+ binaria pira. Permaneciendo todo lo demás constante, si en una familia hay alguien que
+ tenga una cuenta de retiro individual (pira 1), ¿qué tanto mayor es la probabilidad
+ estimada de que la familia sea elegible para un plan 401(k)? ¿Es distinta de cero al nivel
+ de 10%?
+C7.10 Para este ejercicio emplee los datos del archivo NBASAL.RAW.
+ i) Estime el modelo de regresión lineal que relaciona puntos por juego (points) con ex-
+ periencia en la liga (exper) y posición (defensa, delantero o centro --guard, forward,
+ center--). Incluya experiencia en forma cuadrática y como grupo base use center. Dé
+ los resultados en la forma habitual.
+ ii) En el inciso i), ¿por qué no incluye las tres variables binarias para las posiciones?
+ iii) Permaneciendo experiencia constante, ¿anota más un defensa que un centro? ¿Cuánto
+ más? ¿Es estadísticamente significativa esta diferencia?
+ iv) Ahora a la ecuación agregue el estado civil (marr 1 si es casado). Manteniendo
+ constantes la posición y la experiencia, ¿son más productivos los jugadores casados (de
+ acuerdo con los puntos por juego)?
+ v) Agregue interacciones del estado civil con las dos variables de experiencia. En este
+ modelo ampliado, ¿hay una fuerte evidencia de que el estado civil tenga algún efecto
+ sobre los puntos por juego?
+ vi) Estime el modelo del inciso iv) pero use las asistencias por juego (assists) como variable
+ dependiente. ¿Hay alguna diferencia notable con el inciso iv)? Analice.
+262 Parte 1 Análisis de regresión con datos de corte transversal
+ C7.11 Para este ejercicio emplee los datos del archivo 401KSUBS.RAW.
+ i) Calcule promedio, desviación estándar y los valores mínimo y máximo de nettfa en la
+ muestra.
+ ii) Pruebe la hipótesis de que el nettfa promedio no difiere de acuerdo con la elegibilidad
+ para un plan 401(k): emplee una alternativa de dos colas. ¿Cuál es el monto en dólares
+ de la diferencia estimada?
+ iii) De acuerdo con el inciso ii) del ejercicio C7.9, es claro que en un modelo de regresión
+ simple, e401k no es exógeno: como mínimo varía de acuerdo con el ingreso y con la
+ edad. Estime un modelo de regresión lineal múltiple para nettfa que como variables ex-
+ plicativas incluya ingreso, edad y e401k. Las variables ingreso y edad deben aparecer
+ en forma cuadrática. Ahora, ¿cuál es el efecto en dólares de la elegibilidad a un plan
+ 401(k)?
+ iv) Al modelo estimado en el inciso iii), agregue las interacciones e401k (age 41) y
+ e401k · (age 41)2. Observe que en la muestra, la edad promedio es aproximadamente
+ 41 años, de manera que en el nuevo modelo, el coeficiente de e401k es el efecto estima-
+ do de la elegibilidad para el plan 401(k) a la edad promedio. ¿Cuál de los términos de
+ interacción es significativo?

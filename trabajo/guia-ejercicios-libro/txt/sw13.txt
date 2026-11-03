@@ -1,0 +1,145 @@
+ zarse estos datos para mejorar la estimación? Explíquelo. Supóngase que se dispone de datos sobre
+ los niveles de colesterol de cada paciente antes de que él o ella entraran en el experimento. ¿Podrían
+ utilizarse estos datos para mejorar la estimación? Explíquelo.
+13.3 Los investigadores que estudian los datos STAR presentan una evidencia anecdótica de que los di-
+ rectores de las escuela fueron presionados por algunos padres a ubicar a sus hijos en las clases peque-
+ ñas. Supóngase que algunos directores sucumbieron a esta presión y transfirieron a algunos niños a
+ las clases pequeñas. ¿Cómo podrían comprometer estas transferencias la validez interna del estudio?
+ Supóngase que se dispone de datos sobre la asignación aleatoria original de cada estudiante antes de
+ la intervención del director. ¿Cómo podría utilizarse esta información para restaurar la validez inter-
+ na del estudio?
+13.4 Explique si los efectos experimentales (como el efecto Hawthorne) podrían ser importantes en cada
+ uno de los experimentos de las tres preguntas anteriores.
+13.5 La Sección 12.1 proporcionaba un ejemplo hipotético en el que algunas escuelas resultaban dañadas
+ por un terremoto. Explique por qué esto constituye un ejemplo de cuasi experimento. ¿Cómo podrían
+ utilizarse los cambios inducidos en el tamaño de las clases para estimar el efecto del tamaño de las
+ clases sobre las calificaciones en la prueba?
+Ejercicios
+13.1 Utilizando los resultados de la Tabla 13.1, calcule para cada curso lo siguiente: una estimación del
+ efecto del tratamiento de clase pequeña, en relación con la clase mediana; su error estándar; así como
+366 CAPÍTULO 13 Experimentos y cuasi experimentos
+ su intervalo de confianza al 95 %. (Para este ejercicio, hágase caso omiso a los resultados de las
+ clases medianas con ayudante).
+ 13.2 Para los siguientes cálculos, utilice los resultados de la columna (4) de la Tabla 13.2. Considérense
+ dos aulas, A y B, con los mismos valores de los regresores de la columna (4) de la Tabla 13.2, salvo
+ que:
+ a) El aula A es una «clase pequeña» y el aula B es una «clase mediana». Construya un intervalo de
+ confianza al 95 % para la diferencia esperada en las calificaciones medias en el examen.
+ b) El aula A tiene un maestro con 5 años de experiencia y el aula B tiene un maestro con 10 años de
+ experiencia. Construya un intervalo de confianza al 95 % para la diferencia esperada en las me-
+ dias de las calificaciones.
+ c) El aula A es una clase pequeña con un maestro con 5 años de experiencia y la clase B es una clase
+ mediana con un maestro con 10 años de experiencia. Construya un intervalo de confianza al 95 %
+ para la diferencia esperada en las calificaciones medias. (Sugerencia: en el estudio STAR, los
+ maestros fueron asignados aleatoriamente a los diferentes tipos de aulas).
+ d) ¿Por qué desaparece el intercepto en la columna (4)?
+ 13.3 Supóngase que, en un experimento aleatorizado controlado sobre el efecto de un curso de prepara-
+ ción para SAT sobre las calificaciones en el SAT, se obtienen los resultados siguientes:
+ a) Estime el efecto promedio del tratamiento en las calificaciones obtenidas.
+ b) ¿Existe evidencia de asignación no aleatoria? Explíquelo.
+ - Grupo de Grupo de control
+ Calificación media SAT (X ) tratamiento 1.201
+ 97,1
+ Desviación típica de las 1.241
+ calificaciones SAT (sX) 93,2 45
+ Número de hombres 55
+ 55
+ Número de mujeres 45
+ 13.4 Lea el recuadro «¿Cuál es el efecto sobre el empleo del salario mínimo?» de la Sección 13.4. Supón-
+ gase, para concretar, que Card y Krueger recopilaron sus datos en 1991 (antes del cambio en el sala-
+ rio mínimo de Nueva Jersey) y en 1993 (después del cambio en el salario mínimo de Nueva Jersey).
+ Considérese la Ecuación (13.7) excluyendo los regresores W.
+ a) ¿Cuáles son los valores de Xit, Gi, y Dt para:
+ I) Un restaurante de Nueva Jersey en 1991?
+ II) Un restaurante de Nueva Jersey en 1993?
+ III) Un restaurante de Pennsylvania en 1991?
+ IV) Un restaurante de Pennsylvania en 1993?
+ b) En términos de los coeficientes b0, b1, b2, y b3, ¿cuál es el número esperado de empleados en:
+ I) Un restaurante de Nueva Jersey en 1991?
+ II) Un restaurante de Nueva Jersey en 1993?
+ III) Un restaurante de Pennsylvania en 1991?
+ IV) Un restaurante de Pennsylvania en 1993?
+ c) En términos de los coeficientes b0, b1, b2, y b3, ¿cuál es el efecto causal promedio sobre el em-
+ pleo del salario mínimo?
+ Introducción a la Econometría 367
+ d) Explique por qué Card y Krueger utilizaron un estimador de diferencias en diferencias del efecto
+ causal en lugar del estimador de las diferencias «Nueva Jersey después . Nueva Jersey antes» o
+ el estimador de las diferencias «Nueva Jersey 1993 . Pennsylvania 1993».
+13.5 Considérese un estudio que evalúe el efecto sobre las calificaciones de los estudiantes universitarios
+ de las conexiones a Internet en las habitaciones. En un dormitorio grande, la mitad de las habitacio-
+ nes están cableadas para conexiones a Internet de alta velocidad (grupo de tratamiento), se recopilan
+ las notas finales de todos los residentes. De lo siguiente, ¿qué plantea una amenaza a la validez inter-
+ na, y por qué?
+ a) A mediados de año todos los atletas de sexo masculino se trasladan a una fraternidad y abandonan
+ el estudio (no se recogen sus calificaciones finales).
+ b) Los estudiantes de ingeniería asignados al grupo de control montan una red de área local por lo
+ que pueden compartir un acceso inalámbrico privado a Internet que se paga en conjunto.
+ c) Los estudiantes de arte del grupo de tratamiento no saben cómo acceder a sus cuentas de Internet.
+ d) Los estudiantes de economía del grupo de tratamiento facilitan el acceso a sus conexiones de
+ Internet a los del grupo de control, a cambio de que paguen una tarifa.
+13.6 Supóngase que existen datos de panel para T % 2 periodos de tiempo sobre un experimento aleatori-
+ zado controlado, en el que se toma la primera observación (t % 1) antes del experimento y la segunda
+ observación (t % 2) para el periodo postratamiento. Supóngase que el tratamiento es binario; es
+ decir, supóngase que Xit % 1 si el individuo i-ésimo está en el grupo de tratamiento y t % 2, y Xit % 0
+ en otro caso. Supóngase además que el efecto del tratamiento puede ser modelizado utilizando la
+ especificación
+ Yit % ai ! b1Xit ! uit,
+donde ai son los efectos individuales específicos [véase la Ecuación (13.11)], con una media igual a
+cero y una varianza de pa2 y uit es un término de error, donde uit es homocedástico, cov(ui1, ui2) % 0, y
+cov(uit, ai) % 0 para todo i. Sea b4 1diferencias el estimador de las diferencias, es decir, el estimador MCO
+de una regresión de Yi2 sobre Xi2 con un intercepto, y sea b4 1difs-en-difs el estimador de diferencias en
+diferencias, es decir, el estimador de b1 basado en la regresión MCO de BYi % Yi2 . Yi1 sobre
+BXi % Xi2 . Xi1 y un intercepto.
+a) Demuestre que nvar (b4 diferencias ) r (pu2 ! p2a)/var (Xi2 ) (Pista: utilice las fórmulas válidas con ho-
+ 1
+ mocedasticidad de la varianza del estimador MCO del Apéndice 5.1).
+b) Demuestre que nvar (b4 difs-en-difs ) r (2p 2 )/var (X i2 ). (Sugerencia: téngase en cuenta que Xi % Xi2;
+ 1 u
+ ¿por qué?)
+c) En base a las respuestas de los apartados (a) y (b), ¿cuándo se prefiere el estimador de diferen-
+ cias en diferencias sobre el estimador de diferencias, considerando únicamente las cuestiones de
+ eficiencia?
+13.7 Supóngase que se dispone de datos de panel sobre un experimento con T % 2 periodos (por lo que
+ t % 1, 2). Considérese el modelo de regresión de datos de panel con efectos fijos temporales y con
+ características individuales Wi que no cambian en el tiempo, como el género. Sea el tratamiento
+ binario, por lo que Xit % 1 para t % 2 para los individuos en el grupo de tratamiento y sea Xit % 0 en
+ caso contrario. Considérese el modelo de regresión poblacional
+ Yit % ai ! b1 Xit ! b2(Dt # Wi) ! b0 Dt ! vit,
+donde ai son los efectos fijos individuales, Dt es la variable binaria que es igual a 1 si t % 2 y es
+igual a 0 si t % 1, Dt # Wi es el producto de Dt y Wi, y las a y b son coeficientes desconocidos. Sea
+BYi % Yi2 . Yi1. Deduzca la Ecuación (13.6) (en el caso de un solo regresor W, por lo que r % 1) a
+partir de este modelo de regresión poblacional.
+368 CAPÍTULO 13 Experimentos y cuasi experimentos
+ 13.8 Supóngase que se dispone de los mismos datos que en el Ejercicio 13.7 (datos de panel con dos
+ 13.9 periodos, n observaciones), pero se ignora el regresor W. Considérese el modelo de regresión alter-
+ 13.10 nativo
+ 13.11 Yit % b0 ! b1 Xit ! b2Gi ! b3Dt ! uit,
+ donde Gi % 1 si el individuo está en el grupo de tratamiento y Gi % 0 si el individuo se encuentra en
+ el grupo de control. Demuestre que el estimador MCO de b1 es el estimador de diferencias en dife-
+ rencias de la Ecuación (13.4). (Sugerencia: véase la Sección 8.3).
+ Deduzca la última igualdad de la Ecuación (13.10). (Sugerencia: utilice la definición de la cova-
+ rianza y que, debido a que el tratamiento real Xi es aleatorio, b1i y Xi se distribuyen de forma inde-
+ pendiente).
+ Considérese el modelo de regresión con coeficientes de regresión heterogéneos
+ Yi % b0i ! b1iXi ! vi,
+ donde (vi, Xi, b0i, b1i) son variables aleatorias i.i.d. con b0 % E(b0i) y b1 % E(b1i).
+ a) Demuestre que el modelo puede escribirse como Yi % b0 ! b1Xi ! ui, donde ui % (b0i . b0) !
+ ! (b1i . b1)Xi ! vi.
+ b) Supóngase que E[b0i8Xi] % b0, que E[b1i8 Xi] % b1 y E[vi 8Xi] % 0. Demuestre que E[ui 8Xi] % 0.
+ c) Demuestre que los supuestos 1 y 2 del Concepto clave 4.3 se cumplen.
+ d) Supóngase que los valores extremos son poco frecuentes, por lo que (ui, Xi) tienen momentos de
+ cuarto orden finitos. ¿Es apropiado utilizar MCO y los métodos de los Capítulos 4 y 5 para
+ estimar y llevar a cabo inferencias acerca de los valores medios de b0i y b1i?
+ e) Supóngase que b1i y Xi están correlacionados positivamente por lo que las observaciones de Xi
+ con valores más altos que la media tienden a tener valores mayores a la media de b1i. ¿Se cum-
+ plen los supuestos del Concepto clave 4.3? Si no es así, ¿qué supuesto(s) se viola(n)? ¿Resulta
+ apropiado utilizar MCO y los métodos de los Capítulos 4 y 5 para estimar y llevar a cabo infe-
+ rencia sobre el valor medio de b0i y b1i?
+ En el Capítulo 12, se utilizaron datos de panel a nivel estatal para estimar la elasticidad-precio de la
+ demanda de cigarrillos, utilizando el impuesto estatal sobre las ventas como variable instrumental.
+ Considérese en particular la regresión (1) de la Tabla 12.1. En este caso, a su juicio, ¿difiere el
+ promedio local del efecto del tratamiento del efecto promedio del tratamiento? Explíquelo.
+ Ejercicios empíricos
+ E13.1 Un eventual empleador recibe dos currículum vítae: un currículum de un candidato blanco y un
+ currículum similar de un candidato afroamericano. ¿Resulta más probable que el empleador llame
+ al candidato blanco para concertar una entrevista? Marianne Bertrand y Sendhil Mullainathan lle-

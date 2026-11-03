@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:04. 299 archivos, ~128186.4k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:49. 306 archivos, ~131470.7k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -21,6 +21,10 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:04. 299 archivos, ~128
 | ⚠ 1543.6k | 128346 | `trabajo/revision-05/ArchivoMatr_Adm2026.csv` |  |
 | ⚠ 1214.8k | 111759 | `trabajo/econometria-ii-demre/datos/crudos/5-cuestionario-archivos-K-L/ArchivoL_ADM2026.csv` |  |
 | ⚠ 1012.1k | 168715 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/00_ids_y.csv` |  |
+| ⚠ 906.9k | 52889 | `trabajo/guia-ejercicios-libro/txt/w.txt` |  |
+| ⚠ 906.9k | 52889 | `trabajo/guia-ejercicios-libro/txt/wool.txt` |  |
+| ⚠ 727.9k | 36080 | `trabajo/guia-ejercicios-libro/txt/s.txt` | 0,05 ! 4 # 0,02 % 0,56. El número espera L2752 |
+| ⚠ 727.9k | 36080 | `trabajo/guia-ejercicios-libro/txt/sw.txt` | 0,05 ! 4 # 0,02 % 0,56. El n�mero espera L2752 |
 | ⚠ 120.2k | 5373 | `trabajo/revision-05/salida.txt` | A tibble: 3,319 × 3 L58; ℹ 3,309 more rows L71; A tibble: 3,220 × 2 L72; ℹ 3,210 more rows L85; A tibble: 3,319 × 4 L86; ℹ 3,309 more rows L99; A tibble: 317,700 × 14 L100; ℹ 317,690 more rows L113; +27 |
 | ⚠ 90.8k | 4049 | `trabajo/econometria-ii-demre/trabajo-08.log` | A tibble: 3,319 × 3 L58; ℹ 3,309 more rows L71; A tibble: 3,220 × 2 L72; ℹ 3,210 more rows L85; A tibble: 3,319 × 4 L86; ℹ 3,309 more rows L99; A tibble: 317,700 × 6 L103; ℹ 317,690 more rows L116; +20 |
 | ⚠ 88.2k | 2151 | `trabajo/econometria-ii-demre/datos/crudos/7-estadisticas-seleccion/ADM2026_INDICADORES_POR_CARRERA_PROMEDIO_OBLIGATORIAS_20260116.csv` |  |
@@ -63,6 +67,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:04. 299 archivos, ~128
 | ⚠ 6.8k | 328 | `trabajo/micro/2026-10-21-lectura-pasiva-errores-control-1.tex` |  |
 | ⚠ 6.7k | 232 | `trabajo/sociologia/miniclase-weber.html` |  |
 | ⚠ 6.6k | 582 | `trabajo/nota-r-david/salida3.txt` |  |
+| ⚠ 6.5k | 338 | `trabajo/guia-ejercicios-libro/txt/c7.txt` |  |
 | ⚠ 6.5k | 222 | `trabajo/sociologia/miniclase-tocqueville.html` |  |
 | ⚠ 6.3k | 570 | `trabajo/nota-r-david/salida_entrega.txt` |  |
 | ⚠ 6.2k | 555 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-postulantes.log` |  |
@@ -84,6 +89,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:04. 299 archivos, ~128
 | ⚠ 5.1k | 463 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-david-limpio.tex` |  |
 | ⚠ 5.0k | 461 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-david-entrega.tex` |  |
 | ⚠ 5.0k | 411 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-final.tex` |  |
+| ⚠ 5.0k | 252 | `trabajo/guia-ejercicios-libro/txt/c13.txt` |  |
 | ⚠ 4.8k | 341 | `trabajo/econometria-ii-etapa2/informe/informe-etapa-2.tex` |  |
 | ⚠ 4.8k | 298 | `trabajo/econometria-ii-demre/informe/_editar2.py` | --- 1 Introducción --------------------- L10; --- 3.1 Variables del colegio ---------- L35; --- 3.3 Filtros ------------------------ L54; --- 3.4 Observaciones ------------------ L73; --- 4 Variable de respuesta ------------ L98; --- 5.1 Variables del establecimiento -- L138; --- 5.2 Dummies ------------------------ L164; --- 6 Datos sin información ------------ L181; +3 |
 | ⚠ 4.8k | 297 | `trabajo/nota-r-david/David_Econometria_Etapa2_Mejorado.R` | ======================================== L1; ECONOMETRIA II - USACH / ETAPA 2 - VERSI L2; Integrantes: David Cuevas, Javier Li-Yau L3; Referencia metodologica: GermanCredit_Sc L4; Objetivo: Y=1 si matricula REGULAR en pr L5; Alcance: descripcion, consistencia, WOE/ L6; NOTA: ejecutar sobre los archivos DEMRE  L7; de entregarlos. No se incluyen cifras in L8; +32 |
@@ -103,6 +109,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:04. 299 archivos, ~128
 | 3.5k | 303 | `trabajo/nota-r-david/final_final.R` | Nombres: David Cuevas, Javier Li-Yau, Be L3; Modelo logit con WOE. Variable objetivo: L4; (1 = quedó matriculado en una de sus 3 p L5; read.csv2: separador ";" y decimales con L17; 99 = "prefiero no responder" -> NA L24; N_MATRICULADOS no se incluye: se conoce  L29; Solo rinden la regular actual: todas las L42; anterior vacías (read.csv2 deja "" en la L43; +43 |
 | 3.5k | 254 | `trabajo/econometria-ii-demre/trabajo-10.log` | A tibble: 3,318 × 3 L63; ℹ 3,308 more rows L76; A tibble: 3,220 × 2 L77; ℹ 3,210 more rows L90; A tibble: 3,318 × 4 L91; ℹ 3,308 more rows L104; A tibble: 317,700 × 15 L105; ℹ 317,690 more rows L118; +25 |
 | 3.5k | 242 | `trabajo/econometria-ii-etapa2/salida-david.txt` | A tibble: 3,318 × 3 L51; ℹ 3,308 more rows L64 |
+| 3.1k | 148 | `trabajo/guia-ejercicios-libro/txt/sw13.txt` |  |
 | 3.1k | 289 | `trabajo/econometria-ii-logit/ej1-logit-hoja-domingo.log` |  |
 | 3.1k | 278 | `trabajo/nota-r-david/primero.R` | Nombres: David Cuevas, Javier Li-Yau, Be L3; Modelo logit con WOE. Variable objetivo: L4; (1 = quedó matriculado en una de sus 3 p L5; N_MATRICULADOS no se incluye: se conoce  L26; Base maestra: los que rinden (df2) L39; Postulaciones: solo se marca si postuló; L50; El filtro de vía y tipo se hace en la ma L55; FECHA_NACIMIENTO L82; +33 |
 | 3.1k | 179 | `trabajo/econometria-ii-estudio/salidas-paes-estudio.R` | Salidas de estudio con la base PAES del  L1; Base armada igual que etapa-2-script-dav L2; Deja en salidas-paes-estudio.txt una sal L3; interpretar en las sesiones, y guarda la L4; efecto discreto de TP (0 -> 1) en el pro L129; scorecard: 600 puntos con odds 50:1, PDO L172 |

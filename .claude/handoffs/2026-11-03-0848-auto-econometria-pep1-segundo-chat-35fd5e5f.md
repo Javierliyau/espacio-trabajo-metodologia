@@ -1,9 +1,9 @@
 ---
 tema: econometria-pep1-segundo-chat
-fecha: 2026-11-03 09:08
+fecha: 2026-11-03 09:17
 resumen: (auto, antes de compactar) ultimo pedido: @"C:\Users\javie\Downloads\2026-11-02-lectura-pep1-casos-reales.pdf" entonces oiptimiza al maximo esta lectura
 ---
-Handoff automatico de la sesion `35fd5e5f-a824-46dc-8667-4a4089d23841` («Econometría PEP1 segundo chat»), 46 llamadas, contexto final 165.4k. Es mecanico: no interpreta decisiones. Si existe un handoff manual del mismo tema, manda ese.
+Handoff automatico de la sesion `35fd5e5f-a824-46dc-8667-4a4089d23841` («Econometría PEP1 segundo chat»), 47 llamadas, contexto final 71.5k. Es mecanico: no interpreta decisiones. Si existe un handoff manual del mismo tema, manda ese.
 
 ## Ultimos pedidos del usuario
 - 1. Ejecuta `"C:/Users/javie/AppData/Local/Python/pythoncore-3.14-64/python.exe" "C:/Users/javie/.claude/ctx/ctx.py" handoffs econometria-pep1.` y lee SOLO el primer handoff de la lista (el más reciente; a igual fecha va primero el manual). / 2. Si es automático (`(auto)`), trátalo como pista: confir
@@ -18,23 +18,4 @@ Handoff automatico de la sesion `35fd5e5f-a824-46dc-8667-4a4089d23841` («Econom
 
 ## Ultima respuesta de Claude (recortada)
 
-Del banco de 81 preguntas dejé solo **22**. Las otras 28 marcadas como probables y todas las de probabilidad media quedan fuera. Elegí con tres criterios: que la pregunta pegue en una pista directa del profe, que sirva también para la frase de interpretación de los ejercicios de cálculo y que no repita algo ya cubierto.
-
-**Núcleo, 12 preguntas que se repasan 3 veces:**
-
-| Bloque | Preguntas | Qué pone a prueba |
-|---|---|---|
-| Logit | T6 · T11 · T14 · T22 | β no está en puntos porcentuales y e^β multiplica los odds · EPeP frente a EPP · Y = 1 es «malo» · el mismo β da efectos distintos según el punto |
-| Clasificación | T33 · T34 | Fórmulas de las métricas · una exactitud del 90 % no sirve si la tasa base es del 10 % |
-| Scoring | T37 · T52 · T59 | Signo del WOE · con qué valor entra una persona · monotonía y fusión de tramos |
-| DiD | T62 · T69 · T77 | Tendencias paralelas no exige niveles iguales · β₃ es el efecto · el caso SLEP de la prensa |
-
-**Refuerzo, 10 preguntas que se hacen una vez y se repite solo lo que falles:** T1, T13, T23, T27, T42, T43, T55, T61, T63 y T66.
-
-**Así quedaron en las sesiones:**
-- **Hoy, martes:**
-  - Al final del bloque de logit (09:00-10:30), 12 minutos con 6 preguntas.
-  - Al final del bloque de DiD (10:45-12:15), 15 minutos con 6.
-  - Al final del de scoring y clasificación (13:15-14:45), 20 minutos con 10.
-  - A las 15:00, las 15 frases de la pauta pasan a tu hoja de memoria.
-  - A las 16:00, el núcleo completo solo con la respuesta V/F y l
+Un subagente está reescribiendo la lectura: logit → clasificación → WOE/scorecard → DiD con SLEP, con recuadros de pistas, trampas y preguntas para tus apuntes. Además corta todo lo que no entra. Antes de tocar nada respalda la versión actual en `trabajo/`. Cuando termine reviso el PDF nuevo, compruebo las cifras y lo dejo en el PROYECTO y en Descargas.

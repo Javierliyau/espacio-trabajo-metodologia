@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 09:08. 294 archivos, ~128184.1k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 09:18. 298 archivos, ~128185.3k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -213,6 +213,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 09:08. 294 archivos, ~128
 | 603 | 60 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-2-woe-iv.tex` |  |
 | 589 | 46 | `trabajo/micro/2026-11-01-verificar.py` | Compara campeon.json con el respaldo y r L1 |
 | 563 | 74 | `trabajo/macro/datos-chile/y.csv` |  |
+| 557 | 33 | `trabajo/lectura-pep1/verif3.py` | calculator path with rounded means L8; German credit cuenta L13; Siddiqi L18; scorecard lamina 7 L26; DiD CK L28; SLEP invented L30 |
 | 555 | 74 | `trabajo/macro/datos-chile/k.csv` |  |
 | 553 | 57 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-3-did-slep.tex` |  |
 | 549 | 24 | `trabajo/econometria-ii-estudio/calc-lectura.py` |  |
@@ -227,6 +228,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 09:08. 294 archivos, ~128
 | 433 | 37 | `trabajo/econometria-ii-logit/ej1-logit-hoja-domingo.tex` |  |
 | 431 | 21 | `trabajo/econometria-ii-etapa2/grid.py` |  |
 | 424 | 23 | `trabajo/revR/runner3.R` |  |
+| 423 | 23 | `trabajo/lectura-pep1/verif.py` | exact 0.1 change L10; strict >0.5 L22 |
 | 421 | 40 | `trabajo/micro/2026-11-01-descomponer-compuerta.py` | De donde sale el paso de v1.1 sobre v1.0 L1 |
 | 420 | 45 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Control 1 2026-2.md` | Postmortem · Control 1 2026-2 · Microeco L1; Por unidad L17; Señales (acierto direccional: la señal m L25; Sorpresas L29; Causas probables (reglas fijas, sin LLM) L34; Deriva L38; Dominio L43 |
 | 417 | 20 | `trabajo/econometria-ii-etapa2/etapa2-ejemplo-retramificar-y-etapa3.R` | Ejemplo con datos reales: retramificar,  L1; Retramificar EDAD_MESES: 3 tramos no mon L8; X que pasan el filtro IV >= 0,02 (sin IN L12 |
@@ -260,6 +262,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 09:08. 294 archivos, ~128
 | 199 | 10 | `trabajo/econometria-ii-etapa2/informe-salidas/vif-finales.csv` |  |
 | 194 | 9 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/02_descriptivos.csv` |  |
 | 194 | 9 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/02_descriptivos.csv` |  |
+| 183 | 9 | `trabajo/lectura-pep1/fix.py` |  |
 | 177 | 15 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/08_ranking_iv.csv` |  |
 | 166 | 16 | `trabajo/nota-r-david/salida_v7_tal_cual.txt` |  |
 | 164 | 8 | `trabajo/etapa2-final/filtros.R` |  |
@@ -272,6 +275,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 09:08. 294 archivos, ~128
 | 125 | 5 | `trabajo/revision-05/dic.R` |  |
 | 123 | 7 | `trabajo/econometria-ii-m1/inspeccion.R` |  |
 | 119 | 3 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/06c_edad_bins_19anios_alternativa.csv` |  |
+| 107 | 7 | `trabajo/lectura-pep1/verif2.py` |  |
 | 98 | 18 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/06_monotonia_inicial.csv` |  |
 | 98 | 18 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/07_monotonia_final.csv` |  |
 | 97 | 4 | `trabajo/econometria-ii-demre/scripts/01-leer-datos.R` |  |

@@ -1,0 +1,93 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{booktabs,array,enumitem,amsmath,amssymb,xcolor,tcolorbox}
+\pagestyle{empty}
+\newtcolorbox{ejemplar}{colback=green!5,colframe=green!40!black,title=Respuesta ejemplar,fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newtcolorbox{trampa}{colback=red!5,colframe=red!50!black,title=Trampas,fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries 1B. Graduación de atletas universitarios · pauta}\\[2pt]
+Econometría II · PEP 1 · Fuente: [W] cap.\ 17, problema 17.2, p.\ 614
+\end{center}
+
+\noindent Con 420 atletas: $\hat P(grad=1)=\Lambda(-1{,}17+0{,}24\,hsGPA+0{,}00058\,SAT+0{,}073\,study)$. Se fija $hsGPA=3{,}0$ y $SAT=1.200$ (mil doscientos).
+\[
+\Lambda(z)=\frac{1}{1+e^{-z}},\qquad g(z)=\Lambda(z)\,[1-\Lambda(z)],\qquad \ln\!\left(\frac{P}{1-P}\right)=z .
+\]
+
+% ------------------------------------------------------------
+\section*{a) Diferencia en la probabilidad entre 10 h y 5 h}
+Es un \textbf{efecto parcial discreto}: dos perfiles que solo difieren en $study$; se calculan dos probabilidades y se restan.
+\begin{align*}
+z_5 &= -1{,}17+0{,}24(3{,}0)+0{,}00058(1.200)+0{,}073(5)=-1{,}17+0{,}72+0{,}696+0{,}365=\mathbf{0{,}611}\\
+z_{10} &= z_5+0{,}073(5)=0{,}611+0{,}365=\mathbf{0{,}976}\\[4pt]
+\hat P_5 &= \frac{1}{1+e^{-0{,}611}}=\frac{1}{1{,}5428}=\mathbf{0{,}648}
+\qquad
+\hat P_{10} = \frac{1}{1+e^{-0{,}976}}=\frac{1}{1{,}3768}=\mathbf{0{,}726}\\[4pt]
+\Delta\hat P &= 0{,}726-0{,}648=\mathbf{0{,}078}
+\end{align*}
+\begin{ejemplar}
+Manteniendo $hsGPA=3{,}0$ y $SAT=1.200$, estudiar 10 h semanales en vez de 5 h aumenta la probabilidad estimada de graduarse de 64,8\,\% a 72,6\,\%, es decir, en \textbf{7,8 puntos porcentuales}.
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item La respuesta va en \textbf{pp}, no en \%.
+\item $0{,}073\times5=0{,}365$ es el cambio en el \textbf{índice $z$} (log-odds), no en la probabilidad: hay que pasar por $\Lambda$.
+\item El SAT es 1.200 (en el libro aparece «1,200», con coma de miles).
+\end{itemize}
+\end{trampa}
+
+% ------------------------------------------------------------
+\section*{b) Efecto marginal de \emph{study} en el perfil de 5 h}
+Es la \textbf{derivada} de $\hat P$ respecto de $study$, evaluada en el perfil:
+\begin{align*}
+\frac{\partial \hat P}{\partial\, study} &= g(z_5)\cdot\hat\beta_{study}=\hat P_5\,(1-\hat P_5)\cdot 0{,}073\\
+&= 0{,}648\cdot0{,}352\cdot0{,}073 = 0{,}2280\cdot0{,}073=\mathbf{0{,}0166}
+\end{align*}
+\begin{ejemplar}
+Para un atleta con $hsGPA=3{,}0$, $SAT=1.200$ y 5 h de estudio, \textbf{una hora más} de sala de estudio aumenta la probabilidad estimada de graduarse en aproximadamente \textbf{1,7 pp}, \emph{ceteris paribus}.
+\end{ejemplar}
+\noindent\textbf{Comentario que suma:} la a) da $7{,}8/5\approx1{,}56$ pp por hora, algo menos que 1,66 pp. No coinciden porque la logística no es una recta: el efecto marginal es la pendiente \emph{en} 5 h, y la curva se va aplanando a medida que $\hat P$ se aleja de 0,5. El máximo posible sería $0{,}25\cdot0{,}073\approx1{,}8$ pp (cuando $\hat P=0{,}5$).
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item No es 0,073 a secas: ese es el efecto sobre el log-odds.
+\item Va en \textbf{pp} y por \textbf{una} hora.
+\item Depende del perfil: siempre decir en qué punto se evalúa.
+\end{itemize}
+\end{trampa}
+
+% ------------------------------------------------------------
+\section*{c) Cambio en los odds por una hora más}
+Como $\ln(\text{odds})=z$, si $study$ sube en 1, $z$ sube en $\hat\beta$ y los odds se \textbf{multiplican} por $e^{\hat\beta}$:
+\[
+\frac{\text{odds}(study+1)}{\text{odds}(study)}=e^{0{,}073}=\mathbf{1{,}076}
+\]
+Verificación con el perfil de 5 h: $\text{odds}_5=e^{0{,}611}=1{,}842$ $(=0{,}648/0{,}352)$; $\text{odds}_6=e^{0{,}684}=1{,}982$; $1{,}982/1{,}842=1{,}076$ \checkmark
+\begin{ejemplar}
+El \emph{odds ratio} de $study$ es $e^{0{,}073}\approx1{,}076$: una hora más de estudio \textbf{multiplica los odds de graduarse por 1,076}, es decir, los aumenta en \textbf{7,6\,\%}, manteniendo $hsGPA$ y $SAT$ constantes. Este efecto \textbf{no depende del perfil}.
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Los odds van en \textbf{\%} (cambio relativo), \textbf{no en pp}.
+\item No confundir odds ($P/(1-P)=1{,}84$) con probabilidad (0,648).
+\item $100\cdot\hat\beta\approx7{,}3$\,\% es solo una aproximación; lo exacto es $(e^{\hat\beta}-1)\cdot100=7{,}6$\,\%.
+\end{itemize}
+\end{trampa}
+
+% ------------------------------------------------------------
+\section*{Resumen para la hoja de memoria}
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{llccc}\toprule
+ & Qué mide & Cálculo & Unidad & ¿Depende?\\\midrule
+a) Parcial discreto & $\Delta\hat P$ entre dos perfiles & $\Lambda(z_1)-\Lambda(z_0)$ & pp & Sí\\
+b) Efecto marginal & pendiente en un punto & $\hat P(1-\hat P)\,\hat\beta$ & pp/unidad & Sí\\
+c) \emph{Odds ratio} & cambio relativo de los odds & $e^{\hat\beta}$ & \% o «veces» & \textbf{No}\\\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

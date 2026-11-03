@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 13:16. 309 archivos, ~131478.5k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 18:05. 311 archivos, ~131481.5k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -55,12 +55,12 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 13:16. 309 archivos, ~131
 | ⚠ 9.0k | 799 | `trabajo/build-prediccion/2026-11-01-prediccion-final-control-2.log` |  |
 | ⚠ 8.9k | 805 | `trabajo/tex/2026-11-01-simulacro-control-2-droller.log` |  |
 | ⚠ 8.8k | 398 | `trabajo/moore-pdf/2026-10-31-lectura-control-2-caso-moore.tex` |  |
+| ⚠ 8.5k | 375 | `trabajo/guia-filtrada/2026-11-03-guia-filtrada-10-ejercicios-pep1.tex` |  |
 | ⚠ 7.5k | 475 | `trabajo/revision-etapa2/salida.txt` | A tibble: 3,318 × 3 L58; ℹ 3,308 more rows L71; A tibble: 317,700 × 10 L72; ℹ 317,690 more rows L85; ℹ 5 more variables: CODIGO_REGION <dbl>, L86; INGRESO_PERCAPITA_GRUPO_FA <dbl> L87; A tibble: 168,714 × 10 L88; ℹ 168,704 more rows L101; +13 |
 | ⚠ 7.5k | 446 | `trabajo/nota-r-david/v7_parche.R` | ======================================== L1; ECONOMETRIA II - USACH / ETAPA 2 - VERSI L2; Integrantes: David Cuevas, Javier Li-Yau L3; Referencia metodologica: GermanCredit_Sc L4; Objetivo: Y=1 si matricula REGULAR en pr L5; Alcance: descripcion, consistencia, WOE/ L6; NOTA: ejecutar sobre los archivos DEMRE  L7; de entregarlos. No se incluyen cifras in L8; +68 |
 | ⚠ 7.5k | 446 | `trabajo/nota-r-david/v7_tal_cual.R` | ======================================== L1; ECONOMETRIA II - USACH / ETAPA 2 - VERSI L2; Integrantes: David Cuevas, Javier Li-Yau L3; Referencia metodologica: GermanCredit_Sc L4; Objetivo: Y=1 si matricula REGULAR en pr L5; Alcance: descripcion, consistencia, WOE/ L6; NOTA: ejecutar sobre los archivos DEMRE  L7; de entregarlos. No se incluyen cifras in L8; +68 |
 | ⚠ 7.3k | 472 | `trabajo/micro/2026-11-01-parche-motor.py` | ---- parciales L13; ---- resoluciones con correcciones super L86; ---- dominio L104; ---- evaluar: separar el calculo de la e L141; ---- postmortem L264; ---- hash_global L274; ---- tablero L280; ---- predicciones manuales L298; +4 |
 | ⚠ 7.2k | 566 | `trabajo/etapa2-final/informe-etapa-2-con-mineduc.tex` |  |
-| ⚠ 7.1k | 325 | `trabajo/guia-filtrada/2026-11-03-guia-filtrada-10-ejercicios-pep1.tex` |  |
 | ⚠ 7.1k | 559 | `trabajo/informe-etapa-2.antes-benja.tex` |  |
 | ⚠ 7.0k | 601 | `trabajo/nota-r-david/salida4.txt` |  |
 | ⚠ 7.0k | 421 | `trabajo/nota-r-david/auditado.R` | ======================================== L1; ECONOMETRIA II - USACH / ETAPA 2 - VERSI L2; Integrantes: David Cuevas, Javier Li-Yau L3; Referencia metodologica: GermanCredit_Sc L4; Objetivo: Y=1 si matricula REGULAR en pr L5; Alcance: descripcion, consistencia, WOE/ L6; NOTA: ejecutar sobre los archivos DEMRE  L7; de entregarlos. No se incluyen cifras in L8; +62 |
@@ -184,6 +184,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 13:16. 309 archivos, ~131
 | 1.0k | 77 | `trabajo/econometria-ii-logit/crear_excel.py` | Parámetros L24 |
 | 1.0k | 35 | `trabajo/2026-10-25-simulacro-macro-control-1-PAUTA-no-abrir.md` | PAUTA · Simulacro Control 1 Macro II (do L1; P1 (30) L5; P2 (10) L18; P3 (10) · **Falso** L23; P4 (10) · **Verdadero** (convergencia co L27; Después de corregir L31 |
 | 1.0k | 42 | `trabajo/etapa2-final/verificar-informe.R` | guardar las bases crudas antes de que el L10 |
+| 956 | 76 | `trabajo/p3a-woe-practica/3A-woe-iv.tex` |  |
 | 951 | 56 | `trabajo/overleaf-etapa1/guion-javier-final.md` | Guion final de Javier · láminas 3, 9 y 1 L1; Lámina 3 · Fuentes de datos · 40 s L9; Lámina 9 · Descriptivas · 25 s (solo si  L21; Lámina 10 · Conclusiones · 40 s L29; Lámina 11 · Cierre · 5 s L38; Si te preguntan L44 |
 | 949 | 91 | `trabajo/revision-05/prueba.R` | rutas relativas a la carpeta del proyect L5 |
 | 945 | 60 | `trabajo/revision-05/catalogo.R` |  |
@@ -218,6 +219,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 13:16. 309 archivos, ~131
 | 656 | 37 | `trabajo/2026-09-26-macro2-solucionario-sesion-1.md` | Solucionario — sesión 1 Macro II (abrir  L1; 1. Recta y categorías L5; 2. Tasa media L11; 3. Contabilidad del crecimiento L15; 4. Retornos constantes L23; 5. Preguntas de reserva L29; 6. Hipótesis de Chile L36 |
 | 656 | 50 | `trabajo/micro/2026-10-21-gimnasio-1er-grado-dos-partes.tex` |  |
 | 651 | 36 | `trabajo/2026-10-14-plan-dia.md` | Borrador · plan del mié 14-10 (v2, 13:08 L1; Hecho hoy L7; Lo que queda L11; Próximos días L28; Pendiente de confirmar L33 |
+| 645 | 68 | `trabajo/p3a-woe-practica/3B-scorecard.tex` |  |
 | 627 | 27 | `trabajo/revR/runner2.R` |  |
 | 603 | 60 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-2-woe-iv.tex` |  |
 | 589 | 46 | `trabajo/micro/2026-11-01-verificar.py` | Compara campeon.json con el respaldo y r L1 |

@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 18:05. 311 archivos, ~131481.5k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 18:52. 313 archivos, ~131485.0k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -142,6 +142,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 18:05. 311 archivos, ~131
 | 2.0k | 161 | `trabajo/etapa2-final/salida.txt` |  |
 | 2.0k | 170 | `trabajo/revR/salida3.txt` |  |
 | 2.0k | 143 | `trabajo/micro/2026-11-01-prueba-parche.py` | Prueba el parche sobre una copia del ban L1; 1. parcial: la ficha de memoria queda ma L42; 2. ficha real L63; 3. dominio: la migracion y el retorno te L72; 4. corregir: original intacta, vigente c L85; 5. dominio de practica L100; 6. manual L107; 7. tablero en la copia L122; +1 |
+| 1.9k | 112 | `trabajo/p3a-woe-practica/3B-pauta.tex` |  |
 | 1.9k | 1 | `trabajo/macro/datos-chile/crec.json` |  |
 | 1.9k | 1 | `trabajo/macro/datos-chile/pib_pc.json` |  |
 | 1.9k | 156 | `trabajo/revR/salida.txt` |  |
@@ -150,6 +151,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 18:05. 311 archivos, ~131
 | 1.8k | 97 | `trabajo/2026-09-26-macro2-guia-sesion-1.md` | Macro II — Guía de la sesión 1 (sábado 2 L1; Materiales (dejar abiertos antes de empe L7; Paso 0 · Intención (09:00, 2 min) L14; Paso 1 · Reconocimiento Perry + caso (09 L19; Paso 2 · Preguntas predichas (09:10, 5 m L27; Paso 3 · Lectura con propósito (09:15, 2 L35; Paso 4 · Tus 3 respuestas (09:39, 6 min) L47; Paso 5 · ConcepTest solo (09:50, 15 min) L53; +7 |
 | 1.5k | 123 | `trabajo/econometria-ii-demre/scripts/03-base-seleccion.R` | los archivos del DEMRE vienen con ; y co L9; lo que elegimos de cada archivo, mas lo  L15; RBD, SITUACION_EGRESO, RAMA_EDUCACIONAL, L16; PREFERENCIA es para la Y, TIPO_MATRICULA L27; SITUACION_EGRESO: 1 es promocion del año L30; TIPO_PREF: la misma carrera se repite si L35; postulaciones trae una fila por preferen L39; left_join deja a todos los postulantes,  L44; +14 |
 | 1.5k | 42 | `trabajo/sociologia/fallos-pep1.md` | Fallos y apuestas para el repaso del mié L1; Marx (sáb 24-10 · bloque 1: 5/5 · ronda  L6; Weber (dom 25-10 · Ronda Weber: 10/10 ·  L13; Durkheim (dom 25-10 · Ronda Durkheim: 8/ L18; Tocqueville (lun 26-10 · Ronda Tocquevil L23; Repaso de reincidentes (lun 26-10 · 5/5  L31; Simulacro de la Prueba 1 (mar 27-10 · 38 L35 |
+| 1.5k | 93 | `trabajo/p1b-logit/1B-pauta.tex` |  |
 | 1.5k | 74 | `trabajo/econometria-ii-etapa2/etapa2-verificacion.R` | Verificación del instructivo Etapa 2 (Ec L1; Reproduce la base del profesor (clase 5, L2; ---------- Paso 0: leer ---------- L7; ---------- Paso 1: filtros en A -------- L14; ---------- Paso 2: B' y flag_postula --- L24; ---------- Paso 3: C' y left_join; I --- L29; ---------- Paso 4: X candidatas -------- L37; ---------- Etapa 2a: univariado -------- L57; +1 |
 | 1.5k | 80 | `trabajo/macro/2026-10-25-guia-tecnologia-tipo-control.tex` |  |
 | 1.4k | 90 | `trabajo/build-repaso/2026-11-01-repaso-matematico-control-2.tex` |  |

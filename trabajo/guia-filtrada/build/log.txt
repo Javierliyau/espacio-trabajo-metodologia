@@ -279,7 +279,7 @@ ase.sty
 fg)) (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
 [1{C:/Users/javie/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] [2]
-[3] [4] [5] [6] [7] [8]
+[3] [4] [5] [6] [7] [8] [9] [10]
 (C:\Espacio de trabajo Metodologia de estudio\trabajo\guia-filtrada\build\2026-
 11-03-guia-filtrada-10-ejercicios-pep1.aux) ) <C:\Users\javie\AppData\Local\MiK
 TeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1000.pk> <C:\Users\javie\AppData\Loc
@@ -313,7 +313,7 @@ ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users
 /javie/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10
 .pfb>
 Output written on "C:\Espacio de trabajo Metodologia de estudio\trabajo\guia-fi
-ltrada\build\2026-11-03-guia-filtrada-10-ejercicios-pep1.pdf" (8 pages, 311655 
-bytes).
+ltrada\build\2026-11-03-guia-filtrada-10-ejercicios-pep1.pdf" (10 pages, 321742
+ bytes).
 Transcript written on "C:\Espacio de trabajo Metodologia de estudio\trabajo\gui
 a-filtrada\build\2026-11-03-guia-filtrada-10-ejercicios-pep1.log".

@@ -239,6 +239,41 @@ La predicción para un bloque deja unos 10 puntos de teoría corta. Cada afirmac
 \end{porque}
 
 % ============================================================
+\bloque{6}{Selección múltiple (12 preguntas, unos 12 min)}
+
+\begin{porque}
+\textbf{Por qué este apartado.} En la PEP~2 de Econometría~I, Pfeng usó alternativas con \textbf{ejemplos casi literales de Wooldridge}, y la predicción para un bloque deja unos 10 puntos de teoría corta (70\,\%). Hay una sola alternativa correcta. Las cuentas se hacen con calculadora y los distractores son los errores típicos (\% en vez de pp, poner los malos arriba en el WOE, confundir sensibilidad con precisión). [Creado] con los contenidos de [W] cap.~7, 13 y 17, [SW] cap.~11 y 13, y las clases 2 a 6.
+\end{porque}
+
+\newcommand{\alts}[4]{\begin{enumerate}[label=\alph*),itemsep=0pt,topsep=1pt,leftmargin=1.6em]\item #1 \item #2 \item #3 \item #4\end{enumerate}}
+\begin{enumerate}[label=\textbf{SM\arabic*.},itemsep=4pt,leftmargin=2.8em]
+\item En un logit, $\hat z=-1{,}0+0{,}8\,D$, con $D$ binaria. El efecto parcial de $D$ sobre la probabilidad es:
+\alts{0,8 pp.}{18,1 pp.}{45,0 pp.}{80 pp.}
+\item En un logit, un cliente tiene $\hat P=0{,}20$ y $\hat\beta_x=0{,}5$. El efecto marginal de $x$ en ese punto es:
+\alts{0,50: sube $\hat P$ en 50 pp por unidad.}{0,10: sube $\hat P$ en 10 pp por unidad.}{0,08: sube $\hat P$ en unos 8 pp por unidad.}{0,16: sube $\hat P$ en unos 16 pp por unidad.}
+\item En un logit de incumplimiento, $\hat\beta_{PROP}=-0{,}25$. Ser propietario cambia los odds de incumplir en:
+\alts{$-25$\,\%.}{$-22{,}1$\,\%.}{$+28{,}4$\,\%.}{$-0{,}25$ pp.}
+\item Una regresión da $\hat\beta=0{,}006$ en el MPL y $\hat\beta=0{,}040$ en el logit para la misma variable. ¿Qué afirmación es correcta?
+\alts{El logit atribuye un efecto casi 7 veces mayor.}{Los coeficientes no se comparan, porque miden en escalas distintas; se comparan los efectos marginales.}{El MPL subestima el efecto, porque está sesgado.}{Como $0{,}040>0{,}006$, solo el logit es significativo.}
+\item ¿Cuál es una desventaja del MPL que el logit corrige?
+\alts{El MPL no se puede estimar por MCO.}{El MPL puede predecir probabilidades fuera de $[0,1]$ y supone un efecto marginal constante.}{El MPL no permite variables binarias como regresores.}{El MPL siempre tiene un $R^2$ menor.}
+\item Matriz de confusión ($y=1$ malo): VP $=30$, FN $=20$, FP $=10$, VN $=140$. La sensibilidad es:
+\alts{0,60.}{0,75.}{0,85.}{0,93.}
+\item Si el banco baja el corte de 0,5 a 0,3:
+\alts{Suben la sensibilidad y la especificidad.}{Sube la sensibilidad y baja la especificidad.}{Baja la sensibilidad y sube la especificidad.}{No cambia nada, porque el modelo es el mismo.}
+\item Un tramo tiene el 20\,\% de los buenos y el 10\,\% de los malos. Con la convención del profe ($\ln(\%B/\%M)\cdot100$), su WOE es:
+\alts{$-69{,}3$.}{0,693.}{69,3.}{10.}
+\item Una variable tiene IV $=0{,}25$. Según Siddiqi, su poder predictivo es:
+\alts{Nulo (no predice).}{Débil.}{Medio.}{Sospechoso de sobreajuste.}
+\item La edad entra al logit como factor con 5 tramos (no como WOE). ¿Cuántos $\beta$ se estiman para la edad?
+\alts{1.}{4.}{5.}{6.}
+\item Grupo tratado: media 50 antes y 58 después. Control: 45 antes y 49 después. El DiD es:
+\alts{4.}{8.}{9.}{13.}
+\item En $Y=\beta_0+\beta_1T+\beta_2Post+\beta_3\,T\cdot Post+u$ con solo dos periodos, ¿qué es correcto?
+\alts{$\beta_2$ es el efecto causal de la política.}{Se puede verificar el supuesto de tendencias paralelas comparando $\beta_1$ con cero.}{$\beta_3$ es el efecto en los tratados (ATT), si las tendencias habrían sido paralelas sin la política.}{Si $\beta_1\neq0$ el DiD es inválido, porque los grupos parten en niveles distintos.}
+\end{enumerate}
+
+% ============================================================
 \newpage
 \section*{Pauta (verificada en Python)}
 
@@ -320,6 +355,21 @@ d) \textbf{Contaminación}: el tratamiento llega al control. En b), c) y d) lo q
 5. \textbf{V}: WOE $>0$ significa que el tramo tiene proporcionalmente más buenos que malos.\\
 6. \textbf{V}: es una exclusión. Los funcionarios tienen condiciones distintas (descuento por planilla, tasas preferentes) y sesgarían el modelo (clase 5 [00:25:50]).\\
 7. \textbf{F}: el desgaste ligado al resultado rompe la comparabilidad que dio el azar. Es una amenaza a la validez interna (clase 6 [00:40:22]).
+\end{pauta}
+
+\begin{pauta}{6 · Selección múltiple}
+\textbf{Claves:} 1 b · 2 c · 3 b · 4 b · 5 b · 6 a · 7 b · 8 c · 9 c · 10 b · 11 a · 12 c.\\[2pt]
+SM1: $\Lambda(-0{,}2)-\Lambda(-1)=0{,}450-0{,}269=0{,}181$. La a) confunde $\beta$ con el efecto, y la c) da $\hat P(1)$.\\
+SM2: $0{,}2\cdot0{,}8\cdot0{,}5=0{,}08$. La b) olvida el $(1-\hat P)$.\\
+SM3: $100(e^{-0{,}25}-1)=-22{,}1$\,\%. La a) lee $\beta$ como \%, y la d) confunde odds con probabilidad.\\
+SM4 y SM5: escalas distintas (clase 3 [00:37:03]); el MPL se sale de $[0,1]$ y fuerza un efecto constante.\\
+SM6: $30/(30+20)=0{,}60$. La b) es la precisión ($30/40$), la c) la exactitud ($170/200$) y la d) la especificidad ($140/150$).\\
+SM7: con un corte más bajo se marcan más malos: suben VP y FP.\\
+SM8: $\ln(0{,}20/0{,}10)\cdot100=69{,}3$. La a) pone los malos arriba (convención de R), y la b) no multiplica por 100.\\
+SM9: 0,1 a 0,3 es medio; sobre 0,5 sería sospechoso.\\
+SM10: con $k$ tramos se estiman $k-1$ $\beta$; uno queda como base.\\
+SM11: $(58-50)-(49-45)=8-4=4$. La b) es antes y después, y la c) compara a los grupos después.\\
+SM12: $\beta_3$ es el ATT bajo tendencias paralelas. La a) es la tendencia común. La b) es falsa: con dos periodos no se verifica. La d) es falsa: el DiD permite niveles distintos.
 \end{pauta}
 
 \end{document}

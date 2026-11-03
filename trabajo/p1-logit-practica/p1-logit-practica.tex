@@ -1,0 +1,77 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[a4paper,margin=1.8cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage[most]{tcolorbox}
+\usepackage{array}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+
+% Recuadro en blanco para desarrollar a mano; ocupa el resto de la página
+\newcommand{\desarrollo}{%
+  \begin{tcolorbox}[enhanced,height fill,colback=white,colframe=black!25,boxrule=0.4pt,
+    title={\small Desarrollo},coltitle=black!60,colbacktitle=black!5]
+  \end{tcolorbox}}
+% Encabezado de cada parte
+\newcommand{\parte}[2]{%
+  \begin{tcolorbox}[colback=blue!4,colframe=blue!50!black,boxrule=0.5pt,left=4pt,right=4pt,top=3pt,bottom=3pt]
+  \textbf{#1}\ #2
+  \end{tcolorbox}}
+
+\begin{document}
+
+\textbf{\large Econometría II · Práctica PEP 1 · Pregunta 1 (35 pts)}\hfill \textbf{Tiempo: 30 min}\\[2pt]
+Sin apuntes, con calculadora. Escribe una frase de interpretación después de cada número.
+
+\vspace{4pt}
+\begin{tcolorbox}[colback=blue!4,colframe=blue!50!black,title=Riesgo de crédito]
+Un banco estima un logit de incumplimiento, con $y=1$ si el cliente es \textbf{malo} (no paga):
+\[
+\hat z = -2{,}50 + 0{,}055\,\text{CARGA} - 0{,}040\,\text{EDAD} - 0{,}90\,\text{PROP}
+\]
+CARGA: carga financiera (\% del ingreso que va a deudas) · EDAD: años · PROP: 1 si es propietario de su vivienda, 0 si no.\\
+Todos los coeficientes son significativos al 5\,\%. \quad Recuerda: $\hat P = \dfrac{1}{1+e^{-\hat z}}$.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=orange!6,colframe=orange!70!black,boxrule=0.5pt,left=4pt,top=2pt,bottom=2pt]
+\small Aquí $y=1$ es \textbf{malo}: un $\hat\beta$ negativo \textbf{reduce} el riesgo (T14). · Probabilidades en \textbf{pp}, no en «\%» (T13). · Dummy: \textbf{resta} $\hat P(1)-\hat P(0)$. Continua: $\hat P(1-\hat P)\,\hat\beta$.
+\end{tcolorbox}
+
+\parte{a) (10 pts)}{Para un cliente con CARGA $=35$ y EDAD $=40$, calcula $\hat P$ con PROP $=0$ y con PROP $=1$. ¿Cuál es el efecto de ser propietario sobre la probabilidad de incumplir? Interprétalo.}
+\desarrollo
+
+\newpage
+\parte{b) (8 pts)}{Calcula el efecto marginal de CARGA en los dos perfiles de a). Interpreta el de PROP $=0$ para un aumento de \textbf{10 puntos} de carga. ¿Por qué el efecto es distinto en los dos perfiles si $\hat\beta_{\text{CARGA}}$ es uno solo?}
+\begin{tcolorbox}[enhanced,height=13.5cm,colback=white,colframe=black!25,boxrule=0.4pt,
+    title={\small Desarrollo},coltitle=black!60,colbacktitle=black!5]
+\end{tcolorbox}
+
+\parte{c) (5 pts)}{Calcula e interpreta $e^{\hat\beta_{\text{PROP}}}$.}
+\desarrollo
+
+\newpage
+\parte{d) (12 pts)}{Con un corte de $0{,}5$, el modelo se aplica a 200 clientes: 60 son malos, y de ellos 42 tienen $\hat P>0{,}5$. De los 140 buenos, 21 tienen $\hat P>0{,}5$.
+\begin{enumerate}[label=\arabic*.,itemsep=0pt,topsep=2pt]
+  \item Arma la matriz de confusión.
+  \item Calcula la exactitud, la sensibilidad, la especificidad y la precisión.
+  \item Interpreta la sensibilidad en el contexto del banco.
+  \item Si el banco baja el corte a $0{,}3$, ¿qué pasa con la sensibilidad y la especificidad? ¿Por qué podría convenirle?
+\end{enumerate}}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|>{\centering}p{3.2cm}|>{\centering}p{3.2cm}|>{\centering}p{3.2cm}|>{\centering\arraybackslash}p{2.2cm}|}
+\hline
+ & \textbf{Predicho malo} ($\hat y=1$) & \textbf{Predicho bueno} ($\hat y=0$) & \textbf{Total} \\ \hline
+\textbf{Real malo} ($y=1$) & & & \\ \hline
+\textbf{Real bueno} ($y=0$) & & & \\ \hline
+\textbf{Total} & & & 200 \\ \hline
+\end{tabular}
+\end{center}
+\desarrollo
+
+\end{document}

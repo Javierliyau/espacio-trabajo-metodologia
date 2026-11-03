@@ -1,0 +1,250 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{booktabs,tabularx,xcolor,amssymb}
+\usepackage[most]{tcolorbox}
+\definecolor{USACHNavy}{RGB}{15,32,67}
+\newtcolorbox{guion}{colback=USACHNavy!5,colframe=USACHNavy!60,boxrule=0pt,leftrule=3pt,sharp corners,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\pagestyle{plain}
+\begin{document}
+{\LARGE\bfseries Econometría II $\cdot$ Etapa 1: todo lo que hay que saber\par}\medskip
+
+Presentación: jueves 15-10, 08:15, máximo 10 minutos (el profe corta en el 10). Profesor: Brian Pfeng. Grupo: David Cuevas, Javier Li-Yau, Benjamín Lizana, Ana Nacif.\par
+
+\medskip\hrule\medskip
+
+\section*{1. La idea en 30 segundos}
+
+Queremos saber \textbf{de qué depende que un estudiante se matricule en una de sus tres primeras preferencias}. Para eso armamos una base con \textbf{108.251 estudiantes} (toda la población que cumple los filtros, no una muestra) y una variable de respuesta binaria. En la Etapa 3 se estima un \textbf{modelo logit} con esa base.\par
+
+\textbf{El trabajo tiene tres etapas:}\par
+
+\begin{tabularx}{\linewidth}{lXl}\toprule
+\textbf{Etapa} & \textbf{Qué se hace} & \textbf{Cuándo}\\ \midrule
+1 & Armar la base: población, N y variables & Presentación jue 15-10\\
+2 & Análisis descriptivo de cada X frente a la Y; traer variables del MINEDUC & Entrega dom 18-10\\
+3 & Estimar el logit e interpretar & Más adelante\\
+\bottomrule\end{tabularx}\medskip
+
+\medskip\hrule\medskip
+
+\section*{2. Qué evalúa el profe (clase del 08-10)}
+
+\begin{itemize}
+\item \textbf{Llegar al N:} que la población sea la correcta. «Lo que voy a tener claro es si usted llegó o no llegó al N» [00:54:17].
+\item \textbf{Creación de variables} [00:54:17].
+\item \textbf{Interpretación a priori:} lo que más premia. Entender, \textbf{sin haber hecho el modelo}, cómo cada variable afecta a la Y [00:55:43, 01:59:41].
+\item \textbf{No quedarse con los mínimos:} ir al MINEDUC y cruzar por RBD [02:01:08].
+\item \textbf{Población, no muestra:} «esto no es una muestra, es la población completa» [00:55:43].
+\end{itemize}
+
+\medskip\hrule\medskip
+
+\section*{3. Los datos}
+
+Todo viene del \textbf{portal del DEMRE, admisión 2026}: cuatro archivos públicos.\par
+
+\begin{tabularx}{\linewidth}{lXl}\toprule
+\textbf{Archivo} & \textbf{Qué trae} & \textbf{Filas}\\ \midrule
+B & Inscritos: colegio (RBD), sexo, tramo de ingreso, dependencia & 317.700\\
+C & Notas, NEM, ranking y puntajes PAES & 317.700\\
+D & Postulaciones: una fila por cada carrera postulada & 1.686.689\\
+M & Matrícula: vía, tipo y preferencia en que quedó & 128.345\\
+\bottomrule\end{tabularx}\medskip
+
+\begin{itemize}
+\item \textbf{Unidad de análisis: la persona.} Cada estudiante tiene un \textbf{ID\_aux} anonimizado; con esa llave se unen los archivos.
+\item \textbf{Full join}, para no perder a nadie al unir: los no matriculados no aparecen en el archivo M y los necesitamos para la Y = 0.
+\item El archivo D tiene 1,7 millones de filas porque cada alumno postula a varias carreras: se deja en \textbf{una fila por estudiante}.
+\item \textbf{Dos niveles de variables:} las de la \textbf{persona} (notas, puntajes, sexo, ingreso) y las del \textbf{colegio}, que se construyen agrupando por \textbf{RBD}.
+\end{itemize}
+
+\medskip\hrule\medskip
+
+\section*{4. El embudo: cómo se llega al N}
+
+Memoria: \textbf{317 $\rightarrow$ 218 $\rightarrow$ 115 $\rightarrow$ 109 $\rightarrow$ 108} (miles).\par
+
+\begin{tabularx}{\linewidth}{lXl}\toprule
+\textbf{Paso} & \textbf{Filtro} & \textbf{Quedan}\\ \midrule
+0 & Unión de los cuatro archivos & 317.700\\
+1 & Egresados 2025 que eran alumnos regulares (salen validaciones y extranjeros) & 218.066\\
+2 & Postularon al menos a una carrera por la vía regular & 114.865\\
+3 & No matriculados, o matriculados por vía regular (VIA = 1) y tipo «postulación regular» (TIPO\_MATRICULA = 1) & 108.598\\
+4 & Inscribieron alguna prueba del proceso 2026 & 108.596\\
+5 & Con puntaje NEM distinto de 0 (salen 345) & \textbf{108.251}\\
+\bottomrule\end{tabularx}\medskip
+
+Base final: \textbf{108.251 filas y 30 columnas}, de \textbf{3.196 colegios} distintos.\par
+
+\textbf{Por qué el paso 3 deja fuera a algunos matriculados:} los que se matricularon por otra vía (por ejemplo, admisión especial) no compitieron por sus preferencias en el proceso regular, así que no sirven para la pregunta.\par
+
+\medskip\hrule\medskip
+
+\section*{5. La variable de respuesta (Y)}
+
+\texttt{PREF\_TOP3\_DUMMY}:\par
+\begin{itemize}
+\item \textbf{1} si se matriculó en su preferencia \textbf{1, 2 o 3};
+\item \textbf{0} si quedó en la \textbf{cuarta o más abajo}, \textbf{o no se matriculó}.
+\end{itemize}
+
+\begin{tabularx}{\linewidth}{lXll}\toprule
+\textbf{Y} & \textbf{Quiénes} & \textbf{N} & \textbf{\%}\\ \midrule
+1 & Preferencia 1: 40.002 $\cdot$ Pref. 2: 13.270 $\cdot$ Pref. 3: 7.028 & \textbf{60.300} & \textbf{55,7 \%}\\
+0 & Pref. 4 o más abajo: 8.403 $\cdot$ No matriculados: 39.548 & \textbf{47.951} & \textbf{44,3 \%}\\
+\bottomrule\end{tabularx}\medskip
+
+Memoria: \textbf{60 mil arriba, 48 mil abajo; de los de abajo, 8 mil quedaron lejos y 40 mil no se matricularon.}\par
+
+\textbf{Por qué incluimos a los no matriculados:} postularon y no lograron quedar en sus tres primeras. Si los sacáramos, solo miraríamos a los que tuvieron éxito en matricularse y el modelo sobrestimaría la probabilidad. El profe definió el 0 como «el complemento» del 1 [00:22:29]. Además, la Y queda \textbf{equilibrada} (56 contra 44); sin ellos era 88 contra 12.\par
+
+\textbf{Por qué no incluimos a los que rindieron y no postularon:} la pregunta es en qué preferencia quedó; quien no postuló no ordenó preferencias, así que no participa de ese evento. Incluirlos mezclaría dos decisiones: \textbf{postular o no} y \textbf{dónde quedar}. \textit{Ojo: en el minuto 55:43 el profe parece decir que deberían estar; si lo pregunta, responder con este argumento y ofrecer agregarlos en la Etapa 2.}\par
+
+\medskip\hrule\medskip
+
+\section*{6. Las variables que creamos}
+
+\textbf{Del colegio (agrupando por RBD, con todos los inscritos del colegio, antes de filtrar la base):}\par
+\begin{itemize}
+\item \texttt{N\_ALUMNOS}: total de inscritos a la PAES del colegio. Mide el \textbf{tamaño} del colegio.
+\item \texttt{INGRESO\_COLEGIO}: \textbf{mediana} del tramo de ingreso per cápita de sus alumnos (1 a 10). Mide el \textbf{nivel socioeconómico del colegio}. Se usa la mediana porque el tramo es ordinal y la mediana no se deja llevar por pocos alumnos en los extremos.
+\item \texttt{N\_MATRICULADOS}: alumnos del colegio matriculados por vía regular. Mide la \textbf{cultura de seguir estudios}.
+\end{itemize}
+
+\textit{Por qué antes de filtrar:} para que describan al colegio completo y no solo a los alumnos que quedaron en nuestra base.\par
+
+\textbf{Del estudiante (dummies):}\par
+\begin{itemize}
+\item \texttt{TP\_DUMMY}: 1 si viene de un colegio \textbf{técnico profesional} (18.877 estudiantes; 89.374 del resto).
+\item \texttt{PACE}: 1 si fue preseleccionado en el programa PACE (7.790).
+\item \texttt{BEA}: 1 si tiene Beca de Excelencia Académica, el 10 \% mejor de su curso (9.916).
+\end{itemize}
+
+\textbf{Ajuste de datos:}\par
+\begin{itemize}
+\item Código \textbf{99} del ingreso familiar significa «no responde» $\rightarrow$ se pasa a \textbf{NA}. Son \textbf{29.199} casos (27 \% de la base). No se borran las filas porque sería perder casi 30 mil estudiantes que pueden ser distintos; en la Etapa 2 se evalúa tratarlos como un tramo más.
+\end{itemize}
+
+\medskip\hrule\medskip
+
+\section*{7. Efecto esperado a priori (lo más importante)}
+
+La lógica general: \textbf{para quedar en una de las tres primeras hay que alcanzar el puntaje de corte de las carreras que uno más quiere.} Todo lo que suba el puntaje o los recursos para prepararse debería subir la probabilidad.\par
+
+\begin{tabularx}{\linewidth}{lllX}\toprule
+\textbf{Dimensión} & \textbf{Variable} & \textbf{Signo} & \textbf{Por qué}\\ \midrule
+Rendimiento & \texttt{PTJE\_NEM}, \texttt{PTJE\_RANKING} & \textbf{+} & Pesan en el puntaje ponderado\\
+Rendimiento & \texttt{CLEC}, \texttt{MATE1} (PAES) & \textbf{+} & Más puntaje, más carreras alcanzables\\
+Rendimiento & \texttt{BEA} & \textbf{+} & Buen rendimiento y beca para pagar\\
+Rendimiento & \texttt{PACE} & \textbf{+} & Cupos garantizados en universidades PACE\\
+Socioeconómica & \texttt{INGRESO\_PERCAPITA} & \textbf{+} & Puede pagar y preparar la PAES\\
+Socioeconómica & \texttt{INGRESO\_COLEGIO} & \textbf{+} & Entorno con más recursos y redes\\
+Socioeconómica & \texttt{TP\_DUMMY} & \textbf{$-$} & Prepara menos para la PAES; más salida a CFT o al trabajo\\
+Colegio & \texttt{N\_MATRICULADOS} & \textbf{+} & Cultura de seguir estudios\\
+Colegio & \texttt{N\_ALUMNOS} & \textbf{?} & Más recursos, pero menos atención por alumno\\
+Individuo & \texttt{SEXO} & \textbf{?} & Mujeres: mejor NEM; hombres: más puntaje en MATE1\\
+\bottomrule\end{tabularx}\medskip
+
+Memoria: \textbf{rendimiento +, plata +, técnico $-$, tamaño y sexo ?}\par
+
+\textbf{Matiz que vale puntos:} el efecto del ingreso podría ser \textbf{menor de lo esperado por la gratuidad}, que baja la barrera de pagar. Es algo que el modelo tiene que medir.\par
+
+\textbf{Por qué está bien poner «?»:} el profe pide entender el problema, no adivinar. Decir que hay dos efectos opuestos y que el modelo decide es sentido crítico.\par
+
+\medskip\hrule\medskip
+
+\section*{8. Variables que NO pueden ser X}
+
+\begin{tabularx}{\linewidth}{lX}\toprule
+\textbf{Variable} & \textbf{Problema}\\ \midrule
+\texttt{PREFERENCIA} & Con ella se construye la Y\\
+\texttt{PTJE\_POND} & Es el puntaje de la carrera en que ya quedó: es un resultado, no una causa\\
+\texttt{VIA}, \texttt{TIPO\_MATRICULA} & Vacías en los 39.548 no matriculados\\
+\bottomrule\end{tabularx}\medskip
+
+Idea clave: \textbf{usarlas sería explicar la Y con la misma Y.} Quedan en la base solo como información.\par
+
+\medskip\hrule\medskip
+
+\section*{9. Cifras descriptivas que conviene saber}
+
+\begin{tabularx}{\linewidth}{Xllll}\toprule
+\textbf{Variable} & \textbf{Mín.} & \textbf{Mediana} & \textbf{Promedio} & \textbf{Máx.}\\ \midrule
+Promedio de notas & 4,20 & 6,23 & 6,19 & 7,00\\
+PTJE\_NEM & 163 & 779 & 767 & 1.000\\
+PTJE\_RANKING & 163 & 793 & 781 & 1.000\\
+CLEC & 0 & 634 & 640 & 1.000\\
+MATE1 & 0 & 645 & 668 & 1.000\\
+INGRESO\_COLEGIO & 1,0 & 4,0 & 4,8 & 10,0\\
+N\_ALUMNOS & 8 & 129 & 164 & 947\\
+\bottomrule\end{tabularx}\medskip
+
+\begin{itemize}
+\item Los mínimos de 0 en CLEC y MATE1 son estudiantes que \textbf{no rindieron esa prueba} (77 y 161).
+\item Sexo: \textbf{55,2 \% mujeres} (59.799) y \textbf{44,8 \% hombres} (48.452).
+\end{itemize}
+
+\medskip\hrule\medskip
+
+\section*{10. Lo que viene (Etapa 2)}
+
+\begin{itemize}
+\item Cruzar \textbf{cada X con la Y} (análisis descriptivo).
+\item Ir al \textbf{MINEDUC y cruzar por RBD}: matrícula del colegio, número de cursos, ratio estudiantes por profesor, ruralidad.
+\end{itemize}
+  - Ratio estudiantes por profesor: signo esperado \textbf{$-$} (menos atención por alumno).\par
+  - Ruralidad: \textbf{$-$} (menos acceso a preparación y a oferta cercana).\par
+\begin{itemize}
+\item Se prefiere el colegio antes que la comuna porque \textbf{las comunas son muy heterogéneas} (el profe dio el ejemplo de La Florida y Maipú).
+\item Evaluar tratar el NA del ingreso como un tramo más.
+\end{itemize}
+
+\medskip\hrule\medskip
+
+\section*{11. Preguntas probables y respuestas cortas}
+
+\textbf{¿Por qué es población y no muestra?}\par
+\begin{guion}Están todos los que cumplen los criterios, no una parte al azar. No hay error muestral.\end{guion}
+
+\textbf{¿De dónde sale el 108.251?}\par
+\begin{guion}317.700 $\rightarrow$ egresados regulares 218.066 $\rightarrow$ postularon por vía regular 114.865 $\rightarrow$ filtro de matrícula 108.598 $\rightarrow$ con NEM 108.251.\end{guion}
+
+\textbf{¿Por qué incluyen a los no matriculados?}\par
+\begin{guion}Postularon y no quedaron arriba. Sacarlos sesgaría la base hacia los exitosos.\end{guion}
+
+\textbf{¿Y los que rindieron y no postularon?}\par
+\begin{guion}No ordenaron preferencias, así que no participan del evento. Si prefiere incluirlos, los agregamos en la Etapa 2.\end{guion}
+
+\textbf{¿Por qué full join?}\par
+\begin{guion}Para no perder a nadie al unir; los no matriculados no están en el archivo de matrícula.\end{guion}
+
+\textbf{¿Por qué la mediana en INGRESO\_COLEGIO?}\par
+\begin{guion}El tramo es ordinal (1 a 10) y la mediana no se deja llevar por los extremos.\end{guion}
+
+\textbf{¿Por qué el 99 pasa a NA y no se borra?}\par
+\begin{guion}Son casi 30 mil; borrarlos achica la base y saca a un grupo que puede ser distinto.\end{guion}
+
+\textbf{¿Por qué el sexo tiene «?»?}\par
+\begin{guion}Dos efectos opuestos: mujeres con mejor NEM, hombres con más puntaje en matemática.\end{guion}
+
+\textbf{¿Por qué TP es negativo?}\par
+\begin{guion}La formación técnica prepara menos para la PAES y muchos siguen a un CFT o al trabajo.\end{guion}
+
+\textbf{¿Por qué no pueden usar PTJE\_POND?}\par
+\begin{guion}Es el puntaje con que ya quedó en una carrera: es consecuencia de la Y, no causa.\end{guion}
+
+\medskip\hrule\medskip
+
+\section*{12. Las cifras de memoria (repasar antes de entrar)}
+
+\begin{itemize}
+\item \textbf{108.251} población final $\cdot$ \textbf{3.196} colegios $\cdot$ \textbf{30} columnas.
+\item \textbf{60.300 (55,7 \%)} con Y = 1 $\cdot$ \textbf{47.951 (44,3 \%)} con Y = 0.
+\item De los 0: \textbf{8.403} en pref. 4 o más $\cdot$ \textbf{39.548} no matriculados.
+\item Embudo: \textbf{317.700 $\rightarrow$ 218.066 $\rightarrow$ 114.865 $\rightarrow$ 108.598 $\rightarrow$ 108.251}.
+\item \textbf{18.877} TP $\cdot$ \textbf{29.199} NA en ingreso $\cdot$ \textbf{55,2 \%} mujeres.
+\end{itemize}
+\end{document}

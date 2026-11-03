@@ -1,0 +1,106 @@
+Avisos:
+1: package 'dplyr' was built under R version 4.5.3 
+2: package 'ggplot2' was built under R version 4.5.3 
+3: package 'scorecard' was built under R version 4.5.3 
+4: package 'car' was built under R version 4.5.3 
+5: package 'carData' was built under R version 4.5.3 
+N de la muestra elegible: 168714 
+Y=1: 60234  | tasa: 35.7 %
+       Top3
+Postulo     0     1
+      0 55361     0
+      1 53119 60234
+Candidatas con mas de 5% NA (se mantienen para WOE):
+                                             variable pct_na
+INGRESO_PERCAPITA_GRUPO_FA INGRESO_PERCAPITA_GRUPO_FA  27.66
+# A tibble: 2 × 3
+  BEA_DUMMY      n tasa_top3
+      <int>  <int>     <dbl>
+1         0 155278     0.345
+2         1  13436     0.501
+# A tibble: 2 × 3
+  PACE_DUMMY      n tasa_top3
+       <int>  <int>     <dbl>
+1          0 155165     0.355
+2          1  13549     0.381
+IV >= 0.5: verificar posible fuga y codificacion:
+                         variable     IV      poder
+CLEC_REG_ACTUAL   CLEC_REG_ACTUAL 0.7339 Sospechoso
+MATE1_REG_ACTUAL MATE1_REG_ACTUAL 0.6266 Sospechoso
+
+Call:
+glm(formula = reformulate(paste0(x_finales, "_woe"), response = "PREF_TOP3_DUMMY"), 
+    family = binomial(), data = woe)
+
+Coefficients:
+                               Estimate Std. Error z value             Pr(>|z|)
+(Intercept)                    -0.58159    0.00565 -102.90 < 0.0000000000000002
+CLEC_REG_ACTUAL_woe             0.54849    0.00916   59.88 < 0.0000000000000002
+MATE1_REG_ACTUAL_woe            0.45052    0.01002   44.96 < 0.0000000000000002
+PROMEDIO_NOTAS_woe              0.42822    0.01017   42.10 < 0.0000000000000002
+TP_DUMMY_woe                    0.33464    0.01882   17.78 < 0.0000000000000002
+DEPENDENCIA_3_woe              -0.02790    0.01964   -1.42               0.1554
+EDAD_MESES_woe                  0.12316    0.02786    4.42            0.0000099
+INGRESO_PERCAPITA_GRUPO_FA_woe  0.07726    0.02909    2.66               0.0079
+RINDE_M2_woe                   -0.06160    0.03784   -1.63               0.1036
+                                  
+(Intercept)                    ***
+CLEC_REG_ACTUAL_woe            ***
+MATE1_REG_ACTUAL_woe           ***
+PROMEDIO_NOTAS_woe             ***
+TP_DUMMY_woe                   ***
+DEPENDENCIA_3_woe                 
+EDAD_MESES_woe                 ***
+INGRESO_PERCAPITA_GRUPO_FA_woe ** 
+RINDE_M2_woe                      
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 219896  on 168713  degrees of freedom
+Residual deviance: 189301  on 168705  degrees of freedom
+AIC: 189319
+
+Number of Fisher Scoring iterations: 4
+
+Coeficientes negativos o sin significancia al 5% (revisar, no borrar sin criterio):
+            termino    beta error_std      z p_valor      variable      IV
+6 DEPENDENCIA_3_woe -0.0279   0.01964 -1.421  0.1554 DEPENDENCIA_3 0.10374
+9      RINDE_M2_woe -0.0616   0.03784 -1.628  0.1036      RINDE_M2 0.02383
+  significativo_5pct
+6              FALSE
+9              FALSE
+                                                  observacion
+6 No significativo al 5%; discutir sin eliminar mecanicamente
+9 No significativo al 5%; discutir sin eliminar mecanicamente
+Variables definitivas: CLEC_REG_ACTUAL, MATE1_REG_ACTUAL, PROMEDIO_NOTAS, TP_DUMMY, DEPENDENCIA_3, EDAD_MESES, INGRESO_PERCAPITA_GRUPO_FA, RINDE_M2 
+                    variable      IV    pct_NA     beta
+1            CLEC_REG_ACTUAL 0.73386  0.000000  0.54849
+2           MATE1_REG_ACTUAL 0.62663  0.000000  0.45052
+3             PROMEDIO_NOTAS 0.39475  0.000000  0.42822
+4                   TP_DUMMY 0.10605  0.000000  0.33464
+5              DEPENDENCIA_3 0.10374  0.001778 -0.02790
+6                 EDAD_MESES 0.04862  0.000000  0.12316
+7 INGRESO_PERCAPITA_GRUPO_FA 0.04167 27.661012  0.07726
+8                   RINDE_M2 0.02383  0.000000 -0.06160
+                                                                     p_valor
+1 0.000000000000000000000000000000000000000000000000000000000000000000000000
+2 0.000000000000000000000000000000000000000000000000000000000000000000000000
+3 0.000000000000000000000000000000000000000000000000000000000000000000000000
+4 0.000000000000000000000000000000000000000000000000000000000000000000000103
+5 0.155381957122262159831649341867887414991855621337890625000000000000000000
+6 0.000009858360048146637757970900395321223186329007148742675781250000000000
+7 0.007912332810706551589063906249066349118947982788085937500000000000000000
+8 0.103569531068466766376978682728804415091872215270996093750000000000000000
+    VIF
+1 1.585
+2 1.729
+3 1.226
+4 1.132
+5 1.353
+6 1.036
+7 1.181
+8 1.106
+ETAPA 2 TERMINADA. Resultados en: C:/Espacio de trabajo Metodologia de estudio/trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david 
+EXIT 0

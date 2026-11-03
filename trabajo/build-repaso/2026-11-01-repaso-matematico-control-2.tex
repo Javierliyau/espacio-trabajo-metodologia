@@ -1,0 +1,90 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{fontspec,amsmath,amssymb,booktabs,graphicx,enumitem,parskip,xcolor}
+\setmainfont{Cambria}
+\usepackage{unicode-math}
+\setmathfont{Cambria Math}
+\usepackage[spanish,es-noshorthands]{babel}
+\pagestyle{plain}
+\begin{document}
+\begin{center}{\LARGE\bfseries Control 2 Macro II: repaso si es matemático}\end{center}
+
+Lun 2-11, 09:50. El aviso es de segunda mano («el profe me confirmó que será matemático») y no aclara si pide derivar o calcular. Las derivaciones son la base y los numéricos usan las mismas fórmulas, así que aquí están ambos. Son unos 45 minutos.
+
+\section*{Orden de repaso}
+
+Escribe cada fila de memoria y luego revisa. La probabilidad es de que el tema aparezca, con su rango entre paréntesis.
+
+\begin{center}\small\begin{tabular}{p{0.6cm}p{9.4cm}p{1.8cm}p{1.9cm}}\toprule
+\# & Qué rehacer & Prob. & Dónde \\\midrule
+1 & Derivar $g_A = \lambda n/(1-\phi)$ & 35 \% (19-53) & Simulacro Ej. 1a \\
+2 & Alza de $s_R$: salto, transición y nuevo nivel de $A$ & 49 \% (31-68) & Simulacro Ej. 1b-c \\
+3 & Llegar a $y^*(t)$ (5.11) & 42 \% (29-54) & §1 \\
+4 & $s_R$ que maximiza $y^*$ & 26 \% (19-34) & §1 \\
+5 & CPO de $L_Y$ y $x_j$: $w$ y $p_j$ & 26 \% (16-36) & Simulacro Ej. 2a \\
+6 & Monopolista: $p = r/\alpha$ y cantidad $x$ & 34 \% (22-47) & Simulacro Ej. 2b y §2 \\
+7 & $x = K/A$, $\pi$ y recuperar (5.16) & 23-27 \% (15-36) & Simulacro Ej. 2c \\
+8 & Numéricos de 5.1 y 5.2 & 5 \% cada uno (0-20) & §3 \\
+\bottomrule\end{tabular}\end{center}
+
+Menos probables: Romer con $\phi = 1$ (6 \%) y $L_A$ constante (7 \%). Basta con el Comente 1 del simulacro.
+
+\textbf{Cómo leer estas cifras.} Son un modelo de juicio con un solo control previo, no una frecuencia. Da 76 \% de que caiga algo de 5.1 y 51 \% de que caiga algo de 5.2, así que no conviene descartar ninguna de las dos secciones. Un 16 \% de los ejercicios simulados cae fuera de esta lista. Si los incisos no vienen encadenados, $s_R$ baja a 33 \% e $y^*$ a 14 \%. Sin el peso de la Ayudantía 4, el monopolista baja a 22 \% y $g_A$ también.
+
+\section*{§1. $y^*(t)$ y el mejor $s_R$}
+
+Con $\lambda = 1$ y $\phi = 0$, la ecuación (5.9) es $\dot A/A = \theta s_R L/A$. En la senda balanceada $\dot A/A = g_A$, de donde:
+
+\begin{equation*}A^*(t) = \frac{\theta s_R}{g_A} L(t)\end{equation*}
+
+Solow con $AL_Y$ como trabajo efectivo da $Y/(AL_Y)$ constante. Como $L_Y = (1-s_R)L$, al pasar a producto por persona aparece el factor $(1-s_R)$, que es la ecuación (5.10):
+
+\begin{equation*}\left(\frac{y}{A}\right)^* = \left(\frac{s_K}{n+g_A+\delta}\right)^{\alpha/(1-\alpha)} (1-s_R)\end{equation*}
+
+Reemplazando $A^*$ se llega a (5.11):
+
+\begin{equation*}y^*(t) = \left(\frac{s_K}{n+g_A+\delta}\right)^{\alpha/(1-\alpha)} (1-s_R)\, \frac{\theta s_R}{g_A}\, L(t)\end{equation*}
+
+\textbf{Lectura.} $s_R$ aparece dos veces, con signos opuestos: más investigadores suben $A$, pero dejan menos gente produciendo. Además, $y^*$ es proporcional a $L$ por la no rivalidad de las ideas.
+
+\textbf{Mejor $s_R$.} $g_A$ no depende de $s_R$, así que basta maximizar $(1-s_R)s_R$. La derivada es $1 - 2s_R = 0$, y entonces $s_R = \tfrac{1}{2}$.
+
+\section*{§2. Cantidad del monopolista (Ayudantía 4, P5 y P6)}
+
+El simulacro pide el precio, pero no la cantidad. La CPO de $\pi = p(x)x - rx$ es $p + xp'(x) = r$. Según (5.13), $p(x) = \alpha L_Y^{1-\alpha} x^{\alpha-1}$, así que $xp'/p = \alpha - 1$ y:
+
+\begin{equation*}p\,\alpha = r \quad\Rightarrow\quad p = \frac{r}{\alpha}\end{equation*}
+
+Igualando ese precio con la demanda (5.13):
+
+\begin{equation*}\alpha L_Y^{1-\alpha} x^{\alpha-1} = \frac{r}{\alpha} \quad\Rightarrow\quad x = L_Y \left(\frac{\alpha^2}{r}\right)^{1/(1-\alpha)}\end{equation*}
+
+Todos enfrentan la misma demanda y el mismo $r$, así que cobran el mismo $p$ y venden el mismo $x$ (P5c). Por eso $K = \int_0^A x_j\,dj = Ax$, es decir, $x = K/A$ (P6).
+
+\section*{§3. Numéricos}
+
+Tapa los resultados y hazlos con calculadora.
+
+\textbf{5.1.} Datos: $\lambda = 1$, $\phi = 0$, $\theta = 0{,}01$, $L = 1000$, $n = 1$ \%, $s_R = 0{,}05$.
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item $g_A = \lambda n/(1-\phi) = 1$ \%.
+\item $A = \theta s_R L/g_A = 0{,}01 \cdot 0{,}05 \cdot 1000/0{,}01 = 50$.
+\item Si $s_R$ sube a $0{,}10$, $A$ no salta. La tasa de impacto es $0{,}01 \cdot 0{,}10 \cdot 1000/50 = 2$ \% y vuelve gradualmente a 1 \%.
+\item Con el mismo $L$, $A$ llega a 100.
+\item $y^*$ se multiplica por $(0{,}90 \cdot 0{,}10)/(0{,}95 \cdot 0{,}05) = 1{,}89$.
+\end{itemize}
+
+\textbf{5.2.} Datos: $\alpha = 0{,}5$, $K = 1000$, $A = 10$, $L_Y = 100$.
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item $x = K/A = 100$.
+\item $Y = K^\alpha (AL_Y)^{1-\alpha} = 1000$.
+\item $w = (1-\alpha)Y/L_Y = 5$.
+\item $p = \alpha L_Y^{1-\alpha} x^{\alpha-1} = 0{,}5$.
+\item $r = \alpha p = 0{,}25$.
+\item $\pi = (p-r)x = 25$, igual a $\alpha(1-\alpha)Y/A$.
+\item Control: $wL_Y + rK + \pi A = 500 + 250 + 250 = 1000 = Y$.
+\end{itemize}
+
+\end{document}

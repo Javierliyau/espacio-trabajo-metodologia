@@ -1,0 +1,1233 @@
+{
+ "ramo": "Microeconomía II",
+ "generado": "2026-10-22 16:34",
+ "nota": "Editable: fecha, orden (orden_supuesto=false al corregir), alcance (alcance_manual=true), bloom_claude. Se conserva al regenerar.",
+ "evaluaciones": {
+  "microeconomia-ii/2026-1-control-1-mundaca": {
+   "profesor": "Mundaca",
+   "tipo": "Control",
+   "numero": 1,
+   "anio": 2026,
+   "semestre": 1,
+   "universidad": "Universidad de Santiago de Chile",
+   "origen": "reconstruido",
+   "fecha": null,
+   "orden": 1.0,
+   "orden_supuesto": true,
+   "alcance": [
+    "U1",
+    "U2"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "Comente 1",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "monopolio",
+      "elasticidad precio de la demanda",
+      "maximización de beneficios"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Un monopolista maximizador de beneficios puede elegir operar en el tramo inelástico de la demanda si allí el precio es suficientemente alto.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 2",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "monopolio",
+      "ingreso marginal",
+      "equilibrio de monopolio"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Una vez que el monopolista encuentra el precio óptimo usando $Img = Cmg$, la cantidad óptima se obtiene desde la curva de ingreso marginal.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 3",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "monopolio",
+      "pérdida irrecuperable de eficiencia",
+      "excedente del consumidor"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "La pérdida irrecuperable de eficiencia del monopolio corresponde a toda la pérdida de excedente del consumidor.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 4",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "discriminación de precios",
+      "pérdida de eficiencia",
+      "monopolio"
+     ],
+     "unidades": {
+      "U2": 0.5,
+      "U1": 0.5
+     },
+     "ambiguo": true,
+     "enunciado": "Cuando el monopolista puede aplicar discriminación perfecta se tiene que la perdida de eficiencia respecto de mercado competitivo es mayor en comparación con monopolio de precio único.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Desarrollo 1",
+     "puntos": 10.0,
+     "tipo": "analisis",
+     "temas": [
+      "índice de Lerner",
+      "elasticidad precio de la demanda",
+      "poder de mercado"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Explique la relación entre elasticidad de demanda y poder de mercado del monopolista. (Pista: Lerner)",
+     "bloom_gemini": "B1",
+     "bloom_claude": "B1",
+     "imputado": false,
+     "bloom": "B1"
+    },
+    {
+     "n": "Desarrollo 2",
+     "puntos": 10.0,
+     "tipo": "analisis",
+     "temas": [
+      "monopolio",
+      "eficiencia de Pareto",
+      "bienestar social"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Explique por qué el monopolio no es eficiente en sentido de Pareto.",
+     "bloom_gemini": "B1",
+     "bloom_claude": "B1",
+     "imputado": false,
+     "bloom": "B1"
+    },
+    {
+     "n": "Matemático 1a",
+     "puntos": 20.0,
+     "tipo": "matematico",
+     "temas": [
+      "monopolio",
+      "equilibrio de monopolio",
+      "costos totales"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Un monopolista posee una función de costes totales de la forma $c(q) = 2q^2$ y abastece a un mercado cuya función de demanda es $q(p) = 75 - \\frac{p}{8}$. a) Obtenga todos los elementos del equilibrio del monopolista.",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "Matemático 1b",
+     "puntos": 20.0,
+     "tipo": "matematico",
+     "temas": [
+      "pérdida irrecuperable de eficiencia",
+      "competencia perfecta",
+      "excedente del consumidor",
+      "excedente del productor"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Un monopolista posee una función de costes totales de la forma $c(q) = 2q^2$ y abastece a un mercado cuya función de demanda es $q(p) = 75 - \\frac{p}{8}$. b) Calcule la pérdida eficiencia que sufre esta economía. En específico señale como v",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    }
+   ]
+  },
+  "microeconomia-ii/2026-1-control-2-mundaca": {
+   "profesor": "Mundaca",
+   "tipo": "Control",
+   "numero": 2,
+   "anio": 2026,
+   "semestre": 1,
+   "universidad": "Universidad de Santiago de Chile",
+   "origen": "reconstruido",
+   "fecha": null,
+   "orden": 2.0,
+   "orden_supuesto": true,
+   "alcance": [
+    "U1",
+    "U2",
+    "U3",
+    "U4"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "Comente 1",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "juegos secuenciales",
+      "inducción hacia atrás",
+      "amenazas no creíbles"
+     ],
+     "unidades": {
+      "U3": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "En juegos secuenciales, la inducción hacia atrás permite seleccionar equilibrios que no dependen de amenazas no creíbles.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 2",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "dilema del prisionero",
+      "juegos repetidos"
+     ],
+     "unidades": {
+      "U3": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "En un dilema del prisionero repetido un número fijo de veces, la última ronda se parece al juego jugado una sola vez.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 3",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "competencia de Cournot",
+      "competencia perfecta"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "En Cournot, si aumenta mucho el número de empresas, el resultado no varía.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 4",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "modelo de Stackelberg",
+      "competencia de Cournot"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "En Stackelberg, la empresa líder produce menos que en Cournot porque debe dejar espacio a la seguidora.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Analisis 1",
+     "puntos": 10.0,
+     "tipo": "analisis",
+     "temas": [
+      "poder de mercado",
+      "competencia de Cournot"
+     ],
+     "unidades": {
+      "U1": 0.5,
+      "U4": 0.5
+     },
+     "ambiguo": true,
+     "enunciado": "Explique la relación entre cuota de mercado y poder de mercado en el modelo de Cournot con muchas empresa y con una empresa.",
+     "bloom_gemini": "B1",
+     "bloom_claude": "B1",
+     "imputado": false,
+     "bloom": "B1"
+    },
+    {
+     "n": "Analisis 2",
+     "puntos": 10.0,
+     "tipo": "analisis",
+     "temas": [
+      "cártel",
+      "maximización de beneficios"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Explique por qué la maximización conjunta del cártel no garantiza por sí sola que el acuerdo sea aceptado por todas las empresas.",
+     "bloom_gemini": "B1",
+     "bloom_claude": "B1",
+     "imputado": false,
+     "bloom": "B1"
+    },
+    {
+     "n": "Matematico 1a",
+     "puntos": 20.0,
+     "tipo": "matematico",
+     "temas": [
+      "competencia de Cournot"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Suponga que la demanda de un bien está dada por $Q = 200 - 2P$. Suponga, además, que el mercado está compuesto por dos empresas cuyos costos están dados por $C_1 = 8q_1$ y $C_2 = 6q_2^2$. a. Calcule el equilibrio en el modelo de Cournot.",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "Matematico 1b",
+     "puntos": 8.571428571428571,
+     "tipo": "matematico",
+     "temas": [
+      "competencia de Bertrand"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "b. Calcule el equilibrio en el modelo de Bertrand.",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": true,
+     "bloom": "B2"
+    },
+    {
+     "n": "Matematico 1c",
+     "puntos": 8.571428571428571,
+     "tipo": "matematico",
+     "temas": [
+      "competencia de Cournot",
+      "competencia de Bertrand"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "c. Grafique ambos equilibrios.",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": true,
+     "bloom": "B2"
+    }
+   ]
+  },
+  "microeconomia-ii/2026-1-pep-1-mundaca": {
+   "profesor": "Mundaca",
+   "tipo": "PEP",
+   "numero": 1,
+   "anio": 2026,
+   "semestre": 1,
+   "universidad": "Universidad de Santiago de Chile",
+   "origen": "reconstruido",
+   "fecha": null,
+   "orden": 2.5,
+   "orden_supuesto": true,
+   "alcance": [
+    "U1",
+    "U2",
+    "U3"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "Comente 1",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "índice de Lerner",
+      "elasticidad precio de la demanda",
+      "monopolio"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Según la regla de Lerner, si el margen del monopolista sobre su costo marginal representa exactamente un tercio del precio (1/3), la elasticidad precio de la demanda en ese punto debe ser $-3$.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 2",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "juegos secuenciales",
+      "dilema del prisionero"
+     ],
+     "unidades": {
+      "U3": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "En un juego en forma normal, la inexistencia de estrategias dominantes asegura que el juego no tendrá ningún Equilibrio de Nash.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 3",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "discriminación de precios",
+      "eficiencia de Pareto",
+      "monopolio"
+     ],
+     "unidades": {
+      "U2": 0.5,
+      "U1": 0.5
+     },
+     "ambiguo": true,
+     "enunciado": "Si un monopolista atiende a dos mercados aplicando una discriminación de precios de tercer grado, y el regulador lo obliga a fijar un precio único que resulta en la exclusión total de uno de los mercados, este cambio constituye una mejora e",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 4",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "monopolio",
+      "costos totales"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Un monopolio natural surge debido a que sus costos marginales son estrictamente crecientes a lo largo de todo el nivel de producción.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Analisis 1",
+     "puntos": 10.0,
+     "tipo": "analisis",
+     "temas": [
+      "índice de Lerner",
+      "elasticidad precio de la demanda",
+      "poder de mercado"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Defina la Regla de Lerner (inversa de la elasticidad), su rol en la fijación de precios y la consecuencia de que la elasticidad en valor absoluto tienda a infinito.",
+     "bloom_gemini": "B1",
+     "bloom_claude": "B1",
+     "imputado": false,
+     "bloom": "B1"
+    },
+    {
+     "n": "Analisis 2",
+     "puntos": 10.0,
+     "tipo": "analisis",
+     "temas": [
+      "dilema del prisionero"
+     ],
+     "unidades": {
+      "U3": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Considere la siguiente matriz de pagos que representa un juego simultáneo entre el Jugador A (filas) y el Jugador B (columnas). | Jugador A \\ Jugador B | Izquierda | Centro | Derecha | |---|---|---|---| | **Arriba** | 3, 3 | 2, 4 | 1, 2 | |",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "Matematico a",
+     "puntos": 6.666666666666667,
+     "tipo": "matematico",
+     "temas": [
+      "monopolio",
+      "equilibrio de monopolio",
+      "maximización de beneficios"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "(20 pts. total para el ejercicio 1) Una empresa monopolista que administra un exclusivo club deportivo y social vende membresías a dos grupos de consumidores claramente identificables. El primer grupo corresponde a profesionales ejecutivos,",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": true,
+     "bloom": "B2"
+    },
+    {
+     "n": "Matematico b",
+     "puntos": 6.666666666666667,
+     "tipo": "matematico",
+     "temas": [
+      "monopolio",
+      "discriminación de precios",
+      "equilibrio de monopolio"
+     ],
+     "unidades": {
+      "U1": 0.6666666666666666,
+      "U2": 0.3333333333333333
+     },
+     "ambiguo": true,
+     "enunciado": "b) Suponga ahora que el monopolista puede discriminar precios de tercer grado entre ambos grupos. Determine el equilibrio en este caso.",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": true,
+     "bloom": "B2"
+    }
+   ]
+  },
+  "microeconomia-ii/2026-1-examen-suficiencia-mundaca": {
+   "profesor": "Mundaca",
+   "tipo": "Examen",
+   "numero": "Suficiencia",
+   "anio": 2026,
+   "semestre": 1,
+   "universidad": "Universidad de Santiago de Chile",
+   "origen": "reconstruido",
+   "fecha": null,
+   "orden": 99.0,
+   "orden_supuesto": true,
+   "alcance": [
+    "U1",
+    "U2",
+    "U3",
+    "U4",
+    "U5"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "Comente 1",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "índice de Lerner",
+      "monopolio",
+      "elasticidad precio de la demanda"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Según la regla de Lerner, si el margen del monopolista sobre su costo marginal representa exactamente un tercio del precio (1/3), la elasticidad precio de la demanda en ese punto debe ser $-3$.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 2",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "información asimétrica"
+     ],
+     "unidades": {
+      "U5": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Si una aseguradora cobra una prima basada en el riesgo promedio de toda la población, quienes terminan contratando el seguro necesariamente tendrán el mismo riesgo promedio utilizado para calcular la prima.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 3",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "información asimétrica",
+      "bienestar social"
+     ],
+     "unidades": {
+      "U5": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "La existencia de información asimétrica implica que cualquier resultado de mercado observado es necesariamente ineficiente y que la intervención pública siempre permitirá alcanzar una asignación superior.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Comente 4",
+     "puntos": 5.0,
+     "tipo": "comente",
+     "temas": [
+      "información asimétrica"
+     ],
+     "unidades": {
+      "U5": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Cuando quien toma una decisión recibe directamente una parte importante de los beneficios y costos marginales asociados a ella, sus incentivos tienden a estar mejor alineados con el resultado conjunto.",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "Desarrollo 1",
+     "puntos": 9.0,
+     "tipo": "analisis",
+     "temas": [
+      "discriminación de precios"
+     ],
+     "unidades": {
+      "U2": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Defina la Discriminación de Precios de Tercer Grado, explique su rol y la consecuencia de variaciones en la elasticidad de los distintos grupos.",
+     "bloom_gemini": "B1",
+     "bloom_claude": "B1",
+     "imputado": false,
+     "bloom": "B1"
+    },
+    {
+     "n": "Desarrollo 2",
+     "puntos": 10.0,
+     "tipo": "analisis",
+     "temas": [
+      "juegos secuenciales",
+      "inducción hacia atrás",
+      "amenazas no creíbles"
+     ],
+     "unidades": {
+      "U3": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Considere el siguiente juego secuencial entre una empresa entrante A y una empresa incumbente B. Primero, A decide si entrar o no entrar al mercado. Si A no entra, los pagos son $(2,6)$. Si A entra, entonces B observa esta decisión y elige ",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "Matemático 1",
+     "puntos": 21.0,
+     "tipo": "matematico",
+     "temas": [
+      "competencia de Cournot",
+      "modelo de Stackelberg",
+      "cártel"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Considere la siguiente función de demanda y de costos para cada empresa: $$Q = 200 - 2P \\quad ; \\quad Q = q_1 + q_2$$ $$C_1(q_1) = 8q_1^2 \\quad ; \\quad C_2(q_2) = 4q_2$$ a) Calcule el equilibrio de Cournot. Esto es, cantidad total de mercad",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    }
+   ]
+  },
+  "microeconomia-ii/2026-1-control-1-campos": {
+   "profesor": "Campos",
+   "tipo": "Control",
+   "numero": 1,
+   "anio": 2026,
+   "semestre": 1,
+   "universidad": null,
+   "origen": "pauta",
+   "fecha": null,
+   "orden": 1.0,
+   "orden_supuesto": true,
+   "alcance": [
+    "U1"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "1",
+     "puntos": 2.0,
+     "tipo": "matematico",
+     "temas": [
+      "competencia perfecta",
+      "costos totales",
+      "equilibrio de monopolio",
+      "bienestar social"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Considere la industria de rollerblades cuya demanda está descrita por $Q^d = A - p$, donde $Q^d$ y $p$ denotan cantidad demandada a nivel de la industria y precio, respectivamente. La función de costos de cada una de las $n$ empresas de la ",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "2",
+     "puntos": 3.0,
+     "tipo": "matematico",
+     "temas": [
+      "monopolio",
+      "ingreso marginal",
+      "maximización de beneficios",
+      "costos totales"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Cielos Azules es un fabricante de aviones de un solo motor que transportan hasta 12 pasajeros. La empresa es relativamente pequeña y se enorgullece de ser el único fabricante de aviones personalizados. Ellos producen sus propios motores y m",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "3",
+     "puntos": 1.0,
+     "tipo": "matematico",
+     "temas": [
+      "poder de mercado"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "En el mercado chileno de supermercados participan las siguientes empresas: - Walmart Chile (Líder): 30% - Cencosud (Jumbo, Santa Isabel): 25% - SMU (Unimarc): 20% - Tottus: 15% - Otros: 10% Se anuncia una posible fusión entre SMU y Tottus, ",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    }
+   ]
+  },
+  "microeconomia-ii/2026-1-control-2-campos": {
+   "profesor": "Campos",
+   "tipo": "Control",
+   "numero": 2,
+   "anio": 2026,
+   "semestre": 1,
+   "universidad": null,
+   "origen": "pauta",
+   "fecha": null,
+   "orden": 2.0,
+   "orden_supuesto": true,
+   "alcance": [
+    "U3",
+    "U4"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "1",
+     "puntos": 1.0,
+     "tipo": "matematico",
+     "temas": [
+      "competencia de Cournot",
+      "bienestar social"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "1. Considere una industria en la que operan tres empresas con funciones de costos dadas por: $C_i(q_i) = c_i q_i$, donde $c_1 = c_2 = 6$ y $c_3 = 8$. La demanda de mercado es representada por la función: $Q(p) = 120 - p$. a. Calcule precio,",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": true,
+     "bloom": "B2"
+    },
+    {
+     "n": "2",
+     "puntos": 1.0,
+     "tipo": "matematico",
+     "temas": [
+      "dilema del prisionero",
+      "bienestar social"
+     ],
+     "unidades": {
+      "U3": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "2. La municipalidad de Providencia está organizando una operación llamada “Providencia Verde”. En una calle sin salida, cada familia que posee una casa recibe dos árboles. Solo dos vecinos tienen casa en esa calle. Cada uno debe decidir cua",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": true,
+     "bloom": "B2"
+    }
+   ]
+  },
+  "microeconomia-ii/2026-1-control-3-campos": {
+   "profesor": "Campos",
+   "tipo": "Control",
+   "numero": 3,
+   "anio": 2026,
+   "semestre": 1,
+   "universidad": null,
+   "origen": "pauta",
+   "fecha": null,
+   "orden": 3.0,
+   "orden_supuesto": true,
+   "alcance": [
+    "U1",
+    "U2",
+    "U3",
+    "U4"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "1",
+     "puntos": 4.0,
+     "tipo": "matematico",
+     "temas": [
+      "competencia de Cournot",
+      "juegos secuenciales",
+      "inducción hacia atrás",
+      "monopolio"
+     ],
+     "unidades": {
+      "U4": 0.25,
+      "U3": 0.5,
+      "U1": 0.25
+     },
+     "ambiguo": true,
+     "enunciado": "1. La demanda de mercado de un monopolista es $P(q) = 160 - q$ y su función de costos $C(q) = 40q$, donde el precio y los costos están expresados en pesos y la cantidad $q$ en millones de unidades. El monopolista debe decidir si adopta una ",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "2",
+     "puntos": 2.0,
+     "tipo": "analisis",
+     "temas": [
+      "competencia de Bertrand"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "2. Responda brevemente: a. ¿Qué es la paradoja de Bertrand? ¿En qué sentido es una paradoja? b. Explique dos mecanismos que permiten a las empresas escapar de esta paradoja.",
+     "bloom_gemini": "B1",
+     "bloom_claude": "B1",
+     "imputado": false,
+     "bloom": "B1"
+    }
+   ]
+  },
+  "microeconomia-ii/2026-1-pep-1-campos": {
+   "profesor": "Campos",
+   "tipo": "PEP",
+   "numero": 1,
+   "anio": 2026,
+   "semestre": 1,
+   "universidad": null,
+   "origen": "pauta",
+   "fecha": null,
+   "orden": 2.5,
+   "orden_supuesto": true,
+   "alcance": [
+    "U1",
+    "U2"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "1",
+     "puntos": 1.6,
+     "tipo": "matematico",
+     "temas": [
+      "monopolio",
+      "maximización de beneficios",
+      "equilibrio de monopolio"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Suponga que Microsoft tiene un monopolio en la provisión de sistemas operativos para computadores personales, llamado \"Windows\". Considere además que el costo marginal del sistema operativo es cero y que existe solo un costo de desarrollo q",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "2",
+     "puntos": 1.7,
+     "tipo": "matematico",
+     "temas": [
+      "discriminación de precios",
+      "maximización de beneficios",
+      "poder de mercado"
+     ],
+     "unidades": {
+      "U2": 0.5,
+      "U1": 0.5
+     },
+     "ambiguo": true,
+     "enunciado": "Suponga que el estadio Nacional tiene capacidad para 70.000 personas y es utilizado para exactamente seis partidos de fútbol al año. Tres de estos son partidos atractivos, con una demanda por entradas $Q_1^d = 150.000 - 3P$ por partido, don",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "3",
+     "puntos": 1.2,
+     "tipo": "matematico",
+     "temas": [
+      "competencia perfecta",
+      "costos totales",
+      "excedente del productor"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Considere un mercado donde operan 50 empresas idénticas precio aceptante, cuyos costos de producción a corto plazo vienen dados por la función $C(y_i) = y_i^2 + y_i + 16$, donde $y_i$ es la producción de cada empresa. a. Obtenga la curva de",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "4",
+     "puntos": 1.5,
+     "tipo": "analisis",
+     "temas": [
+      "índice de Lerner",
+      "elasticidad precio de la demanda",
+      "discriminación de precios"
+     ],
+     "unidades": {
+      "U1": 0.6666666666666666,
+      "U2": 0.3333333333333333
+     },
+     "ambiguo": true,
+     "enunciado": "Responda brevemente justificando su respuesta: a. Windows es una empresa dominante en el mercado de sistemas operativos para computadores personales. Suponga que cada copia de Windows se vende a \\$50. Suponga además que el costo marginal de",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    }
+   ]
+  },
+  "microeconomia-ii/2026-1-pep-2-campos": {
+   "profesor": "Campos",
+   "tipo": "PEP",
+   "numero": 2,
+   "anio": 2026,
+   "semestre": 1,
+   "universidad": null,
+   "origen": "pauta",
+   "fecha": null,
+   "orden": 5.5,
+   "orden_supuesto": true,
+   "alcance": [
+    "U1",
+    "U2",
+    "U3",
+    "U4",
+    "U5"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "1",
+     "puntos": 1.8,
+     "tipo": "matematico",
+     "temas": [
+      "discriminación de precios",
+      "información asimétrica"
+     ],
+     "unidades": {
+      "U2": 0.5,
+      "U5": 0.5
+     },
+     "ambiguo": true,
+     "enunciado": "La empresa SoS está a punto de lanzar unos nuevos audífonos inalámbricos, con tecnología *bluetooth*, que bloquean completamente el sonido exterior, estimando que 800.000 consumidores estarían dispuestos a pagar $450 por ellos; adicionalmen",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "2",
+     "puntos": 0.7,
+     "tipo": "analisis",
+     "temas": [
+      "cártel",
+      "juegos repetidos"
+     ],
+     "unidades": {
+      "U4": 0.5,
+      "U3": 0.5
+     },
+     "ambiguo": true,
+     "enunciado": "¿Cómo afecta la asimetría en el tamaño de las empresas la probabilidad de colusión en una industria oligopólica con tres empresas? Explique los mecanismos que explican su respuesta identificando los factores claves que determinan la probabi",
+     "bloom_gemini": "B1",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    },
+    {
+     "n": "3",
+     "puntos": 1.7,
+     "tipo": "matematico",
+     "temas": [
+      "competencia de Cournot",
+      "modelo de Stackelberg",
+      "monopolio"
+     ],
+     "unidades": {
+      "U4": 0.6666666666666666,
+      "U1": 0.3333333333333333
+     },
+     "ambiguo": true,
+     "enunciado": "La compañía farmacéutica Maravilla, tiene una patente sobre la droga A-rena, la demanda anual de la cual puede ser descrita por la curva de demanda: $$Q^d = 4500 - 300*P$$ La producción de la droga requiere un costo anual fijo de $3.000 y u",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "4",
+     "puntos": 1.8,
+     "tipo": "analisis",
+     "temas": [
+      "juegos secuenciales",
+      "inducción hacia atrás",
+      "dilema del prisionero"
+     ],
+     "unidades": {
+      "U3": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Guillermo y Miguel comparten un departamento donde cada uno tiene su habitación. A la hora de decorarlo, cada uno tiene que decidir cómo distribuir sus pertenencias. En concreto, cada uno tiene dos cuadros y debe decidir cuántos colgar en s",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    }
+   ]
+  },
+  "microeconomia-ii/2024-2-control-3-campos": {
+   "profesor": "Campos",
+   "tipo": "Control",
+   "numero": 3,
+   "anio": 2024,
+   "semestre": 2,
+   "universidad": "Universidad de Santiago de Chile",
+   "origen": "pauta",
+   "fecha": null,
+   "orden": 3.0,
+   "orden_supuesto": true,
+   "alcance": [
+    "U3"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "1",
+     "puntos": 4.0,
+     "tipo": "analisis",
+     "temas": [
+      "juegos secuenciales",
+      "inducción hacia atrás"
+     ],
+     "unidades": {
+      "U3": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Considere el siguiente juego sobre el proceso de adopción de estándares en televisión de alta definición (TVAD). EEUU y Japón deben decidir simultáneamente si invertir un valor alto o bajo en investigación sobre TVAD. Si ambos países escoge",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "2",
+     "puntos": 2.0,
+     "tipo": "analisis",
+     "temas": [
+      "dilema del prisionero"
+     ],
+     "unidades": {
+      "U3": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Responda brevemente los problemas siguientes, justificando su respuesta: a) Tres parejas se reúnen para cenar. Antes de cenar, todas las parejas están de acuerdo en pagar en partes iguales la cuenta. Después de volver a casa, cada pareja se",
+     "bloom_gemini": "B3",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    }
+   ]
+  },
+  "microeconomia-ii/2024-2-control-4-campos": {
+   "profesor": "Campos",
+   "tipo": "Control",
+   "numero": 4,
+   "anio": 2024,
+   "semestre": 2,
+   "universidad": "Universidad de Santiago de Chile",
+   "origen": "pauta",
+   "fecha": null,
+   "orden": 4.0,
+   "orden_supuesto": true,
+   "alcance": [
+    "U4"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "1",
+     "puntos": 4.0,
+     "tipo": "matematico",
+     "temas": [
+      "competencia de Cournot",
+      "modelo de Stackelberg",
+      "competencia de Bertrand",
+      "maximización de beneficios"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "1. Considere un mercado en el que existen dos empresas, A y B, que producen el mismo bien homogéneo. Ambas empresas compiten eligiendo simultáneamente la cantidad producida. La demanda de mercado es: $$Q(p) = 120 - p$$ donde $p$ es el preci",
+     "bloom_gemini": "B2",
+     "bloom_claude": "B2",
+     "imputado": false,
+     "bloom": "B2"
+    },
+    {
+     "n": "2",
+     "puntos": 2.0,
+     "tipo": "analisis",
+     "temas": [
+      "competencia de Bertrand"
+     ],
+     "unidades": {
+      "U4": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "2. De acuerdo al modelo de Bertrand visto en clases, la competencia en precios conduce los beneficios económicos a cero, tal como en un mercado competitivo, cuando hay solo dos competidores en el mercado. ¿Por qué no observamos esto a mundo",
+     "bloom_gemini": "B1",
+     "bloom_claude": "B3",
+     "imputado": false,
+     "bloom": "B3"
+    }
+   ]
+  },
+  "microeconomia-ii/2026-2-control-1-mundaca": {
+   "profesor": "Mundaca",
+   "tipo": "Control",
+   "numero": 1,
+   "anio": 2026,
+   "semestre": 2,
+   "universidad": null,
+   "origen": "pauta",
+   "fecha": "2026-10-22",
+   "orden": 1.0,
+   "orden_supuesto": true,
+   "alcance": [
+    "U1"
+   ],
+   "alcance_manual": false,
+   "items": [
+    {
+     "n": "III.a",
+     "puntos": 20.0,
+     "tipo": "matematico",
+     "temas": [
+      "equilibrio de monopolio",
+      "maximización de beneficios",
+      "índice de Lerner",
+      "elasticidad precio de la demanda"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "Un monopolista posee una función de costos totales de la forma $c(q) = 2{,}5q^2$ y abastece a un mercado cuya función de demanda es $q(p) = 60 - \\frac{p}{5}$. a) (20 pts) Obtenga todos los elementos del equilibrio del monopolista.",
+     "bloom_gemini": null,
+     "bloom_claude": null,
+     "imputado": false,
+     "bloom": null
+    },
+    {
+     "n": "III.b",
+     "puntos": 20.0,
+     "tipo": "matematico",
+     "temas": [
+      "pérdida irrecuperable de eficiencia",
+      "competencia perfecta",
+      "excedente del consumidor",
+      "excedente del productor"
+     ],
+     "unidades": {
+      "U1": 1.0
+     },
+     "ambiguo": false,
+     "enunciado": "b) (20 pts) Calcule la pérdida de eficiencia que sufre esta economía. En específico, señale cómo varían el precio y la cantidad de equilibrio y los excedentes del consumidor, del productor y social respecto de la situación de competencia pe",
+     "bloom_gemini": null,
+     "bloom_claude": null,
+     "imputado": false,
+     "bloom": null
+    }
+   ]
+  }
+ }
+}

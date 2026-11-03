@@ -1,0 +1,13 @@
+# M1 · MCO simple con la base vigente del grupo (postulantes, 108.251 filas)
+library(readxl)
+d <- read_excel("C:/Espacio de trabajo Metodologia de estudio/trabajo/econometria-ii-demre/datos/final/resultado_final_postulantes.xlsx")
+str(d[, c("MATE1_REG_ACTUAL","PROMEDIO_NOTAS","TP_DUMMY","PREF_TOP3_DUMMY","SEXO","GRUPO_DEPENDENCIA","INGRESO_PERCAPITA_GRUPO_FA")])
+print(summary(d$MATE1_REG_ACTUAL)); print(summary(d$PROMEDIO_NOTAS))
+print(table(d$PREF_TOP3_DUMMY, useNA="ifany")); print(table(d$TP_DUMMY, useNA="ifany"))
+m <- lm(MATE1_REG_ACTUAL ~ PROMEDIO_NOTAS, data = d)
+print(summary(m))
+cat("pred 6.0:", predict(m, data.frame(PROMEDIO_NOTAS = 6)), "\n")
+# Chequeo: puntajes 0 (¿no rindió?) y regresión sin ellos
+cat("MATE1 == 0:", sum(d$MATE1_REG_ACTUAL == 0, na.rm=TRUE), " < 100:", sum(d$MATE1_REG_ACTUAL < 100, na.rm=TRUE), " NA:", sum(is.na(d$MATE1_REG_ACTUAL)), "\n")
+m2 <- lm(MATE1_REG_ACTUAL ~ PROMEDIO_NOTAS, data = subset(d, MATE1_REG_ACTUAL >= 100))
+print(coef(summary(m2))); cat("R2:", summary(m2)$r.squared, " n:", nobs(m2), " pred 6.0:", predict(m2, data.frame(PROMEDIO_NOTAS=6)), "\n")

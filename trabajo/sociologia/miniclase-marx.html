@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Marx · Temporada 1 · Mini clase para la Prueba 1</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 10.6pt; line-height: 1.42; color: #1d1d1f; margin: 0; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; margin: 0; }
+  .cover { background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 55%, #ef4444 100%); color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 14px; }
+  .cover .kicker { letter-spacing: 3px; font-size: 9pt; text-transform: uppercase; opacity: .85; }
+  .cover h1 { font-size: 34pt; line-height: 1.05; margin: 6px 0 4px; }
+  .cover .sub { font-size: 12pt; opacity: .95; }
+  .card { display: flex; gap: 14px; border: 2px solid #1d1d1f; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; background: #fffbea; }
+  .card .avatar { font-size: 44pt; line-height: 1; }
+  .card table { border-collapse: collapse; font-size: 9.8pt; }
+  .card td { padding: 1px 8px 1px 0; vertical-align: top; }
+  .card td:first-child { font-weight: 700; white-space: nowrap; }
+  .legend { font-size: 9pt; color: #444; margin: 0 0 12px; }
+  .ep { border-left: 6px solid #b91c1c; padding: 2px 0 2px 12px; margin: 14px 0 6px; page-break-inside: avoid; }
+  .ep .n { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #b91c1c; font-weight: 700; }
+  .ep h2 { font-size: 15pt; }
+  .block { page-break-inside: avoid; }
+  .profe { background: #eef4ff; border: 1px solid #b6c9f0; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .profe::before { content: "🎙 El profe dijo: "; font-weight: 700; color: #1e40af; }
+  .profe .t { color: #64748b; font-size: 8.5pt; }
+  .libro { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .libro::before { content: "📖 La lectura: "; font-weight: 700; color: #374151; }
+  .trampa { background: #fff1f2; border: 1.5px dashed #e11d48; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .trampa::before { content: "⚠ Trampa de prueba: "; font-weight: 700; color: #be123c; }
+  .tip { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .tip::before { content: "💡 Para recordarlo: "; font-weight: 700; color: #047857; }
+  .building { width: 78%; margin: 8px auto; text-align: center; font-size: 9.8pt; }
+  .roof { background: #fde68a; border: 2px solid #92400e; border-radius: 8px 8px 0 0; padding: 6px; }
+  .roof .row { display: flex; gap: 6px; margin-top: 4px; }
+  .roof .row div { flex: 1; background: #fff7d6; border: 1px solid #b45309; border-radius: 6px; padding: 4px; }
+  .arrow { font-size: 9pt; color: #92400e; padding: 3px 0; border-left: 2px solid #92400e; border-right: 2px solid #92400e; background: #fffdf3; }
+  .base { background: #78350f; color: #fff; border: 2px solid #78350f; border-radius: 0 0 8px 8px; padding: 7px; }
+  table.saga { width: 100%; border-collapse: collapse; font-size: 9.6pt; margin: 6px 0; }
+  table.saga th { background: #1d1d1f; color: #fff; text-align: left; padding: 5px 7px; }
+  table.saga td { border-bottom: 1px solid #ddd; padding: 5px 7px; vertical-align: top; }
+  table.saga tr:nth-child(even) td { background: #fafafa; }
+  .clock { display: flex; height: 30px; border-radius: 8px; overflow: hidden; margin: 8px 0 2px; font-weight: 700; font-size: 10pt; color: #fff; }
+  .clock .paid { flex: 6; background: #16a34a; display: flex; align-items: center; justify-content: center; }
+  .clock .free { flex: 10; background: #b91c1c; display: flex; align-items: center; justify-content: center; }
+  .clocklbl { display: flex; font-size: 8.5pt; color: #555; }
+  .clocklbl div:first-child { flex: 6; text-align: center; } .clocklbl div:last-child { flex: 10; text-align: center; }
+  .formulas { display: flex; gap: 10px; margin: 6px 0; }
+  .formulas div { flex: 1; border: 2px solid #1d1d1f; border-radius: 10px; padding: 8px 10px; }
+  .formulas .f { font-family: Consolas, monospace; font-size: 15pt; font-weight: 700; }
+  .alien { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 0; }
+  .alien div { border: 1px solid #c4b5fd; background: #f5f3ff; border-radius: 8px; padding: 6px 9px; }
+  .alien b { color: #6d28d9; }
+  .bridge { display: flex; gap: 8px; margin: 6px 0; }
+  .bridge div { flex: 1; border-radius: 10px; padding: 8px 10px; color: #fff; font-size: 9.8pt; }
+  .newpage { page-break-before: always; }
+  .quiz { border: 2.5px solid #1d1d1f; border-radius: 14px; padding: 12px 16px; background: #fffdf5; }
+  .quiz h2 { font-size: 17pt; margin-bottom: 2px; }
+  .quiz ol { padding-left: 20px; margin: 8px 0 0; }
+  .quiz li { margin-bottom: 11px; }
+  .bet { float: right; font-size: 9pt; color: #555; }
+  .bet span { display: inline-block; width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 4px; text-align: center; line-height: 13px; margin-left: 3px; font-size: 8pt; }
+  .score { font-size: 9.5pt; background: #f1f5f9; border-radius: 8px; padding: 7px 10px; margin-top: 6px; }
+  .tweet { border: 1px solid #cbd5e1; border-radius: 12px; padding: 9px 12px; margin: 8px 0; background: #fff; }
+  .tweet .who { font-weight: 700; } .tweet .who span { color: #64748b; font-weight: 400; }
+  ul.t { margin: 4px 0; padding-left: 18px; } ul.t li { margin-bottom: 3px; }
+  .foot { font-size: 8pt; color: #777; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 5px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Sociología Económica · Prueba 1 · mié 28-10</div>
+  <h1>MARX<br>Temporada 1</h1>
+  <div class="sub">8 episodios cortos · unos 12 minutos · con las frases del profe</div>
+</div>
+
+<div class="card">
+  <div class="avatar">🧔</div>
+  <table>
+    <tr><td>Personaje</td><td>Karl Marx (1818-1883), alemán. Le cierran dos periódicos por «agitar las aguas» (en Prusia y en París), pasa por Bruselas y termina en <b>Inglaterra</b>, «el corazón de la industrialización».</td></tr>
+    <tr><td>Superpoder</td><td><b>Dar vuelta a Hegel</b>: la historia no la mueven las ideas, la mueve la producción.</td></tr>
+    <tr><td>Enemigo</td><td>El capitalista que se queda con el trabajo no pagado.</td></tr>
+    <tr><td>Compañero</td><td><b>Engels</b> (coautor del <i>Manifiesto</i> y quien inventa los nombres «materialismo histórico» y «dialéctico»).</td></tr>
+    <tr><td>Discos</td><td><i>La ideología alemana</i> (1845-46) · <b><i>Manifiesto comunista</i> (1848)</b> · <i>Contribución a la crítica de la economía política</i> (1859) · <b><i>El Capital</i> (1867)</b></td></tr>
+  </table>
+</div>
+
+<p class="legend">🎙 = frase del profe (clase 2 del 30-09 o repaso dictado en la clase 5 del 21-10, con el minuto) · 📖 = de las lecturas (Schettino, Gilbert) · ⚠ = donde suelen pillar en V/F.</p>
+
+<!-- EP 1 -->
+<div class="block">
+<div class="ep"><div class="n">Episodio 1</div><h2>«Primero se come, después se piensa»</h2></div>
+<p>Los jóvenes hegelianos discutían ideas contra ideas. Marx los baja a la tierra: antes de filosofar, hay que <b>«parar la olla»</b>, vestirse y tener techo. Por eso la historia se explica por <b>cómo se producen los bienes materiales</b>, no por lo que la gente piensa.</p>
+<div class="profe">«Podemos pasar la vida sin pensar, pero no podemos vivir sin comer». <span class="t">(C2, ~01:15)</span></div>
+<div class="profe">«Si les preguntan en la casa qué es lo que se les quiso decir en esta charla: <b>la inversión de la dialéctica hegeliana por Marx</b>». Y repitió varias veces: «no se entiende Marx sin Hegel». <span class="t">(C2, 01:43:57)</span></div>
+<p>Hegel decía que la historia avanza por conflicto y superación <b>de las ideas</b>. Marx se queda con el conflicto, pero lo pone en los <b>grupos sociales en pugna</b> alrededor de la producción. Es la dialéctica, pero materialista.</p>
+<div class="trampa">«Marx acuñó el término <i>materialismo histórico</i>» → <b>F</b>. Según el profe, el nombre lo fijó <b>Engels</b> después de la muerte de Marx. Lo correcto es que Marx tiene una <i>aproximación materialista</i> a la historia.</div>
+</div>
+
+<!-- EP 2 -->
+<div class="block">
+<div class="ep"><div class="n">Episodio 2</div><h2>«En el trabajo te haces a ti mismo»</h2></div>
+<p>Para el Marx joven, el trabajo no es solo ganarse la vida: es la actividad con la que <b>actualizas tus potencialidades</b>. El economista se vuelve economista cuando entrega su informe, y el escultor «vende la pescada» cuando termina la escultura. Por eso, cuando nos presentamos, decimos el nombre y <b>a qué nos dedicamos</b>.</p>
+<div class="profe">«Yo lamento que se hable de Marx sin subrayar esa [categoría], porque es muy fundamental». <span class="t">(C2, 01:19:31)</span> → es su sello personal, así que es probable que lo pregunte.</div>
+<p>Ejemplos de cultura pop que dio el profe: <b>Clark Kent</b> (el anonimato y la precariedad están en el trabajo de oficina; Superman es lo que <i>podría</i> ser) y <b><i>El club de la pelea</i></b> («no eres tu trabajo»). Hoy vivimos el trabajo con «aires carcelarios».</p>
+<div class="tip">«Modo de producción» tiene <b>dos sentidos</b>: en el Marx <b>joven</b> = trabajo, hacerse a sí mismo. En el Marx <b>maduro</b> = cómo se organiza la relación en torno a los bienes materiales: quién controla la producción y con quién (repaso C5, 01:52:59).</div>
+</div>
+
+<!-- EP 3 -->
+<div class="block">
+<div class="ep"><div class="n">Episodio 3</div><h2>Alien: el extraño en tu propia fábrica</h2></div>
+<p>Si el trabajo debería realizarte, en la fábrica capitalista hace lo contrario: está <b>alienado</b>. El profe: «alien» = <b>extraño</b>, algo ajeno en tu propio mundo. En el repaso lo resumió como una <b>falta de sentido</b> en la vida (C5).</p>
+<div class="alien">
+  <div><b>1. Del producto.</b> Ensamblas una pieza que se pierde en la correa… y después terminas <i>comprando ese mismo producto</i>.</div>
+  <div><b>2. De la actividad.</b> Rutina, ruido, calor de la fundición, cero creatividad.</div>
+  <div><b>3. De los otros.</b> Competencia por el puesto. El profe: ¿cuántos se juntan al almuerzo a decidir si el sueldo se va en una pinta de cerveza o en pan para la casa?</div>
+  <div><b>4. Del ser genérico</b> (la consecuencia): la vida pierde su proyecto de sentido.</div>
+</div>
+<div class="trampa">Gilbert llama a la 4.ª «alienación de su <b>propio potencial humano</b>» y a la de la actividad, «del proceso de trabajo». Es la misma idea con otro nombre: si aparece cualquiera de las dos versiones, es <b>V</b>. Si te ponen «alienación <b>del Estado</b>», es falsa.</div>
+</div>
+
+<!-- EP 4 -->
+<div class="block">
+<div class="ep"><div class="n">Episodio 4</div><h2>El edificio: base y superestructura</h2></div>
+<div class="building">
+  <div class="roof"><b>SUPERESTRUCTURA</b> (el piso de arriba)
+    <div class="row"><div><b>Jurídico-política</b><br>leyes, Estado, Código Civil, tribunales</div><div><b>Ideológica</b><br>religión, educación, familia</div></div>
+  </div>
+  <div class="arrow">▲ refleja y mantiene el orden económico ▲</div>
+  <div class="base"><b>BASE o INFRAESTRUCTURA</b> (los cimientos) = la economía<br>fuerzas productivas + relaciones de producción</div>
+</div>
+<div class="profe">«Importante esto ahí <b>para que lo registren</b>»: <b>fuerzas productivas</b> = los elementos <i>materiales y humanos</i> de la producción. <b>Relaciones de producción</b> = los <i>regímenes de propiedad</i>: quién es dueño de las fuerzas productivas, más el aparato institucional y normativo que acredita esa propiedad. <span class="t">(C2, 01:47:59)</span></div>
+<div class="profe">La superestructura es jurídico-política por un lado e ideológica por otro, y <b>«refleja y mantiene el orden económico»</b>. <span class="t">(repaso C5)</span></div>
+<div class="trampa">«La superestructura determina mecánicamente…» o «las ideas determinan la economía» → <b>F</b>. Va de abajo hacia arriba, y según Gilbert la base determina <b>«en última instancia»</b>, no cada detalle. Otro clásico F: «las relaciones de producción dependen de la voluntad de los individuos» (son independientes de su conciencia y su voluntad).</div>
+</div>
+
+<!-- EP 5 -->
+<div class="block">
+<div class="ep"><div class="n">Episodio 5</div><h2>La saga: modos de producción</h2></div>
+<table class="saga">
+  <tr><th>Temporada</th><th>Qué pasa (versión del profe)</th><th>Pareja en pelea</th></tr>
+  <tr><td><b>Comunismo primitivo</b></td><td>Cazadores-recolectores. La propiedad privada es un <b>absurdo</b>: nadie se queda con el árbol que da frutos. Mirada «dulce y romántica» de Marx.</td><td>—</td></tr>
+  <tr><td><b>Asiático</b> (transición)</td><td>Civilizaciones de los ríos (el <b>Nilo</b>): sometimiento por <b>tributo</b>.</td><td>—</td></tr>
+  <tr><td><b>Esclavista</b></td><td>Grecia y Roma. Conflicto radical y <b>productividad mediocre</b>: túneles romanos hechos con vinagre, cal y espátulas por generaciones.</td><td>Amo / esclavo</td></tr>
+  <tr><td><b>Feudal</b></td><td>El siervo es parte del patrimonio del señor, junto con los árboles y los manantiales. Hay un vínculo <b>moral-contractual</b> (ceremonia de homenaje). Trabaja unos días para sí y el resto para el señor. Termina con la <b>Revolución Francesa</b>: «una burguesía pujante que disputa el poder a la nobleza».</td><td>Señor / siervo</td></tr>
+  <tr><td><b>Capitalista</b></td><td><b>Sin</b> vínculo moral entre patrón y obrero; lo que sobra es el ejército industrial de reserva.</td><td>Burgueses / proletarios</td></tr>
+</table>
+<div class="trampa">Cada fuente cuenta la secuencia distinto. El profe incluye el <b>asiático</b>; Schettino cierra con el <b>comunismo</b> como etapa final; Gilbert pone el feudal como <b>4 días para el señor y 3 para sí</b>. Fíjate de qué fuente sale el enunciado.</div>
+<div class="tip">Burgueses/proletarios es el vocabulario de los textos <b>políticos</b> (<i>Manifiesto</i>, que termina con «¡Proletarios del mundo, uníos!»). Capitalistas/obreros es el de <i>El Capital</i>. Son las mismas clases.</div>
+</div>
+
+<!-- EP 6 -->
+<div class="block">
+<div class="ep"><div class="n">Episodio 6</div><h2>El secreto del capitalismo</h2></div>
+<div class="formulas">
+  <div><div class="f">M → D → M</div>Vender para comprar: vendo papas para comprar ropa. Es <b>«parar la olla»</b>, propio de los modos anteriores (circulación simple).</div>
+  <div><div class="f">D → M → D′</div>Invertir dinero para tener <b>más dinero</b>: pongo 100 y recupero 120. <b>Esto es el capitalismo</b> para Marx.</div>
+</div>
+<p>¿De dónde sale ese D′ más grande? El profe dejó la pregunta abierta: <b>«el secreto»</b>. La pista está en lo que el obrero vende. No vende su trabajo: vende su <b>fuerza de trabajo</b>, la capacidad de trabajar, que es lo único que posee. El profe la llamó «el último terreno que le interesa conquistar al capitalista».</p>
+<div class="profe">El movimiento clave de Marx: <b>«la fuerza de trabajo es una mercancía»</b>. Tiene valor de uso (sirve para producir) y valor de cambio, que se paga como <b>salario</b>. (El valor de uso lo explicó con el vino: sirve para «empinar el codo»). <span class="t">(C2, ~01:54)</span></div>
+</div>
+
+<!-- EP 7 -->
+<div class="block">
+<div class="ep"><div class="n">Episodio 7 · ⭐ el más importante</div><h2>Plusvalía: las horas que nadie te paga</h2></div>
+<div class="clock"><div class="paid">6 h pagadas = salario</div><div class="free">10 h que se queda el dueño = PLUSVALÍA</div></div>
+<div class="clocklbl"><div>lo que vale tu fuerza de trabajo</div><div>trabajo no pagado</div></div>
+<div class="libro">El ejemplo de Schettino: se trabajan <b>16 h</b>, se pagan <b>6</b> y el dueño se apropia de <b>10</b>. Ese es «el secreto» del episodio 6: la fuerza de trabajo produce <b>más valor</b> que lo que cuesta.</div>
+<div class="profe">En el repaso dictado, la plusvalía va con la etiqueta <b>«muy relevante»</b>. La vieron en la clase 3, que no se grabó, así que acá la lectura manda. <span class="t">(repaso C5)</span></div>
+<div class="trampa">«El salario paga el valor de lo que el obrero produce» → <b>F</b>. Paga el valor de su <b>fuerza de trabajo</b>; la diferencia es la plusvalía.</div>
+</div>
+
+<!-- EP 8 -->
+<div class="block">
+<div class="ep"><div class="n">Episodio 8 · final de temporada</div><h2>Despertar: clase en sí y clase para sí</h2></div>
+<ul class="t">
+  <li><b>Clase en sí:</b> obreros que comparten la misma posición en la producción, aunque no lo sepan.</li>
+  <li><b>Clase para sí:</b> esos mismos obreros cuando <b>toman conciencia</b> y se organizan (sindicato, partido).</li>
+  <li><b>Conciencia falsa:</b> «soy pobre porque no me esforcé», es decir, culpar al individuo y no a la sociedad (📖 Gilbert).</li>
+  <li><b>Ejército industrial de reserva:</b> los desempleados que deja la máquina (la <i>spinning jenny</i> reemplazó «de un plumazo» a 8 personas) y que presionan los salarios a la baja (🎙 C2).</li>
+</ul>
+<div class="trampa">«La <i>clase para sí</i> es la clase sin conciencia» → <b>F</b> (esa es la clase <b>en sí</b>). «Para Marx, el actor central es el individuo» → <b>F</b>: son las <b>clases</b> (el individuo es el de Weber). «El conflicto capital-trabajo se arregla con reformas» → <b>F</b>: para Marx solo se supera con una revolución.</div>
+</div>
+
+<!-- SPOILER -->
+<div class="block">
+<div class="ep"><div class="n">Spoiler de las próximas temporadas</div><h2>El mismo vacío, tres nombres</h2></div>
+<p>El profe tiende puentes entre autores, y en la selección múltiple te pueden pedir el par correcto:</p>
+<div class="bridge">
+  <div style="background:#b91c1c"><b>Marx</b><br>alienación<br><i>falta de sentido en el trabajo</i></div>
+  <div style="background:#1e40af"><b>Weber</b><br>desencantamiento · jaula de hierro<br><i>reglas sin «para qué»</i></div>
+  <div style="background:#047857"><b>Durkheim</b><br>anomia · mal del infinito<br><i>falta de norma</i></div>
+</div>
+</div>
+
+<div class="tweet"><div class="who">Marx en un tuit <span>@karl_1848</span></div>
+Primero se come y después se piensa: la economía (base) sostiene las leyes y las ideas (superestructura). En el capitalismo te compran la fuerza de trabajo, te pagan 6 de 16 horas y el resto es plusvalía. Por eso el trabajo, que debería hacerte persona, te aliena. ¡Proletarios del mundo, uníos! ✊</div>
+
+<!-- QUIZ -->
+<div class="quiz newpage">
+  <h2>🎮 Bloque 1 · Marx</h2>
+  <div>Marca la respuesta y tu <b>apuesta</b> (1 = adivino · 2 = creo · 3 = seguro).</div>
+  <div class="score"><b>Puntaje:</b> acierto = +1 · acierto apostando 3 = <b>+2</b> · error apostando 3 = <b>−1</b>. Mándame en el chat: <code>1c-3, 2F-2, 3V-1, …</code></div>
+  <ol>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>¿Cuál de estos pertenece a la <b>superestructura</b>?<br>a) una fábrica · b) los salarios · c) el Código Civil · d) las máquinas</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Para Marx, las ideas de una sociedad determinan su economía.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Marx acuñó el término «materialismo histórico».</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Un obrero trabaja 16 h y le pagan 6. Las otras 10 son:<br>a) ejército de reserva · b) plusvalía · c) salario real · d) alienación</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Para Marx, el salario paga el valor de todo lo que el obrero produce.</li>
+  </ol>
+  <div class="score">🔥 <b>Racha:</b> 3 seguidas = bonus de +1. Las respuestas no vienen acá: te llegan en el chat, con la frase del profe que la amarra.</div>
+</div>
+
+<div class="foot">Fuentes: transcripción de la clase 2 (30-09-2026, §7-§10) y repaso dictado de la clase 5 (21-10-2026, §11); Schettino y Gilbert, según la ficha de Marx del 24-10. Los minutos son aproximados.</div>
+
+</body>
+</html>

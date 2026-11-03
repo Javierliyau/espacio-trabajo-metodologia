@@ -1,0 +1,57 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{array}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+{\large\textbf{Econometría II · Preparación PEP 1}}\hfill 1 de noviembre de 2026
+
+\vspace{2pt}\hrule\vspace{10pt}
+
+{\Large\textbf{Ejercicio 3. DiD $2\times 2$}}\hfill Tiempo: 20 min
+
+\textit{Ejercicio de práctica con datos ficticios; no proviene de una prueba del profesor.}
+
+\vspace{4pt}
+Se quiere evaluar el traspaso de escuelas municipales a los Servicios Locales de Educación Pública (SLEP). SIMCE promedio por grupo:
+
+\begin{center}
+\begin{tabular}{l>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
+\toprule
+ & \textbf{Antes} & \textbf{Después} \\
+\midrule
+SLEP (traspasadas)       & 240 & 252 \\
+Municipal (siguen igual) & 255 & 259 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\[
+\text{SIMCE}=\beta_0+\beta_1\,\text{SLEP}+\beta_2\,\text{Post}+\beta_3\,(\text{SLEP}\times\text{Post})+u
+\]
+
+El error estándar de $\hat{\beta}_3$ es 3,2. Supón una muestra grande.
+
+\begin{enumerate}[label=\textbf{\alph*)},leftmargin=*,itemsep=8pt]
+  \item Calcula el DiD desde las medias e interprétalo.
+  \item Calcula las dos comparaciones ingenuas (antes y después solo en SLEP; SLEP contra municipal solo después). ¿Qué mezcla cada una?
+  \item Da los cuatro $\hat{\beta}$ y di qué mide cada uno.
+  \item Calcula el estadístico $t$ de $\hat{\beta}_3$ y concluye al 5\,\%.
+  \item ¿Qué exige aquí el supuesto de tendencias paralelas? ¿Cuál sería el SIMCE de las escuelas SLEP en el periodo «después» sin el traspaso?
+\end{enumerate}
+
+\vspace{6pt}
+\textit{Cada resultado se entrega con su frase de interpretación.}
+
+\end{document}

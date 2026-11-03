@@ -1,0 +1,241 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Avisos:
+1: package 'tidyverse' was built under R version 4.5.3 
+2: package 'ggplot2' was built under R version 4.5.3 
+3: package 'tidyr' was built under R version 4.5.3 
+4: package 'readr' was built under R version 4.5.3 
+5: package 'purrr' was built under R version 4.5.3 
+6: package 'dplyr' was built under R version 4.5.3 
+7: package 'stringr' was built under R version 4.5.3 
+8: package 'forcats' was built under R version 4.5.3 
+9: package 'lubridate' was built under R version 4.5.3 
+
+Adjuntando el paquete: 'scorecard'
+
+The following object is masked from 'package:tidyr':
+
+    replace_na
+
+Aviso:
+package 'scorecard' was built under R version 4.5.3 
+[1] "C:/Espacio de trabajo Metodologia de estudio/trabajo/econometria-ii-etapa2"
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+[1] 317700
+PASOS: 317700 218066 217449 179347 170056 168714 
+[1] 188538
+
+     0      1 
+ 55361 113353 
+[1] 118795
+
+     0      1 
+108480  60234 
+   
+        0     1
+  0 55361     0
+  1 53119 60234
+N: 168714  I = 1: 60234  tasa: 35.7 %
+# A tibble: 3,318 × 3
+     RBD N_ALUMNOS INGRESO_COLEGIO
+   <dbl>     <int>           <dbl>
+ 1     1       116               2
+ 2     4       415               4
+ 3     5       204               4
+ 4     7       260               2
+ 5     8        90               4
+ 6    15        34               3
+ 7    25        72               3
+ 8    28        16               1
+ 9    32        58               4
+10    45        95               3
+# ℹ 3,308 more rows
+[1] 168714
+       I         PROMEDIO_NOTAS  PORC_SUP_NOTAS      PTJE_NEM     
+ Min.   :0.000   Min.   :4.180   Min.   : 10.00   Min.   : 157.0  
+ 1st Qu.:0.000   1st Qu.:5.730   1st Qu.: 20.00   1st Qu.: 637.0  
+ Median :0.000   Median :6.130   Median : 50.00   Median : 751.0  
+ Mean   :0.357   Mean   :6.085   Mean   : 47.65   Mean   : 737.9  
+ 3rd Qu.:1.000   3rd Qu.:6.480   3rd Qu.: 70.00   3rd Qu.: 851.0  
+ Max.   :1.000   Max.   :7.000   Max.   :100.00   Max.   :1000.0  
+                                                                  
+  PTJE_RANKING    CLEC_REG_ACTUAL  MATE1_REG_ACTUAL   RINDE_CIEN    
+ Min.   : 157.0   Min.   : 100.0   Min.   : 100.0   Min.   :0.0000  
+ 1st Qu.: 643.0   1st Qu.: 500.0   1st Qu.: 516.0   1st Qu.:0.0000  
+ Median : 759.0   Median : 590.0   Median : 601.0   Median :1.0000  
+ Mean   : 750.6   Mean   : 604.9   Mean   : 628.9   Mean   :0.7246  
+ 3rd Qu.: 870.0   3rd Qu.: 690.0   3rd Qu.: 710.0   3rd Qu.:1.0000  
+ Max.   :1000.0   Max.   :1000.0   Max.   :1000.0   Max.   :1.0000  
+                                                                    
+  RINDE_HCSOC        RINDE_M2      GRUPO_DEPENDENCIA     TP_DUMMY     
+ Min.   :0.0000   Min.   :0.0000   Length:168714      Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   Class :character   1st Qu.:0.0000  
+ Median :1.0000   Median :0.0000   Mode  :character   Median :0.0000  
+ Mean   :0.5746   Mean   :0.4448                      Mean   :0.2364  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000                      3rd Qu.:0.0000  
+ Max.   :1.0000   Max.   :1.0000                      Max.   :1.0000  
+                                                                      
+ CODIGO_REGION          SEXO                PACE              BEA         
+ Length:168714      Length:168714      Min.   :0.00000   Min.   :0.00000  
+ Class :character   Class :character   1st Qu.:0.00000   1st Qu.:0.00000  
+ Mode  :character   Mode  :character   Median :0.00000   Median :0.00000  
+                                       Mean   :0.08031   Mean   :0.07964  
+                                       3rd Qu.:0.00000   3rd Qu.:0.00000  
+                                       Max.   :1.00000   Max.   :1.00000  
+                                                                          
+ INGRESO_PERCAPITA_GRUPO_FA   EDAD_MESES      N_ALUMNOS     INGRESO_COLEGIO 
+ Min.   : 1.000             Min.   :181.0   Min.   :  8.0   Min.   : 1.000  
+ 1st Qu.: 2.000             1st Qu.:215.0   1st Qu.: 82.0   1st Qu.: 3.000  
+ Median : 4.000             Median :218.0   Median :128.0   Median : 4.000  
+ Mean   : 4.779             Mean   :222.6   Mean   :160.6   Mean   : 4.547  
+ 3rd Qu.: 7.000             3rd Qu.:222.0   3rd Qu.:199.0   3rd Qu.: 5.000  
+ Max.   :10.000             Max.   :860.0   Max.   :947.0   Max.   :10.000  
+ NA's   :46668                              NA's   :3       NA's   :61      
+I : 0 % NA
+PROMEDIO_NOTAS : 0 % NA
+PORC_SUP_NOTAS : 0 % NA
+PTJE_NEM : 0 % NA
+PTJE_RANKING : 0 % NA
+CLEC_REG_ACTUAL : 0 % NA
+MATE1_REG_ACTUAL : 0 % NA
+RINDE_CIEN : 0 % NA
+RINDE_HCSOC : 0 % NA
+RINDE_M2 : 0 % NA
+GRUPO_DEPENDENCIA : 0 % NA
+TP_DUMMY : 0 % NA
+CODIGO_REGION : 0 % NA
+SEXO : 0 % NA
+PACE : 0 % NA
+BEA : 0 % NA
+INGRESO_PERCAPITA_GRUPO_FA : 27.66 % NA
+EDAD_MESES : 0 % NA
+N_ALUMNOS : 0 % NA
+INGRESO_COLEGIO : 0.04 % NA
+PROMEDIO_NOTAS : limites 4.605 y 7.605 | fuera: 61 
+PTJE_NEM : limites 316 y 1172 | fuera: 116 
+PTJE_RANKING : limites 302.5 y 1210.5 | fuera: 77 
+CLEC_REG_ACTUAL : limites 215 y 975 | fuera: 101 
+MATE1_REG_ACTUAL : limites 225 y 1001 | fuera: 17 
+EDAD_MESES : limites 204.5 y 232.5 | fuera: 8513 
+N_ALUMNOS : limites -93.5 y 374.5 | fuera: 8947 
+INGRESO_COLEGIO : limites 0 y 8 | fuera: 12849 
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 20 columns in 00:00:05
+                     variable    IV tramos      poder
+1             CLEC_REG_ACTUAL 0.734      5 sospechoso
+2            MATE1_REG_ACTUAL 0.627      5 sospechoso
+3              PROMEDIO_NOTAS 0.395      5     fuerte
+4                    PTJE_NEM 0.394      5     fuerte
+5                PTJE_RANKING 0.376      5     fuerte
+6              PORC_SUP_NOTAS 0.193      4      medio
+7                    TP_DUMMY 0.106      2      medio
+8             INGRESO_COLEGIO 0.106      4      medio
+9           GRUPO_DEPENDENCIA 0.104      4      medio
+10                 EDAD_MESES 0.051      3      debil
+11 INGRESO_PERCAPITA_GRUPO_FA 0.042      5      debil
+12                        BEA 0.033      2      debil
+13                   RINDE_M2 0.024      2      debil
+14              CODIGO_REGION 0.018      4     inutil
+15                RINDE_HCSOC 0.007      2     inutil
+16                  N_ALUMNOS 0.006      5     inutil
+17                 RINDE_CIEN 0.002      2     inutil
+18                       PACE 0.001      2     inutil
+19                       SEXO 0.000      2     inutil
+PROMEDIO_NOTAS : 13 | 21.9 | 28.7 | 37.3 | 50.6 -> monotona: si 
+PORC_SUP_NOTAS : 48.2 | 40.1 | 31 | 21 -> monotona: si 
+PTJE_NEM : 13.4 | 22.6 | 29.6 | 40.4 | 52.7 -> monotona: si 
+PTJE_RANKING : 9.7 | 15.7 | 25.8 | 39.4 | 50.9 -> monotona: si 
+CLEC_REG_ACTUAL : 3.3 | 16.7 | 33.9 | 45 | 59.1 -> monotona: si 
+MATE1_REG_ACTUAL : 5.5 | 21.5 | 38.9 | 53.2 | 71.4 -> monotona: si 
+RINDE_CIEN : 37.3 | 35.1 -> monotona: si 
+RINDE_HCSOC : 33.5 | 37.3 -> monotona: si 
+RINDE_M2 : 32.5 | 39.7 -> monotona: si 
+GRUPO_DEPENDENCIA : 28.4 | 29.2 | 36 | 53.1 -> monotona: si 
+TP_DUMMY : 39.7 | 22.8 -> monotona: si 
+CODIGO_REGION : 33.4 | 36.6 | 40.4 | 43.4 -> monotona: si 
+SEXO : 35.4 | 36 -> monotona: si 
+PACE : 35.5 | 38.1 -> monotona: si 
+BEA : 34.5 | 50.1 -> monotona: si 
+INGRESO_PERCAPITA_GRUPO_FA : 30.1 | 35.3 | 40.1 | 53.2 -> monotona: si 
+EDAD_MESES : 35.5 | 38.1 | 20.6 -> monotona: no 
+N_ALUMNOS : 31.2 | 38 | 36.5 | 33 | 35.3 -> monotona: no 
+INGRESO_COLEGIO : 24.5 | 33.9 | 38.4 | 56.3 -> monotona: si 
+$CLEC_REG_ACTUAL
+
+$EDAD_MESES
+
+ℹ Creating woe binning ...
+ℹ The option bin_close_right was set to FALSE.
+✔ Binning on 168714 rows and 2 columns in 00:00:00
+     variable        bin  count count_distr   neg   pos   posprob         woe
+       <char>     <char>  <int>       <num> <int> <int>     <num>       <num>
+1: EDAD_MESES [-Inf,228) 153602   0.9104283 96481 57121 0.3718767  0.06415457
+2: EDAD_MESES [228, Inf)  15112   0.0895717 11999  3113 0.2059952 -0.76090757
+        bin_iv   total_iv breaks is_special_values
+         <num>      <num> <char>            <lgcl>
+1: 0.003780531 0.04861966    228             FALSE
+2: 0.044839124 0.04861966    Inf             FALSE
+$EDAD_MESES
+
+   
+    pagado publico subvencionado
+  1  21822       0             0
+  2      0       0         89586
+  3      0   40362             0
+  4      0   16941             0
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 2 columns in 00:00:00
+        variable               bin count count_distr   neg   pos   posprob
+          <char>            <char> <int>       <num> <int> <int>     <num>
+1: DEPENDENCIA_3 publico%,%missing 57306   0.3396636 40893 16413 0.2864098
+2: DEPENDENCIA_3     subvencionado 89586   0.5309933 57350 32236 0.3598330
+3: DEPENDENCIA_3            pagado 21822   0.1293431 10237 11585 0.5308863
+           woe       bin_iv  total_iv            breaks is_special_values
+         <num>        <num>     <num>            <char>            <lgcl>
+1: -0.32455635 3.390841e-02 0.1037427 publico%,%missing             FALSE
+2:  0.01223984 7.968858e-05 0.1037427     subvencionado             FALSE
+3:  0.71203140 6.975459e-02 0.1037427            pagado             FALSE
+$DEPENDENCIA_3
+
+ℹ Converting into woe values ...
+✔ Woe transformating on 168714 rows and 12 columns in 00:00:02
+                variable     Estimate Std. Error   z value Pr(>|z|)      gvif
+                  <char>        <num>      <num>     <num>    <num>     <num>
+ 1:          (Intercept) -0.581629187     0.0057 -102.8610   0.0000        NA
+ 2:  CLEC_REG_ACTUAL_woe  0.549410293     0.0092   59.6654   0.0000  1.599071
+ 3: MATE1_REG_ACTUAL_woe  0.451974059     0.0101   44.7327   0.0000  1.756172
+ 4:   PROMEDIO_NOTAS_woe  0.327867556     0.0330    9.9425   0.0000 12.815213
+ 5:         PTJE_NEM_woe  0.008848699     0.0388    0.2281   0.8196 17.758494
+ 6:     PTJE_RANKING_woe  0.179085239     0.0370    4.8396   0.0000 15.198209
+ 7:   PORC_SUP_NOTAS_woe -0.129351894     0.0235   -5.5083   0.0000  3.369275
+ 8:         TP_DUMMY_woe  0.325709019     0.0192   16.9205   0.0000  1.182698
+ 9:  INGRESO_COLEGIO_woe  0.032567316     0.0256    1.2698   0.2041  2.337315
+10:    DEPENDENCIA_3_woe -0.065842192     0.0260   -2.5299   0.0114  2.378830
+11:       EDAD_MESES_woe  0.114059104     0.0280    4.0796   0.0000  1.039902
+12:              BEA_woe  0.010411543     0.0319    0.3262   0.7442  1.189283
+13:         RINDE_M2_woe -0.060349117     0.0379   -1.5941   0.1109  1.106780
+ℹ Converting into woe values ...
+✔ Woe transformating on 168714 rows and 8 columns in 00:00:02
+               variable     Estimate Std. Error   z value Pr(>|z|)     gvif
+                 <char>        <num>      <num>     <num>    <num>    <num>
+1:          (Intercept) -0.581678885     0.0057 -102.9132   0.0000       NA
+2:  CLEC_REG_ACTUAL_woe  0.548983166     0.0092   59.8525   0.0000 1.588677
+3: MATE1_REG_ACTUAL_woe  0.451991582     0.0100   45.1035   0.0000 1.728556
+4:   PROMEDIO_NOTAS_woe  0.428606926     0.0105   40.8395   0.0000 1.305119
+5:         TP_DUMMY_woe  0.335620806     0.0189   17.7793   0.0000 1.138085
+6:    DEPENDENCIA_3_woe -0.011141448     0.0189   -0.5909   0.5546 1.247565
+7:       EDAD_MESES_woe  0.123510817     0.0279    4.4326   0.0000 1.035946
+8:              BEA_woe -0.002995822     0.0313   -0.0958   0.9237 1.141012
+9:         RINDE_M2_woe -0.062630692     0.0378   -1.6551   0.0979 1.105970
+OK cifras

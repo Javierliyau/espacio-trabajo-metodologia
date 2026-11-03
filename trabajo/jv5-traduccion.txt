@@ -1,0 +1,769 @@
+Jones y Vollrath -- Cap. 5: El motor del crecimiento  Control lunes 2/11
+
+        Traducción al español para estudio · Temario del control: §5.1 completo, §5.2.1 y §5.2.2
+
+                              Capítulo 5
+                    El motor del crecimiento
+
+Charles I. Jones y Dietrich Vollrath, Introduction to Economic Growth, 3.ª ed. (Nueva York:
+                                       W. W. Norton, 2013), pp. 97-115
+
+Nota: los números entre corchetes al margen indican la página del original en inglés. Se conservan la
+numeración de ecuaciones, figuras y notas al pie del libro.
+
+En cuanto a las Artes del Deleite y del Ornamento, estas se promueven
+mejor con el mayor número de emuladores. Y es más probable que un hombre
+ingenioso y curioso se encuentre entre 4 millones que entre 400 personas...
+
+--William Petty, citado en Simon (1981), p. 158
+
+    El modelo neoclásico de crecimiento destaca el progreso tecnológico como el motor del creci-             [p. 97]
+miento económico, y el capítulo anterior analizó en términos generales la economía de las ideas y
+de la tecnología. En este capítulo incorporamos lo aprendido en los capítulos anteriores para de-
+sarrollar una teoría explícita del progreso tecnológico. El modelo que desarrollaremos nos permite
+estudiar el motor del crecimiento económico, abordando así la segunda gran pregunta planteada
+al comienzo de este libro. Buscamos entender por qué las economías avanzadas del mundo, como
+Estados Unidos, han crecido a una tasa cercana al 2 por ciento anual durante el último siglo.
+¿De dónde proviene el progreso tecnológico que subyace a este crecimiento? ¿Por qué la tasa de
+crecimiento es de 2 por ciento al año y no de 1 o de 10 por ciento? ¿Podemos esperar que este
+crecimiento continúe, o existe algún límite al crecimiento económico?
+
+    Gran parte del trabajo de los economistas en torno a estas preguntas se ha agrupado bajo el              [p. 98]
+nombre de teoría del crecimiento endógeno o nueva teoría del crecimiento. En lugar de suponer
+que el crecimiento ocurre gracias a mejoras automáticas y no modeladas (exógenas) de la tecno-
+logía, esta teoría se concentra en comprender las fuerzas económicas que subyacen al progreso
+tecnológico. Una contribución importante de este trabajo es reconocer que el progreso tecnológico
+se produce a medida que empresas o inventores maximizadores de beneficios buscan ratoneras
+nuevas y mejores. Adam Smith escribió que «no es por la benevolencia del carnicero, del cervecero
+o del panadero que esperamos nuestra cena, sino por la consideración de su propio interés» (Smith
+1776 [1981], pp. 26-27). Del mismo modo, es la posibilidad de obtener ganancias lo que impulsa
+a las empresas a desarrollar un computador que cabe en la mano, una bebida gaseosa con una
+sola caloría o una forma de grabar programas de televisión y películas para verlos cuando uno
+quiera. De esta manera, las mejoras tecnológicas, y el propio proceso de crecimiento económico,
+se entienden como un resultado endógeno de la economía.
+
+    La teoría específica que desarrollaremos en este capítulo fue construida por Paul Romer en una
+serie de artículos, entre ellos uno de 1990 titulado «Endogenous Technological Change» (Cambio
+tecnológico endógeno).1 El modelo de Romer trata el progreso tecnológico como la incorporación
+de nuevas variedades de bienes al menú disponible para la economía: los computadores portátiles
+son un tipo de bien nuevo respecto de los computadores de escritorio, y los teléfonos inteligentes
+
+    1La versión del modelo de Romer que presentaremos en este capítulo se basa en Jones (1995a). Existe una
+diferencia clave entre ambos modelos, que se discutirá en el momento oportuno.
+
+1
+Jones y Vollrath -- Cap. 5: El motor del crecimiento  Control lunes 2/11
+
+son un bien nuevo respecto de los portátiles. Después de revisar el modelo de Romer, presenta-
+remos una especificación alternativa de la tecnología, basada en mejorar la calidad de productos
+existentes: los computadores actuales son más rápidos y tienen más capacidad de almacenamiento
+que los del pasado. Desarrollada originalmente por Aghion y Howitt (1992) y por Grossman y
+Helpman (1991), esta alternativa suele denominarse modelo de crecimiento schumpeteriano, pues
+fue anticipada por el trabajo de Joseph Schumpeter a fines de la década de 1930 y comienzos de la
+de 1940. Lo que veremos al final del capítulo es que las predicciones sobre la tasa de crecimiento
+de la tecnología en el largo plazo no dependen de cómo concibamos el progreso tecnológico.
+
+5.1 Los elementos básicos del modelo de Romer
+
+    El modelo de Romer endogeniza el progreso tecnológico introduciendo la búsqueda de nuevas        [p. 99]
+ideas por parte de investigadores interesados en obtener ganancias con sus inventos. La estructura
+de mercado y los incentivos económicos que están en el corazón de este proceso se examinarán en
+detalle en la sección 5.2. Primero, sin embargo, describiremos los elementos básicos del modelo y
+sus implicancias para el crecimiento económico.
+
+    El modelo está diseñado para explicar por qué y cómo los países avanzados del mundo exhiben
+un crecimiento sostenido. A diferencia de los modelos neoclásicos de capítulos anteriores, que
+podían aplicarse a distintos países, el modelo de este capítulo describe a los países avanzados del
+mundo en su conjunto. El progreso tecnológico es impulsado por la I+D en el mundo avanzado.
+En el próximo capítulo exploraremos el importante proceso de transferencia tecnológica y por qué
+distintas economías tienen distintos niveles de tecnología. Por ahora, nos ocuparemos de cómo la
+frontera tecnológica mundial se desplaza continuamente hacia afuera.
+
+    Al igual que en el modelo de Solow, el modelo de Romer de cambio tecnológico endógeno tiene
+dos elementos principales: una ecuación que describe la función de producción y un conjunto de
+ecuaciones que describen cómo evolucionan en el tiempo los insumos de esa función de produc-
+ción. Las ecuaciones principales serán similares a las del modelo de Solow, con una diferencia
+importante.
+
+    La función de producción agregada del modelo de Romer describe cómo el stock de capital,
+K, y el trabajo, LY , se combinan para producir el producto, Y , usando el stock de ideas, A:
+
+Y = K (ALY )1- ,                                      (5.1)
+
+donde  es un parámetro entre cero y uno. Por ahora tomamos esta función de producción como
+dada; en la sección 5.2 discutiremos en detalle la estructura de mercado y los microfundamentos
+de la economía que subyacen a esta función de producción agregada.
+
+    Para un nivel dado de tecnología, A, la función de producción de la ecuación (5.1) exhibe        [p. 100]
+rendimientos constantes a escala en K y LY . Sin embargo, cuando reconocemos que las ideas (A)
+también son un insumo de la producción, aparecen rendimientos crecientes. Por ejemplo, una vez
+que Steve Jobs y Steve Wozniak inventaron los planos para armar computadores personales, esos
+planos (la «idea») no necesitaban inventarse de nuevo. Para duplicar la producción de compu-
+tadores personales, a Jobs y Wozniak les bastaba con duplicar el número de circuitos integrados,
+semiconductores, etc., y encontrar un garaje más grande. Es decir, la función de producción exhi-
+be rendimientos constantes a escala respecto de los insumos capital y trabajo y, por lo tanto, debe
+exhibir rendimientos crecientes respecto de los tres insumos: si se duplican el capital, el trabajo
+y el stock de ideas, el producto aumentará a más del doble. Como se discutió en el capítulo 4,
+la presencia de rendimientos crecientes a escala proviene, en lo fundamental, de la naturaleza no
+rival de las ideas.
+
+2
+Jones y Vollrath -- Cap. 5: El motor del crecimiento  Control lunes 2/11
+
+    Las ecuaciones de acumulación del capital y del trabajo son idénticas a las del modelo de
+Solow. El capital se acumula a medida que las personas de la economía renuncian a consumo a
+una tasa dada, sK, y se deprecia a la tasa exógena :
+
+                                                    K = sKY - K.
+
+El trabajo, que equivale a la población, crece exponencialmente a una tasa constante y exógena
+n:
+
+                                                           L
+                                                              = n.
+
+                                                           L
+
+    La ecuación clave que es nueva respecto del modelo neoclásico es la que describe el progreso
+tecnológico. En el modelo neoclásico, el término de productividad A crece exógenamente a una
+tasa constante. En el modelo de Romer, el crecimiento de A se endogeniza. ¿Cómo se logra esto?
+La respuesta es mediante una función de producción de nuevas ideas: así como más trabajadores
+automotrices pueden producir más autos, suponemos que más investigadores pueden producir
+más ideas nuevas.
+
+Según el modelo de Romer, A(t) es el stock de conocimiento, o el número de ideas que se han
+
+inventado a lo largo de la historia hasta el instante t. Entonces, A es el número de ideas nuevas
+
+producidas en un momento dado. En la versión más simple del modelo, A es igual al número de
+
+personas que intentan descubrir nuevas ideas, LA, multiplicado por la tasa a la que descubren
+nuevas ideas, ¯:
+
+A = ¯LA.                                              (5.2)
+
+    La tasa a la que los investigadores descubren nuevas ideas podría ser simplemente una cons-        [p. 101]
+tante. Por otra parte, cabría imaginar que depende del stock de ideas ya inventadas. Por ejemplo,
+quizá la invención de ideas en el pasado eleva la productividad de los investigadores en el presente.
+En tal caso, ¯ sería una función creciente de A. El descubrimiento del cálculo, la invención del
+láser y el desarrollo de los circuitos integrados son ejemplos de ideas que han aumentado la pro-
+ductividad de la investigación posterior. Por otro lado, quizá las ideas más obvias se descubren
+primero y las ideas siguientes son cada vez más difíciles de descubrir. En ese caso, ¯ sería una
+función decreciente de A.
+
+    Este razonamiento sugiere modelar la tasa a la que se producen nuevas ideas como
+
+¯ = A,                                                (5.3)
+
+donde  y  son constantes. En esta ecuación,  > 0 indica que la productividad de la investigación
+aumenta con el stock de ideas ya descubiertas;  < 0 corresponde al caso de «agotamiento de
+la pesca» (fishing out), en que los peces se vuelven más difíciles de atrapar con el tiempo. Por
+último,  = 0 indica que la tendencia a que las ideas más obvias se descubran primero compensa
+exactamente el hecho de que las ideas antiguas pueden facilitar el descubrimiento de ideas nuevas;
+es decir, la productividad de la investigación es independiente del stock de conocimiento.
+
+    También es posible que la productividad media de la investigación dependa del número de
+personas que buscan nuevas ideas en un momento dado. Por ejemplo, quizá la duplicación de
+esfuerzos es más probable cuando hay más personas dedicadas a investigar. Una forma de modelar
+esta posibilidad es suponer que lo que realmente entra en la función de producción de nuevas ideas
+es LA, donde  es un parámetro entre cero y uno, y no LA. Esto, junto con las ecuaciones (5.3)
+y (5.2), sugiere concentrarse en la siguiente función de producción general de ideas:
+
+A = LAA.                                              (5.4)
+
+3
+Jones y Vollrath -- Cap. 5: El motor del crecimiento                 Control lunes 2/11
+
+Por razones que quedarán claras más adelante, supondremos que  < 1.
+
+    Las ecuaciones (5.2) y (5.4) ilustran un aspecto muy importante de la modelación del creci-       [p. 102]
+miento económico.2 Los investigadores individuales, al ser pequeños en relación con la economía
+en su conjunto, toman ¯ como dado y perciben rendimientos constantes a la investigación. Como
+en la ecuación (5.2), un individuo dedicado a la investigación crea ¯ ideas nuevas. En la economía
+en su conjunto, sin embargo, la función de producción de ideas puede no caracterizarse por ren-
+dimientos constantes a escala. Aunque ¯ cambiará solo en una magnitud ínfima en respuesta a
+las acciones de un solo investigador, claramente varía con el esfuerzo de investigación agregado.3
+Por ejemplo,  < 1 puede reflejar una externalidad asociada a la duplicación: algunas de las ideas
+creadas por un investigador individual pueden no ser nuevas para la economía en su conjunto.
+Esto es análogo a la congestión en una carretera. Cada conductor ignora que su presencia hace un
+poco más difícil que los demás lleguen a su destino. El efecto de un solo conductor es despreciable,
+pero sumado entre todos los conductores puede ser importante.
+
+     De manera similar, la presencia de A se trata como externa al agente individual. Considere-
+mos el caso  > 0, que refleja un derrame (spillover) positivo de conocimiento en la investigación.
+Las ganancias para la sociedad derivadas de la teoría de la gravitación superaron con creces el
+beneficio que Isaac Newton pudo apropiarse. Gran parte del conocimiento que creó «se derramó»
+hacia investigadores futuros. Por supuesto, el propio Newton también se benefició del conocimien-
+to creado por científicos anteriores, como Kepler, tal como reconoció en su famosa frase: «Si he
+visto más lejos que otros, es porque estaba parado sobre los hombros de gigantes». Con esto
+en mente, podemos llamar a la externalidad asociada a  el efecto «sobre hombros de gigantes»
+(standing on shoulders) y, por extensión, a la externalidad asociada a  el efecto «pisarse los pies»
+(stepping on toes).
+
+    A continuación debemos discutir cómo se asignan los recursos en esta economía. Hay dos
+asignaciones clave. Primero, suponemos (como antes) que una fracción constante del producto
+se invierte en capital. Segundo, debemos decidir cuánto trabajo se destina a producir bienes y
+cuánto a producir ideas, reconociendo que estas dos actividades emplean a todo el trabajo de la
+economía:
+
+                                                      LY + LA = L.
+
+En un modelo más sofisticado (y, de hecho, en el artículo original de Romer), la asignación
+del trabajo se determina mediante la maximización de utilidad y los mercados. Sin embargo,
+nuevamente es conveniente adoptar el supuesto a la Solow de que la asignación del trabajo es
+constante; este supuesto se relajará en la sección 5.2. Suponemos que una fracción constante de
+la fuerza de trabajo, LA/L = sR, se dedica a la I+D para producir nuevas ideas, y que la fracción
+restante, 1 - sR, produce bienes.
+
+    Por último, la economía cuenta con ciertas dotaciones iniciales al comenzar. Suponemos que
+parte con K0 unidades de capital, L0 unidades de trabajo y A0 ideas. Con esto se completa la
+formulación del modelo y estamos listos para comenzar a resolver algunas variables endógenas
+clave, empezando por la tasa de crecimiento de largo plazo de esta economía.
+
+4
+Jones y Vollrath -- Cap. 5: El motor del crecimiento     Control lunes 2/11
+
+5.1.1 El crecimiento en el modelo de Romer
+
+    ¿Cuál es la tasa de crecimiento en este modelo a lo largo de una senda de crecimiento balan-                        [p. 103]
+ceado? Siempre que una fracción constante de la población esté empleada produciendo ideas (lo
+que mostraremos más abajo), el modelo coincide con el modelo neoclásico en predecir que todo el
+crecimiento per cápita se debe al progreso tecnológico. Denotando con minúsculas las variables
+per cápita, y con gx la tasa de crecimiento de una variable x a lo largo de la senda de crecimiento
+balanceado, es fácil mostrar que
+
+                                                      gy = gk = gA.
+
+Es decir, el producto per cápita, la razón capital-trabajo y el stock de ideas deben crecer todos
+a la misma tasa a lo largo de una senda de crecimiento balanceado.4 Si en el modelo no hay
+
+progreso tecnológico, no hay crecimiento.
+
+    Por lo tanto, la pregunta importante es: «¿Cuál es la tasa de progreso tecnológico a lo largo
+de una senda de crecimiento balanceado?». La respuesta se obtiene reescribiendo la función de
+producción de ideas, ecuación (5.4). Dividiendo ambos lados de la ecuación por A se obtiene
+
+           A =  LA .                                     (5.5)
+
+                          1-
+
+           AA
+
+A lo largo de una senda de crecimiento balanceado, A/A  gA es constante. Pero esta tasa de
+
+crecimiento será constante si y solo si el numerador y el denominador del lado derecho de la
+
+ecuación (5.5) crecen a la misma tasa. Tomando logaritmos y derivando ambos lados de esta
+
+ecuación,
+
+           L A                                        A  (5.6)
+           0 =  LA - (1 - ) A .
+
+    A lo largo de una senda de crecimiento balanceado, la tasa de crecimiento del número de                             [p. 104]
+
+investigadores debe ser igual a la tasa de crecimiento de la población: si fuera mayor, el número
+de investigadores terminaría superando a la población, lo que es imposible. Es decir, L A/LA = n.
+Sustituyendo esto en la ecuación (5.6) se obtiene
+
+                    n                                    (5.7)
+           gA = 1 -  .
+
+Así, la tasa de crecimiento de largo plazo de esta economía está determinada por los parámetros
+de la función de producción de ideas y por la tasa de crecimiento de los investigadores, que en
+último término está dada por la tasa de crecimiento de la población.
+
+    Varios aspectos de esta ecuación merecen comentario. Primero, ¿cuál es su intuición? La
+intuición se ve con mayor facilidad considerando el caso especial en que  = 1 y  = 0, de modo
+que la productividad de los investigadores es la constante . En este caso no hay problema de
+duplicación en la investigación, y la productividad de un investigador hoy es independiente del
+stock de ideas descubiertas en el pasado. La función de producción de ideas queda
+
+                                                         A = LA.
+
+    2Esta técnica de modelación se explorará nuevamente en el capítulo 9, en el contexto de los modelos de creci-
+miento «AK».
+
+    3Nótese que la expresión exacta de ¯, que incorpora tanto la duplicación como los derrames de conocimiento, es
+¯ = L-1 A A.
+
+    4Para verlo, siga los argumentos que usamos al derivar la ecuación (2.10) del capítulo 2. Intuitivamente, la razón
+capital-producto debe ser constante a lo largo de una senda de crecimiento balanceado. Reconociendo este hecho,
+la función de producción implica que y y k deben crecer a la misma tasa que A.
+
+                5
+Jones y Vollrath -- Cap. 5: El motor del crecimiento  Control lunes 2/11
+
+Supongamos ahora que el número de personas dedicadas a buscar ideas es constante. Como               [p. 105]
+también es constante, esta economía genera cada período un número constante de ideas nuevas,
+LA. Para ser más concretos, supongamos que LA = 100. La economía parte con un stock de
+ideas, A0, generado por descubrimientos previos. Inicialmente, las cien ideas nuevas por período
+pueden ser una fracción grande del stock existente, A0. Con el tiempo, sin embargo, el stock crece
+y las cien ideas nuevas pasan a ser una fracción cada vez menor del stock existente. Por lo tanto,
+la tasa de crecimiento del stock de ideas cae en el tiempo y termina acercándose a cero. Nótese,
+no obstante, que el progreso tecnológico nunca se detiene. La economía siempre crea cien ideas
+nuevas. Lo que ocurre es simplemente que esas cien ideas nuevas se achican en comparación con
+el stock acumulado de ideas.
+
+     Para generar crecimiento exponencial, el número de ideas nuevas debe expandirse en el tiempo.
+Esto ocurre si el número de investigadores aumenta, por ejemplo, debido al crecimiento de la
+población mundial. Más investigadores significan más ideas, lo que sostiene el crecimiento en el
+modelo. En este caso, el crecimiento de las ideas está claramente relacionado con el crecimiento de
+la población, lo que explica la presencia de la tasa de crecimiento de la población en la ecuación
+(5.7).
+
+     Es interesante comparar este resultado con el efecto del crecimiento de la población en el
+modelo neoclásico. Allí, por ejemplo, una mayor tasa de crecimiento de la población reduce el
+nivel del ingreso a lo largo de una senda de crecimiento balanceado. Más personas implican que
+se necesita más capital para mantener K/L constante, pero el capital enfrenta rendimientos
+decrecientes. Aquí existe un efecto adicional importante. Las personas son el insumo clave del
+proceso creativo. Una población más grande genera más ideas y, como las ideas son no rivales,
+todos en la economía se benefician.
+
+     ¿Qué evidencia puede presentarse en apoyo de la afirmación de que la tasa de crecimiento per
+cápita de la economía mundial depende del crecimiento de la población? Primero, nótese que esta
+implicancia particular del modelo es muy difícil de contrastar. Ya señalamos que este modelo del
+motor del crecimiento pretende describir a los países avanzados del mundo tomados en conjunto.
+Por lo tanto, no podemos usar evidencia sobre el crecimiento de la población entre países para
+contrastar el modelo. De hecho, ya presentamos una de las piezas de evidencia más convincentes
+en el capítulo 4. Recuerde el gráfico de la figura 4.4 con las tasas de crecimiento de la población
+mundial durante los últimos dos mil años. El crecimiento sostenido y rápido de la población es un
+fenómeno más bien reciente, al igual que el crecimiento sostenido y rápido del producto per cápita.
+Los aumentos de la tasa de crecimiento de la población, desde la tasa muy baja observada durante
+la mayor parte de la historia, ocurrieron aproximadamente al mismo tiempo que la Revolución
+Industrial.
+
+     El resultado de que la tasa de crecimiento de la economía está ligada a la tasa de crecimiento
+de la población implica otro resultado aparentemente fuerte: si la población (o al menos el número
+de investigadores) deja de crecer, el crecimiento de largo plazo se detiene. ¿Qué pensar de esta
+predicción? Reformulando levemente la pregunta: si el esfuerzo de investigación en el mundo fuera
+constante en el tiempo, ¿terminaría el crecimiento económico por detenerse? Este modelo sugiere
+que sí. Un esfuerzo de investigación constante no puede mantener los aumentos proporcionales
+del stock de ideas necesarios para generar crecimiento de largo plazo.
+
+     En realidad, hay un caso especial en que un esfuerzo de investigación constante sí puede
+sostener el crecimiento de largo plazo, y esto nos lleva a nuestro segundo comentario principal
+sobre el modelo. La función de producción de ideas considerada en el artículo original de Romer
+
+6
+Jones y Vollrath -- Cap. 5: El motor del crecimiento  Control lunes 2/11
+
+(1990) supone que  = 1 y  = 1. Es decir,
+
+A = LAA.
+
+Reescribiendo levemente la ecuación, vemos que esta versión del modelo de Romer generará
+crecimiento sostenido con un esfuerzo de investigación constante:
+
+                                          A           (5.8)
+                                          A = LA.
+
+En este caso, Romer supone que la productividad de la investigación es proporcional al stock                         [p. 106]
+existente de ideas: ¯ = A. Con este supuesto, la productividad de los investigadores crece en el
+
+tiempo, aunque el número de investigadores sea constante.
+
+    La ventaja de esta especificación, sin embargo, es también su desventaja. El esfuerzo mundial
+de investigación ha aumentado enormemente durante los últimos cuarenta años e incluso durante
+el último siglo (véase la figura 4.6 del capítulo 4 para recordar este hecho). Como LA crece
+rápidamente en el tiempo, la formulación original de Romer en la ecuación (5.8) predice que la
+tasa de crecimiento de las economías avanzadas también debería haber aumentado rápidamente
+durante los últimos cuarenta años o el último siglo. Sabemos que esto está lejos de ser cierto. La
+tasa de crecimiento promedio de la economía estadounidense, por ejemplo, ha estado muy cerca
+de 1,8 por ciento anual durante los últimos cien años. Esta predicción de la formulación original
+de Romer, fácilmente rechazable, se evita exigiendo que  sea menor que uno, lo que nos devuelve
+a los resultados asociados a la ecuación (5.7).5
+
+    Nótese que nada en este razonamiento descarta los rendimientos crecientes en la investigación
+ni los derrames positivos de conocimiento. El parámetro de derrame de conocimiento, , puede
+ser positivo y bastante grande. Lo que el razonamiento señala es que el caso, algo arbitrario, de
+ = 1 es fuertemente rechazado por la observación empírica.6
+
+    Nuestro último comentario sobre las implicancias de este modelo de tecnología para el creci-                     [p. 107]
+miento es que los resultados se parecen a los del modelo neoclásico en un aspecto importante. En
+el modelo neoclásico, los cambios en la política del gobierno y en la tasa de inversión no tienen
+efecto de largo plazo sobre el crecimiento económico. Este resultado no era sorprendente una vez
+que reconocimos que todo el crecimiento en el modelo neoclásico se debía al progreso tecnológico
+exógeno. En este modelo con progreso tecnológico endógeno, sin embargo, obtenemos el mismo
+resultado. La tasa de crecimiento de largo plazo es invariante a cambios en la tasa de inversión, e
+incluso a cambios en la fracción de la población empleada en investigación. Esto se ve al notar que
+ninguno de los parámetros de la ecuación (5.7) se ve afectado cuando cambia, por ejemplo, la tasa
+de inversión o la fracción del trabajo dedicada a I+D. En cambio, estas políticas afectan la tasa
+de crecimiento a lo largo de una senda de transición hacia el nuevo estado estacionario, alterando
+el nivel del ingreso. Es decir, aun después de endogenizar la tecnología en este modelo, la tasa
+de crecimiento de largo plazo no puede ser manipulada por las autoridades mediante políticas
+convencionales, como los subsidios a la I+D.
+
+5.1.2 Efectos sobre el crecimiento versus efectos sobre el nivel
+
+    El hecho de que las políticas habituales no puedan afectar el crecimiento de largo plazo no
+es una característica del modelo original de Romer, ni de muchos otros modelos de crecimiento
+
+    5Este punto se plantea en Jones (1995a).
+    6La misma evidencia también descarta valores de  > 1. ¡Tales valores generarían tasas de crecimiento crecientes
+incluso con una población constante!
+
+                                          7
+Jones y Vollrath -- Cap. 5: El motor del crecimiento     Control lunes 2/11
+
+basados en ideas que le siguieron, incluidos los modelos de crecimiento schumpeterianos de Aghion
+y Howitt (1992) y de Grossman y Helpman (1991). Gran parte del trabajo teórico de la nueva
+teoría del crecimiento ha buscado desarrollar modelos en que los cambios de política puedan tener
+efectos sobre el crecimiento de largo plazo.
+
+     Los modelos basados en ideas en que los cambios de política pueden aumentar permanente-
+mente la tasa de crecimiento de la economía descansan todos en el supuesto  = 1, o en uno
+equivalente. Como se mostró más arriba, este supuesto genera la predicción contrafactual de
+que las tasas de crecimiento deberían acelerarse en el tiempo con una población creciente. Jones
+(1995a) generalizó estos modelos al caso  < 1 para eliminar este defecto y mostró la implican-
+cia, algo sorprendente, de que con ello se eliminan también los efectos de la política sobre el
+crecimiento de largo plazo. Discutiremos estos temas con más detalle en el capítulo 9.
+
+5.1.3 Estática comparativa: un aumento permanente de la fracción dedicada a
+         I+D
+
+    ¿Qué ocurre con las economías avanzadas del mundo si la fracción de la población que bus-
+ca nuevas ideas aumenta permanentemente? Por ejemplo, supongamos que existe un subsidio
+gubernamental a la I+D que aumenta la fracción de la fuerza de trabajo dedicada a investigar.
+
+    Una característica importante del modelo que acabamos de desarrollar es que muchos cambios         [p. 108]
+de política (o ejercicios de estática comparativa) pueden analizarse con técnicas que ya conocemos.
+¿Por qué? Nótese que el progreso tecnológico en el modelo puede analizarse por sí solo: no depende
+del capital ni del producto, sino únicamente de la fuerza de trabajo y de la fracción de la población
+dedicada a la investigación. Una vez que la tasa de crecimiento de A es constante, el modelo
+se comporta exactamente como el modelo de Solow con progreso tecnológico exógeno. Por lo
+tanto, nuestro análisis procede en dos pasos. Primero, consideramos qué ocurre con el progreso
+tecnológico y con el stock de ideas después del aumento de la intensidad de I+D. Segundo,
+analizamos el modelo como lo hicimos con el de Solow, siguiendo pasos conocidos del capítulo 2.
+Antes de seguir, vale la pena notar que el análisis de cambios que no afectan la tecnología, como
+un aumento de la tasa de inversión, es exactamente igual al análisis del modelo de Solow.
+
+Consideremos ahora qué ocurre si la fracción de la población dedicada a la investigación
+
+aumenta permanentemente. Para simplificar levemente, supongamos de nuevo que  = 1 y  = 0;
+
+ninguno de los resultados cambia cualitativamente con este supuesto. Es útil reescribir la ecuación
+
+(5.5) como
+
+            A sRL                                                              (5.9)
+               = ,
+            A                                         A
+
+donde sR es la fracción de la población dedicada a I+D, de modo que LA = sRL.
+
+    La figura 5.1 muestra qué ocurre con el progreso tecnológico cuando sR aumenta permanen-
+temente a sR, suponiendo que la economía parte en estado estacionario. En estado estacionario,
+la economía crece a lo largo de una senda de crecimiento balanceado a la tasa de progreso tecno-
+
+lógico, gA, que bajo nuestros supuestos simplificadores resulta ser igual a la tasa de crecimiento
+de la población. Por lo tanto, la razón LA/A es igual a gA/. Supongamos que el aumento de sR
+ocurre en t = 0. Con una población L0, el número de investigadores aumenta al subir sR, de modo
+que la razón LA/A salta a un nivel más alto. Los investigadores adicionales producen un mayor
+número de ideas nuevas, por lo que la tasa de crecimiento de la tecnología también es más alta en
+
+ese momento. Esta situación corresponde al punto marcado «X» en la figura. En X, el progreso
+tecnológico A/A supera al crecimiento de la población n, por lo que la razón LA/A disminuye
+en el tiempo, como indican las flechas. A medida que esta razón disminuye, la tasa de cambio
+
+               8
+Jones y Vollrath -- Cap. 5: El motor del crecimiento                     Control lunes 2/11
+
+tecnológico también cae gradualmente, hasta que la economía vuelve a la senda de crecimiento          [p. 109]
+balanceado donde gA = n. Por lo tanto, un aumento permanente de la fracción de la población
+dedicada a la investigación eleva la tasa de progreso tecnológico transitoriamente, pero no en el
+largo plazo. Este comportamiento se ilustra en la figura 5.2.
+
+    ¿Qué ocurre con el nivel de tecnología en esta economía? La figura 5.3 responde esta pregunta.
+El nivel de tecnología crece a lo largo de una senda de crecimiento balanceado a la tasa gA hasta
+el instante t = 0. En ese momento, la tasa de crecimiento aumenta y el nivel de tecnología sube
+más rápido que antes. Con el tiempo, sin embargo, la tasa de crecimiento cae hasta volver a gA. El
+nivel de tecnología queda permanentemente más alto como resultado del aumento permanente de
+la I+D. Nótese que un aumento permanente de sR en el modelo de Romer genera una dinámica
+de transición cualitativamente similar a la que genera un aumento de la tasa de inversión en el
+modelo de Solow.
+
+A /A                                                                  A /A = LA/A
+                                                      X
+
+gA = n
+
+           gA/                                        sRL0/A0    LA/A
+
+Figura 5.1 Progreso tecnológico: un aumento de la fracción dedicada a I+D
+
+A /A
+
+gA = n
+
+                                                                 Tiempo
+
+              t=0
+
+           Figura 5.2 A/A en el tiempo
+
+                                                                                                      [p. 110]
+
+Ahora que sabemos qué ocurre con la tecnología en el tiempo, podemos analizar el resto del
+
+modelo en un marco de Solow. La tasa de crecimiento de largo plazo del modelo es constante,
+
+de modo que gran parte del álgebra que usamos al analizar el modelo de Solow es aplicable. Por
+
+ejemplo, la razón y/A es constante a lo largo de una senda de crecimiento balanceado y está dada
+
+por una ecuación similar a la ecuación (2.13):
+
+        ( y ) ( sK )/(1-)                             (1 - sR).                    (5.10)
+           =
+        A     n + gA + 
+
+La única diferencia es la presencia del término 1-sR, que ajusta por la diferencia entre el producto
+
+                                                9
+Jones y Vollrath -- Cap. 5: El motor del crecimiento                   Control lunes 2/11
+                      log A                           Efecto nivel
+
+                                                      Tiempo
+
+t=0
+
+Figura 5.3 El nivel de tecnología en el tiempo
+
+por trabajador, Y /LY , y el producto per cápita, Y /L.
+
+    Nótese que, a lo largo de una senda de crecimiento balanceado, la ecuación (5.9) puede resol-
+verse para el nivel de A en función de la fuerza de trabajo:
+
+     A = sRL .
+             gA
+
+Combinando esta ecuación con (5.10), obtenemos
+
+ ( sK )/(1-) sR                                                          (5.11)
+y (t) =                                               (1 - sR) gA L(t).
+            n + gA + 
+
+    En esta versión simple del modelo, el producto per cápita es proporcional a la población de                [p. 111]
+la economía (mundial) a lo largo de una senda de crecimiento balanceado. En otras palabras, el
+modelo exhibe un efecto escala en niveles: una economía mundial más grande será una economía
+mundial más rica. Este efecto escala surge, en lo fundamental, de la naturaleza no rival de las
+ideas: una economía más grande ofrece un mercado más grande para una idea, lo que eleva el
+retorno a la investigación (un efecto de demanda). Además, una economía mundial más poblada
+simplemente tiene, de partida, más creadores potenciales de ideas (un efecto de oferta).
+
+    Los demás términos de la ecuación (5.11) se interpretan fácilmente. El primero es conocido del
+modelo de Solow original: las economías que invierten más en capital serán más ricas, por ejemplo.
+Dos términos involucran la fracción del trabajo dedicada a la investigación, sR. La primera vez
+que aparece sR, entra con signo negativo, reflejando que más investigadores significan menos
+trabajadores produciendo bienes. La segunda vez, entra con signo positivo, reflejando que más
+investigadores significan más ideas, lo que aumenta la productividad de la economía.
+
+5.2 La economía del modelo de Romer
+
+    La primera mitad de este capítulo ha analizado el modelo de Romer sin discutir la economía
+que lo sustenta. Varios economistas desarrollaron en la década de 1960 modelos con características
+macroeconómicas similares.7 Sin embargo, el desarrollo de los microfundamentos de esos modelos
+tuvo que esperar hasta la década de 1980, cuando los economistas comprendieron mejor cómo
+modelar la competencia imperfecta en un contexto de equilibrio general.8 De hecho, una de
+
+    7Por ejemplo, Uzawa (1965), Phelps (1966), Shell (1967) y Nordhaus (1969).
+    8Pasos clave de esta comprensión fueron dados por Spence (1976), Dixit y Stiglitz (1977) y Ethier (1982).
+
+                                                                    10
+Jones y Vollrath -- Cap. 5: El motor del crecimiento  Control lunes 2/11
+
+las contribuciones importantes de Romer (1990) fue explicar exactamente cómo construir una            [p. 112]
+economía de agentes maximizadores de beneficios que endogeniza el progreso tecnológico. La
+intuición detrás de esta contribución se desarrolló en el capítulo 4. Desarrollar la matemática
+es el tema del resto de esta sección. Como esta sección es algo difícil, algunos lectores tal vez
+prefieran saltar a la sección 5.3.
+
+    La economía de Romer consta de tres sectores: un sector de bienes finales, un sector de
+bienes intermedios y un sector de investigación. La razón de ser de dos de estos sectores debería
+ser clara: algunas empresas deben producir bienes y otras deben producir ideas. La razón del
+sector de bienes intermedios se relaciona con la presencia de rendimientos crecientes discutida
+en el capítulo 4. Cada uno de estos sectores se discutirá por turno. En resumen, el sector de
+investigación crea nuevas ideas, que toman la forma de nuevas variedades de bienes de capital:
+nuevos chips de computador, robots industriales o imprentas. El sector de investigación vende el
+derecho exclusivo de producir un bien de capital específico a una empresa de bienes intermedios.
+La empresa de bienes intermedios, como monopolista, fabrica el bien de capital y lo vende al
+sector de bienes finales, que produce el producto.
+
+5.2.1 El sector de bienes finales
+
+    El sector de bienes finales de la economía de Romer es muy parecido al sector de bienes finales
+del modelo de Solow. Está formado por un gran número de empresas perfectamente competitivas
+que combinan trabajo y capital para producir un bien homogéneo, Y . La función de producción
+se especifica de una manera levemente distinta, sin embargo, para reflejar que en el modelo existe
+más de un bien de capital:
+
+                                                                   A
+                                                    Y = L1- Y xj .
+
+                                                                                          j=1
+
+El producto, Y , se produce usando trabajo, LY , y un número de bienes de capital distintos, xj, que
+también llamaremos «bienes intermedios». En cualquier momento, A mide el número de bienes de
+capital disponibles para usarse en el sector de bienes finales, y las empresas de ese sector toman
+este número como dado. Los inventos o ideas en el modelo corresponden a la creación de nuevos
+bienes de capital que el sector de bienes finales puede usar para producir.
+
+    Nótese que esta función de producción puede reescribirse como
+
+Y = L1- Y x1 + L1- Y x2 + · · · + L1- Y xA,
+
+y es fácil ver que, para un A dado, la función de producción exhibe rendimientos constantes a         [p. 113]
+escala: duplicar la cantidad de trabajo y la cantidad de cada bien de capital duplica exactamente
+el producto.
+
+    Por razones técnicas, resulta más fácil analizar el modelo si reemplazamos la sumatoria de la
+función de producción por una integral:
+
+                                                                A
+                                                  Y = L1- Y xj dj.
+
+                                                                                          0
+
+Así, A mide el rango de bienes de capital disponibles para el sector de bienes finales, y este rango
+es el intervalo [0, A] de la recta real. La interpretación básica de la ecuación, sin embargo, no se
+ve afectada por este tecnicismo.
+
+    Con rendimientos constantes a escala, el número de empresas no puede determinarse, de modo
+que supondremos que hay un gran número de empresas idénticas que producen el bien final y que
+
+                                   11
+Jones y Vollrath -- Cap. 5: El motor del crecimiento                   Control lunes 2/11
+
+en este sector impera la competencia perfecta. También normalizaremos a uno el precio del bien
+final, Y .
+
+   Las empresas del sector de bienes finales deben decidir cuánto trabajo y cuánto de cada bien
+
+de capital usar para producir. Lo hacen resolviendo el problema de maximización de beneficios:
+
+                             A                                A
+
+                    máx L1- Y xj dj            - wLY       - pjxj dj,
+                    LY , xj
+                             0                                    0
+
+donde pj es el precio de arriendo del bien de capital j y w es el salario pagado al trabajo. Las
+condiciones de primer orden que caracterizan la solución de este problema son
+
+                                                        Y              (5.12)
+                                       w = (1 - ) LY
+
+y
+
+                                       pj = LY1-xj-1,                  (5.13)
+
+donde esta segunda condición se aplica a cada bien de capital j. La primera condición dice que
+las empresas contratan trabajo hasta que el producto marginal del trabajo iguala al salario. La
+segunda dice lo mismo, pero para los bienes de capital: las empresas arriendan bienes de capital
+hasta que el producto marginal de cada tipo de capital iguala a su precio de arriendo, pj. Para
+ver la intuición de estas ecuaciones, supongamos que el producto marginal de un bien de capital
+fuera mayor que su precio de arriendo. Entonces la empresa debería arrendar una unidad más:
+el producto obtenido pagará con creces el precio del arriendo. Si el producto marginal está por
+debajo del precio de arriendo, la empresa puede aumentar sus beneficios reduciendo la cantidad
+de capital que usa.
+
+5.2.2 El sector de bienes intermedios
+
+    El sector de bienes intermedios está formado por monopolistas que producen los bienes de      [p. 114]
+capital que se venden al sector de bienes finales. Estas empresas obtienen su poder monopólico
+comprando al sector de investigación el diseño de un bien de capital específico. Gracias a la
+protección de patentes, solo una empresa fabrica cada bien de capital.
+
+    Una vez comprado el diseño de un bien de capital particular (un costo fijo), la empresa de
+bienes intermedios produce el bien de capital con una función de producción muy simple: una
+unidad de capital bruto puede transformarse automáticamente en una unidad del bien de capital.
+El problema de maximización de beneficios de una empresa de bienes intermedios es entonces
+
+                                              máx j = pj(xj) xj - r xj,
+
+                                                                 xj
+
+donde pj(x) es la función de demanda por el bien de capital dada en la ecuación (5.13). La
+condición de primer orden de este problema, omitiendo los subíndices j, es
+
+                             p(x) x + p(x) - r = 0.
+
+Reescribiendo esta ecuación obtenemos
+
+                                       p(x) x         r
+                                               +1= ,
+                                       p              p
+
+lo que implica que
+
+                                                   1
+                                       p = p(x) x r.
+
+                                            1+
+                                                     p
+
+                                               12
+Jones y Vollrath -- Cap. 5: El motor del crecimiento                                Control lunes 2/11
+
+Por último, la elasticidad p(x)x/p puede calcularse a partir de la curva de demanda de la ecuación
+(5.13). Es igual a  - 1, de modo que la empresa de bienes intermedios cobra un precio que es
+simplemente un margen (markup) sobre el costo marginal, r:
+
+                                           1
+                                     p = r.
+
+                                          
+
+Esta es la solución para cada monopolista, de modo que todos los bienes de capital se venden al                [p. 115]
+mismo precio. Como las funciones de demanda de la ecuación (5.13) también son iguales, cada
+bien de capital es empleado por las empresas de bienes finales en la misma cantidad: xj = x.
+Por lo tanto, cada empresa de bienes de capital obtiene el mismo beneficio. Con algo de álgebra,
+puede mostrarse que este beneficio está dado por
+
+                                                       Y                                     (5.14)
+                                      = (1 - ) A .
+
+    Por último, la demanda total de capital de las empresas de bienes intermedios debe ser igual
+al stock total de capital de la economía:
+
+                                                      A
+                                                           xj dj = K.
+
+                                                                            0
+
+Como cada bien de capital se usa en la misma cantidad, x, esta ecuación puede usarse para
+
+determinar x:                              K
+                                     x= .
+                                                                                             (5.15)
+                                           A
+
+La función de producción de bienes finales puede reescribirse, usando el hecho de que xj = x,
+
+como
+
+                                     Y = A L1- Y x,
+
+y sustituyendo a partir de la ecuación (5.15) se obtiene
+
+                            Y = A L1- Y A-K = K (ALY )1- .                                   (5.16)
+
+Es decir, vemos que la tecnología de producción del sector de bienes finales genera la misma
+función de producción agregada usada a lo largo de este libro. En particular, esta es la función
+de producción agregada usada en la ecuación (5.1).
+
+Glosario inglés-español usado en esta traducción
+
+Inglés                      Español                          Inglés                 Español
+
+balanced growth path        senda de crecimiento balanceado  spillover              derrame
+steady state                estado estacionario              standing on shoulders  sobre hombros de gigantes
+nonrivalrous                no rival                         stepping on toes       pisarse los pies
+R&D share (sR)              fracción dedicada a I+D          fishing out            agotamiento de la pesca
+growth / level effect       efecto crecimiento / nivel       scale effect           efecto escala
+final / intermediate goods  bienes finales / intermedios     rental price           precio de arriendo
+markup                      margen sobre costo marginal      raw capital            capital bruto
+
+                                     13
+

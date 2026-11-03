@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Tocqueville · Temporada 4 · Mini clase para la Prueba 1</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 10.6pt; line-height: 1.42; color: #1d1d1f; margin: 0; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; margin: 0; }
+  .cover { background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 55%, #ef4444 100%); color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 14px; }
+  .cover .kicker { letter-spacing: 3px; font-size: 9pt; text-transform: uppercase; opacity: .85; }
+  .cover h1 { font-size: 34pt; line-height: 1.05; margin: 6px 0 4px; }
+  .cover .sub { font-size: 12pt; opacity: .95; }
+  .card { display: flex; gap: 14px; border: 2px solid #1d1d1f; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; background: #fffbea; }
+  .card .avatar { font-size: 44pt; line-height: 1; }
+  .card table { border-collapse: collapse; font-size: 9.8pt; }
+  .card td { padding: 1px 8px 1px 0; vertical-align: top; }
+  .card td:first-child { font-weight: 700; white-space: nowrap; }
+  .legend { font-size: 9pt; color: #444; margin: 0 0 12px; }
+  .ep { border-left: 6px solid #b91c1c; padding: 2px 0 2px 12px; margin: 14px 0 6px; page-break-inside: avoid; }
+  .ep .n { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #b91c1c; font-weight: 700; }
+  .ep h2 { font-size: 15pt; }
+  .block { page-break-inside: avoid; }
+  .profe { background: #eef4ff; border: 1px solid #b6c9f0; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .profe::before { content: "🎙 El profe dijo: "; font-weight: 700; color: #1e40af; }
+  .profe .t { color: #64748b; font-size: 8.5pt; }
+  .libro { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .libro::before { content: "📖 La lectura: "; font-weight: 700; color: #374151; }
+  .trampa { background: #fff1f2; border: 1.5px dashed #e11d48; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .trampa::before { content: "⚠ Trampa de prueba: "; font-weight: 700; color: #be123c; }
+  .tip { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .tip::before { content: "💡 Para recordarlo: "; font-weight: 700; color: #047857; }
+  .building { width: 78%; margin: 8px auto; text-align: center; font-size: 9.8pt; }
+  .roof { background: #fde68a; border: 2px solid #92400e; border-radius: 8px 8px 0 0; padding: 6px; }
+  .roof .row { display: flex; gap: 6px; margin-top: 4px; }
+  .roof .row div { flex: 1; background: #fff7d6; border: 1px solid #b45309; border-radius: 6px; padding: 4px; }
+  .arrow { font-size: 9pt; color: #92400e; padding: 3px 0; border-left: 2px solid #92400e; border-right: 2px solid #92400e; background: #fffdf3; }
+  .base { background: #78350f; color: #fff; border: 2px solid #78350f; border-radius: 0 0 8px 8px; padding: 7px; }
+  table.saga { width: 100%; border-collapse: collapse; font-size: 9.6pt; margin: 6px 0; }
+  table.saga th { background: #1d1d1f; color: #fff; text-align: left; padding: 5px 7px; }
+  table.saga td { border-bottom: 1px solid #ddd; padding: 5px 7px; vertical-align: top; }
+  table.saga tr:nth-child(even) td { background: #fafafa; }
+  .clock { display: flex; height: 30px; border-radius: 8px; overflow: hidden; margin: 8px 0 2px; font-weight: 700; font-size: 10pt; color: #fff; }
+  .clock .paid { flex: 6; background: #16a34a; display: flex; align-items: center; justify-content: center; }
+  .clock .free { flex: 10; background: #b91c1c; display: flex; align-items: center; justify-content: center; }
+  .clocklbl { display: flex; font-size: 8.5pt; color: #555; }
+  .clocklbl div:first-child { flex: 6; text-align: center; } .clocklbl div:last-child { flex: 10; text-align: center; }
+  .formulas { display: flex; gap: 10px; margin: 6px 0; }
+  .formulas div { flex: 1; border: 2px solid #1d1d1f; border-radius: 10px; padding: 8px 10px; }
+  .formulas .f { font-family: Consolas, monospace; font-size: 15pt; font-weight: 700; }
+  .alien { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 0; }
+  .alien div { border: 1px solid #c4b5fd; background: #f5f3ff; border-radius: 8px; padding: 6px 9px; }
+  .alien b { color: #6d28d9; }
+  .bridge { display: flex; gap: 8px; margin: 6px 0; }
+  .bridge div { flex: 1; border-radius: 10px; padding: 8px 10px; color: #fff; font-size: 9.8pt; }
+  .newpage { page-break-before: always; }
+  .quiz { border: 2.5px solid #1d1d1f; border-radius: 14px; padding: 12px 16px; background: #fffdf5; }
+  .quiz h2 { font-size: 17pt; margin-bottom: 2px; }
+  .quiz ol { padding-left: 20px; margin: 8px 0 0; }
+  .quiz li { margin-bottom: 11px; }
+  .bet { float: right; font-size: 9pt; color: #555; }
+  .bet span { display: inline-block; width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 4px; text-align: center; line-height: 13px; margin-left: 3px; font-size: 8pt; }
+  .score { font-size: 9.5pt; background: #f1f5f9; border-radius: 8px; padding: 7px 10px; margin-top: 6px; }
+  .tweet { border: 1px solid #cbd5e1; border-radius: 12px; padding: 9px 12px; margin: 8px 0; background: #fff; }
+  .tweet .who { font-weight: 700; } .tweet .who span { color: #64748b; font-weight: 400; }
+  ul.t { margin: 4px 0; padding-left: 18px; } ul.t li { margin-bottom: 3px; }
+  .foot { font-size: 8pt; color: #777; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 5px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Sociología Económica · Prueba 1 · mié 28-10</div>
+  <h1>TOCQUEVILLE<br>Temporada 4</h1>
+  <div class="sub">7 episodios cortos · unos 15 minutos · desde Aron, la lectura mínima que pidió el profe</div>
+</div>
+
+<div class="card">
+  <div class="avatar">🗽</div>
+  <table>
+    <tr><td>Personaje</td><td>Alexis de Tocqueville, francés y aristócrata: <b>1805-1859</b>. Entre <b>1831 y 1832</b> viajó a EE. UU. con una misión oficial: estudiar el <b>sistema penitenciario</b>. Volvió con un libro sobre la democracia.</td></tr>
+    <tr><td>Superpoder</td><td>La <b>comparación</b>: pone a EE. UU. al lado de Francia y pregunta por qué a uno le resulta lo que al otro le cuesta.</td></tr>
+    <tr><td>Pregunta</td><td>No es la explotación (Marx), el sentido (Weber) ni el consenso (Durkheim), sino la <b>libertad</b>: <b>¿cómo hacer compatibles la igualdad y la libertad?</b></td></tr>
+    <tr><td>Enemigo</td><td>La <b>tiranía de la mayoría</b> y la <b>centralización</b>.</td></tr>
+    <tr><td>Maestro</td><td><b>Montesquieu</b>. ⚠ <b>No conocía a Comte ni a Marx</b>.</td></tr>
+    <tr><td>Discos</td><td><b><i>La democracia en América</i>, vol. I (1835) y vol. II (1840)</b> · <b><i>El Antiguo Régimen y la Revolución</i> (1856)</b></td></tr>
+  </table>
+</div>
+
+<p class="legend">📖 = Aron, <i>Las etapas del pensamiento sociológico</i>, cap. 4 (A, con la página del libro) · ⚠ = donde suelen pillar en V/F. Tocqueville se vio en una clase no grabada (la 3 o la 4) y <b>no está en la lista de conceptos de la clase 5</b>: todo sale de la primera mitad de Aron, que es lo que pidió el profe.</p>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 1</div><h2>El hecho democrático</h2></div>
+<p>Cada clásico mira la modernidad por una puerta distinta. Comte ve el <b>hecho industrial</b>, Marx el <b>hecho capitalista</b> y Tocqueville el <b>hecho democrático</b>. Para él, lo nuevo de la época es que la igualdad avanza y no hay cómo frenarla.</p>
+<div class="formulas">
+  <div><b>Comte</b><br>hecho industrial</div>
+  <div><b>Marx</b><br>hecho capitalista</div>
+  <div><b>Tocqueville</b><br>hecho <b>democrático</b></div>
+</div>
+<div class="libro">Sus dos obras son «<b>dos paneles de un díptico</b>». <i>La democracia en América</i> pregunta por qué en EE. UU. la democracia es <b>liberal</b>; <i>El Antiguo Régimen y la Revolución</i> pregunta por qué a <b>Francia</b> le cuesta tanto mantener la libertad. <span class="t">(A p. 192)</span></div>
+<div class="trampa">«Tocqueville viajó a EE. UU. para estudiar su democracia» → <b>F</b> en sentido estricto: fue a estudiar el <b>sistema penitenciario</b>. «Tocqueville discutió con Comte y Marx» → <b>F</b>: no los conocía. «El hecho que pone en primer plano es el industrial» → <b>F</b>: es el democrático.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 2 · ⭐ el concepto clave</div><h2>Democracia = igualación de las condiciones</h2></div>
+<p>Cuando Tocqueville dice «democracia» no habla primero de elecciones. Habla de un <b>estado social</b>: una sociedad donde <b>no hay diferencias hereditarias</b> de condición y donde <b>todos pueden acceder a todas las funciones</b>. El hijo del campesino puede llegar a ser juez; en la aristocracia, no.</p>
+<table class="saga">
+  <tr><th></th><th>ARISTOCRACIA 🏰</th><th>DEMOCRACIA 🗽</th></tr>
+  <tr><td><b>Condición</b></td><td>Se hereda: naces noble o siervo</td><td>Se iguala: nadie nace con privilegios</td></tr>
+  <tr><td><b>Funciones</b></td><td>Reservadas a unos pocos</td><td>Abiertas a todos</td></tr>
+  <tr><td><b>Busca</b></td><td>La grandeza de unos pocos</td><td>El <b>bienestar del mayor número</b>: una sociedad «pequeñoburguesa»</td></tr>
+</table>
+<div class="libro">La igualación de las condiciones <b>no es igualdad económica ni intelectual</b>: puede haber ricos y pobres, sabios e ignorantes. Lo que desaparece es el privilegio de nacimiento. Y la democracia es <b>más que una forma de gobierno</b>. <span class="t">(A pp. 193-194)</span></div>
+<div class="tip">Para recordarlo: igualdad <b>de condiciones</b> = igualdad <b>de partida</b> (nadie nace con título de conde), no igualdad <b>de llegada</b> (todos con el mismo sueldo).</div>
+<div class="trampa">«Para Tocqueville, democracia significa igualdad de ingresos» → <b>F</b>. «Para Tocqueville, democracia es solo una forma de gobierno» → <b>F</b>: es sobre todo un estado social.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 3</div><h2>El dilema: igualdad y libertad</h2></div>
+<p>La igualdad va a llegar sí o sí. Lo que no está asegurado es la <b>libertad</b>. Antes, la libertad se apoyaba en la desigualdad: los nobles, con su poder propio, frenaban al rey. Si la nobleza desaparece, <b>¿quién frena al poder?</b> <span class="t">(A pp. 195-196)</span></p>
+<div class="libro">Para Tocqueville, la <b>libertad</b> es la <b>ausencia de arbitrariedad</b>: que el poder se ejerza según las leyes, que <b>el poder se oponga al poder</b> (la idea de su maestro, <b>Montesquieu</b>) y que la gente se <b>gobierne a sí misma</b>. <span class="t">(A p. 195)</span></div>
+<p>Una sociedad igualitaria puede ir para dos lados: hacia una <b>democracia liberal</b>, como EE. UU., o hacia un <b>despotismo de iguales</b>, donde todos son iguales… en no tener libertad.</p>
+<div class="trampa">«Para Tocqueville, igualdad y libertad van siempre juntas» → <b>F</b>: ese es justamente el problema. La igualdad puede convivir con el despotismo.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 4 · ⭐ pregunta segura</div><h2>¿Por qué EE. UU. es libre? Tres causas</h2></div>
+<p>Tocqueville da tres causas de que en EE. UU. la democracia sea liberal, y las ordena <b>de menor a mayor importancia</b>: <span class="t">(A pp. 198-199)</span></p>
+<table class="saga">
+  <tr><th>Peso</th><th>Causa</th><th>Qué es</th></tr>
+  <tr><td>🥉 menor</td><td><b>Situación geográfica e histórica</b></td><td>Un territorio enorme, sin vecinos peligrosos y sin pasado feudal</td></tr>
+  <tr><td>🥈 medio</td><td><b>Leyes</b></td><td>El <b>federalismo</b> y la Constitución; el <b>espíritu jurídico</b> de los abogados reemplaza a la aristocracia</td></tr>
+  <tr><td>🥇 mayor</td><td><b>Costumbres y creencias</b></td><td>Los hábitos del corazón: religión, autogobierno local, asociaciones</td></tr>
+</table>
+<p>Dentro de las costumbres hay tres piezas que se preguntan mucho:</p>
+<div class="formulas">
+  <div><b>🙏 Religión + libertad</b><br>En EE. UU., el espíritu religioso está fusionado con el espíritu de libertad. «<b>El despotismo puede prescindir de la fe, pero la libertad no</b>» (A pp. 202-203). En Francia, en cambio, la Iglesia y la democracia chocan.</div>
+  <div><b>💡 Interés bien entendido</b><br>El principio de la democracia moderna <b>no es la virtud</b> (eso era la república antigua, según Montesquieu), sino el <b>interés bien entendido</b>: colaboro con mi comuna porque a la larga me conviene (A p. 204).</div>
+  <div><b>🏛 La comuna</b><br>El autogobierno local, como el <i>town meeting</i>, es una escuela de libertad: ahí se practica decidir juntos (A p. 204).</div>
+</div>
+<div class="trampa">«La causa principal de la democracia liberal en EE. UU. es su geografía» → <b>F</b>: es la que <b>menos</b> pesa. «El principio de la democracia moderna es la virtud» → <b>F</b>. «Para Tocqueville, religión y libertad son incompatibles» → <b>F</b>. «En EE. UU., el espíritu jurídico cumple el papel que antes tenía la aristocracia» → <b>V</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 5</div><h2>Los peligros de la democracia y sus contrapesos</h2></div>
+<p>Tocqueville admira EE. UU., pero no es ingenuo. Según Aron, ve tres peligros: <span class="t">(A pp. 205-206)</span></p>
+<table class="saga">
+  <tr><th>⚠ Peligro</th><th>🛡 Contrapeso</th></tr>
+  <tr><td>La <b>tiranía de la mayoría</b>: la mayoría oprime a las minorías y <b>uniforma el pensamiento</b></td><td>La <b>libertad de prensa</b> y la libertad de <b>asociación</b></td></tr>
+  <tr><td>La <b>centralización</b>: un Estado que lo decide todo desde arriba</td><td>La <b>descentralización</b>: la comuna y el federalismo</td></tr>
+  <tr><td>El <b>espíritu de corte</b>: la demagogia, adular al pueblo como antes se adulaba al rey</td><td>Las <b>costumbres</b> y la <b>religión</b>, que ponen límites morales</td></tr>
+</table>
+<p>Las <b>asociaciones voluntarias</b> (juntas de vecinos, clubes, iglesias locales) son la gran respuesta: reemplazan a los cuerpos intermedios que antes daba la nobleza y juntan a individuos que, solos, no podrían frenar al poder. En EE. UU., además, los partidos son <b>de intereses</b>.</p>
+<p>📖 Aron agrega una mancha que la democracia estadounidense no resuelve: los <b>indios</b> y los <b>esclavos negros</b>.</p>
+<div class="trampa">«El mayor peligro de la democracia, según Tocqueville, es la anarquía» → <b>F</b>: son la tiranía de la mayoría, la centralización y la demagogia. Ojo: la <b>lucha de clases revolucionaria</b> no es un peligro de Tocqueville; es Marx.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 6</div><h2>Francia: iguales, pero separados</h2></div>
+<p>El segundo panel del díptico. ¿Por qué a Francia le cuesta la libertad? Por la <b>centralización administrativa</b>. Y aquí está la sorpresa: <b>no la inventó la Revolución</b>. Viene del <b>Antiguo Régimen</b>, de los <b>intendentes</b> del rey, y la Revolución la <b>continuó</b> (los 83 departamentos). <span class="t">(A pp. 209-210)</span></p>
+<div class="libro">Sin libertad política, la sociedad francesa quedó <b>uniforme y desintegrada</b>: grupos <b>semejantes pero separados</b> e indiferentes entre sí. El gobierno de uno solo hace a la gente parecida y, a la vez, la vuelve indiferente a los demás. <span class="t">(A p. 210)</span></div>
+<p>Dos ideas más de <i>El Antiguo Régimen y la Revolución</i>:</p>
+<div class="formulas">
+  <div><b>⛪ Revolución «religiosa»</b><br>La Revolución francesa se propagó <b>como una religión</b>: decía valer para todos los pueblos y prometía la salvación de toda la humanidad (A p. 208).</div>
+  <div><b>👥 «Hablo de las clases»</b><br>«Hablo de las clases; sólo ellas deben ser el contenido de la historia». Suena a Marx, pero <b>es de Tocqueville</b> (A pp. 208-209).</div>
+</div>
+<div class="trampa">«La centralización francesa fue una creación de la Revolución» → <b>F</b>: viene del Antiguo Régimen. «“Hablo de las clases…” es una frase de Marx» → <b>F</b>: es de Tocqueville.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 7</div><h2>Economía, método y futuro</h2></div>
+<p>📖 Lo que más toca a <b>Sociología Económica</b>: <span class="t">(A pp. 197-198)</span></p>
+<ul>
+  <li>La <b>riqueza industrial es móvil</b>: sube y baja, así que <b>no forma una aristocracia</b> hereditaria. Si alguna vez vuelve a nacer una aristocracia, <b>entrará por la industria</b>.</li>
+  <li>El obrero que se pasa la vida haciendo <b>cabezas de alfiler</b> se embrutece. Es el mismo ejemplo de la fábrica de alfileres de Adam Smith, pero mirado por su costo humano. Se parece a la alienación de Marx, aunque con otra conclusión.</li>
+  <li>Frente al <b>catastrofismo de Marx</b>, Tocqueville prevé una sociedad <b>aburguesada</b>, cómoda y con algo parecido a un <b>Estado de bienestar</b>, no una revolución.</li>
+</ul>
+<div class="libro"><b>Método:</b> construye un <b>tipo ideal</b> de la sociedad democrática y lo compara con casos reales (EE. UU. y Francia), como hará Weber después. Pero, a diferencia de Weber, Tocqueville <b>juzga mientras describe</b>: le importa la libertad y lo dice. <span class="t">(A pp. 205, 207)</span></div>
+<div class="trampa">«Tocqueville se limita a describir, sin juzgar» → <b>F</b>. «La industria formará inevitablemente una nueva aristocracia hereditaria» → <b>F</b>. «Tocqueville comparte el catastrofismo de Marx» → <b>F</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Crossover final</div><h2>Los 4 autores de la Prueba 1 en una tabla</h2></div>
+<table class="saga">
+  <tr><th></th><th>Marx</th><th>Weber</th><th>Durkheim</th><th>Tocqueville</th></tr>
+  <tr><td>El hecho moderno</td><td>Capitalista</td><td>La racionalización</td><td>La división del trabajo</td><td><b>Democrático</b></td></tr>
+  <tr><td>Pregunta</td><td>La explotación</td><td>El sentido</td><td>El consenso</td><td><b>Igualdad y libertad</b></td></tr>
+  <tr><td>Método</td><td>Materialismo histórico</td><td>Comprensión y tipo ideal</td><td>Hechos sociales «como cosas»</td><td><b>Comparación</b> (EE. UU. vs. Francia) y tipo ideal</td></tr>
+  <tr><td>Peligro</td><td>Alienación</td><td>Jaula de hierro</td><td>Anomia</td><td><b>Tiranía de la mayoría</b> y centralización</td></tr>
+  <tr><td>¿Salida?</td><td>Revolución</td><td>No se ve</td><td>Educación republicana</td><td><b>Asociaciones</b>, comuna, prensa y religión</td></tr>
+  <tr><td>¿Juzga?</td><td>Sí</td><td>No: describe</td><td>Diagnostica, con optimismo</td><td><b>Sí: juzga mientras describe</b></td></tr>
+</table>
+<div class="tip">Truco de las causas: si una pregunta habla de <b>costumbres</b>, <b>asociaciones</b>, <b>igualación de condiciones</b> o <b>tiranía de la mayoría</b>, la respuesta es Tocqueville.</div>
+</div>
+
+<div class="tweet"><div class="who">Tocqueville en un tuit <span>@alexis_1835</span></div>
+Fui a EE. UU. a ver cárceles y volví hablando de democracia. La igualdad llega sí o sí; la libertad, no. En EE. UU. funciona por sus costumbres (más que por sus leyes o su geografía). Ojo con la mayoría que lo aplasta todo. Remedio: asóciate, vota en tu comuna, lee la prensa. 🗽</div>
+
+<div class="quiz newpage">
+  <h2>🎮 Ronda Tocqueville</h2>
+  <div>Marca la respuesta y tu <b>apuesta</b> (1 = adivino · 2 = creo · 3 = seguro).</div>
+  <div class="score"><b>Puntaje:</b> acierto = +1 · acierto apostando 3 = <b>+2</b> · error apostando 3 = <b>−1</b> · racha de 3 = +1. Mándame en el chat: <code>1b-3, 2F-2, …</code></div>
+  <ol>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Para Tocqueville, la democracia es ante todo:<br>a) una forma de gobierno · b) la igualdad de ingresos · c) la igualación de las condiciones · d) la dictadura de la mayoría</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> De las tres causas de la democracia liberal en EE. UU., la que más pesa es la situación geográfica.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Según Tocqueville, el principio de la democracia moderna es:<br>a) la virtud · b) el honor · c) el interés bien entendido · d) el temor</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Para Tocqueville, la religión y la libertad son incompatibles.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Según Tocqueville, la centralización administrativa francesa nace:<br>a) con la Revolución · b) con Napoleón · c) en el Antiguo Régimen · d) con la Comuna de París</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> La frase «Hablo de las clases; sólo ellas deben ser el contenido de la historia» es de Tocqueville.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Comte pone en primer plano el hecho industrial y Marx el capitalista. Tocqueville pone el hecho:<br>a) racional · b) democrático · c) religioso · d) solidario</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Para Tocqueville, las asociaciones voluntarias (juntas de vecinos, clubes, iglesias locales) sirven como:<br>a) contrapeso a la tiranía de la mayoría · b) superestructura que oculta la explotación · c) dominación tradicional · d) solidaridad mecánica</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Tocqueville, como Weber, describe la sociedad sin emitir juicios.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>El motivo oficial del viaje de Tocqueville a EE. UU. (1831-1832) fue estudiar:<br>a) la democracia · b) el sistema penitenciario · c) las fábricas · d) la esclavitud</li>
+  </ol>
+  <div class="score">🧑‍🔬 <b>Caso Einstein (2 min, sin puntaje):</b> en Chile, por ley, cualquier niño puede llegar a la universidad, pero muchos niños talentosos de familias pobres no llegan. ¿Hay <b>igualación de las condiciones</b> en el sentido de Tocqueville? ¿Qué remedio suyo (costumbres, asociaciones, comuna) podría ayudar?</div>
+</div>
+
+<div class="foot">Fuente: Raymond Aron, <i>Las etapas del pensamiento sociológico</i>, cap. 4 «Alexis de Tocqueville», primera mitad (pp. 191-210 del libro; años de vida en la cronología, pp. 229-231), según la ficha de Tocqueville del 24-10. Tocqueville no está en la lista de conceptos de la clase 5 y su clase no se grabó: los apuntes de Paula pueden agregar frases del profe.</div>
+
+</body>
+</html>

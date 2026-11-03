@@ -1,0 +1,29 @@
+una. Usamos el umbral del curso, VIF mayor que 2. Mientras alguna lo
+supere, sale la variable con mayor cociente VIF/IV: la más colineal y
+la que menos aporta. El VIF y el cociente se recalculan después de cada
+salida.
+
+\begin{center}
+\begin{tabular}{c>{\raggedright\arraybackslash}p{3.3cm}rrr>{\raggedright\arraybackslash}p{5.4cm}}
+\toprule
+\textbf{Paso} & \textbf{Sale} & \textbf{VIF} & \textbf{IV} & \textbf{VIF/IV} & \textbf{Motivo} \
+\midrule
+1 & \texttt{PTJE\_NEM}       & 17,78 & 0,394 & 45,1 & Se calcula a partir del promedio de notas (correlación de los WOE: 0,96). \
+2 & \texttt{PTJE\_RANKING}   & 10,17 & 0,376 & 27,1 & También se construye con las notas (0,95 con el promedio). \
+3 & \texttt{INGRESO\_COLEGIO} & 2,34 & 0,106 & 22,1 & Se pisa con la dependencia (0,72). Juicio experto: ver abajo. \
+4 & \texttt{PORC\_SUP\_NOTAS} & 3,12 & 0,193 & 16,2 & Posición del estudiante en su colegio, otra medida de las notas (0,79). \
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Un paso por juicio experto.} En el paso 3, la regla del cociente
+sacaba a \texttt{DEPENDENCIA\_3} (VIF 2,38, IV 0,104, cociente 22,9) y no
+a \texttt{INGRESO\_COLEGIO} (22,1). Las dos miden casi lo mismo, el nivel
+socioeconómico del colegio, y sus números son casi iguales. Nos quedamos
+con la dependencia porque es una característica observada del colegio y
+no un promedio de ingresos autoinformados, donde además falta el dato del
+27,7\,\% de los estudiantes. En la Etapa 3 compararemos el modelo con cada
+una. Con las 9 variables que quedan, todos los VIF están bajo 2 (el mayor
+es 1,75).
+
+\needspace{12\baselineskip}

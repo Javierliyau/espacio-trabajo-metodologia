@@ -1,0 +1,202 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+
+\title{Trabajo práctico de Econometría II\\Etapa 1: construcción de la base de datos}
+\author{INTEGRANTES DEL GRUPO}
+\date{4 de octubre de 2026}
+
+\begin{document}
+\maketitle
+
+\section{Objetivo}
+
+El tema del trabajo es la matrícula en educación superior del proceso de admisión 2026. En esta etapa construimos una sola base de datos con una fila por estudiante. La base reúne los datos del colegio de egreso, las notas de enseñanza media, los puntajes PAES y la matrícula. Con ella definimos la variable de respuesta: si el estudiante se matriculó en una de sus tres primeras preferencias.
+
+\section{Fuentes}
+
+Todos los datos son del portal de bases de datos del DEMRE, proceso de admisión 2026. Usamos cuatro archivos, que se unen por el identificador del estudiante (\texttt{ID\_aux}).
+
+\begin{table}[h]
+\centering
+\begin{tabular}{llrl}
+\toprule
+Archivo & Contenido & Filas & Una fila es \\
+\midrule
+B & Inscritos: colegio, domicilio, sexo, ingreso & 317.700 & un inscrito \\
+C & Notas, NEM, ranking y puntajes PAES & 317.700 & un inscrito \\
+D & Postulaciones & 1.686.689 & una preferencia \\
+Matrícula & Universidad, carrera, vía y preferencia & 128.345 & un matriculado \\
+\bottomrule
+\end{tabular}
+\caption{Archivos del DEMRE usados.}
+\end{table}
+
+No usamos los archivos K y L (cuestionario de caracterización), porque el DEMRE indica que no se pueden vincular con las otras bases.
+
+\section{Construcción de la base}
+
+El código está en \texttt{scripts/02-construir-base.R}. Los pasos son:
+
+\begin{enumerate}
+\item Del archivo D dejamos una fila por persona. Resultan 188.538 postulantes.
+\item Unimos los datos de inscripción (archivo B) y dejamos solo a los estudiantes de la promoción del año, alumno regular (\texttt{SITUACION\_EGRESO} igual a 1).
+\item Unimos las notas y los puntajes PAES (archivo C). De los puntajes usamos solo los de la rendición regular del proceso actual.
+\item Unimos la matrícula. Los postulantes que no se matricularon quedan sin datos de matrícula.
+\item Sacamos a los matriculados por una vía distinta de la regular o con un tipo de matrícula distinto de la postulación regular.
+\item Creamos la variable de respuesta y las variables del colegio.
+\item Dejamos solo a los estudiantes matriculados.
+\end{enumerate}
+
+Las variables del colegio se calculan antes del último paso, con todos los postulantes de la promoción, para que describan al colegio completo y no solo a los que se matricularon.
+
+Todas las uniones se hacen con \texttt{left\_join} sobre \texttt{ID\_aux}, que es único en los archivos B, C y matrícula. Por eso ninguna unión duplica filas, y lo comprobamos al final: la base tiene una fila por estudiante.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lr}
+\toprule
+Paso & Estudiantes \\
+\midrule
+Postulantes del proceso 2026 & 188.538 \\
+Promoción del año, alumno regular & 114.865 \\
+Sin matriculados por vía o tipo no regular & 108.598 \\
+Solo matriculados & 68.704 \\
+\bottomrule
+\end{tabular}
+\caption{Estudiantes que quedan después de cada filtro.}
+\end{table}
+
+El tercer filtro saca a 6.267 matriculados por vías especiales y el cuarto a 39.894 postulantes que no se matricularon. La base final tiene 68.704 filas y 42 columnas, y se guarda en el archivo \texttt{base-etapa-1.csv}.
+
+\section{Variable de respuesta}
+
+La variable \texttt{Y} vale 1 si el estudiante se matriculó en una de sus tres primeras preferencias y 0 si se matriculó en la cuarta o en una posterior.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrr}
+\toprule
+Situación & Estudiantes & \texttt{Y} \\
+\midrule
+Matriculado en preferencia 1 a 3 & 60.301 & 1 \\
+Matriculado en preferencia 4 o posterior & 8.403 & 0 \\
+\midrule
+Total & 68.704 & \\
+\bottomrule
+\end{tabular}
+\caption{Definición de la variable de respuesta.}
+\end{table}
+
+El 88\,\% de los estudiantes tiene \texttt{Y} igual a 1 y el 12\,\% igual a 0.
+
+Las instrucciones piden considerar a los individuos matriculados en alguna universidad, por lo que la base no incluye a los postulantes que no se matricularon. Mantuvimos a los matriculados en la cuarta preferencia o en una posterior: si la base tuviera solo matriculados en sus tres primeras preferencias, la variable de respuesta valdría 1 para todos y no habría nada que explicar.
+
+\section{Variables creadas}
+
+Además de \texttt{Y}, creamos tres variables del estudiante y del tipo de colegio:
+
+\begin{itemize}
+\item \texttt{EDAD}: edad que cumple el estudiante el año de egreso. Se calcula con el año de nacimiento. La mediana es 18 años.
+\item \texttt{ESTUDIA\_OTRA\_COMUNA}: 1 si la comuna del colegio es distinta de la comuna del domicilio. Ocurre en 16.313 estudiantes (24\,\%).
+\item \texttt{COLEGIO\_TP}: 1 si la rama del colegio es técnico profesional y 0 si es humanista científica. Hay 10.566 estudiantes de colegios técnico profesionales.
+\end{itemize}
+
+También creamos cinco variables del colegio. Se calculan con los 108.598 postulantes de la promoción, agrupados por establecimiento de egreso (\texttt{RBD}). Entre los postulantes hay 3.200 establecimientos, y 3.125 de ellos tienen al menos un matriculado en la base final.
+
+\begin{itemize}
+\item \texttt{TAMANO\_COLEGIO}: número de postulantes de la promoción que egresaron del colegio. La mediana es 26, el mínimo 1 y el máximo 395.
+\item \texttt{PROM\_NEM\_COLEGIO}: promedio del puntaje NEM de los estudiantes del colegio.
+\item \texttt{PROM\_CLEC\_COLEGIO}: promedio del puntaje de Competencia Lectora de los estudiantes del colegio.
+\item \texttt{PROM\_MATE1\_COLEGIO}: promedio del puntaje de Matemática 1 de los estudiantes del colegio.
+\item \texttt{PORC\_MATRICULADOS\_COLEGIO}: porcentaje de los postulantes del colegio que se matriculó. Entre los estudiantes de la base la mediana es 65\,\%.
+\end{itemize}
+
+Un puntaje igual a 0 significa que el estudiante no rindió la prueba o no tiene notas, así que no entra en el promedio del colegio.
+
+El tamaño no es la matrícula total del colegio: cuenta solo a los egresados que postularon. Usamos solo datos del DEMRE, por lo que la base no tiene la matrícula real ni la ruralidad del establecimiento.
+
+\section{Datos faltantes}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{p{6.5cm}rp{5.5cm}}
+\toprule
+Variables & Faltantes & Motivo \\
+\midrule
+\texttt{REGIMEN} & 6.183 & Vienen sin dato en el archivo B \\
+Puntajes PAES & 1 & Sin puntaje regular en el archivo C \\
+\bottomrule
+\end{tabular}
+\caption{Datos faltantes en la base final.}
+\end{table}
+
+Ningún estudiante de la base tiene 0 en Competencia Lectora, en Matemática 1 ni en el puntaje NEM. En Matemática 2, Historia y Ciencias el 0 es frecuente, porque son pruebas electivas: significa que el estudiante no rindió esa prueba.
+
+En el ingreso per cápita, 18.410 estudiantes (27\,\%) marcaron «prefiero no responder» (código 99). No es un dato faltante, pero tampoco es un decil.
+
+\section{Definición de las variables}
+
+\begin{longtable}{p{5.2cm}p{9.8cm}}
+\toprule
+Variable & Definición \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{2}{l}{\textit{Estudiante}} \\
+\texttt{ID\_aux} & Identificador único del estudiante. \\
+\texttt{FECHA\_NACIMIENTO} & Mes y año de nacimiento. \\
+\texttt{EDAD} & Creada. Edad que cumple el año de egreso. \\
+\texttt{ESTUDIA\_OTRA\_COMUNA} & Creada. 1 si el colegio está en una comuna distinta de la del domicilio. \\
+\texttt{SEXO} & 1 hombre, 2 mujer. \\
+\texttt{PAIS\_NACIMIENTO} & Código del país de nacimiento. \\
+\texttt{CODIGO\_REGION\_D}, \texttt{CODIGO\_COMUNA\_D} & Región y comuna del domicilio. \\
+\texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} & Decil de ingreso per cápita del grupo familiar, de 1 a 10. El 99 es «prefiero no responder». \\
+\texttt{BEA} & Preseleccionado a la Beca de Excelencia Académica. \\
+\texttt{PACE} & Preseleccionado del programa PACE. \\
+\texttt{ANYO\_EGRESO} & Año de egreso de la enseñanza media. \\
+\texttt{RINDIO\_PROCESO\_ANTERIOR} & 0 no rindió pruebas en el proceso 2025, 1 rindió. \\
+\texttt{RINDIO\_PROCESO\_ACTUAL} & Pruebas inscritas en el proceso 2026: 0 ninguna, 1 regular, 2 invierno, 3 ambas. \\
+\midrule
+\multicolumn{2}{l}{\textit{Colegio de egreso}} \\
+\texttt{RBD} & Identificador enmascarado del establecimiento. \\
+\texttt{COD\_ENS} & Código de enseñanza del Mineduc (310 es enseñanza media humanista científica de niños y jóvenes). \\
+\texttt{REGIMEN} & 1 masculino, 2 femenino, 3 coeducacional. \\
+\texttt{RAMA\_EDUCACIONAL} & H1 a H4 humanista científico (diurno, nocturno, validación y reconocimiento de estudios). T1 a T5 técnico profesional (comercial, industrial, servicios y técnica, agrícola, marítima). \\
+\texttt{GRUPO\_DEPENDENCIA} & 1 particular pagado, 2 particular subvencionado, 3 municipal, 4 servicio local de educación. \\
+\texttt{CODIGO\_REGION}, \texttt{CODIGO\_PROVINCIA}, \texttt{CODIGO\_COMUNA} & Región, provincia y comuna del establecimiento. \\
+\texttt{TAMANO\_COLEGIO} & Creada. Postulantes de la promoción que egresaron del colegio. \\
+\texttt{PROM\_NEM\_COLEGIO} & Creada. Promedio del puntaje NEM en el colegio. \\
+\texttt{PROM\_CLEC\_COLEGIO} & Creada. Promedio de Competencia Lectora en el colegio. \\
+\texttt{PROM\_MATE1\_COLEGIO} & Creada. Promedio de Matemática 1 en el colegio. \\
+\texttt{PORC\_MATRICULADOS\_COLEGIO} & Creada. Porcentaje de postulantes del colegio que se matriculó. \\
+\texttt{COLEGIO\_TP} & Creada. 1 técnico profesional, 0 humanista científico. \\
+\midrule
+\multicolumn{2}{l}{\textit{Notas y puntajes}} \\
+\texttt{PROMEDIO\_NOTAS} & Promedio de notas de la enseñanza media. \\
+\texttt{PORC\_SUP\_NOTAS} & Pertenece al porcentaje superior de notas. \\
+\texttt{PTJE\_NEM} & Puntaje estándar del promedio de notas. \\
+\texttt{PTJE\_RANKING} & Puntaje de ranking de notas. \\
+\texttt{CLEC\_REG\_ACTUAL} & Puntaje de Competencia Lectora. \\
+\texttt{MATE1\_REG\_ACTUAL} & Puntaje de Competencia Matemática 1. \\
+\texttt{MATE2\_REG\_ACTUAL} & Puntaje de Competencia Matemática 2. \\
+\texttt{HCSOC\_REG\_ACTUAL} & Puntaje de Historia y Ciencias Sociales. \\
+\texttt{CIEN\_REG\_ACTUAL} & Puntaje de Ciencias. \\
+\midrule
+\multicolumn{2}{l}{\textit{Matrícula}} \\
+\texttt{CODIGO\_UNIV} & Código de la universidad donde se matriculó. \\
+\texttt{CODIGO} & Código de la carrera donde se matriculó. \\
+\texttt{PREFERENCIA} & Preferencia con la que se matriculó. \\
+\texttt{PTJE\_POND} & Puntaje ponderado con el que se matriculó. \\
+\texttt{Y} & Creada. Variable de respuesta: 1 si se matriculó en preferencia 1 a 3, 0 si se matriculó en la 4 o posterior. \\
+\end{longtable}
+
+Los cinco puntajes PAES corresponden a la rendición regular del proceso 2026.
+
+\end{document}

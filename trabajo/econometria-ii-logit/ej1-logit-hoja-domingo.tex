@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+{\large\textbf{Econometría II · Hoja de ejercicios del domingo 1-11}}
+
+\textbf{Ejercicio 1. Logit sin mirar (30 min)}
+
+{\small Ejercicio inventado para practicar: no viene de una prueba de Pfeng. La ecuación es la de la clase 3 (Spector y Mazzeo); el perfil y las preguntas son nuevos, y la definición de $Y$ («mejora su calificación») falta confirmarla con los apuntes.}
+
+Resuelve en papel, con la calculadora de la prueba y con cronómetro. Entrega cada resultado con su frase de interpretación completa: perfil, unidad, «aproximadamente» y «manteniendo lo demás constante» cuando corresponda.
+
+\[
+\hat{z} = -13{,}0213 + 2{,}8261\,\text{GPA} + 0{,}0952\,\text{TUCE} + 2{,}3787\,\text{PSI},
+\qquad \text{con } \text{GPA}=3{,}0 \text{ y } \text{TUCE}=25.
+\]
+
+\begin{enumerate}[label=\alph*), itemsep=4pt]
+  \item $\hat{P}$ con $\text{PSI}=0$ y con $\text{PSI}=1$.
+  \item Efecto de PSI e interpretación.
+  \item Efecto marginal de GPA con $\text{PSI}=0$, interpretación y por qué no es $2{,}8261$. Con ese efecto marginal, ¿cuál es el efecto de un aumento de $0{,}1$ en GPA?
+  \item Cambio en los odds por PSI.
+  \item Clase estimada con corte $0{,}5$.
+  \item Dos razones para preferir logit al MPL.
+\end{enumerate}
+
+\end{document}

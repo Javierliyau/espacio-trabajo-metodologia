@@ -1,0 +1,503 @@
+\documentclass[11pt,letterpaper]{article}
+
+% --- Idioma y fuentes ------------------------------------------------
+\usepackage[spanish,es-noshorthands,es-tabla]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% --- Geometría y encabezado ------------------------------------------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\setlength{\headheight}{38.22325pt}
+\addtolength{\topmargin}{-6.22325pt}
+
+% --- Matemáticas ------------------------------------------------------
+\usepackage{amsmath,amssymb}
+
+% --- Colores, tablas, listas, código ----------------------------------
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{listings}
+\renewcommand{\arraystretch}{1.5}
+
+\lstset{
+  language=R,
+  basicstyle=\ttfamily\footnotesize,
+  commentstyle=\color{gray}\itshape,
+  keywordstyle=\color{blue!70!black},
+  stringstyle=\color{teal!60!black},
+  breaklines=true,
+  columns=fullflexible,
+  showstringspaces=false
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Econometría II}\\ Trabajo práctico --- Etapa 1}
+\fancyhead[C]{Universidad de Santiago de Chile}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\sloppy
+
+% =====================================================================
+%  PORTADA
+% =====================================================================
+\begin{center}
+  {\LARGE \textbf{Etapa 1: construcción de la base de datos}}\\[4pt]
+  {\large Econometría II --- Admisión 2026}
+\end{center}
+\vspace{0.5em}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Integrantes} & Nombre 1 \\
+                     & Nombre 2 \\
+                     & Nombre 3 \\
+                     & Nombre 4 \\
+\midrule
+\textbf{Profesor}    & Brian Pfeng Ibacache \\
+\textbf{Fecha}       & 8 de octubre de 2026 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+
+% =====================================================================
+\subsection*{1 \; Objetivo}
+% =====================================================================
+
+El tema del trabajo es la matrícula en educación superior del proceso de
+admisión 2026. En esta etapa construimos un solo data frame con una fila
+por estudiante matriculado. Reúne los datos del estudiante, sus notas de
+enseñanza media, sus puntajes PAES, los datos de su matrícula y variables
+del colegio de egreso. Con esta base definimos la variable de respuesta,
+que se estimará con un modelo logit en la Etapa 3.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{2 \; Fuentes de datos}
+% =====================================================================
+
+Todos los datos vienen del portal de bases de datos del DEMRE, proceso de
+admisión 2026. Usamos tres archivos, que se unen por el identificador
+del estudiante, \texttt{ID\_aux}.
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.4cm}
+                >{\raggedright\arraybackslash}p{6.4cm}
+                >{\raggedleft\arraybackslash}p{2.6cm}}
+\toprule
+\textbf{Archivo} & \textbf{Contenido} & \textbf{Filas} \\
+\midrule
+B (\texttt{df1}) & Inscritos: colegio, domicilio, sexo, ingreso familiar & 317.700 \\
+C (\texttt{df2}) & Notas, NEM, ranking y puntajes PAES & 317.700 \\
+Matrícula (\texttt{df4}) & Vía, tipo de matrícula, preferencia y puntaje & 128.345 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+No usamos el archivo D (postulaciones), porque la preferencia en que se
+matriculó cada estudiante ya viene en el archivo de matrícula. Tampoco
+usamos los archivos K y L (cuestionario de caracterización), porque el
+DEMRE indica que no se pueden unir con las otras bases.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{3 \; Construcción de la base}
+% =====================================================================
+
+El código está en R y usa \texttt{tidyverse}. Está completo en el anexo y
+guarda la base final en el archivo \texttt{base\_final\_etapa1.csv}.
+
+\subsubsection*{3.1 \; Variables del colegio}
+
+Antes de filtrar, calculamos las variables del colegio agrupando por
+establecimiento (\texttt{RBD}). Se calculan antes porque necesitan a todos
+los estudiantes del colegio, no solo a los que quedan en la base final.
+Se usan los inscritos de la promoción del año, alumno regular
+(\texttt{SITUACION\_EGRESO} igual a 1), que tienen un colegio registrado.
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3em]
+  \item Del archivo B: número de inscritos del colegio y promedio del
+        tramo de ingreso per cápita familiar de sus inscritos. El código
+        99 («prefiero no responder») no es un tramo, así que no entra al
+        promedio.
+  \item Del archivo de matrícula: número de matriculados por vía regular y
+        tipo de matrícula 1 que egresaron del colegio. Los colegios sin
+        matriculados quedan con 0.
+  \item Con ambos: tasa de matrícula del colegio, igual a matriculados
+        dividido por inscritos.
+\end{itemize}
+
+\subsubsection*{3.2 \; Selección de columnas y unión}
+
+De cada archivo dejamos solo las columnas que usamos (detalle en la
+sección 7). Los archivos B y C traen una fila por inscrito. Luego unimos
+los tres archivos por \texttt{ID\_aux} con \texttt{full\_join}, lo que da
+317.700 filas, y a esa base le aplicamos los filtros.
+
+\subsubsection*{3.3 \; Filtros aplicados}
+
+Los filtros que pide el enunciado, y cómo se aplicaron:
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=0.3em, label=\textbf{\alph*)}]
+  \item \textbf{Promoción del año, alumno regular:} estudiantes con
+        \texttt{SITUACION\_EGRESO} igual a 1 («Promoción del año: nacional,
+        alumno regular»). Quedan fuera quienes validaron estudios, quienes
+        estudiaron en el extranjero y los de promociones anteriores.
+  \item \textbf{Vía y tipo de matrícula:} matriculados por vía regular
+        (\texttt{VIA} igual a 1) con tipo de matrícula «postulación
+        regular» (\texttt{TIPO\_MATRICULA} igual a 1).
+  \item \textbf{Rindió la PAES:} estudiantes que inscribieron pruebas del
+        proceso 2026 en la rendición regular (\texttt{RINDIO\_PROCESO\_ACTUAL}
+        igual a 1) o en la regular y la de invierno (igual a 3).
+  \item \textbf{Preferencia:} matriculados en su primera, segunda o
+        tercera preferencia (\texttt{PREFERENCIA} entre 1 y 3).
+\end{enumerate}
+
+Además, sacamos a quienes no tienen puntaje NEM o lo tienen igual a 0,
+porque sin notas de enseñanza media no se pueden comparar con el resto.
+Después de los filtros anteriores este paso no elimina a ningún
+estudiante.
+
+\subsubsection*{3.4 \; Observaciones en cada paso}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{9cm}
+                >{\raggedleft\arraybackslash}p{3cm}}
+\toprule
+\textbf{Paso} & \textbf{Observaciones} \\
+\midrule
+Unión de los tres archivos & 317.700 \\
+Promoción del año, alumno regular & 218.066 \\
+Vía regular y tipo de matrícula 1 & 68.704 \\
+Inscribieron pruebas del proceso 2026 & 68.703 \\
+Matriculados en preferencia 1 a 3 & 60.300 \\
+Con puntaje NEM distinto de 0 & 60.300 \\
+\rowcolor{yellow!30}
+\textbf{Base final} & \textbf{60.300} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{4 \; Variable de respuesta}
+% =====================================================================
+
+El enunciado pide trabajar con los matriculados dentro de sus tres
+primeras opciones y construir a partir de ello la variable de respuesta.
+Como el filtro c) deja solo a quienes se matricularon en una de sus tres
+primeras preferencias, una variable «matriculado entre las tres
+primeras» valdría 1 para todos y no serviría para un logit. Por eso la
+variable de respuesta separa, dentro de ese grupo, a quienes quedaron en
+su primera preferencia de quienes quedaron en la segunda o la tercera:
+
+\[
+\texttt{PREF\_PRIMERA\_DUMMY}_i =
+\begin{cases}
+1 & \text{si se matriculó en su primera preferencia} \\[4pt]
+0 & \text{si se matriculó en su segunda o tercera preferencia}
+\end{cases}
+\]
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Valor} & \textbf{Estudiantes} & \textbf{Porcentaje} \\
+\midrule
+1 (primera preferencia) & 40.002 & 66,3\% \\
+0 (segunda o tercera)   & 20.298 & 33,7\% \\
+\midrule
+\textbf{Total} & \textbf{60.300} & 100\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+De los 20.298 que no quedaron en su primera preferencia, 13.270 se
+matricularon en la segunda y 7.028 en la tercera.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{5 \; Variables creadas}
+% =====================================================================
+
+\subsubsection*{5.1 \; Variables del establecimiento}
+
+Se pegan a cada estudiante por el \texttt{RBD} de su colegio de egreso.
+Así cada estudiante tiene información de su colegio en el mismo proceso
+2026, lo que es consistente con un corte transversal.
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3em]
+  \item \texttt{N\_ALUMNOS}: tamaño del colegio, medido como número de
+        inscritos de la promoción del año que egresaron de él.
+  \item \texttt{INGRESO\_COLEGIO}: promedio del tramo de ingreso per
+        cápita familiar de los inscritos del colegio, sin contar el
+        código 99.
+  \item \texttt{N\_MATRICULADOS}: número de egresados del colegio que se
+        matricularon por vía regular y tipo de matrícula 1.
+  \item \texttt{TASA\_MATRICULA}: \texttt{N\_MATRICULADOS} dividido por
+        \texttt{N\_ALUMNOS}. A diferencia del conteo, no crece con el
+        tamaño del colegio.
+\end{itemize}
+
+\subsubsection*{5.2 \; Variables dummy y categóricas}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm}
+                >{\raggedright\arraybackslash}p{5.6cm}
+                >{\raggedleft\arraybackslash}p{1.4cm}
+                >{\raggedleft\arraybackslash}p{1.4cm}}
+\toprule
+\textbf{Variable} & \textbf{Vale 1 si\ldots} & \textbf{1} & \textbf{0} \\
+\midrule
+\texttt{PREF\_PRIMERA\_DUMMY} & Se matriculó en su primera preferencia (sección 4). & 40.002 & 20.298 \\
+\texttt{TP\_DUMMY} & El colegio es técnico profesional (rama T1 a T5). & 9.110 & 51.190 \\
+\texttt{PACE\_DUMMY} & Fue preseleccionado PACE. & 5.162 & 55.138 \\
+\texttt{BEA\_DUMMY} & Fue preseleccionado a la Beca de Excelencia Académica. & 6.739 & 53.561 \\
+\texttt{MUJER} & Es mujer (\texttt{SEXO} igual a 2). & 31.845 & 28.455 \\
+\texttt{INGRESO\_NR} & No informó su ingreso (código 99). & 16.175 & 44.125 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\texttt{DEPENDENCIA} es la versión categórica (factor) de
+\texttt{GRUPO\_DEPENDENCIA}: particular pagado (11.587), particular
+subvencionado (32.273), municipal (11.482) y servicio local de educación
+(4.958).
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{6 \; Datos sin información}
+% =====================================================================
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.4cm}
+                >{\raggedleft\arraybackslash}p{1.8cm}
+                >{\raggedright\arraybackslash}p{5.6cm}}
+\toprule
+\textbf{Variable} & \textbf{Casos} & \textbf{Qué significa} \\
+\midrule
+\texttt{PACE} & 55.138 & No fue preseleccionado PACE. Queda como 0 en \texttt{PACE\_DUMMY}. \\
+\texttt{BEA} & 53.561 & No fue preseleccionado a la Beca de Excelencia Académica. Queda como 0 en \texttt{BEA\_DUMMY}. \\
+\texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} igual a 99 & 16.175 & «Prefiero no responder». Queda como 1 en \texttt{INGRESO\_NR}. \\
+\texttt{INGRESO\_COLEGIO} & 27 & Estudiantes de colegios donde ningún inscrito informó su ingreso. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+En el resto de las variables no hay datos faltantes. Todos los
+estudiantes de la base tienen un colegio de egreso registrado.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{7 \; Definición de las variables}
+% =====================================================================
+
+Fuente: B, C y M (matrícula) son los archivos del DEMRE; «creada»
+indica que la construimos nosotros.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{5.4cm}
+                  >{\raggedright\arraybackslash}p{1.4cm}
+                  >{\raggedright\arraybackslash}p{6.6cm}}
+\toprule
+\textbf{Variable} & \textbf{Fuente} & \textbf{Definición} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Variable} & \textbf{Fuente} & \textbf{Definición} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{3}{l}{\textit{Identificación y respuesta}} \\
+\texttt{ID\_aux} & B, C, M & Identificador único del estudiante. \\
+\texttt{PREF\_PRIMERA\_DUMMY} & Creada & Variable de respuesta: 1 si se matriculó en su primera preferencia, 0 si en la segunda o tercera. \\
+\midrule
+\multicolumn{3}{l}{\textit{Estudiante}} \\
+\texttt{FECHA\_NACIMIENTO} & B & Mes y año de nacimiento, en formato MMAAAA. \\
+\texttt{SEXO} & B & 1 hombre, 2 mujer. \\
+\texttt{MUJER} & Creada & 1 si \texttt{SEXO} es 2, 0 si no. \\
+\texttt{CODIGO\_COMUNA\_D} & B & Comuna de domicilio del estudiante. \\
+\texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} & B & Tramo de ingreso per cápita del grupo familiar, de 1 a 10; 99 es «prefiero no responder». \\
+\texttt{INGRESO\_NR} & Creada & 1 si \texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} es 99, 0 si no. \\
+\texttt{PACE} & B & Preseleccionado PACE por el MINEDUC. \\
+\texttt{PACE\_DUMMY} & Creada & 1 si fue preseleccionado PACE, 0 si no. \\
+\texttt{BEA} & B & Preseleccionado a la Beca de Excelencia Académica. \\
+\texttt{BEA\_DUMMY} & Creada & 1 si fue preseleccionado BEA, 0 si no. \\
+\texttt{SITUACION\_EGRESO} & B & Tipo de estudios cursados; 1 es promoción del año, nacional, alumno regular (1 en toda la base). \\
+\texttt{RINDIO\_PROCESO\_ACTUAL} & B & Inscripción de pruebas del proceso 2026: 0 ninguna, 1 regular, 2 invierno, 3 ambas. Se dejan 1 y 3; en la base todos tienen 1. \\
+\midrule
+\multicolumn{3}{l}{\textit{Notas y puntajes}} \\
+\texttt{PROMEDIO\_NOTAS} & C & Promedio de notas de enseñanza media. \\
+\texttt{PTJE\_NEM} & C & Puntaje NEM (notas de enseñanza media). \\
+\texttt{PTJE\_RANKING} & C & Puntaje ranking de notas. \\
+\texttt{CLEC\_REG\_ACTUAL} & C & Puntaje PAES de Competencia Lectora, rendición regular 2026. \\
+\texttt{MATE1\_REG\_ACTUAL} & C & Puntaje PAES de Competencia Matemática 1, rendición regular 2026. \\
+\midrule
+\multicolumn{3}{l}{\textit{Matrícula}} \\
+\texttt{PREFERENCIA} & M & Preferencia en que se matriculó (1 a 3 en la base). Con ella se construye la variable de respuesta. \\
+\texttt{VIA} & M & Vía de matrícula (1, regular, en toda la base). \\
+\texttt{TIPO\_MATRICULA} & M & Tipo de matrícula (1, postulación regular, en toda la base). \\
+\texttt{PTJE\_POND} & M & Puntaje ponderado con que se matriculó. \\
+\midrule
+\multicolumn{3}{l}{\textit{Colegio de egreso}} \\
+\texttt{RBD} & B & Identificador del establecimiento. \\
+\texttt{RAMA\_EDUCACIONAL} & B & H1 y H2 humanista científico (diurno y nocturno); T1 a T5 técnico profesional. \\
+\texttt{TP\_DUMMY} & Creada & 1 si el colegio es técnico profesional (T1 a T5), 0 si no. \\
+\texttt{GRUPO\_DEPENDENCIA} & B & 1 particular pagado, 2 particular subvencionado, 3 municipal, 4 servicio local de educación. \\
+\texttt{DEPENDENCIA} & Creada & \texttt{GRUPO\_DEPENDENCIA} como factor, con el nombre de cada categoría. \\
+\texttt{CODIGO\_REGION} & B & Región del establecimiento. \\
+\texttt{CODIGO\_COMUNA} & B & Comuna del establecimiento. \\
+\texttt{N\_ALUMNOS} & Creada & Inscritos de la promoción del año que egresaron del colegio. \\
+\texttt{INGRESO\_COLEGIO} & Creada & Promedio de \texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} de los inscritos del colegio, sin el código 99. \\
+\texttt{N\_MATRICULADOS} & Creada & Egresados del colegio matriculados por vía regular y tipo de matrícula 1. \\
+\texttt{TASA\_MATRICULA} & Creada & \texttt{N\_MATRICULADOS} dividido por \texttt{N\_ALUMNOS}. \\
+\end{longtable}
+
+\texttt{PREFERENCIA} queda en la base como información de la matrícula,
+pero no se usará como variable explicativa, porque la variable de
+respuesta se construye con ella. Tampoco se usará \texttt{PTJE\_POND}:
+es el puntaje ponderado de la carrera en que se matriculó, así que se
+determina junto con la preferencia en que quedó.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{8 \; Base final}
+% =====================================================================
+
+La base final (\texttt{df\_final}) tiene \textbf{60.300 filas y 34
+columnas}, con una fila por estudiante: cada \texttt{ID\_aux} aparece una
+sola vez. Los estudiantes vienen de 3.108 colegios distintos.
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Variable} & \textbf{Mínimo} & \textbf{Mediana} & \textbf{Promedio} & \textbf{Máximo} \\
+\midrule
+\texttt{PROMEDIO\_NOTAS}   & 4,50  & 6,33  & 6,27  & 7,00 \\
+\texttt{PTJE\_NEM}         & 259   & 808   & 792   & 1.000 \\
+\texttt{PTJE\_RANKING}     & 259   & 823   & 807   & 1.000 \\
+\texttt{CLEC\_REG\_ACTUAL} & 316   & 663   & 667   & 1.000 \\
+\texttt{MATE1\_REG\_ACTUAL}& 320   & 682   & 698   & 1.000 \\
+\texttt{PTJE\_POND}        & 354,6 & 716,2 & 718,7 & 998,4 \\
+\texttt{N\_ALUMNOS}        & 3     & 85    & 106   & 586 \\
+\texttt{INGRESO\_COLEGIO}  & 1,0   & 4,8   & 5,2   & 10,0 \\
+\texttt{N\_MATRICULADOS}   & 1     & 33    & 42    & 218 \\
+\texttt{TASA\_MATRICULA}   & 0,01  & 0,40  & 0,41  & 0,96 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+En la base hay 31.845 mujeres (52,8\%) y 28.455 hombres (47,2\%). Por
+dependencia, 11.587 vienen de colegios particulares pagados, 32.273 de
+particulares subvencionados, 11.482 de municipales y 4.958 de servicios
+locales de educación.
+
+% =====================================================================
+\newpage
+\subsection*{Anexo \; Código en R}
+% =====================================================================
+
+\begin{lstlisting}
+library(tidyverse)
+rm(list = ls())
+cat("\014")
+
+df1 <- read_csv2("ArchivoB_Adm2026REG.csv")
+df2 <- read_csv2("ArchivoC_Adm2026REG.csv")
+df4 <- read_csv2("ArchivoMatr_Adm2026.csv")
+
+
+
+############## VARIABLES DEL COLEGIO #######################
+promo <- df1 %>%
+  filter(SITUACION_EGRESO == 1, !is.na(RBD))
+promo
+
+colegio <- promo %>%
+  mutate(INGRESO_AUX = ifelse(INGRESO_PERCAPITA_GRUPO_FA == 99, NA, INGRESO_PERCAPITA_GRUPO_FA)) %>%
+  group_by(RBD) %>%
+  summarise(N_ALUMNOS = n(),
+            INGRESO_COLEGIO = mean(INGRESO_AUX, na.rm = TRUE))
+colegio
+
+matricula<- df4 %>%
+  filter(VIA==1 & TIPO_MATRICULA==1) %>%
+  left_join(promo %>% select(ID_aux, RBD), by = "ID_aux") %>%
+  filter(!is.na(RBD)) %>%
+  group_by(RBD) %>%
+  summarise(N_MATRICULADOS = n())
+matricula
+
+colegio <- colegio %>%
+  left_join(matricula, by = "RBD")
+colegio$N_MATRICULADOS <- ifelse(is.na(colegio$N_MATRICULADOS), 0, colegio$N_MATRICULADOS)
+colegio$TASA_MATRICULA <- colegio$N_MATRICULADOS / colegio$N_ALUMNOS
+colegio
+
+
+
+############## FILTRAR DATOS #######################
+df1 <- df1 %>%
+  select(ID_aux,SITUACION_EGRESO,FECHA_NACIMIENTO,RBD,RAMA_EDUCACIONAL,GRUPO_DEPENDENCIA,CODIGO_REGION,CODIGO_COMUNA,CODIGO_COMUNA_D,SEXO,PACE,BEA,INGRESO_PERCAPITA_GRUPO_FA,RINDIO_PROCESO_ACTUAL)
+df1
+
+df2 <- df2%>%
+  select(ID_aux,PROMEDIO_NOTAS,PTJE_NEM, PTJE_RANKING, CLEC_REG_ACTUAL,MATE1_REG_ACTUAL)
+df2
+
+df4 <- df4 %>%
+  select(ID_aux, PREFERENCIA,VIA, PTJE_POND,TIPO_MATRICULA)
+df4
+
+
+lista_dfs <- list(df1, df2, df4)
+
+df_final <- lista_dfs %>%
+  reduce(full_join, by = "ID_aux")%>%
+  filter(SITUACION_EGRESO==1)%>%
+  filter(VIA==1 & TIPO_MATRICULA==1)%>%
+  filter(RINDIO_PROCESO_ACTUAL %in% c(1,3))%>%
+  filter(PREFERENCIA %in% c(1,2,3))%>%
+  filter(!is.na(PTJE_NEM), PTJE_NEM != 0)
+df_final
+df_final <- left_join(df_final, colegio, by = "RBD")
+df_final
+
+################ CREACION VARIABLES DUMMY ########################
+
+df_final$PREF_PRIMERA_DUMMY <- ifelse(df_final$PREFERENCIA == 1, 1, 0)
+df_final$PREF_PRIMERA_DUMMY
+
+df_final$TP_DUMMY <- ifelse(df_final$RAMA_EDUCACIONAL %in% c("T1","T2","T3","T4","T5"), 1, 0)
+df_final$TP_DUMMY
+
+df_final$PACE_DUMMY <- ifelse(is.na(df_final$PACE), 0, 1)
+df_final$BEA_DUMMY <- ifelse(is.na(df_final$BEA), 0, 1)
+df_final$MUJER <- ifelse(df_final$SEXO == 2, 1, 0)
+df_final$INGRESO_NR <- ifelse(df_final$INGRESO_PERCAPITA_GRUPO_FA == 99, 1, 0)
+df_final$DEPENDENCIA <- factor(df_final$GRUPO_DEPENDENCIA, levels = 1:4,
+                               labels = c("Particular pagado", "Particular subvencionado", "Municipal", "SLEP"))
+
+table(df_final$PREFERENCIA)
+summary(df_final)
+
+write_csv2(df_final, "base_final_etapa1.csv")
+\end{lstlisting}
+
+\end{document}

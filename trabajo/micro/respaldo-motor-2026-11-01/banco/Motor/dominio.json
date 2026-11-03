@@ -1,0 +1,12 @@
+{
+  "U1": {
+    "auto": 3,
+    "logrado": 43.5,
+    "posible": 75
+  },
+  "U2": {
+    "auto": 2,
+    "logrado": 3.5,
+    "posible": 5
+  }
+}

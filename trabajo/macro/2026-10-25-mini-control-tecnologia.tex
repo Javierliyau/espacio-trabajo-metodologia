@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Control --- Macroeconomía II}\\[4pt]
+{\large Mini control: Solow con progreso tecnológico}\\[4pt]
+40 puntos \quad$\cdot$\quad 30 minutos \quad$\cdot$\quad sin apuntes \quad$\cdot$\quad con calculadora
+\end{center}
+
+\hrule
+\medskip
+
+\textit{Sea claro con los gráficos. Nombre los ejes, los puntos de equilibrio y todas las curvas. Diferencie movimientos y desplazamientos de las curvas.}
+
+Considere el modelo de Solow visto en clase con progreso tecnológico exógeno:
+\[
+Y = K^{\alpha}(AL)^{1-\alpha}, \qquad \frac{\dot A}{A} = g, \qquad \frac{\dot L}{L} = n, \qquad \dot K = sY - \delta K, \qquad 0<\alpha<1,
+\]
+con $\tilde k \equiv \dfrac{K}{AL}$, $\tilde y \equiv \dfrac{Y}{AL}$ (por trabajador efectivo) y $k \equiv \dfrac{K}{L}$, $y \equiv \dfrac{Y}{L}$ (por trabajador).
+
+\begin{enumerate}[leftmargin=*, itemsep=12pt]
+
+\item \textbf{(15 puntos)}
+\begin{enumerate}[label=\alph*), leftmargin=*, itemsep=4pt]
+\item \textbf{(3 pts)} Escriba la función de producción en unidades de trabajo efectivo, $\tilde y = f(\tilde k)$.
+\item \textbf{(5 pts)} Muestre paso a paso que
+\(
+\dot{\tilde k} = s\,\tilde k^{\alpha} - (n + g + \delta)\,\tilde k
+\).
+Explique qué representa cada término de $(n+g+\delta)$.
+\item \textbf{(3 pts)} Encuentre $\tilde k^{*}$ e $\tilde y^{*}$ en función de $s$, $n$, $g$, $\delta$ y $\alpha$.
+\item \textbf{(4 pts)} Con $\alpha = \tfrac{1}{3}$, $s = 0{,}20$, $n = 0{,}01$, $g = 0{,}02$ y $\delta = 0{,}05$, calcule $\tilde k^{*}$, $\tilde y^{*}$ y $\tilde c^{*}$. Verifique $\tilde c^{*}$ por un segundo camino.
+\end{enumerate}
+
+\item \textbf{(10 puntos)} La economía se encuentra en su sendero de crecimiento balanceado cuando, en $t_0$, un terremoto destruye la mitad del stock de capital $K$.
+\begin{enumerate}[label=\alph*), leftmargin=*, itemsep=4pt]
+\item \textbf{(5 pts)} ¿Qué ocurre en $t_0$ con el nivel de $y$ y con su tasa de crecimiento? ¿Es mayor o menor que $g$? Justifique con $\dot{\tilde k}/\tilde k$.
+\item \textbf{(5 pts)} ¿La economía vuelve al mismo sendero de $\ln y$ que antes del terremoto o a uno paralelo? Grafique el diagrama de Solow en $\tilde k$ y $\ln y$ contra el tiempo.
+\end{enumerate}
+
+\item \textbf{(5 puntos)} Verdadero o Falso. Según el modelo de Solow visto en clase, en el sendero de crecimiento balanceado la razón capital-producto, $K/Y$, crece a tasa $g$.
+
+\item \textbf{(10 puntos)} Verdadero o Falso. Según el modelo de Solow visto en clase, con mercados competitivos, en el sendero de crecimiento balanceado el salario real crece a tasa $g$, mientras que la tasa de interés real (el producto marginal del capital) permanece constante.
+
+\end{enumerate}
+
+\medskip
+\hrule
+\smallskip
+{\small\textit{Tiempo:} P1 11 min, P2 8 min, P3 4 min, P4 7 min. \textit{Chequeos:} que no se caiga el $\ln$; $\dot{\tilde k}$ escrito completo y su signo a cada lado de $\tilde k^{*}$; «por trabajador efectivo» o «por trabajador», nunca solo «capital»; en V/F, el veredicto es la primera palabra.}
+
+\end{document}

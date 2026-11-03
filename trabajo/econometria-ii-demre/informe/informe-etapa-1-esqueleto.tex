@@ -1,0 +1,287 @@
+% =====================================================================
+%  Informe Etapa 1 -- Trabajo práctico de Econometría II
+%  Esqueleto con el diseño de apuntes-latex (standalone, sin cajas).
+%  Las partes en gris entre corchetes se reemplazan por el contenido.
+% =====================================================================
+\documentclass[11pt,letterpaper]{article}
+
+% --- Idioma y fuentes ------------------------------------------------
+\usepackage[spanish,es-noshorthands,es-tabla]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% --- Geometría y encabezado ------------------------------------------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\setlength{\headheight}{38.22325pt}
+\addtolength{\topmargin}{-6.22325pt}
+
+% --- Matemáticas ------------------------------------------------------
+\usepackage{amsmath,amssymb}
+
+% --- Colores, tablas, listas, código ----------------------------------
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{listings}
+\renewcommand{\arraystretch}{1.5}
+
+\lstset{
+  language=R,
+  basicstyle=\ttfamily\footnotesize,
+  commentstyle=\color{gray}\itshape,
+  keywordstyle=\color{blue!70!black},
+  stringstyle=\color{teal!60!black},
+  breaklines=true,
+  columns=fullflexible,
+  showstringspaces=false
+}
+
+% Texto pendiente de completar (se borra al rellenar)
+\newcommand{\completar}[1]{\textcolor{gray}{\textit{[#1]}}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Econometría II}\\ Trabajo práctico --- Etapa 1}
+\fancyhead[C]{Universidad de Santiago de Chile}
+% Logo: sube logo.png.png a Overleaf y descomenta la línea de abajo
+% \fancyhead[R]{\includegraphics[height=1.2cm]{logo.png.png}}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+% =====================================================================
+%  PORTADA
+% =====================================================================
+\begin{center}
+  {\LARGE \textbf{Etapa 1: construcción de la base de datos}}\\[4pt]
+  {\large Econometría II --- Admisión 2026}
+\end{center}
+\vspace{0.5em}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{Integrantes} & \completar{Nombre 1} \\
+                     & \completar{Nombre 2} \\
+                     & \completar{Nombre 3} \\
+\midrule
+\textbf{Profesor}    & \completar{Nombre del profesor} \\
+\textbf{Fecha}       & \completar{Fecha de entrega} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\bigskip
+
+% =====================================================================
+\subsection*{1 \; Objetivo}
+% =====================================================================
+
+\completar{Qué se busca con la base: un solo data frame con los
+matriculados del proceso 2026, su PAES, sus notas de enseñanza media y
+variables del colegio de procedencia, para estimar en la Etapa 3 la
+probabilidad de matricularse dentro de las tres primeras preferencias.}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{2 \; Fuentes de datos}
+% =====================================================================
+
+\completar{Origen: portal de bases de datos del DEMRE, proceso de admisión
+2026. Llave de unión entre archivos: \texttt{ID\_aux}.}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm}
+                >{\raggedright\arraybackslash}p{5.8cm}
+                >{\raggedleft\arraybackslash}p{2.6cm}}
+\toprule
+\textbf{Archivo} & \textbf{Contenido} & \textbf{Filas} \\
+\midrule
+\completar{Archivo B} & \completar{Inscritos} & \completar{n} \\
+\completar{Archivo C} & \completar{Rinden PAES} & \completar{n} \\
+\completar{Archivo D} & \completar{Postulaciones} & \completar{n} \\
+\completar{Archivo de matrícula} & \completar{Matriculados} & \completar{n} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{3 \; Construcción de la base}
+% =====================================================================
+
+\subsubsection*{3.1 \; Selección de columnas y unión de archivos}
+
+\completar{Qué columnas se tomaron de cada archivo y cómo se unieron
+(tipo de \emph{join} y archivo de partida).}
+
+\subsubsection*{3.2 \; Filtros aplicados}
+
+\completar{Un filtro por ítem, con la variable y el valor que se usó.}
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=0.3em, label=\textbf{\alph*)}]
+  \item \textbf{Vía y tipo de matrícula:} \completar{matriculados por vía
+        regular con tipo de matrícula «postulación regular».}
+  \item \textbf{Preferencia:} \completar{si se matriculó, que haya sido en
+        una preferencia hasta el tercer lugar.}
+  \item \textbf{Promoción del año:} \completar{rindieron la PAES siendo
+        alumnos regulares de la promoción 2025.}
+\end{enumerate}
+
+\subsubsection*{3.3 \; Observaciones en cada paso}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{9cm}
+                >{\raggedleft\arraybackslash}p{3cm}}
+\toprule
+\textbf{Paso} & \textbf{Observaciones} \\
+\midrule
+\completar{Base inicial} & \completar{n} \\
+\completar{Filtro a)} & \completar{n} \\
+\completar{Filtro b)} & \completar{n} \\
+\completar{Filtro c)} & \completar{n} \\
+\rowcolor{yellow!30}
+\textbf{Base final} & \completar{n} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{4 \; Variable de respuesta}
+% =====================================================================
+
+\completar{Definición elegida por el grupo y por qué.}
+
+\[
+Y_i =
+\begin{cases}
+1 & \text{si } \completar{condición} \\[4pt]
+0 & \text{si } \completar{condición}
+\end{cases}
+\]
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Valor de $Y$} & \textbf{Estudiantes} & \textbf{Porcentaje} \\
+\midrule
+$Y = 1$ & \completar{n} & \completar{\%} \\
+$Y = 0$ & \completar{n} & \completar{\%} \\
+\midrule
+\textbf{Total} & \completar{n} & 100\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{5 \; Variables creadas}
+% =====================================================================
+
+\subsubsection*{5.1 \; Variables del establecimiento}
+
+\completar{Tamaño, matrícula, etc. Cómo se agregaron por colegio
+(\texttt{RBD}) y con qué grupo de estudiantes se calcularon, para que sea
+consistente con un corte transversal del proceso 2026.}
+
+\subsubsection*{5.2 \; Variables calculadas a partir de las existentes}
+
+\completar{Por ejemplo: colegio rural o no, alumnos por curso, dummies.
+Fórmula o regla de cada una.}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{6 \; Datos sin información}
+% =====================================================================
+
+\completar{Valores faltantes y códigos especiales (por ejemplo, 99 =
+sin información) y qué se hizo con cada uno.}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.8cm}
+                >{\raggedleft\arraybackslash}p{2.4cm}
+                >{\raggedright\arraybackslash}p{6.4cm}}
+\toprule
+\textbf{Variable} & \textbf{Casos} & \textbf{Tratamiento} \\
+\midrule
+\completar{variable} & \completar{n} & \completar{qué se hizo} \\
+\completar{variable} & \completar{n} & \completar{qué se hizo} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{7 \; Definición de las variables}
+% =====================================================================
+
+\completar{Diccionario de la base final: una fila por variable.}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{3.6cm}
+                  >{\raggedright\arraybackslash}p{1.6cm}
+                  >{\raggedright\arraybackslash}p{1.8cm}
+                  >{\raggedright\arraybackslash}p{5.4cm}}
+\toprule
+\textbf{Variable} & \textbf{Fuente} & \textbf{Tipo} & \textbf{Definición} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Variable} & \textbf{Fuente} & \textbf{Tipo} & \textbf{Definición} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{4}{l}{\textit{Identificación y respuesta}} \\
+\texttt{ID\_aux} & \completar{archivo} & \completar{tipo} & \completar{definición} \\
+\texttt{Y} & \completar{creada} & \completar{dummy} & \completar{definición} \\
+\midrule
+\multicolumn{4}{l}{\textit{Estudiante}} \\
+\completar{variable} & \completar{archivo} & \completar{tipo} & \completar{definición} \\
+\completar{variable} & \completar{archivo} & \completar{tipo} & \completar{definición} \\
+\midrule
+\multicolumn{4}{l}{\textit{PAES y notas}} \\
+\completar{variable} & \completar{archivo} & \completar{tipo} & \completar{definición} \\
+\completar{variable} & \completar{archivo} & \completar{tipo} & \completar{definición} \\
+\midrule
+\multicolumn{4}{l}{\textit{Establecimiento}} \\
+\completar{variable} & \completar{archivo} & \completar{tipo} & \completar{definición} \\
+\completar{variable} & \completar{archivo} & \completar{tipo} & \completar{definición} \\
+\end{longtable}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{8 \; Base final}
+% =====================================================================
+
+\completar{Dimensiones (filas y columnas), una fila por estudiante, sin
+datos faltantes, nombre del archivo guardado.}
+
+% =====================================================================
+\newpage
+\subsection*{Anexo \; Código en R}
+% =====================================================================
+
+\completar{Pegar el código dentro del bloque de abajo. Otra opción en
+Overleaf: subir el script y reemplazar el bloque por}
+
+\begin{center}
+\texttt{\textbackslash lstinputlisting\{04-base-grupo.R\}}
+\end{center}
+
+\begin{lstlisting}
+# codigo del grupo
+\end{lstlisting}
+
+\end{document}

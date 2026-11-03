@@ -1,0 +1,39 @@
+#P1
+matricula <- read.csv2("datos/crudos/4-matricula/ArchivoMatr_Adm2026.csv")
+inscritos <- read.csv2("datos/crudos/1-inscritos-archivo-B/ArchivoB_Adm2026REG.csv")
+puntajes <- read.csv2("datos/crudos/2-rinden-paes-archivo-C/ArchivoC_Adm2026REG.csv")
+postulaciones <- read.csv2("datos/crudos/3-postulaciones-archivo-D/ArchivoD_Adm2026REG.csv")
+
+#P2
+table(matricula$VIA)
+table(matricula$TIPO_MATRICULA)
+table(matricula$PREFERENCIA)
+table(inscritos$ANYO_EGRESO)
+table(inscritos$SITUACION_EGRESO)
+
+#P3
+table(matricula$PREFERENCIA, matricula$TIPO_MATRICULA)
+
+postulantes <- data.frame(ID_aux = unique(postulaciones$ID_aux))
+nrow(postulantes)
+
+inscritos_prom <- inscritos[inscritos$SITUACION_EGRESO == 1, ]
+nrow(inscritos_prom)
+
+base <- merge(postulantes, inscritos_prom, by = "ID_aux")
+nrow(base)
+
+length(unique(base$ID_aux)) == nrow(base)
+
+columnas_puntajes <- c("ID_aux", "PROMEDIO_NOTAS", "PORC_SUP_NOTAS", "PTJE_NEM", "PTJE_RANKING",
+                       "CLEC_REG_ACTUAL", "MATE1_REG_ACTUAL", "MATE2_REG_ACTUAL",
+                       "HCSOC_REG_ACTUAL", "CIEN_REG_ACTUAL")
+base <- merge(base, puntajes[, columnas_puntajes], by = "ID_aux")
+nrow(base)
+base <- merge(base, matricula, by = "ID_aux", all.x = TRUE)
+nrow(base)
+
+table(base$VIA, useNA = "ifany")
+table(base$TIPO_MATRICULA, useNA = "ifany")
+table(base$PREFERENCIA, base$TIPO_MATRICULA, useNA = "ifany")
+

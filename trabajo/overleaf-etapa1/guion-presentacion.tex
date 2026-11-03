@@ -1,0 +1,107 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{booktabs,tabularx,xcolor,amssymb}
+\usepackage[most]{tcolorbox}
+\definecolor{USACHNavy}{RGB}{15,32,67}
+\newtcolorbox{guion}{colback=USACHNavy!5,colframe=USACHNavy!60,boxrule=0pt,leftrule=3pt,sharp corners,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\pagestyle{plain}
+\begin{document}
+{\LARGE\bfseries Guion: Econometría II, Etapa 1 (jue 15-10, 08:15)\par}\medskip
+
+\textbf{Duración:} apuntar a 8 min 30 s. El profe corta en el minuto 10.\par
+\textbf{Ritmo:} \textasciitilde{}130 palabras por minuto. Cada bloque está escrito para decirse, no para leerse: apréndanse las ideas y las cifras en negrita, no las frases exactas.\par
+
+\begin{tabularx}{\linewidth}{lllX}\toprule
+\textbf{Bloque} & \textbf{Láminas} & \textbf{Quién} & \textbf{Tiempo}\\ \midrule
+A. Pregunta, datos y N & 1 a 4 & \_\_\_\_\_ & 2:30\\
+B. Variable Y y variables creadas & 5 y 6 & \_\_\_\_\_ & 2:00\\
+C. Efecto a priori y variables que no son X & 7 y 8 & \_\_\_\_\_ & 3:00\\
+D. Descriptivas y cierre & 9 a 11 & \_\_\_\_\_ & 1:00\\
+\bottomrule\end{tabularx}\medskip
+
+El bloque C es el que más pesa en la nota: que lo tome quien mejor explique el porqué de cada signo.\par
+
+\medskip\hrule\medskip
+
+\section*{Bloque A $\cdot$ Láminas 1 a 4 $\cdot$ 2:30}
+
+\textbf{Lámina 1, portada (10 s)}\par
+\begin{guion}Buenos días. Somos David Cuevas, Javier Li-Yau, Benjamín Lizana y Ana Nacif, y vamos a presentar la Etapa 1: la construcción de la base de datos con la Admisión 2026.\end{guion}
+
+\textbf{Lámina 2, objetivo (40 s)}\par
+\begin{guion}Nuestra pregunta es: ¿de qué depende que un estudiante se matricule en una de sus \textbf{tres primeras preferencias}?\par Para responderla armamos una base con \textbf{108.251 estudiantes}. No es una muestra: es \textbf{toda la población} que cumple nuestros filtros, los egresados 2025 que postularon por la vía regular.\par De ellos, \textbf{60.300, el 55,7 \%}, quedaron en sus tres primeras preferencias. Los otros \textbf{47.951, el 44,3 \%}, quedaron en la cuarta o más abajo, o no se matricularon.\par Esta base es la que vamos a usar en la Etapa 3 para estimar un modelo logit.\end{guion}
+
+\textbf{Lámina 3, fuentes (40 s)}\par
+\begin{guion}Todo viene del portal del DEMRE, de cuatro archivos públicos: el de inscritos, el de notas y puntajes, el de postulaciones y el de matrícula.\par Los unimos por el identificador del estudiante, el ID\_aux.\par El archivo de postulaciones tiene \textbf{1,7 millones de filas} porque cada alumno postula a varias carreras; lo dejamos en \textbf{una fila por estudiante} antes de unirlo.\end{guion}
+
+\textbf{Lámina 4, embudo (60 s)}\par
+\begin{guion}Partimos con \textbf{317.700} registros.\par Primero nos quedamos con los egresados 2025 que eran alumnos regulares: quedan \textbf{218.066}.\par Después, con los que postularon al menos a una carrera por la vía regular: \textbf{114.865}.\par Luego el filtro de matrícula: mantenemos a los que no se matricularon y, de los matriculados, solo los de vía regular y tipo de matrícula 1. Quedan \textbf{108.598}.\par Por último sacamos a quienes no tenían puntaje NEM. Llegamos a nuestro \textbf{N final: 108.251}.\end{guion}
+
+\medskip\hrule\medskip
+
+\section*{Bloque B $\cdot$ Láminas 5 y 6 $\cdot$ 2:00}
+
+\textbf{Lámina 5, variable Y (60 s)}\par
+\begin{guion}Nuestra variable de respuesta es PREF\_TOP3\_DUMMY. Vale \textbf{1} si el estudiante se matriculó en su primera, segunda o tercera preferencia, y \textbf{0} en el resto: si quedó en la cuarta o más abajo, \textbf{o si no se matriculó}.\par Incluimos a los no matriculados a propósito: también postularon y no lograron quedar arriba. Si los dejáramos fuera, solo miraríamos a los que tuvieron éxito en matricularse.\par En el 1 hay \textbf{60.300}: la mayoría, \textbf{40.002}, quedó en su primera preferencia. En el 0 hay \textbf{47.951}: \textbf{8.403} quedaron en la cuarta o más abajo y \textbf{39.548} no se matricularon.\par Así la variable queda bastante equilibrada, 56 contra 44.\end{guion}
+
+\textbf{Lámina 6, variables creadas (60 s)}\par
+\begin{guion}Además de la Y creamos dos tipos de variables.\par A nivel de \textbf{colegio}, usando el RBD: \textbf{N\_ALUMNOS}, cuántos inscritos tiene el colegio; \textbf{INGRESO\_COLEGIO}, la mediana del tramo de ingreso de sus alumnos; y \textbf{N\_MATRICULADOS}, cuántos de sus alumnos se matricularon por vía regular. Las calculamos con todos los inscritos del colegio, antes de filtrar, para que reflejen al colegio completo.\par A nivel del \textbf{estudiante}, dummies: \textbf{TP\_DUMMY}, si viene de un colegio técnico profesional, que son \textbf{18.877}; y \textbf{PACE} y \textbf{BEA}, si fue preseleccionado en esos programas.\par Y un ajuste: el código \textbf{99} del ingreso familiar significa que no respondió, así que lo pasamos a NA. Son \textbf{29.199} casos.\end{guion}
+
+\medskip\hrule\medskip
+
+\section*{Bloque C $\cdot$ Láminas 7 y 8 $\cdot$ 3:00}
+
+\textbf{Lámina 7, efecto esperado a priori (2:00)}\par
+\begin{guion}Antes de estimar nada, ¿qué esperamos de cada variable?\par \textbf{Rendimiento:} NEM, ranking, lectora y matemática deberían tener signo \textbf{positivo}. Más puntaje sube el puntaje ponderado y abre más carreras, así que es más probable alcanzar el corte de las que uno puso primero. BEA también positivo: es el 10 \% mejor del curso y trae beca. PACE, positivo, porque da cupos garantizados.\par \textbf{Socioeconómico:} el ingreso per cápita y el ingreso del colegio, \textbf{positivos}: más recursos para prepararse y para pagar. Aunque con la \textbf{gratuidad} este efecto podría ser más chico de lo que uno piensa, y eso es justamente algo que el modelo va a medir.\par El colegio técnico profesional lo esperamos \textbf{negativo}: prepara menos para la PAES y muchos egresados siguen hacia un CFT o al trabajo.\par \textbf{Colegio:} N\_MATRICULADOS positivo, porque refleja una cultura de seguir estudiando.\par Y hay dos que dejamos con \textbf{signo abierto}. El tamaño del colegio: más grande puede significar más recursos, pero también menos atención por alumno. Y el sexo: las mujeres tienen en promedio mejor NEM, los hombres mejor puntaje en matemática, así que a priori no sabemos hacia dónde va.\end{guion}
+
+\textbf{Lámina 8, variables que no pueden ser X (60 s)}\par
+\begin{guion}Hay cuatro variables que están en la base pero \textbf{no pueden usarse como explicativas}.\par PREFERENCIA, porque con ella construimos la Y. El puntaje ponderado, porque es el de la carrera en que ya quedó: es un resultado, no una causa. Y la vía y el tipo de matrícula, porque están vacías para los \textbf{39.548} que no se matricularon.\par Usarlas sería explicar la Y con la misma Y. Las dejamos en la base solo como información.\end{guion}
+
+\medskip\hrule\medskip
+
+\section*{Bloque D $\cdot$ Láminas 9 a 11 $\cdot$ 1:00}
+
+\textbf{Lámina 9, descriptivas (20 s)}\par
+\begin{guion}Acá está el resumen de la base final. Solo destacamos que el promedio de notas mediano es \textbf{6,23} y que hay más mujeres que hombres: \textbf{55,2 \%} frente a \textbf{44,8 \%}.\end{guion}
+
+\textbf{Lámina 10, conclusiones (35 s)}\par
+\begin{guion}En resumen: tenemos una base de \textbf{108.251} estudiantes, armada con cuatro archivos del DEMRE, con una variable de respuesta equilibrada.\par En la Etapa 2 vamos a cruzar cada X con la Y y a traer variables del \textbf{MINEDUC} por RBD, como ruralidad o alumnos por profesor. También vamos a evaluar tratar a los que no respondieron el ingreso como un tramo más, para no perder esas observaciones.\end{guion}
+
+\textbf{Lámina 11 (5 s)}\par
+\begin{guion}Muchas gracias. ¿Preguntas?\end{guion}
+
+\medskip\hrule\medskip
+
+\section*{Preguntas probables}
+
+\textbf{¿Por qué incluyen a los que no se matricularon?}\par
+\begin{guion}Porque postularon y no quedaron en sus tres primeras preferencias. Dejarlos fuera sería mirar solo a los que se matricularon, y el modelo sobrestimaría la probabilidad de éxito.\end{guion}
+
+\textbf{¿Y los que rindieron la PAES pero no postularon?} $\rightarrow$ mostrar la lámina de respaldo (tecla Fin).\par
+\begin{guion}La pregunta es en qué preferencia quedó el estudiante. Quien no postuló no ordenó preferencias, así que no participa de ese evento. Si se incluyeran, la Y mezclaría dos decisiones: postular o no, y dónde quedar. Si usted prefiere que los incluyamos, los agregamos en la Etapa 2.\end{guion}
+
+\textbf{¿De dónde sale el 108.251?}\par
+\begin{guion}Volver a la lámina 4 y recorrer el embudo: 317.700 $\rightarrow$ 218.066 $\rightarrow$ 114.865 $\rightarrow$ 108.598 $\rightarrow$ 108.251.\end{guion}
+
+\textbf{¿Por qué el sexo tiene signo ``?''?}\par
+\begin{guion}Porque hay dos efectos opuestos: las mujeres tienen mejor NEM y ranking, los hombres mejor puntaje en matemática. Cuál pesa más es algo que tiene que decir el modelo.\end{guion}
+
+\textbf{¿Por qué la mediana y no el promedio en INGRESO\_COLEGIO?}\par
+\begin{guion}El tramo de ingreso es una variable ordinal, del 1 al 10, y la mediana no se deja llevar por pocos alumnos en los extremos.\end{guion}
+
+\textbf{¿Por qué el código 99 pasa a NA y no se elimina la fila?}\par
+\begin{guion}Porque son casi 30 mil estudiantes. Eliminarlos achicaría mucho la base y sacaría a un grupo que puede ser distinto. En la Etapa 2 evaluamos tratarlo como un tramo más.\end{guion}
+
+\medskip\hrule\medskip
+
+\section*{Antes de entrar}
+\begin{itemize}
+\item[$\square$] Ensayo completo con cronómetro (meta: menos de 9 min).
+\item[$\square$] Cada uno sabe en qué lámina entra y quién le pasa la palabra.
+\item[$\square$] PDF en el computador y en un pendrive o correo, por si falla el proyector.
+\item[$\square$] Escuchar el audio del 08-10 en el minuto 55:43.
+\end{itemize}
+\end{document}

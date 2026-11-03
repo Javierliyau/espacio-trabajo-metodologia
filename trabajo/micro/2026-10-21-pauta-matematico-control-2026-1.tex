@@ -1,0 +1,204 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist{itemsep=2pt,topsep=2pt}
+
+\newtcolorbox{clave}{colback=blue!4,colframe=blue!50!black,boxrule=0.5pt,arc=2pt,left=5pt,right=5pt,top=3pt,bottom=3pt}
+\newtcolorbox{error}{colback=red!5,colframe=red!60!black,boxrule=0.5pt,arc=2pt,left=5pt,right=5pt,top=3pt,bottom=3pt}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Pauta del ejercicio matemático --- Control 1 2026-1 (Mundaca)}\\[3pt]
+Microeconomía II $\cdot$ resolución completa con hitos de corrección (propuestos)
+\end{center}
+
+\textbf{Enunciado.} Un monopolista tiene costos totales $c(q) = 2q^2$ y abastece a un mercado con demanda $q(p) = 75 - \dfrac{p}{8}$.
+\begin{enumerate}[label=\alph*)]
+\item Obtenga todos los elementos del equilibrio del monopolista.
+\item Calcule la pérdida de eficiencia respecto de competencia perfecta: cómo varían el precio, la cantidad y los excedentes del consumidor, del productor y social. ¿Produce el monopolista la mitad de la cantidad de competencia perfecta? Grafique.
+\end{enumerate}
+
+\hrule
+\section*{a) Equilibrio del monopolista}
+
+\textbf{1. Demanda inversa.} El monopolista elige $q$, así que se despeja $P$:
+\[
+q = 75 - \frac{p}{8} \;\Rightarrow\; \frac{p}{8} = 75 - q \;\Rightarrow\; P(q) = 600 - 8q
+\]
+
+\textbf{2. Ingreso total e ingreso marginal.}
+\[
+IT = P(q)\,q = 600q - 8q^2 \qquad\Rightarrow\qquad IMg = \frac{dIT}{dq} = 600 - 16q
+\]
+
+\textbf{3. Costos.}
+\[
+CMg = c'(q) = 4q \qquad CF = 0 \qquad CMe = CVMe = \frac{2q^2}{q} = 2q
+\]
+
+\textbf{4. Condición de primer orden: $IMg = CMg$.}
+\[
+600 - 16q = 4q \;\Rightarrow\; 20q = 600 \;\Rightarrow\; \boxed{q_m = 30}
+\]
+El precio se lee en la \textbf{demanda}:
+\[
+P_m = 600 - 8(30) = \boxed{360}
+\]
+Segundo orden: $\dfrac{dIMg}{dq} = -16 < 4 = \dfrac{dCMg}{dq}$ $\Rightarrow$ es un máximo.
+
+\textbf{5. Beneficio.}
+\[
+\pi = IT - CT = 360\cdot 30 - 2(30)^2 = 10800 - 1800 = \boxed{9000}
+\]
+Como $CMe(30) = 60 < 360 = P_m$ (y también $CVMe$), la empresa opera con beneficios.
+
+\textbf{6. Elasticidad en el equilibrio.}
+\[
+\varepsilon = \frac{dq}{dp}\cdot\frac{P}{q} = -\frac{1}{8}\cdot\frac{360}{30} = \boxed{-\frac{3}{2}} \qquad |\varepsilon| = \tfrac32 > 1 \;\Rightarrow\; \text{tramo elástico}
+\]
+El punto medio de la demanda está en $q = 37{,}5$, $P = 300$: el monopolio ($q = 30 < 37{,}5$) queda arriba de él.
+
+\textbf{7. Índice de Lerner.}
+\[
+CMg(30) = 120 \qquad L = \frac{P - CMg}{P} = \frac{360 - 120}{360} = \boxed{\frac{2}{3}} = \frac{1}{|\varepsilon|} = \frac{1}{3/2}\;\checkmark
+\]
+Dos tercios del precio son margen sobre el costo marginal: alto poder de mercado.
+
+\textbf{8. Gráfico a).}
+
+\begin{center}
+\begin{tikzpicture}[x=0.085cm,y=0.0085cm,font=\small]
+\draw[->] (0,0) -- (82,0) node[right] {$q$};
+\draw[->] (0,0) -- (0,640) node[above] {$P$};
+\draw[thick] (0,600) -- (75,0) node[below] {$75$};
+\node[right] at (70,60) {$D$};
+\draw[thick,dashed] (0,600) -- (37.5,0);
+\node[below,xshift=6pt] at (37.5,0) {$37{,}5$};
+\node at (24,300) {$IMg$};
+\draw[thick,teal] (0,0) -- (75,300) node[right] {$CMg = 4q$};
+\draw[dotted] (30,0) -- (30,360) -- (0,360);
+\draw[dotted] (30,120) -- (0,120);
+\fill (30,360) circle (1.6pt);
+\fill[teal] (30,120) circle (1.6pt);
+\node[left] at (0,600) {$600$};
+\node[left] at (0,360) {$360$};
+\node[left] at (0,120) {$120$};
+\node[below] at (30,0) {$30$};
+\node[right] at (31,375) {$(q_m, P_m) = (30, 360)$};
+\end{tikzpicture}
+\end{center}
+
+\section*{b) Pérdida de eficiencia frente a competencia perfecta}
+
+\textbf{1. Competencia perfecta: $P = CMg$.}
+\[
+600 - 8q = 4q \;\Rightarrow\; \boxed{q_{cp} = 50} \qquad P_{cp} = 4(50) = \boxed{200}
+\]
+Con monopolio: $\Delta P = 360 - 200 = +160$ \quad y \quad $\Delta q = 30 - 50 = -20$.
+
+\textbf{2. Excedentes.}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+ & Monopolio & Competencia perfecta & Cambio \\
+\midrule
+$EC = \tfrac12\,q\,(600 - P)$ & $\tfrac12\cdot 30\cdot 240 = 3600$ & $\tfrac12\cdot 50\cdot 400 = 10000$ & $-6400$ \\
+$EP = IT - CV$ & $10800 - 1800 = 9000$ & $10000 - 5000 = 5000$ & $+4000$ \\
+$ES = EC + EP$ & $12600$ & $15000$ & $-2400$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{3. Pérdida irrecuperable de eficiencia.}
+\[
+PIE = ES_{cp} - ES_m = 15000 - 12600 = \boxed{2400}
+\]
+Verificación con el triángulo entre la demanda y el $CMg$:
+\[
+PIE = \tfrac12\,(q_{cp} - q_m)\,\big(P_m - CMg(q_m)\big) = \tfrac12\cdot 20\cdot(360 - 120) = 2400 \;\checkmark
+\]
+
+\textbf{4. Descomposición de los cambios.}
+\begin{itemize}
+\item \textbf{Rectángulo} $(P_m - P_{cp})\,q_m = 160\cdot 30 = 4800$: pasa del consumidor al monopolista. Es \textbf{transferencia}, no pérdida social.
+\item \textbf{Triángulo del consumidor}: $\tfrac12\cdot 20\cdot(360 - 200) = 1600$.
+\item \textbf{Triángulo del productor}: $\tfrac12\cdot 20\cdot(200 - 120) = 800$.
+\end{itemize}
+Cuadre: $\Delta EC = -(4800 + 1600) = -6400$; \quad $\Delta EP = 4800 - 800 = +4000$; \quad $PIE = 1600 + 800 = 2400$.
+
+\textbf{5. ¿Produce la mitad?} \textbf{No.}
+\[
+\frac{q_m}{q_{cp}} = \frac{30}{50} = \frac{3}{5} > \frac12
+\]
+«La mitad» solo se cumple con demanda lineal y $CMg$ constante (la $IMg$ corta el $CMg$ a la mitad de la distancia). Aquí el $CMg$ es creciente: al reducir la cantidad, el costo marginal también baja, y el monopolista produce \emph{más} de la mitad. Lo que se cumple siempre es que produce \textbf{menos} que en competencia perfecta.
+
+\textbf{6. Conclusión.} La ineficiencia viene de la \textbf{cantidad}: hay 20 unidades cuya valoración ($P$ en la demanda) supera su costo marginal y que no se transan, porque con precio único vender una unidad más obliga a bajar el precio de todas ($IMg < P$). El rectángulo solo redistribuye; la pérdida social es el triángulo.
+
+\textbf{7. Gráfico b).}
+
+\begin{center}
+\begin{tikzpicture}[x=0.085cm,y=0.0085cm,font=\small]
+\fill[orange!35] (0,600) -- (30,360) -- (0,360) -- cycle;
+\fill[teal!25] (0,360) -- (30,360) -- (30,120) -- (0,0) -- cycle;
+\fill[red!35] (30,360) -- (50,200) -- (30,120) -- cycle;
+\draw[->] (0,0) -- (82,0) node[right] {$q$};
+\draw[->] (0,0) -- (0,640) node[above] {$P$};
+\draw[thick] (0,600) -- (75,0);
+\node[right] at (70,60) {$D$};
+\draw[thick,dashed] (0,600) -- (37.5,0);
+\node at (39,40) {$IMg$};
+\draw[thick,teal] (0,0) -- (75,300) node[right] {$CMg$};
+\draw[dotted] (0,200) -- (50,200) -- (50,0);
+\draw[dotted] (30,360) -- (30,0);
+\node[left] at (0,600) {$600$};
+\node[left] at (0,360) {$360$};
+\node[left] at (0,200) {$200$};
+\node[left] at (0,120) {$120$};
+\node[below] at (30,0) {$30$};
+\node[below] at (50,0) {$50$};
+\node at (9,425) {$EC$};
+\node at (15,280) {\scriptsize transf.\ 4800};
+\node at (9,120) {$EP$};
+\node[red!60!black] at (37,230) {\scriptsize PIE};
+\end{tikzpicture}
+\end{center}
+{\small Naranjo: EC con monopolio (3600). Verde: EP con monopolio (9000), que incluye el rectángulo de transferencia entre 360 y 200. Rojo: PIE (2400).}
+
+\section*{Hitos de corrección (propuestos, 40 pts)}
+
+\begin{center}
+\begin{tabular}{@{}lc@{\qquad}lc@{}}
+\toprule
+\textbf{a)} & pts & \textbf{b)} & pts \\
+\midrule
+Demanda inversa $P(q)$ & 2 & $q_{cp}$ y $P_{cp}$ & 3 \\
+$IMg$ & 2 & $EC$ en ambos casos & 3 \\
+$CMg$ (y $CF$, $CMe$) & 2 & $EP$ en ambos casos & 3 \\
+$q_m$ y $P_m$ (precio en la demanda) & 4 & $ES$ & 2 \\
+$\pi$ & 3 & PIE (y verificación) & 3 \\
+$\varepsilon$ en el punto y tramo elástico & 3 & $\Delta P$, $\Delta q$, transferencia & 2 \\
+Lerner $= 1/|\varepsilon|$ & 2 & «La mitad» explicada & 2 \\
+Gráfico a) & 2 & Gráfico b) & 2 \\
+\midrule
+\textbf{Total a)} & \textbf{20} & \textbf{Total b)} & \textbf{20} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{error}
+\textbf{Errores que restan puntos:} leer el precio en la $IMg$ ($600 - 16\cdot 30 = 120$ no es el precio) $\cdot$ evaluar $\varepsilon$ con la pendiente $-8$ en vez de $dq/dp = -1/8$ $\cdot$ restar el $CF$ en el $EP$ (aquí $CF = 0$, pero en general $EP = IT - CV$) $\cdot$ decir que la PIE es toda la caída del EC (6400) $\cdot$ afirmar «produce la mitad» sin revisar el $CMg$ $\cdot$ no cerrar la comparación con una frase.
+\end{error}
+
+\end{document}

@@ -1,0 +1,146 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt}
+
+\newtcolorbox{clave}{colback=blue!5,colframe=blue!50!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newcommand{\alta}[1]{\textbf{\textcolor{red!70!black}{#1}}}
+\newcommand{\media}[1]{\textbf{\textcolor{orange!80!black}{#1}}}
+\newcommand{\baja}[1]{\textcolor{gray}{#1}}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Predicción del Control 1 --- Microeconomía II (Mundaca)}\\[4pt]
+{\large Probable jueves 22-10, 13:45, primer bloque}\\[4pt]
+Hecha el 21-10-2026
+\end{center}
+
+\hrule
+\medskip
+
+\textbf{En qué se basa.}
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item \textbf{Control 1 de 2026-1 de Mundaca} (solo enunciados): 4 comentes, 2 desarrollos y un matemático a/b, todo de monopolio.
+\item \textbf{Sus otras pruebas de 2026-1} (PEP 1, Control 2, Examen de Suficiencia): \textbf{recicla preguntas}, a veces palabra por palabra. El comente «margen de 1/3 $\Rightarrow \varepsilon = -3$» sale idéntico en la PEP 1 y en el Examen; el desarrollo de Lerner del C1 se repite en la PEP 1.
+\item \textbf{Pistas en clase:} «el ejercicio podría pedirte que compare un monopolio y competencia perfecta» (clase 3); énfasis en «la regla de Lerner y elasticidades» (clase 6); fracciones y nada de demanda isoelástica (clase 2); «súper importante el desarrollo» (clase 1); tu nota «pregunta control: costos marginales del metro».
+\item \textbf{Ayudantía 2:} monopolio contra competencia perfecta y monopolio social ($p = CMe$); 3.\textsuperscript{er} grado del parque.
+\item \textbf{Alcance anunciado:} monopolio, discriminación (1.\textsuperscript{er}, 2.\textsuperscript{o} y 3.\textsuperscript{er} grado), competencia monopolística y diferenciación (Hotelling). \textbf{No} entra teoría de juegos.
+\end{itemize}
+
+\textbf{Cómo leer los porcentajes.} Son la probabilidad estimada de que \emph{ese} tema aparezca en \emph{esa} parte. Salen de un solo control previo más los patrones del profesor, así que son apuestas, no certezas. Colores: \alta{alta} (50\,\% o más), \media{media} (30--45\,\%), \baja{baja} (menos de 30\,\%).
+
+\section*{1. Formato: \alta{85\,\%}}
+
+Igual al C1 2026-1: \textbf{4 comentes $\times$ 5 + 2 desarrollos $\times$ 10 + matemático (a, b) $\times$ 20 = 80 puntos}. Corrige el procedimiento, pide gráficos y prefiere fracciones. El 15\,\% restante es que cambie el reparto (por ejemplo, 3 comentes o un matemático con una parte c).
+
+\section*{2. Comentes (4 de 5 puntos)}
+
+Los porcentajes suman cerca de 400\,\%, es decir, 4 comentes. La novedad respecto del semestre pasado es que ahora también entran discriminación y competencia monopolística, así que lo más probable es \textbf{2 de monopolio puro (casi todos reciclados) + 1 de discriminación + 1 de competencia monopolística o Hotelling}.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}Xcl@{}}
+\toprule
+Comente candidato & Prob. & De dónde sale \\
+\midrule
+«Puede operar en el tramo inelástico si el precio es suficientemente alto» & \alta{45\,\%} & C1 2026-1 (C1), clase 2 \\
+«La PIE del monopolio es toda la pérdida de EC» & \media{40\,\%} & C1 2026-1 (C3) \\
+«Con discriminación perfecta la PIE es mayor que con precio único» & \media{35\,\%} & C1 2026-1 (C4) \\
+«Si el margen es 1/3 del precio, $\varepsilon = -3$» & \media{35\,\%} & PEP 1 y Examen, idéntico \\
+«El monopolio siempre produce la mitad que competencia perfecta» & \media{35\,\%} & clases 2 y 3, lo repitió \\
+3.\textsuperscript{er} grado: «si se prohíbe discriminar, el bienestar mejora» & \media{35\,\%} & PEP 1 (C3), clase 3 \\
+Competencia monopolística: «$\pi = 0$ $\Rightarrow$ eficiente / mín. $CMe$» & \media{35\,\%} & clase 4 \\
+«La cantidad óptima se obtiene desde la curva de IMg» & \media{30\,\%} & C1 2026-1 (C2) \\
+Hotelling: «la competencia lleva a la localización socialmente óptima» & \media{30\,\%} & clase 4, «súper importante» \\
+3.\textsuperscript{er} grado: el mercado más elástico paga más / menos & \baja{25\,\%} & clase 3 \\
+Tarifa en dos partes: $p$ sobre el $CMg$ & \baja{20\,\%} & clase 4 \\
+2.\textsuperscript{o} grado: cantidad del tipo bajo & \baja{15\,\%} & slides 03 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section*{3. Desarrollos (2 de 10 puntos)}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}Xcl@{}}
+\toprule
+Desarrollo candidato & Prob. & De dónde sale \\
+\midrule
+\textbf{Relación entre elasticidad y poder de mercado (Lerner); qué pasa si $|\varepsilon| \to \infty$} & \alta{70\,\%} & C1 2026-1 (D1) = PEP 1; énfasis clase 6 \\
+Por qué el monopolio no es eficiente en sentido de Pareto & \media{35\,\%} & C1 2026-1 (D2) \\
+Monopolio natural: $P = CMg$ con subsidio contra $P = CMe$; información del regulador & \media{35\,\%} & nota «metro», clases 2 y 3 \\
+Hotelling: óptimo privado contra óptimo social, inestabilidad con 3 & \baja{25\,\%} & clase 4 \\
+2.\textsuperscript{o} grado: autoselección y distorsión del tipo bajo & \baja{20\,\%} & slides 03 \\
+Eficiencia de la discriminación de 1.\textsuperscript{er} y 3.\textsuperscript{er} grado & \baja{15\,\%} & clase 3 \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section*{4. Matemático (40 puntos)}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{\textwidth}{@{}lXc@{}}
+\toprule
+Parte & Candidato & Prob. \\
+\midrule
+a) (20) & «Obtenga todos los elementos del equilibrio del monopolista»: $IMg = CMg$, $Q_m$, $P_m$, $\pi$, $\varepsilon$ en el punto, Lerner, gráfico & \alta{85\,\%} \\
+ & Monopolista que discrimina de 3.\textsuperscript{er} grado (tipo parque) desde la parte a) & \baja{15\,\%} \\
+\midrule
+b) (20) & \textbf{Pérdida de eficiencia frente a competencia perfecta:} $\Delta P$, $\Delta Q$, EC, EP, ES de ambos, PIE, «¿la mitad?», gráfico & \alta{65\,\%} \\
+ & 3.\textsuperscript{er} grado: precio único contra discriminación, con dos demandas lineales & \baja{25\,\%} \\
+ & Monopolio social ($p = CMe$) como parte b o c, comparado con los otros dos & \baja{10\,\%} \\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Lo más probable es la \textbf{misma redacción del C1 2026-1 con otros números}: costo cuadrático $c(q) = aq^{2} + bq + F$ y demanda escrita como $q(p) = \alpha - p/\beta$ (que hay que dar vuelta a $P(q)$). Es el formato de tu simulacro.
+
+\section*{5. El control más probable, armado}
+
+\begin{clave}
+\textbf{I. Comentes} \quad (1) Tramo inelástico. \quad (2) PIE = toda la pérdida de EC, o la mitad. \quad (3) Discriminación: perfecta y PIE, o prohibir el 3.\textsuperscript{er} grado. \quad (4) Competencia monopolística con $\pi = 0$, u Hotelling.
+
+\textbf{II. Desarrollos} \quad (1) Lerner y elasticidad, con $|\varepsilon| \to \infty$. \quad (2) Monopolio no eficiente en Pareto, o monopolio natural.
+
+\textbf{III. Matemático} \quad a) Equilibrio completo del monopolista. \quad b) Pérdida de eficiencia frente a competencia perfecta, con excedentes y gráfico.
+\end{clave}
+
+\section*{6. Respuestas en pocas líneas (solo lo que el simulacro no trae)}
+
+\textbf{Desarrollo de Lerner (el más probable de todo el control).} De $IMg = P\left(1 - \frac{1}{|\varepsilon|}\right) = CMg$ sale
+\[
+L = \frac{P - CMg}{P} = \frac{1}{|\varepsilon|}.
+\]
+El margen sobre el costo depende solo de la elasticidad. Si $|\varepsilon| \to \infty$ (sustitutos perfectos), $L \to 0$ y $P = CMg$: no hay poder de mercado, como en competencia perfecta. Mientras más cerca de 1 está $|\varepsilon|$, mayor es el margen y mayor la PIE. Con $|\varepsilon| < 1$ nunca opera (tramo inelástico). El poder de mercado lo da la elasticidad, no el número de empresas. Ejemplo: cuando entra Lilly, la demanda de Novo se vuelve más elástica y su margen baja.
+
+\textbf{Monopolio no eficiente en Pareto.} En $Q_m$ se cumple $P > CMg$: hay consumidores que valoran una unidad más que lo que cuesta producirla. Venderles esa unidad a un precio entre $CMg$ y $P$ dejaría a ambos mejor sin empeorar a nadie: existe una mejora de Pareto no aprovechada. El monopolista no la hace porque, con precio único, bajar el precio lo reduce en todas las unidades ($IMg < P$). La pérdida es el triángulo de PIE (graficar).
+
+\textbf{Comentes reciclados.}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item \textbf{Tramo inelástico: F.} Ahí $IMg < 0 \leq CMg$: subir el precio aumenta el ingreso y baja el costo. Siempre opera en el tramo elástico.
+\item \textbf{Cantidad desde el IMg: F.} $IMg = CMg$ da la \textbf{cantidad}; el \textbf{precio} se lee en la \textbf{demanda} en esa cantidad (el enunciado lo dice al revés).
+\item \textbf{PIE = toda la pérdida de EC: F.} La pérdida de EC es el rectángulo (transferencia al monopolista) más el triángulo; solo el triángulo, junto con el del productor, es PIE.
+\item \textbf{Discriminación perfecta con más PIE: F.} Con 1.\textsuperscript{er} grado produce la cantidad de competencia perfecta: la PIE es cero. El EC desaparece, pero eso es distribución, no eficiencia.
+\item \textbf{Margen 1/3 $\Rightarrow \varepsilon = -3$: V.} $L = 1/|\varepsilon| = 1/3 \Rightarrow |\varepsilon| = 3 \Rightarrow \varepsilon = -3$.
+\end{itemize}
+
+\textbf{Monopolio social ($p = CMe$).} $\pi = 0$; maximiza el EC sujeto a que la empresa no pierda. \textbf{Ojo con el caso de la Ayudantía 2} ($c = x^{2} + 240$, $p = 360 - 6x$): con $CMg$ creciente, $p = CMe$ da $x \approx 50{,}75 > x_{CP} = 45$ (se elige la raíz grande). Produce \emph{de más}: el EC es el mayor de los tres, pero el ES queda bajo el de competencia perfecta. Solo con $CMe$ decreciente (monopolio natural, como el metro) la cantidad queda entre la del monopolio y la de competencia perfecta.
+
+\medskip
+\hrule
+\smallskip
+{\small\textit{Prioridad si te queda poco tiempo:} (1) el desarrollo de Lerner; (2) el matemático completo con excedentes y gráfico; (3) los 5 comentes reciclados; (4) competencia monopolística y Hotelling. Veredicto en la primera palabra; trabaja con fracciones.}
+
+\end{document}

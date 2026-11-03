@@ -1,0 +1,443 @@
+\documentclass[10pt, aspectratio=169, xcolor=table]{beamer}
+
+% --- PAQUETES Y CONFIGURACIÓN LINGÜÍSTICA ---
+\usepackage[spanish]{babel}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\usepackage{colortbl}
+\definecolor{USACHCyan}{RGB}{0, 163, 224}
+
+% --- PALETA DE COLORES MODERNA Y LLAMATIVA ---
+\definecolor{USACHNavy}{RGB}{15, 32, 67}       % Azul marino institucional profundo
+\definecolor{USACHTeal}{RGB}{0, 150, 166}      % Cyan/Teal vibrante
+\definecolor{USACHOrange}{RGB}{235, 130, 60}   % Naranja cálido para acentos
+\definecolor{USACHGray}{RGB}{245, 247, 250}    % Gris ultra claro para fondos
+\definecolor{DarkText}{RGB}{30, 41, 59}        % Texto principal legible
+
+% --- TEMA DE BEAMER PERSONALIZADO ---
+\mode<presentation>{
+  \usetheme{default}
+  \useinnertheme{rectangles}
+  \setbeamercolor{background canvas}{bg=white}
+  \setbeamercolor{normal text}{fg=DarkText}
+  \setbeamercolor{structure}{fg=USACHNavy}
+
+  % Encabezados y bloques
+  \setbeamercolor{frametitle}{fg=white, bg=USACHNavy}
+  \setbeamercolor{block title}{fg=white, bg=USACHNavy}
+  \setbeamercolor{block body}{fg=DarkText, bg=USACHGray}
+
+  \setbeamercolor{block title example}{fg=white, bg=USACHTeal}
+  \setbeamercolor{block body example}{fg=DarkText, bg=USACHGray}
+
+  \setbeamercolor{alerted text}{fg=USACHOrange}
+
+  % Quitar botones de navegación inferiores
+  \setbeamertemplate{navigation symbols}{}
+}
+
+% --- PIE DE PÁGINA PERSONALIZADO ---
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.5ex,dp=1.125ex,left,leftskip=2ex]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\textcolor{gray}{\insertshortauthor}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.5ex,dp=1.125ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\textcolor{gray}{Econometría II -- Etapa 1}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.333333\paperwidth,ht=2.5ex,dp=1.125ex,right,rightskip=2ex]{date in head/foot}%
+    \usebeamerfont{date in head/foot}\textcolor{gray}{\insertframenumber{} / \inserttotalframenumber}
+  \end{beamercolorbox}}%
+  \vskip2pt
+}
+
+% --- DATOS DE LA PRESENTACIÓN ---
+\title[Econometría II -- Etapa 1]{\textbf{Construcción de la Base de Datos}}
+\subtitle{Proceso de Admisión Universitaria 2026}
+\author[Cuevas, Li-Yau, Lizana, Nacif]{D. Cuevas \and J. Li-Yau \and B. Lizana \and A. Nacif}
+\institute{Universidad de Santiago de Chile \\ \textbf{Profesor:} Brian Pfeng Ibacache}
+\date{15 de octubre de 2026}
+
+\begin{document}
+
+% -----------------------------------------------------------------------------
+% SLIDE 1: PORTADA
+% -----------------------------------------------------------------------------
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[plain]
+  \begin{center}
+    \vspace*{0.2cm}
+    \begin{tcolorbox}[colback=USACHNavy,colframe=USACHNavy,arc=6pt,center]
+      \centering
+      {\Huge \color{white} \textbf{Econometría II}}\\[0.2cm]
+      {\large \color{white!90!USACHTeal} Etapa 1: Construcción de la Base de Datos}\\[0.1cm]
+      {\small \color{USACHOrange} \textbf{Admisión Universidad 2026}}
+    \end{tcolorbox}
+
+    \vspace{0.8cm}
+
+    \begin{columns}[t]
+      \begin{column}{0.48\textwidth}
+        \small
+        \textbf{\textcolor{USACHNavy}{Integrantes:}}\\
+        \textcolor{DarkText}{David Cuevas $\cdot$ Javier Li-Yau}\\
+        \textcolor{DarkText}{Benjamín Lizana $\cdot$ Ana Nacif}
+      \end{column}
+      \begin{column}{0.48\textwidth}
+        \small \raggedleft
+        \textbf{\textcolor{USACHNavy}{Institución:}}\\
+        \textcolor{DarkText}{Universidad de Santiago de Chile}\\
+        \textbf{\textcolor{USACHNavy}{Profesor:}} \textcolor{DarkText}{Brian Pfeng I.}
+      \end{column}
+    \end{columns}
+  \end{center}
+\end{frame}
+}
+
+% -----------------------------------------------------------------------------
+% SLIDE 2: OBJETIVO DEL TRABAJO
+% -----------------------------------------------------------------------------
+\begin{frame}{Objetivo del Estudio}
+  \begin{columns}[c]
+    % Columna Izquierda: Pregunta central y contexto (48% del ancho)
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Pregunta Central}
+        ¿De qué depende que un estudiante se matricule en una de sus \textbf{\textcolor{USACHOrange}{tres primeras preferencias}} universitarias?
+      \end{block}
+
+      \vspace{0.3cm}
+
+      \begin{itemize}
+        \item \textbf{Población final:} 108.251 estudiantes (no es una muestra: es toda la población que cumple los filtros).
+        \item \textbf{Población objetivo:} Egresados 2025 (alumnos regulares) que postularon por vía regular.
+        \item \textbf{Propósito futuro:} Base estructurada para estimar un \textbf{Modelo Logit} en la Etapa 3.
+      \end{itemize}
+    \end{column}
+
+    % Columna Derecha: Cajas de métricas (48% del ancho)
+    \begin{column}{0.48\textwidth}
+      \centering
+      % Caja 1: Top 3 Preferencias
+      \begin{tcolorbox}[colback=USACHCyan!12, colframe=USACHCyan!90!black, arc=3mm, halign=center, boxsep=3mm, left=2mm, right=2mm, top=3mm, bottom=3mm]
+        {\Large \textbf{60.300 Matriculados}}\\[0.2cm]
+        {\large \textbf{\textcolor{USACHCyan!90!black}{55,7\%}}} $\rightarrow$ Prefs. 1 a 3
+      \end{tcolorbox}
+
+      \vspace{0.4cm}
+
+      % Caja 2: Restantes
+      \begin{tcolorbox}[colback=USACHOrange!12, colframe=USACHOrange!90!black, arc=3mm, halign=center, boxsep=3mm, left=2mm, right=2mm, top=3mm, bottom=3mm]
+        {\Large \textbf{47.951 Restantes}}\\[0.2cm]
+        {\large \textbf{\textcolor{USACHOrange!90!black}{44,3\%}}} $\rightarrow$ Pref $\ge$ 4 o Sin Matrícula
+      \end{tcolorbox}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% SLIDE 3: FUENTES DE DATOS Y UNIÓN
+% -----------------------------------------------------------------------------
+\begin{frame}{Fuentes de Datos (Portal DEMRE 2026)}
+  \begin{table}
+    \centering
+    \small
+    \rowcolors{2}{USACHGray}{white}
+    \begin{tabular}{llrc}
+      \toprule
+      \textbf{\textcolor{USACHNavy}{Archivo}} & \textbf{\textcolor{USACHNavy}{Contenido Principal}} & \textbf{\textcolor{USACHNavy}{Filas Orig.}} & \textbf{\textcolor{USACHNavy}{Clave Unión}} \\
+      \midrule
+      \textbf{B (df1)} & Inscritos, colegio, sexo, tramo de ingreso & 317.700 & \texttt{ID\_aux} \\
+      \textbf{C (df2)} & Notas, NEM, Ranking y puntajes PAES & 317.700 & \texttt{ID\_aux} \\
+      \textbf{D (df3)} & Postulaciones efectivas por carrera & 1.686.689 & \texttt{ID\_aux} \\
+      \textbf{M (df4)} & Matrícula final, vía y preferencia & 128.345 & \texttt{ID\_aux} \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \vspace{0.2cm}
+
+  \begin{exampleblock}{Estrategia de Integración}
+    \begin{itemize}
+      \item Se unificó la información mediante un \textbf{\texttt{full\_join}} por la llave única del estudiante (\texttt{ID\_aux}).
+      \item El archivo D (múltiples postulaciones por alumno) se filtró para mantener una fila única por estudiante.
+    \end{itemize}
+  \end{exampleblock}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% SLIDE 4: EMBUDO DE FILTRADO DE DATOS
+% -----------------------------------------------------------------------------
+\begin{frame}{Embudo de Filtrado de Datos}
+  \begin{columns}[c]
+    % Columna Izquierda: Puntos clave explicativos (38% del ancho)
+    \begin{column}{0.38\textwidth}
+      \begin{enumerate}
+        \small
+        \item \textbf{Unión inicial:} 317.700 registros.
+        \item \textbf{Egresados 2025 y Regulares:} quedan 218.066 (salen validaciones y extranjeros).
+        \item \textbf{Postulación Regular:} Al menos 1 carrera por vía regular (114.865).
+        \item \textbf{Filtro Matrícula:} Vía regular + Tipo 1 (o sin matrícula) (108.598).
+        \item \textbf{Inscribió PAES + Con NEM $>0$:} Población final.
+      \end{enumerate}
+    \end{column}
+
+    % Columna Derecha: Embudo y Nodos explicativos (60% del ancho)
+    \begin{column}{0.60\textwidth}
+      \centering
+      \scalebox{0.82}{%
+        \begin{tikzpicture}
+          % Nivel 1: Unión Inicial (Ancho superior 6.0 cm)
+          \draw[fill=blue!80!black, draw=blue!90!black, thick]
+            (-3.0, 3.8) -- (3.0, 3.8) -- (2.2, 2.9) -- (-2.2, 2.9) -- cycle;
+          \draw[dotted, gray!80, thick] (2.4, 3.35) -- (3.4, 3.35);
+          \node[right] at (3.4, 3.35) {\small \textbf{317.700}};
+
+          % Nivel 2: Egresados 2025 y Regulares
+          \draw[fill=blue!60!black, draw=blue!80!black, thick]
+            (-2.2, 2.9) -- (2.2, 2.9) -- (1.5, 2.0) -- (-1.5, 2.0) -- cycle;
+          \draw[dotted, gray!80, thick] (1.7, 2.45) -- (3.4, 2.45);
+          \node[right] at (3.4, 2.45) {\small \textbf{218.066}};
+
+          % Nivel 3: Postulantes Vía Regular
+          \draw[fill=cyan!80!black, draw=cyan!90!black, thick]
+            (-1.5, 2.0) -- (1.5, 2.0) -- (0.9, 1.1) -- (-0.9, 1.1) -- cycle;
+          \draw[dotted, gray!80, thick] (1.1, 1.55) -- (3.4, 1.55);
+          \node[right] at (3.4, 1.55) {\small \textbf{114.865}};
+
+          % Nivel 4: Filtro Matrícula
+          \draw[fill=cyan!40, draw=cyan!60!black, thick]
+            (-0.9, 1.1) -- (0.9, 1.1) -- (0.4, 0.2) -- (-0.4, 0.2) -- cycle;
+          \draw[dotted, gray!80, thick] (0.6, 0.65) -- (3.4, 0.65);
+          \node[right] at (3.4, 0.65) {\small \textbf{108.598}};
+
+          % Nivel 5: Población Final (NEM > 0)
+          \draw[fill=orange!90!black, draw=orange!100, ultra thick]
+            (-0.4, 0.2) -- (0.4, 0.2) -- (0.25, -0.4) -- (-0.25, -0.4) -- cycle;
+
+          % Flecha hacia el resultado final
+          \draw[->, >=stealth, orange!90!black, ultra thick] (0.5, -0.1) -- (2.2, -0.1);
+          \node[right, align=left] at (2.2, -0.1) {
+            \textbf{\Large \color{orange!90!black} 108.251}\\[-0.05cm]
+            \textbf{\small \color{blue!80!black} Base Final}
+          };
+        \end{tikzpicture}
+      }
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% SLIDE 5: VARIABLE DE RESPUESTA
+% -----------------------------------------------------------------------------
+\begin{frame}{Variable Dependiente ($Y$)}
+  \begin{block}{Definición: \texttt{PREF\_TOP3\_DUMMY}}
+    \[
+      \text{PREF\_TOP3\_DUMMY} =
+      \begin{cases}
+      1 & \text{Si se matriculó en Preferencia 1, 2 o 3} \\
+      0 & \text{Si se matriculó en Pref. } \ge 4 \text{ o NO se matriculó}
+      \end{cases}
+    \]
+  \end{block}
+
+  \vspace{0.3cm}
+
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \centering
+      \textbf{\textcolor{USACHTeal}{Éxito de Preferencia ($Y = 1$)}}
+      \begin{itemize}
+        \item \textbf{Total:} 60.300 estudiantes (\textbf{55,7\%})
+        \item \textit{Pref. 1:} 40.002
+        \item \textit{Pref. 2:} 13.270
+        \item \textit{Pref. 3:} 7.028
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.48\textwidth}
+      \centering
+      \textbf{\textcolor{USACHOrange}{Fuera de Top 3 / Sin Matrícula ($Y = 0$)}}
+      \begin{itemize}
+        \item \textbf{Total:} 47.951 estudiantes (\textbf{44,3\%})
+        \item \textit{Pref. 4 o más:} 8.403
+        \item \textit{No Matriculados:} 39.548
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% SLIDE 6: VARIABLES CREADAS Y TRATAMIENTO DE DATOS
+% -----------------------------------------------------------------------------
+\begin{frame}{Variables Creadas e Insumos Econométricos}
+  \begin{columns}[t]
+    \begin{column}{0.48\textwidth}
+      \begin{block}{Nivel Establecimiento (RBD)}
+        \begin{itemize}
+          \item \textbf{\texttt{N\_ALUMNOS}:} Total inscritos PAES del colegio.
+          \item \textbf{\texttt{INGRESO\_COLEGIO}:} Mediana del tramo de ingreso per cápita del colegio (1 a 10).
+          \item \textbf{\texttt{N\_MATRICULADOS}:} Alumnos del colegio matriculados por vía regular.
+        \end{itemize}
+      \end{block}
+    \end{column}
+
+    \begin{column}{0.48\textwidth}
+      \begin{exampleblock}{Variables Dummy y Ajustes}
+        \begin{itemize}
+          \item \textbf{\texttt{TP\_DUMMY}:} 1 si el colegio es Técnico Profesional (18.877 casos).
+          \item \textbf{\texttt{PACE} y \texttt{BEA}:} Dummies de preselección de programas estatales.
+          \item \textbf{Tratamiento Código 99:} Convertido a \texttt{NA} (29.199 casos en ingreso familiar).
+        \end{itemize}
+      \end{exampleblock}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% SLIDE 7: EFECTO ESPERADO A PRIORI DE CADA X  (NUEVA)
+% -----------------------------------------------------------------------------
+\begin{frame}{Efecto Esperado de cada Variable sobre la $Y$ (a priori)}
+  \begin{table}
+    \centering
+    \footnotesize
+    \rowcolors{2}{USACHGray}{white}
+    \begin{tabular}{llcl}
+      \toprule
+      \textbf{\textcolor{USACHNavy}{Dimensión}} & \textbf{\textcolor{USACHNavy}{Variable}} & \textbf{\textcolor{USACHNavy}{Signo}} & \textbf{\textcolor{USACHNavy}{Por qué}} \\
+      \midrule
+      Rendimiento   & \texttt{PTJE\_NEM}, \texttt{PTJE\_RANKING} & \textcolor{USACHTeal}{\textbf{$+$}} & Pesan en el puntaje ponderado \\
+      Rendimiento   & \texttt{CLEC}, \texttt{MATE1}               & \textcolor{USACHTeal}{\textbf{$+$}} & Más puntaje, más carreras alcanzables \\
+      Rendimiento   & \texttt{BEA} (10\,\% mejor del curso)       & \textcolor{USACHTeal}{\textbf{$+$}} & Buen rendimiento y beca para pagar \\
+      Rendimiento   & \texttt{PACE}                               & \textcolor{USACHTeal}{\textbf{$+$}} & Cupos garantizados en universidades PACE \\
+      Socioeconómica & \texttt{INGRESO\_PERCAPITA}                & \textcolor{USACHTeal}{\textbf{$+$}} & Puede pagar y preparar la PAES \\
+      Socioeconómica & \texttt{INGRESO\_COLEGIO}                  & \textcolor{USACHTeal}{\textbf{$+$}} & Entorno con más recursos y redes \\
+      Socioeconómica & \texttt{TP\_DUMMY}                         & \textcolor{USACHOrange}{\textbf{$-$}} & Menos preparación PAES; más salida a CFT \\
+      Colegio       & \texttt{N\_MATRICULADOS}                    & \textcolor{USACHTeal}{\textbf{$+$}} & Cultura de seguir estudios en el colegio \\
+      Colegio       & \texttt{N\_ALUMNOS}                         & \textbf{?} & Más recursos, pero menos atención por alumno \\
+      Individuo     & \texttt{SEXO}                               & \textbf{?} & Mujeres: más NEM; hombres: más MATE1 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \vspace{-0.1cm}
+  \begin{center}
+    \footnotesize
+    El ingreso podría pesar menos de lo esperado por la \textbf{\textcolor{USACHOrange}{gratuidad}}: es parte de lo que el modelo tiene que medir.
+  \end{center}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% SLIDE 8: VARIABLES QUE NO PUEDEN SER X  (NUEVA)
+% -----------------------------------------------------------------------------
+\begin{frame}{Las Variables de la Matrícula no Pueden ser $X$}
+  \begin{table}
+    \centering
+    \small
+    \rowcolors{2}{USACHGray}{white}
+    \begin{tabular}{ll}
+      \toprule
+      \textbf{\textcolor{USACHNavy}{Variable}} & \textbf{\textcolor{USACHNavy}{Problema}} \\
+      \midrule
+      \texttt{PREFERENCIA}                   & Con ella se construye la $Y$ \\
+      \texttt{PTJE\_POND}                    & Es el puntaje de la carrera en que ya quedó \\
+      \texttt{VIA}, \texttt{TIPO\_MATRICULA} & Vacías en los 39.548 no matriculados \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \vspace{0.3cm}
+  \begin{block}{Conclusión}
+    Usarlas sería explicar la $Y$ con la misma $Y$: quedan en la base solo como información, no como explicativas.
+  \end{block}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% SLIDE 9: RESUMEN ESTADÍSTICO
+% -----------------------------------------------------------------------------
+\begin{frame}{Estadísticas Descriptivas (Base Final)}
+  \begin{table}
+    \centering
+    \scriptsize
+    \rowcolors{2}{USACHGray}{white}
+    \begin{tabular}{lcccc}
+      \toprule
+      \textbf{\textcolor{USACHNavy}{Variable}} & \textbf{\textcolor{USACHNavy}{Mínimo}} & \textbf{\textcolor{USACHNavy}{Mediana}} & \textbf{\textcolor{USACHNavy}{Promedio}} & \textbf{\textcolor{USACHNavy}{Máximo}} \\
+      \midrule
+      \textbf{PROMEDIO\_NOTAS} & 4,20 & 6,23 & 6,19 & 7,00 \\
+      \textbf{PTJE\_NEM} & 163 & 779 & 767 & 1.000 \\
+      \textbf{PTJE\_RANKING} & 163 & 793 & 781 & 1.000 \\
+      \textbf{CLEC\_REG\_ACTUAL} & 0 & 634 & 640 & 1.000 \\
+      \textbf{MATE1\_REG\_ACTUAL} & 0 & 645 & 668 & 1.000 \\
+      \textbf{INGRESO\_COLEGIO} & 1,0 & 4,0 & 4,8 & 10,0 \\
+      \textbf{N\_ALUMNOS (Colegio)} & 8 & 129 & 164 & 947 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \vspace{0.1cm}
+  \begin{center}
+    \footnotesize
+    \textbf{Composición por Sexo:} \textcolor{USACHTeal}{\textbf{55,2\% Mujeres}} (59.799) $\cdot$ \textcolor{USACHNavy}{\textbf{44,8\% Hombres}} (48.452)
+  \end{center}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% SLIDE 10: CONCLUSIONES Y PASOS SIGUIENTES
+% -----------------------------------------------------------------------------
+\begin{frame}{Conclusiones y Próximos Pasos}
+  \begin{columns}[c]
+    \begin{column}{0.55\textwidth}
+      \begin{itemize}
+        \item \textbf{Base Consolidada:} 108.251 estudiantes integrados exitosamente desde 4 fuentes de datos del DEMRE.
+        \item \textbf{Variable Equilibrada:} La inclusión de no matriculados permite una variable dependiente balanceada (\textbf{55,7\% vs 44,3\%}).
+        \item \textbf{Variables del Colegio:} Calculadas por RBD con todos los inscritos del colegio, antes de filtrar la base.
+      \end{itemize}
+    \end{column}
+
+    \begin{column}{0.40\textwidth}
+      \begin{block}{\textbf{\textcolor{white}{Hacia la Etapa 2}}}
+        \small
+        \begin{itemize}
+          \item Cruzar cada $X$ con la $Y$.
+          \item Agregar variables del \textbf{MINEDUC} por RBD: cursos, alumnos por profesor, ruralidad.
+          \item Evaluar tratar ``Prefiero no responder'' (\texttt{NA}) como un tramo más del ingreso.
+        \end{itemize}
+      \end{block}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% -----------------------------------------------------------------------------
+% SLIDE 11: DESPEDIDA
+% -----------------------------------------------------------------------------
+{
+\setbeamertemplate{footline}{}
+\begin{frame}[plain]
+  \centering
+  \vspace*{1.5cm}
+  \begin{tikzpicture}
+    \draw[fill=USACHNavy, draw=none, rounded corners=10pt] (-4,-1.2) rectangle (4,1.2);
+    \node at (0,0.3) {\Huge \color{white} \textbf{¡Muchas Gracias!}};
+    \node at (0,-0.3) {\large \color{USACHOrange} ¿Preguntas o Comentarios?};
+  \end{tikzpicture}
+
+  \vspace{1cm}
+  {\small \textcolor{gray}{Econometría II -- Universidad de Santiago de Chile}}
+\end{frame}
+}
+
+% -----------------------------------------------------------------------------
+% RESPALDO (no se expone; no cuenta en la numeración): solo si preguntan por el N
+% -----------------------------------------------------------------------------
+\begin{frame}[noframenumbering]{Respaldo: ¿Por qué no Incluimos a Quienes Rindieron y no Postularon?}
+  \begin{itemize}
+    \item La pregunta es \textbf{en qué preferencia quedó} el estudiante: quien no postuló no ordenó preferencias, así que no participa de ese evento.
+    \item Sí incluimos a los \textbf{39.548 que postularon y no se matricularon}: tuvieron la opción y no quedaron arriba ($Y = 0$).
+    \item Si se agregan los que no postularon, la $Y$ mezclaría dos decisiones distintas: \textbf{\textcolor{USACHOrange}{postular o no}} y \textbf{\textcolor{USACHOrange}{dónde quedar}}.
+  \end{itemize}
+\end{frame}
+
+\end{document}

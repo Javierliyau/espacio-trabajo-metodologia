@@ -1,0 +1,66 @@
+% Pegar en el Overleaf del grupo, entre "Variables Creadas" y "Estadísticas Descriptivas".
+% Requiere \usepackage{booktabs} en el preámbulo (si la tabla de descriptivas ya usa
+% \toprule, ya está cargado).
+
+% --- Lámina A: efecto esperado a priori de cada X ---------------------
+\begin{frame}{Efecto esperado de cada variable sobre la $Y$ (a priori)}
+  \centering
+  \footnotesize
+  \begin{tabular}{lcl}
+    \toprule
+    \textbf{Variable} & \textbf{Signo} & \textbf{Por qué} \\
+    \midrule
+    \texttt{PTJE\_NEM}, \texttt{PTJE\_RANKING} & $+$ & Pesan en el puntaje ponderado \\
+    \texttt{CLEC}, \texttt{MATE1}               & $+$ & Más puntaje, más carreras alcanzables \\
+    \texttt{BEA} (10\,\% mejor del curso)       & $+$ & Buen rendimiento y beca para pagar \\
+    \texttt{PACE}                               & $+$ & Cupos garantizados en universidades PACE \\
+    \midrule
+    \texttt{INGRESO\_PERCAPITA}                 & $+$ & Puede pagar y preparar la PAES \\
+    \texttt{INGRESO\_COLEGIO}                   & $+$ & Entorno con más recursos y redes \\
+    \texttt{TP\_DUMMY}                          & $-$ & Menos preparación PAES; más salida a CFT \\
+    \midrule
+    \texttt{N\_MATRICULADOS}                    & $+$ & Cultura de seguir estudios en el colegio \\
+    \texttt{N\_ALUMNOS}                         & ?   & Más recursos, pero menos atención por alumno \\
+    \texttt{SEXO}                               & ?   & Mujeres: más NEM; hombres: más MATE1 \\
+    \bottomrule
+  \end{tabular}
+
+  \medskip
+  El ingreso podría pesar menos de lo esperado por la \textbf{gratuidad}:
+  es parte de lo que el modelo tiene que medir.
+\end{frame}
+
+% --- Lámina B: variables que no pueden ser X ---------------------------
+\begin{frame}{Las variables de la matrícula no pueden ser $X$}
+  \centering
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Variable} & \textbf{Problema} \\
+    \midrule
+    \texttt{PREFERENCIA}                  & Con ella se construye la $Y$ \\
+    \texttt{PTJE\_POND}                   & Es el puntaje de la carrera en que ya quedó \\
+    \texttt{VIA}, \texttt{TIPO\_MATRICULA} & Vacías en los 39.548 no matriculados \\
+    \bottomrule
+  \end{tabular}
+
+  \medskip
+  Usarlas sería explicar la $Y$ con la misma $Y$: quedan en la base solo
+  como información.
+\end{frame}
+
+% --- Lámina C (respaldo, después de "¡Muchas Gracias!"): solo si preguntan por el N
+\begin{frame}{Respaldo: ¿por qué no incluimos a quienes rindieron y no postularon?}
+  \begin{itemize}
+    \item La pregunta es \textbf{en qué preferencia quedó} el estudiante:
+          quien no postuló no ordenó preferencias, así que no participa de
+          ese evento.
+    \item Sí incluimos a los \textbf{39.548 que postularon y no se
+          matricularon}: tuvieron la opción y no quedaron arriba ($Y = 0$).
+    \item Si se agregan los que no postularon, la $Y$ mezclaría dos
+          decisiones distintas: \textbf{postular o no} y \textbf{dónde quedar}.
+  \end{itemize}
+\end{frame}
+
+% --- En "Conclusiones y Próximos Pasos", cambiar el recuadro "Hacia la Etapa 3" por:
+%   Hacia la Etapa 2: cruzar cada X con la Y y agregar variables del MINEDUC
+%   por RBD (cursos, alumnos por profesor, ruralidad).

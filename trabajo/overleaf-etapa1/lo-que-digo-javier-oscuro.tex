@@ -1,0 +1,155 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{booktabs,tabularx,xcolor,amssymb}
+\usepackage[most]{tcolorbox}
+\definecolor{USACHNavy}{RGB}{15,32,67}
+\newtcolorbox{guion}{colback=black!80!white,colframe=yellow!70!orange,coltext=white,boxrule=0pt,leftrule=3pt,sharp corners,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\pagestyle{plain}
+\pagecolor{black}\color{white}
+\begin{document}
+\pagecolor{black}\color{white}
+{\LARGE\bfseries Lo que digo yo (Javier)\par}\medskip
+
+\section*{Lámina 3 $\cdot$ Fuentes de datos}
+
+\begin{guion}Los datos vienen de cuatro archivos públicos del DEMRE, del proceso de admisión 2026.\par Y esto \textbf{no es una muestra: es la población completa}.\par \textbf{La unidad es la persona.} Cada estudiante tiene un identificador anonimizado, el ID\_aux, y con esa llave unimos los cuatro archivos.\par Así tenemos \textbf{variables asociadas a la persona}: el promedio de notas, el ranking, los puntajes, el sexo y el ingreso.\par Pero \textbf{esa persona estudió en un colegio}, y cada colegio tiene un \textbf{RBD}, que es su identificador único del MINEDUC. Agrupando por RBD construimos \textbf{variables asociadas al colegio}.\par El archivo de postulaciones tiene 1,7 millones de filas, porque cada alumno postula a varias carreras; lo dejamos en una fila por estudiante.\par Con eso armamos la población y \textbf{llegamos al N}, que les muestra mi compañero.\end{guion}
+
+\section*{Lámina 9 $\cdot$ Descriptivas (solo si sigue en la presentación)}
+
+\begin{guion}Acá están las \textbf{variables asociadas a la persona}, como el \textbf{promedio de notas} y el \textbf{género}.\par La mediana de notas es 6,23: postulan estudiantes de buen rendimiento, y \textbf{sin haber hecho todavía el modelo} esperamos que el puntaje suba la probabilidad de quedar arriba.\par Y hay 55 \% de mujeres. Ellas tienen mejor NEM y los hombres más puntaje en matemática, así que el efecto del género no es obvio: lo tiene que decidir el modelo.\end{guion}
+
+\section*{Lámina 10 $\cdot$ Conclusiones}
+
+\begin{guion}En resumen, el objetivo de esta etapa era \textbf{armar una base de datos con la población que corresponde}, y \textbf{llegamos a un N de 108.251}.\par La Y es \textbf{el complemento}: vale 1 si quedó en sus tres primeras preferencias, y 0 \textbf{todos los que no están dentro de eso}, incluidos los que no se matricularon. Queda en 56 contra 44.\par Para la Etapa 2 \textbf{no nos vamos a quedar con los mínimos}. Vamos a \textbf{ir al MINEDUC y cruzar por RBD} para traer la \textbf{matrícula del colegio, cuántos cursos tiene y el ratio de estudiantes por profesor}. Eso nos dice si el colegio \textbf{es muy grande o muy chico}, y puede \textbf{ayudarnos a predecir la probabilidad de que el estudiante se matricule}.\par Preferimos el colegio antes que la comuna, porque \textbf{las comunas son muy heterogéneas}.\end{guion}
+
+\section*{Lámina 11 $\cdot$ Cierre}
+
+\begin{guion}Muchas gracias. ¿Preguntas?\end{guion}
+
+
+\medskip\hrule\medskip
+
+{\LARGE\bfseries Todas las preguntas que podría hacer el profe\par}\medskip
+
+Respuestas cortas: una o dos frases. Si no sabes algo, di «lo vemos en la Etapa 2» en vez de improvisar.\par
+
+\section*{A. Población y N}
+
+\textbf{¿Por qué es población y no muestra?}\par
+\begin{guion}Porque están todos los que cumplen los criterios, no una parte al azar. No hay error muestral.\end{guion}
+
+\textbf{¿De dónde sale el 108.251?}\par
+\begin{guion}De 317.700 registros: egresados 2025 regulares, 218.066; postularon por vía regular, 114.865; filtro de matrícula, 108.598; con NEM, 108.251.\end{guion}
+
+\textbf{¿Por qué solo egresados 2025?}\par
+\begin{guion}Para comparar estudiantes del mismo proceso, que compiten en las mismas condiciones. Los de promociones anteriores tienen otra trayectoria (preuniversitario, otro intento).\end{guion}
+
+\textbf{¿Por qué sacaron a los matriculados por otra vía?}\par
+\begin{guion}Porque no compitieron por sus preferencias en el proceso regular, así que no responden la pregunta.\end{guion}
+
+\textbf{¿Por qué sacaron a los que tenían NEM igual a 0?}\par
+\begin{guion}Sin NEM no hay puntaje de postulación válido; eran solo 345.\end{guion}
+
+\textbf{¿Y los que rindieron y no postularon?}\par
+\begin{guion}Quien no postuló no ordenó preferencias, así que no participa del evento que modelamos. Incluirlos mezclaría dos decisiones: postular o no, y dónde quedar. Si prefiere que los incluyamos, los agregamos en la Etapa 2.\end{guion}
+
+\textbf{¿Por qué full join?}\par
+\begin{guion}Para no perder a nadie al unir: los no matriculados no están en el archivo de matrícula, y los necesitamos para la Y = 0.\end{guion}
+
+\textbf{¿Cuál es la unidad de análisis?}\par
+\begin{guion}La persona, identificada por el ID\_aux anonimizado.\end{guion}
+
+\section*{B. Variable de respuesta}
+
+\textbf{¿Cómo definieron la Y?}\par
+\begin{guion}1 si se matriculó en su preferencia 1, 2 o 3; 0 el complemento: preferencia 4 o más abajo, o no matriculado.\end{guion}
+
+\textbf{¿Por qué incluyen a los no matriculados en el 0?}\par
+\begin{guion}Postularon y no quedaron arriba. Sacarlos dejaría solo a los que tuvieron éxito y sobrestimaría la probabilidad.\end{guion}
+
+\textbf{¿Por qué el corte en la tercera preferencia y no en la primera?}\par
+\begin{guion}Fue la definición del trabajo. Además, con solo la primera, el 1 incluiría a pocos y perderíamos a los que igual quedaron en algo que valoraban mucho.\end{guion}
+
+\textbf{¿La Y está balanceada?}\par
+\begin{guion}Sí: 55,7 contra 44,3. Sin los no matriculados era 88 contra 12, y eso complicaba evaluar el modelo.\end{guion}
+
+\textbf{¿Por qué importa que esté balanceada?}\par
+\begin{guion}Porque con una Y muy desbalanceada el modelo puede acertar mucho solo prediciendo siempre 1, y el porcentaje correctamente predicho engaña.\end{guion}
+
+\section*{C. Variables creadas}
+
+\textbf{¿Qué es el RBD?}\par
+\begin{guion}El identificador único de cada colegio que asigna el MINEDUC. Con él agrupamos a los estudiantes por colegio, y en la Etapa 2 lo usamos para traer datos del MINEDUC.\end{guion}
+
+\textbf{¿Por qué calcularon las variables del colegio antes de filtrar?}\par
+\begin{guion}Para que describan al colegio completo, no solo a los alumnos que quedaron en nuestra base.\end{guion}
+
+\textbf{¿Por qué la mediana en INGRESO\_COLEGIO y no el promedio?}\par
+\begin{guion}El tramo es ordinal, del 1 al 10, y la mediana no se deja llevar por pocos alumnos en los extremos.\end{guion}
+
+\textbf{¿Por qué el código 99 pasa a NA y no borran la fila?}\par
+\begin{guion}Son 29.199 estudiantes, el 27 \%. Borrarlos achica la base y saca a un grupo que puede ser distinto. En la Etapa 2 evaluamos tratarlos como un tramo más.\end{guion}
+
+\textbf{N\_MATRICULADOS incluye al propio estudiante, ¿no es circular?}\par
+\begin{guion}Buena observación: el estudiante aporta a su propio colegio. En la Etapa 2 la vamos a usar como tasa, matriculados sobre inscritos, y se puede calcular excluyendo al propio estudiante.\end{guion}
+
+\textbf{¿Qué son PACE y BEA?}\par
+\begin{guion}PACE es un programa que da cupos garantizados en universidades a estudiantes de liceos vulnerables. BEA es la Beca de Excelencia Académica, para el 10 \% mejor de cada curso.\end{guion}
+
+\textbf{¿Por qué TP es una dummy aparte?}\par
+\begin{guion}Porque la formación técnica prepara distinto para la PAES y muchos egresados siguen a un CFT; es un perfil distinto.\end{guion}
+
+\section*{D. Efecto a priori}
+
+\textbf{¿Qué signo esperan del NEM y los puntajes?}\par
+\begin{guion}Positivo: suben el puntaje ponderado y abren más carreras, así que es más probable alcanzar el corte de las primeras preferencias.\end{guion}
+
+\textbf{¿Y del ingreso?}\par
+\begin{guion}Positivo, por recursos para prepararse y pagar. Pero con la gratuidad podría pesar menos de lo esperado; eso lo mide el modelo.\end{guion}
+
+\textbf{¿Por qué TP negativo?}\par
+\begin{guion}Prepara menos para la PAES y más para la salida a CFT o al trabajo.\end{guion}
+
+\textbf{¿Por qué el sexo tiene signo «?»?}\par
+\begin{guion}Dos efectos opuestos: las mujeres tienen mejor NEM y ranking; los hombres, más puntaje en matemática.\end{guion}
+
+\textbf{¿Por qué el tamaño del colegio es «?»?}\par
+\begin{guion}Un colegio grande puede tener más recursos, pero menos atención por alumno.\end{guion}
+
+\textbf{¿Qué signo esperan del ratio estudiantes por profesor?}\par
+\begin{guion}Negativo: más alumnos por profesor es menos atención por alumno.\end{guion}
+
+\textbf{¿Y de la ruralidad?}\par
+\begin{guion}Negativo: menos acceso a preparación y a oferta universitaria cercana.\end{guion}
+
+\section*{E. Variables que no pueden ser X}
+
+\textbf{¿Por qué no usan PREFERENCIA?}\par
+\begin{guion}Con ella se construye la Y: sería explicar la Y con la misma Y.\end{guion}
+
+\textbf{¿Por qué no PTJE\_POND?}\par
+\begin{guion}Es el puntaje con que ya quedó en una carrera: es consecuencia del resultado, no causa.\end{guion}
+
+\textbf{¿Por qué no VIA ni TIPO\_MATRICULA?}\par
+\begin{guion}Están vacías en los 39.548 no matriculados, y además describen la matrícula, que es el resultado.\end{guion}
+
+\section*{F. Modelo (Etapa 3, por si acaso)}
+
+\textbf{¿Por qué logit y no MCO (modelo de probabilidad lineal)?}\par
+\begin{guion}Porque con MCO la probabilidad estimada puede salir menor que 0 o mayor que 1. El logit la transforma con la función logística y la deja entre 0 y 1.\end{guion}
+
+\textbf{¿Cómo se interpreta un coeficiente del logit?}\par
+\begin{guion}El signo dice la dirección del efecto. La magnitud no se lee directo: hay que calcular el efecto parcial, que depende de los valores de las X.\end{guion}
+
+\textbf{¿Cómo se calcula el efecto parcial de una dummy?}\par
+\begin{guion}Como la diferencia de probabilidad entre que la variable valga 1 y que valga 0, dejando las demás fijas.\end{guion}
+
+\textbf{¿Se pueden comparar los coeficientes del logit, el probit y MCO?}\par
+\begin{guion}No: cada modelo mide en una escala distinta. Lo que se compara son los efectos parciales.\end{guion}
+
+\textbf{¿Cómo van a evaluar el modelo?}\par
+\begin{guion}Con la matriz de confusión y el porcentaje correctamente predicho, mirando aciertos en los 1 y en los 0.\end{guion}
+\end{document}

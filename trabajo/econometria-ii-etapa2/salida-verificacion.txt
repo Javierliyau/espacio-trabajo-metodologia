@@ -1,0 +1,120 @@
+Avisos:
+1: package 'tidyverse' was built under R version 4.5.3 
+2: package 'ggplot2' was built under R version 4.5.3 
+3: package 'tidyr' was built under R version 4.5.3 
+4: package 'readr' was built under R version 4.5.3 
+5: package 'purrr' was built under R version 4.5.3 
+6: package 'dplyr' was built under R version 4.5.3 
+7: package 'stringr' was built under R version 4.5.3 
+8: package 'forcats' was built under R version 4.5.3 
+9: package 'lubridate' was built under R version 4.5.3 
+10: package 'scorecard' was built under R version 4.5.3 
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+A: 317700  B: 1686689  C: 128345  inscritos: 317700 
+     inicial       egreso  primera_vez obligatorias     electiva        notas 
+      317700       218066       217449       179347       170056       168714 
+postulantes unicos: 188538 
+
+     0      1 
+ 55361 113353 
+C filtrado: 118795  IDs repetidos: 0 
+N: 168714 
+
+     0      1 
+108480  60234 
+
+   0    1 
+64.3 35.7 
+       I
+postula     0     1
+      0 55361     0
+      1 53119 60234
+
+% NA por variable:
+                    ID_aux                          I             PROMEDIO_NOTAS             PORC_SUP_NOTAS                   PTJE_NEM 
+                      0.00                       0.00                       0.00                       0.00                       0.00 
+              PTJE_RANKING            CLEC_REG_ACTUAL           MATE1_REG_ACTUAL                 RINDE_CIEN                RINDE_HCSOC 
+                      0.00                       0.00                       0.00                       0.00                       0.00 
+                  RINDE_M2          GRUPO_DEPENDENCIA                   TP_DUMMY              CODIGO_REGION                       SEXO 
+                      0.00                       0.00                       0.00                       0.00                       0.00 
+                      PACE                        BEA INGRESO_PERCAPITA_GRUPO_FA                 EDAD_MESES                  N_ALUMNOS 
+                      0.00                       0.00                      27.66                       0.00                       0.00 
+           INGRESO_COLEGIO               flag_postula 
+                      0.04                       0.00 
+                 lim_inf lim_sup n_fuera    min  max
+PROMEDIO_NOTAS      4.61    7.61      61   4.18    7
+PTJE_NEM          316.00 1172.00     116 157.00 1000
+PTJE_RANKING      302.50 1210.50      77 157.00 1000
+CLEC_REG_ACTUAL   215.00  975.00     101 100.00 1000
+MATE1_REG_ACTUAL  225.00 1001.00      17 100.00 1000
+EDAD_MESES        204.50  232.50    8513 181.00  860
+N_ALUMNOS         -93.50  374.50    8947   8.00  947
+INGRESO_COLEGIO     0.00    8.00   12849   1.00   10
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 22 columns in 00:00:05
+# A tibble: 19 × 4
+   variable                         IV tramos clase     
+   <chr>                         <dbl>  <int> <fct>     
+ 1 CLEC_REG_ACTUAL            0.734         5 sospechoso
+ 2 MATE1_REG_ACTUAL           0.627         5 sospechoso
+ 3 PROMEDIO_NOTAS             0.395         5 fuerte    
+ 4 PTJE_NEM                   0.394         5 fuerte    
+ 5 PTJE_RANKING               0.376         5 fuerte    
+ 6 PORC_SUP_NOTAS             0.193         4 medio     
+ 7 TP_DUMMY                   0.106         2 medio     
+ 8 INGRESO_COLEGIO            0.106         4 medio     
+ 9 GRUPO_DEPENDENCIA          0.104         4 medio     
+10 EDAD_MESES                 0.0511        3 debil     
+11 INGRESO_PERCAPITA_GRUPO_FA 0.0417        5 debil     
+12 BEA                        0.0325        2 debil     
+13 RINDE_M2                   0.0238        2 debil     
+14 CODIGO_REGION              0.0180        4 inutil    
+15 RINDE_HCSOC                0.00665       2 inutil    
+16 N_ALUMNOS                  0.00636       5 inutil    
+17 RINDE_CIEN                 0.00174       2 inutil    
+18 PACE                       0.000940      2 inutil    
+19 SEXO                       0.000170      2 inutil    
+# A tibble: 19 × 3
+   variable                   monotona tasa_por_tramo                  
+   <chr>                      <lgl>    <chr>                           
+ 1 PROMEDIO_NOTAS             TRUE     13 | 21.9 | 28.7 | 37.3 | 50.6  
+ 2 PORC_SUP_NOTAS             TRUE     48.2 | 40.1 | 31 | 21           
+ 3 PTJE_NEM                   TRUE     13.4 | 22.6 | 29.6 | 40.4 | 52.7
+ 4 PTJE_RANKING               TRUE     9.7 | 15.7 | 25.8 | 39.4 | 50.9 
+ 5 CLEC_REG_ACTUAL            TRUE     3.3 | 16.7 | 33.9 | 45 | 59.1   
+ 6 MATE1_REG_ACTUAL           TRUE     5.5 | 21.5 | 38.9 | 53.2 | 71.4 
+ 7 RINDE_CIEN                 TRUE     37.3 | 35.1                     
+ 8 RINDE_HCSOC                TRUE     33.5 | 37.3                     
+ 9 RINDE_M2                   TRUE     32.5 | 39.7                     
+10 GRUPO_DEPENDENCIA          TRUE     28.4 | 29.2 | 36 | 53.1         
+11 TP_DUMMY                   TRUE     39.7 | 22.8                     
+12 CODIGO_REGION              TRUE     33.4 | 36.6 | 40.4 | 43.4       
+13 SEXO                       TRUE     35.4 | 36                       
+14 PACE                       TRUE     35.5 | 38.1                     
+15 BEA                        TRUE     34.5 | 50.1                     
+16 INGRESO_PERCAPITA_GRUPO_FA TRUE     30.1 | 35.3 | 40.1 | 53.2       
+17 EDAD_MESES                 FALSE    35.5 | 38.1 | 20.6              
+18 N_ALUMNOS                  FALSE    31.2 | 38 | 36.5 | 33 | 35.3    
+19 INGRESO_COLEGIO            TRUE     24.5 | 33.9 | 38.4 | 56.3       
+     variable        bin  count count_distr   posprob          woe        bin_iv
+       <char>     <char>  <int>       <num>     <num>        <num>         <num>
+1: EDAD_MESES [-Inf,216)  51490   0.3051910 0.3547485 -0.009902251 0.00002988282
+2: EDAD_MESES  [216,228) 102112   0.6052373 0.3805136  0.100959822 0.00625408312
+3: EDAD_MESES [228, Inf)  15112   0.0895717 0.2059952 -0.760907574 0.04483912398
+       variable        bin count count_distr    posprob        woe      bin_iv
+         <char>     <char> <int>       <num>      <num>      <num>       <num>
+1: PTJE_RANKING [-Inf,500)  9321  0.05524734 0.09741444 -1.6379602 0.102337989
+2: PTJE_RANKING  [500,580) 14591  0.08648364 0.15742581 -1.0891786 0.081900823
+3: PTJE_RANKING  [580,720) 44963  0.26650426 0.25752285 -0.4705548 0.054353661
+4: PTJE_RANKING  [720,840) 46557  0.27595220 0.39407608  0.1581184 0.007043775
+5: PTJE_RANKING [840, Inf) 53282  0.31581256 0.50867085  0.6230157 0.129983646
+                     variable       bin count count_distr   posprob         woe       bin_iv
+                       <char>    <char> <int>       <num>     <num>       <num>        <num>
+1: INGRESO_PERCAPITA_GRUPO_FA   missing 46668  0.27661012 0.3463401 -0.04683708 0.0006026568
+2: INGRESO_PERCAPITA_GRUPO_FA  [-Inf,2) 21972  0.13023223 0.3008829 -0.25476805 0.0081135602
+3: INGRESO_PERCAPITA_GRUPO_FA     [2,9) 81955  0.48576289 0.3531572 -0.01686108 0.0001377650
+4: INGRESO_PERCAPITA_GRUPO_FA    [9,10)  8551  0.05068341 0.4005379  0.18510469 0.0017786013
+5: INGRESO_PERCAPITA_GRUPO_FA [10, Inf)  9568  0.05671136 0.5321906  0.71726974 0.0310405010

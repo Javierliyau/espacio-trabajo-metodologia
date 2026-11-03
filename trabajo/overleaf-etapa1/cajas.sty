@@ -1,0 +1,166 @@
+% =====================================================================
+%  cajas.sty -- Sistema semantico de cajas y convenciones TikZ
+%  Extraido del Manual de Estilo LaTeX (USACH)
+%  Compatible con article y beamer.
+% =====================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cajas}[2026/07/31 Cajas semanticas y convenciones graficas]
+
+% --- MATEMATICAS -----------------------------------------------------
+\RequirePackage{amsmath,amssymb,amsthm,mathtools,bm}
+\RequirePackage{cancel}
+
+% --- REFERENCIAS -------------------------------------------------------
+% [hyphens] permite que \url corte tras un guion -- sin esto, un slug
+% largo sin "/" (tipo "camara-chilena-de-la-construccion-...") no tiene
+% ningun punto de corte y se desborda del margen entero.
+% En beamer, hyperref ya carga url.sty antes de llegar aqui; pedirlo de
+% nuevo con otras opciones da "Option clash". Si ya esta cargado, no lo
+% volvemos a pedir.
+\makeatletter
+\@ifpackageloaded{url}{}{\RequirePackage[hyphens]{url}}
+\makeatother
+
+% --- COLORES: table habilita \rowcolor -------------------------------
+\RequirePackage[dvipsnames,table]{xcolor}
+
+% --- CAJAS: [most] carga enhanced automaticamente --------------------
+\RequirePackage[most]{tcolorbox}
+\tcbuselibrary{breakable}
+
+% --- GRAFICOS --------------------------------------------------------
+\RequirePackage{tikz}
+\usetikzlibrary{decorations.pathreplacing, arrows.meta}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\RequirePackage{forest}
+
+% --- TABLAS Y LISTAS -------------------------------------------------
+\RequirePackage{multirow}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\RequirePackage{graphicx}
+
+% =====================================================================
+%  ESTILOS GLOBALES DE CAJAS
+%  Mapa semantico:
+%    definicion -> gris   -> conceptos y definiciones
+%    teorema    -> verde  -> reglas, propiedades, tablas resumen
+%    ejemplo    -> azul   -> ejemplos ilustrativos
+%    nota       -> ambar  -> advertencias y conclusiones
+%    enunciado  -> naranja-> comentes (verdadero/falso)
+%    practica   -> teal   -> casos practicos numericos
+%
+%  POLITICA DE SALTO DE PAGINA (no breakable por defecto):
+%  Ninguna caja es "breakable" por defecto. Si el contenido no cabe en lo
+%  que resta de la pagina, la caja completa salta entera a la siguiente
+%  en vez de partirse a la mitad (asi nunca queda un titulo huerfano ni
+%  una lista cortada entre paginas).
+%
+%  Consecuencia: una caja MAS ALTA que una pagina no tiene adonde saltar
+%  completa y se desborda. Por eso el contenido largo (una "Herramienta"
+%  o "Receta" con varios pasos extensos, un ejemplo con 4+ Pasos de
+%  desarrollo) NO debe ir dentro de una caja: sacalo del sistema de cajas
+%  por completo (encabezado + texto corrido + enumerate normal). Ver la
+%  seccion "Cuando NO usar una caja" en CLAUDE.md para el criterio exacto.
+%
+%  Si en un caso raro una caja SI necesita partirse (contenido que no
+%  llega al umbral de "sacar de la caja" pero aun asi no cabe en una
+%  pagina), agrega `breakable` a mano en esa instancia puntual:
+%    \begin{tcolorbox}[teorema, breakable] ... \end{tcolorbox}
+%  y verifica con pdftoppm que el corte cae entre parrafos, nunca a mitad
+%  de un item de lista ni justo despues del titulo.
+% =====================================================================
+\tcbset{
+  boxrule=0.6pt, arc=3pt,
+  left=6pt, right=6pt, top=6pt, bottom=6pt,
+  definicion/.style={
+    enhanced,
+    colback=gray!5!white,
+    colframe=black!70,
+    title=\textbf{Definición},
+    fonttitle=\bfseries},
+  teorema/.style={
+    enhanced,
+    colback=green!8!white,
+    colframe=green!50!black,
+    title=\textbf{Teorema},
+    fonttitle=\bfseries},
+  ejemplo/.style={
+    enhanced,
+    colback=blue!5!white,
+    colframe=blue!70!black,
+    title=\textbf{Ejemplo},
+    fonttitle=\bfseries},
+  nota/.style={
+    enhanced,
+    colback=yellow!10!white,
+    colframe=orange!80!black,
+    title=\textbf{Nota},
+    fonttitle=\bfseries},
+  enunciado/.style={
+    enhanced,
+    colback=orange!8!white,
+    colframe=orange!85!black,
+    fonttitle=\bfseries},
+  practica/.style={
+    enhanced,
+    colback=teal!5!white,
+    colframe=teal!60!black,
+    fonttitle=\bfseries},
+}
+
+% =====================================================================
+%  ATAJOS DE CONTENIDO
+%  Encapsulan la estructura de un comente y de un caso practico
+%  para que no haya que reescribir el andamiaje cada vez.
+% =====================================================================
+
+% \comente{titulo}{enunciado}{VERDADERO|FALSO}{desarrollo}
+\newcommand{\comente}[4]{%
+  \begin{tcolorbox}[enunciado, title={\large\textbf{Comentario:} #1}]
+  \textbf{Enunciado:} \textit{``#2''}
+
+  \medskip\hrule\medskip
+
+  \textbf{Pauta de Respuesta --- \textcolor{red}{#3}}
+
+  #4
+  \end{tcolorbox}%
+}
+
+% \begin{caso}{titulo} ... \end{caso}
+\newtcolorbox{caso}[1]{practica, title={\textbf{Caso Práctico:} #1}}
+
+% \begin{conclusion} ... \end{conclusion}   (para anidar dentro de caso)
+\newtcolorbox{conclusion}{nota, title=\textbf{Conclusión}}
+
+% =====================================================================
+%  CONVENCIONES DE COLOR PARA GRAFICOS
+%  Estilos TikZ nombrados: en vez de recordar "blue!80!black, very thick"
+%  se escribe [rp-original]. Cambiar el color aqui lo cambia en todo el curso.
+% =====================================================================
+\tikzset{
+  eje/.style={->, thick},
+  rp-original/.style={blue!80!black, very thick},
+  rp-nueva/.style={red!80!black, very thick, dashed},
+  rp-ficticia/.style={orange!80!black, dashed, very thick},
+  ci-optima/.style={red!70!black, very thick},
+  ci-otra/.style={black!50, thick},
+  proyeccion/.style={dashed, gray, thick},
+  senda/.style={green!50!black, dashed, thick},
+  llave/.style={decorate, decoration={brace, amplitude=6pt}, thick},
+  llave-inv/.style={decorate, decoration={brace, amplitude=6pt, mirror}, thick},
+  paso/.style={draw, rounded corners, fill=orange!12!white,
+               text width=5.5cm, align=center, inner sep=6pt,
+               font=\footnotesize},
+  flecha-paso/.style={->, very thick, orange!70!black},
+  % Areas sombreadas frecuentes
+  areaexcedente/.style={yellow!40, opacity=0.8},
+  areaganancia/.style={blue!30, opacity=0.7},
+  areanuevos/.style={green!40, opacity=0.8},
+  areaperdida/.style={orange!40, opacity=0.8},
+}
+
+\endinput

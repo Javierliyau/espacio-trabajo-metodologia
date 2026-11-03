@@ -1,0 +1,15 @@
+setwd("C:/Espacio de trabajo Metodologia de estudio/trabajo/econometria-ii-demre")
+src <- readLines("C:/Users/javie/Downloads/Trabajo etapa 2 econometria.II (1).R", encoding = "UTF-8")
+src <- src[!(grepl("write_xlsx", src, fixed=TRUE) | grepl("woebin_plot", src, fixed=TRUE) | grepl("boxplot", src, fixed=TRUE))]
+pdf(NULL)
+exprs <- parse(text = src)
+for (e in exprs) { r <- withVisible(eval(e, envir = globalenv())); if (r$visible) print(r$value) }
+cat("\n===== CHEQUEOS EXTRA =====\n")
+raw1 <- read_csv2("datos/crudos/1-inscritos-archivo-B/ArchivoB_Adm2026REG.csv", show_col_types = FALSE)
+cat("PACE crudo:\n"); print(table(raw1$PACE, useNA="ifany")); cat("BEA crudo:\n"); print(table(raw1$BEA, useNA="ifany"))
+cat("RAMA:\n"); print(table(df_final$RAMA_EDUCACIONAL, useNA="ifany"))
+cat("RINDE_*:\n"); print(sapply(df_final[c("RINDE_CIEN","RINDE_HCSOC","RINDE_M2")], function(x) table(x, useNA="ifany")))
+cat("FECHA ej:\n"); print(head(df_final$FECHA_NACIMIENTO)); print(summary(df_final$EDAD_MESES))
+cat("dup ID df1:", sum(duplicated(df1$ID_aux)), "\n")
+print(bins$CODIGO_REGION); print(bins$RINDE_M2); print(bins_edad$EDAD_MESES)
+print(cor(as.data.frame(dt_woe)[, -1])[c("PROMEDIO_NOTAS_woe","PTJE_NEM_woe","PTJE_RANKING_woe"), ] |> round(2))

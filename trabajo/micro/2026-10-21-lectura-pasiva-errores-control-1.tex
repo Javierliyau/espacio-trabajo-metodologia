@@ -1,0 +1,328 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\newtcolorbox{clave}{colback=blue!5,colframe=blue!50!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\newtcolorbox{error}{colback=red!5,colframe=red!60!black,boxrule=0.6pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Microeconomía II --- Lectura pasiva para el Control 1}\\[4pt]
+{\large Todos los errores de hoy, arreglados con dos casos: el canal del fútbol y las farmacias del Ozempic}\\[4pt]
+21-10-2026 \quad$\cdot$\quad unos 20 minutos de lectura
+\end{center}
+
+\hrule
+\medskip
+
+\textbf{Cómo leer esto.} Léelo de corrido, sin tomar apuntes. Los cuadros \textcolor{red!60!black}{\textbf{rojos}} son lo que escribiste hoy y estaba mal; los \textcolor{blue!50!black}{\textbf{azules}} son la frase que tienes que poder decir de memoria. Al terminar, lee en voz alta solo los cuadros azules. Una segunda pasada mañana a las 12:45 basta.
+
+%=====================================================================
+\section*{Parte I. El canal del fútbol: un monopolio que discrimina}
+
+Imagina un canal que tiene los derechos exclusivos de transmisión del fútbol chileno (como CDF, hoy TNT Sports). Si quieres ver el campeonato, no hay otro lugar donde comprarlo. Con este solo caso se explica casi todo el monopolio y las tres formas de discriminar.
+
+\subsection*{1. ¿Qué tipo de monopolio es?}
+
+El canal es un \textbf{monopolio legal o contractual}: su poder viene de un contrato de exclusividad con la ANFP, igual que una patente viene de la ley. No es un \textbf{monopolio natural}. Un monopolio natural ocurre cuando, por costos fijos enormes, una sola empresa produce más barato que varias (el costo medio es decreciente en todo el tramo relevante): la red de agua de Aguas Andinas, el Metro o el cable físico que llega a tu casa.
+
+Hay que distinguir además dos cosas que hoy se mezclaron. \textbf{Monopolio} es una \emph{estructura} de mercado (un solo vendedor, barreras de entrada). \textbf{Práctica monopólica} es una \emph{estrategia}: discriminar precios, vender en paquetes, cobrar en dos partes. El canal es un monopolio, y además usa prácticas monopólicas.
+
+\subsection*{2. ¿Cuánto cobra? La regla del monopolio y Lerner}
+
+Supón que la demanda mensual de suscripciones (en miles) es $P = 120 - 2Q$ y que el costo es $CT = Q^{2} + 300$, así que $CMg = 2Q$ y $CF = 300$. El canal elige $Q$ donde lo que le entra por una unidad más es igual a lo que le cuesta:
+\[
+IMg = 120 - 4Q \;=\; CMg = 2Q \quad\Longrightarrow\quad Q_m = 20,\qquad P_m = 120 - 2(20) = 80.
+\]
+Las utilidades se calculan \textbf{con paréntesis}, porque el costo fijo también se resta:
+\[
+\pi = P_m Q_m - \left(Q_m^{2} + 300\right) = 1600 - (400 + 300) = 900.
+\]
+
+La elasticidad se calcula \textbf{en el punto}, derivando, no a ojo:
+\[
+\varepsilon = \frac{dQ}{dP}\cdot\frac{P}{Q} = \left(-\tfrac12\right)\cdot\frac{80}{20} = -2 .
+\]
+Como $|\varepsilon| = 2 > 1$, el canal está en el \textbf{tramo elástico}. Eso no es casualidad: en el tramo inelástico $IMg < 0$, y como $CMg \geq 0$, nunca puede cumplirse $IMg = CMg$. Si estuviera ahí, subir el precio le subiría el ingreso \emph{y} le bajaría el costo; seguiría subiendo hasta salir del tramo inelástico.
+
+Por último, el índice de Lerner: con $CMg(20) = 40$,
+\[
+L = \frac{P - CMg}{P} = \frac{80 - 40}{80} = \frac12 = \frac{1}{|\varepsilon|}. \qquad\checkmark
+\]
+
+\begin{error}
+\textbf{Error de hoy:} «más elástica la demanda, más poder de mercado». Es al revés.
+\end{error}
+\begin{clave}
+\textbf{Lerner:} $\dfrac{P - CMg}{P} = \dfrac{1}{|\varepsilon|}$. Más elástica la demanda (más sustitutos: verlo pirateado, ir al estadio, ver solo los resúmenes) $\Rightarrow$ menor margen $\Rightarrow$ menos poder de mercado. El monopolista \textbf{siempre} opera en el tramo elástico.
+\end{clave}
+
+\subsection*{3. ¿Por qué el monopolio es ineficiente? Cantidad, no precio}
+
+En competencia perfecta se produciría donde $P = CMg$:
+\[
+120 - 2Q = 2Q \quad\Longrightarrow\quad Q_{cp} = 30,\qquad P_{cp} = 60.
+\]
+El monopolio produce $20$ de $30$: son $\tfrac{2}{3}$, \textbf{no la mitad}. La «mitad» solo se cumple con demanda lineal y $CMg$ \emph{constante}. Aquí el $CMg$ es creciente: corta a la demanda antes, así que $Q_{cp}$ ya es más chica, y el corte del $IMg$ con el $CMg$ queda proporcionalmente más cerca de ella. Lo único que se cumple siempre es que produce \textbf{menos}.
+
+\begin{center}
+\begin{tikzpicture}[x=0.13cm,y=0.045cm]
+  \fill[blue!12] (0,60) rectangle (20,80);
+  \fill[red!25] (20,80) -- (30,60) -- (20,40) -- cycle;
+  \draw[->] (0,0) -- (64,0) node[right] {$Q$};
+  \draw[->] (0,0) -- (0,130) node[above] {$P$};
+  \draw[thick] (0,120) -- (60,0) node[below] {$D$};
+  \draw[thick,gray] (0,120) -- (30,0) node[pos=0.93,right] {$IMg$};
+  \draw[thick,orange!80!black] (0,0) -- (55,110) node[right] {$CMg = 2Q$};
+  \draw[dashed] (20,0) node[below] {$20$} -- (20,80) -- (0,80) node[left] {$80$};
+  \draw[dashed] (30,0) node[below] {$30$} -- (30,60);
+  \draw[dashed] (20,60) -- (0,60) node[left] {$60$};
+  \draw[dashed] (20,40) -- (0,40) node[left] {$40$};
+  \node[font=\small] at (10,70) {A};
+  \node[font=\small] at (24,60) {B};
+\end{tikzpicture}
+\end{center}
+
+Mira el gráfico. Frente a competencia perfecta, el consumidor pierde dos cosas:
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item \textbf{A, el rectángulo} $(80 - 60)\cdot 20 = 400$: las 20 suscripciones que igual se venden, pero más caras. Esa plata no desaparece: pasa del hincha al canal. Es una \textbf{transferencia}.
+\item \textbf{B, el triángulo}: las 10 suscripciones (de la 20 a la 30) que alguien valoraba más que su costo y que ya no se transan. Eso sí se pierde para todos:
+\[
+PIE = \tfrac12\,(Q_{cp} - Q_m)\,(P_m - CMg(Q_m)) = \tfrac12\cdot 10\cdot(80 - 40) = 200.
+\]
+\end{itemize}
+
+\begin{error}
+\textbf{Errores de hoy:} «la ineficiencia es porque cobra más caro» y «la PIE es todo el EC que se pierde». Ninguna de las dos.
+\end{error}
+\begin{clave}
+La ineficiencia viene de la \textbf{cantidad}: con $P > CMg$ dejan de transarse unidades que valen más de lo que cuestan. El precio más alto sobre las unidades que sí se venden (rectángulo A) es una \textbf{transferencia}; la PIE es solo el triángulo. Para comparar bienestar se usan los \textbf{excedentes y la PIE}, nunca el precio.
+\end{clave}
+
+\subsection*{4. El cable que llega a tu casa: monopolio natural}
+
+Para que el partido llegue, alguien tendió un cable hasta cada casa. Eso es un costo fijo gigante, y luego conectar un cliente más casi no cuesta. Con $CT = CF + cQ$, el costo medio $CMe = \tfrac{CF}{Q} + c$ es \textbf{siempre decreciente} y siempre está sobre el $CMg = c$. Es lo mismo que en el ejercicio del Metro ($CT = 400 + 10Q$). El regulador tiene dos opciones:
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+\item $P = CMg$: cantidad eficiente, pero como $P < CMe$ hay pérdidas exactamente iguales al costo fijo, y la empresa necesita un \textbf{subsidio} igual a $CF$ (en el Metro, 400).
+\item $P = CMe$: $\pi = 0$ y la empresa se autofinancia, pero como $P > CMg$ queda una PIE (más chica que la del monopolio). Si la ecuación da dos raíces, se elige la que está \textbf{más cerca de la cantidad eficiente}.
+\end{itemize}
+El problema práctico de las dos: el regulador \textbf{no conoce los costos verdaderos} (asimetría de información), y la empresa tiene incentivo a inflarlos.
+
+\subsection*{5. Los bares: 1.\textsuperscript{er} grado y tarifa en dos partes}
+
+Ahora el canal le vende a bares, que son todos iguales. Cada bar quiere $q = 10 - p$ partidos al mes y el costo de enviar un partido más es $CMg = 2$. El canal cobra en \textbf{dos partes}: una cuota fija mensual $A$ y un precio $p$ por partido.
+
+La receta es: \textbf{primero agrandar la torta, después quedarse con toda la torta}.
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item Fija $p = CMg = 2$. El bar ve $q = 8$ partidos, que es la cantidad eficiente.
+\item Cobra como cuota todo el excedente que le queda al bar: $A = EC = \tfrac12\cdot 8\cdot(10 - 2) = 32$.
+\end{enumerate}
+Ganancia por bar: $(2 - 2)\cdot 8 + 32 = 32$. ¿Y si sube el precio a $p = 4$? El bar ve $q = 6$, el margen por partido es $(4 - 2)\cdot 6 = 12$ y la cuota máxima baja a $EC = \tfrac12\cdot 6\cdot 6 = 18$: total $30 < 32$. Subir $p$ sobre el $CMg$ achica la torta (crea una PIE), y esa parte ya no la puede cobrar en la cuota.
+
+\begin{clave}
+\textbf{Dos partes con consumidores idénticos:} $p = CMg$ y $A = EC$. Así el monopolista obtiene lo mismo que con discriminación de \textbf{1.\textsuperscript{er} grado}: produce la cantidad eficiente (no hay PIE) y se queda con todo el excedente (el EC es cero). Con consumidores distintos ya no alcanza: ahí conviene subir $p$ algo sobre el $CMg$.
+\end{clave}
+
+\subsection*{6. Básico o Premium: 2.\textsuperscript{o} grado}
+
+El canal vende dos planes a los hogares. Hay un hincha \textbf{casual} (tipo bajo) y un \textbf{fanático} (tipo alto), y el canal \textbf{no sabe quién es quién}. Con $CMg = 0$, sus disposiciones a pagar son:
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+ & Básico (solo su equipo) & Premium (todo el campeonato) \\
+\midrule
+Casual ($B$) & 5 & 7 \\
+Fanático ($A$) & 8 & 18 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Referencias.} Con 1.\textsuperscript{er} grado le daría Premium a cada uno a su valor: $18 + 7 = 25$ (Premium es el eficiente para los dos, porque no cuesta nada). Con un solo plan Premium a precio único: a 7 compran los dos y gana $14$; a 18 compra solo el fanático y gana $18$. Le conviene 18.
+
+\textbf{El menú, en 4 pasos.}
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item \textbf{Participación del tipo bajo} (con igualdad): al casual se le cobra todo lo que vale su plan, $P_{\text{Bás}} = 5$, y le queda $EC_B = 0$.
+\item \textbf{Renta informacional del alto:} si el fanático se disfraza de casual y compra el Básico, gana $8 - 5 = 3$. Eso es lo que hay que dejarle.
+\item \textbf{Autoselección del tipo alto} (con igualdad): el Premium tiene que dejarle al menos esos 3: $18 - P_{\text{Prem}} = 3 \Rightarrow P_{\text{Prem}} = 15$.
+\item \textbf{Cierre con $\pi$ y la comparación:} $\pi = 5 + 15 = 20$, con $EC_B = 0$ y $EC_A = 3$. Entonces:
+\[
+\underbrace{18}_{\text{precio único}} \;<\; \underbrace{20}_{\text{menú}} \;<\; \underbrace{25}_{\text{1.\textsuperscript{er} grado}} .
+\]
+\end{enumerate}
+
+\textbf{¿Por qué darle al casual un plan peor, si el Premium no cuesta nada?} Porque lo que limita el precio del Premium es cuánto le gusta al fanático \emph{el plan barato}. Si el plan barato es malo para el fanático (solo un equipo: lo valora 8 y no 18), disfrazarse le sirve poco y se le puede cobrar más el Premium. El canal pierde un poco con el casual (pagaría 7 por Premium, ahora paga 5) y gana más con el fanático. Ese es el resultado general: \textbf{sin distorsión arriba} (el alto recibe la cantidad o calidad eficiente) y \textbf{distorsión abajo} (el bajo recibe menos que la eficiente).
+
+\begin{error}
+\textbf{Error de hoy:} acertaste los precios, pero no nombraste las restricciones ni cerraste con $\pi$ y la comparación.
+\end{error}
+\begin{clave}
+\textbf{2.\textsuperscript{o} grado:} no puede identificar al tipo $\Rightarrow$ ofrece un \textbf{menú} y deja que cada uno se \textbf{autoseleccione}. Se cumplen con igualdad la \textbf{participación del bajo} ($EC_B = 0$) y la \textbf{autoselección del alto} (le queda la renta informacional). Achicar el plan del bajo reduce esa renta $\Rightarrow$ sube el precio del alto.
+\end{clave}
+
+\subsection*{7. Bares y hogares: 3.\textsuperscript{er} grado}
+
+Ahora el canal \emph{sí} distingue a los grupos: un bar paga un plan comercial y un hogar uno residencial, y no se pueden revender. ¿Quién es más elástico, sin calcular nada? El \textbf{hogar}, que tiene alternativas (verlo en un bar, la radio, los resúmenes). El bar casi no tiene: si no transmite el partido, se le van los clientes.
+
+La regla es igualar el $IMg$ de cada mercado al $CMg$, y eso da un Lerner por mercado:
+\[
+IMg_{\text{hog}} = IMg_{\text{bar}} = CMg \quad\Longrightarrow\quad \frac{P_i - CMg}{P_i} = \frac{1}{|\varepsilon_i|} \quad\Longrightarrow\quad P_i = \frac{CMg}{1 - 1/|\varepsilon_i|}.
+\]
+Con $CMg = 10$, $|\varepsilon_{\text{hog}}| = 4$ y $|\varepsilon_{\text{bar}}| = \tfrac43$:
+\[
+P_{\text{hog}} = \frac{10}{1 - \tfrac14} = \frac{40}{3} \approx 13{,}3, \qquad P_{\text{bar}} = \frac{10}{1 - \tfrac34} = 40 .
+\]
+El mercado \textbf{más elástico paga el precio más bajo}. Por eso hay tarifas de estudiante y de adulto mayor.
+
+\textbf{¿Y si la ley prohíbe discriminar?} Con precio único, puede convenirle cobrar el precio de los bares (40) y dejar fuera a los hogares. Entonces se pierden transacciones con $P > CMg$ y el bienestar \textbf{cae}. Prohibir la discriminación solo puede mejorar el bienestar si los dos grupos siguen siendo atendidos.
+
+\begin{clave}
+\textbf{3.\textsuperscript{er} grado:} $IMg_1 = IMg_2 = CMg$; más elástico $\Rightarrow$ menor margen $\Rightarrow$ \textbf{precio más bajo}. Con precio único puede haber \textbf{exclusión} del mercado elástico, y entonces prohibir discriminar empeora el bienestar.
+\end{clave}
+
+\subsection*{8. Fútbol más películas: paquetes}
+
+El cable vende el canal de fútbol y uno de películas, con $CMg = 0$:
+
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+ & Fútbol & Películas & Paquete \\
+\midrule
+Hincha $X$ & 10 & 3 & 13 \\
+Cinéfila $Y$ & 4 & 9 & 13 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Por separado: fútbol a 10 (gana 10, mejor que $2\cdot 4 = 8$) y películas a 9 (gana 9, mejor que $2\cdot 3 = 6$), total $19$. El paquete a 13 lo compran los dos: $26 > 19$. ¿Por qué? Quien valora mucho el fútbol valora poco las películas, y al revés: las valoraciones tienen \textbf{correlación negativa}. Por separado, las disposiciones a pagar varían mucho entre los dos (6 en cada canal); en el paquete no varían nada (13 y 13). Con menos dispersión se puede cobrar un precio alto sin dejar a nadie fuera.
+
+\begin{error}
+\textbf{Error de hoy:} el ejemplo (Star+) estaba bien, pero faltó el mecanismo.
+\end{error}
+\begin{clave}
+\textbf{Paquetes:} correlación negativa $\Rightarrow$ menos dispersión de la disposición a pagar $\Rightarrow$ precio alto sin excluir. Con correlación positiva el paquete no ayuda.
+\end{clave}
+
+%=====================================================================
+\section*{Parte II. Ozempic: de la patente a las farmacias de la avenida}
+
+\subsection*{9. Con patente: monopolio legal}
+
+Mientras dura la patente de la semaglutida, Novo Nordisk es un monopolio legal y aplica todo lo de la Parte I. Cuando Lilly entra con un sustituto (la tirzepatida, Mounjaro), la demanda que enfrenta Novo se vuelve \textbf{más elástica}: por Lerner, su margen tiene que bajar.
+
+\subsection*{10. Sin patente: competencia monopolística}
+
+En el caso del curso, la patente vence y entran 8 laboratorios con su propia versión: distinta lapicera, marca, dosis o presentación. Eso \textbf{no} es un monopolio ni una discriminación de precios. Es \textbf{competencia monopolística}, y se reconoce por tres rasgos:
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item \textbf{Muchas empresas.}
+\item \textbf{Producto diferenciado:} sustitutos cercanos, pero no perfectos. Por eso cada laboratorio tiene algo de poder de mercado (su demanda tiene pendiente negativa).
+\item \textbf{Libre entrada:} no hay barrera legal. Cualquiera que pueda fabricar puede entrar.
+\end{enumerate}
+
+\textbf{Corto plazo.} Cada laboratorio actúa como un pequeño monopolista: $IMg = CMg$. Si $P > CMe$, gana $\pi > 0$, y \textbf{eso es lo que atrae a otros} a entrar.
+
+\textbf{Largo plazo.} Cada entrante se lleva parte de los pacientes: la demanda de cada laboratorio \textbf{baja} y se vuelve \textbf{más elástica} (hay más sustitutos). La entrada se detiene cuando $\pi = 0$, es decir, cuando la demanda queda \textbf{tangente} al $CMe$. Como la demanda tiene pendiente negativa, esa tangencia está en el \textbf{tramo decreciente} del $CMe$, a la izquierda de su mínimo.
+
+\begin{center}
+\begin{tikzpicture}[x=1.1cm,y=0.3cm]
+  \draw[->] (0,0) -- (7.4,0) node[right] {$q$};
+  \draw[->] (0,0) -- (0,19) node[above] {$P$};
+  \draw[thick,domain=0.95:7,smooth,variable=\q] plot (\q,{\q+16/\q}) node[right] {$CMe$};
+  \draw[thick,orange!80!black] (0,0) -- (7,14) node[right] {$CMg$};
+  \draw[thick] (0,16) -- (5.33,0) node[below] {$D$};
+  \draw[thick,gray] (0,16) -- (2.67,0) node[pos=0.93,right] {$IMg$};
+  \draw[dashed] (2,0) node[below] {$q^{*}$} -- (2,10) -- (0,10) node[left] {$P = CMe$};
+  \draw[dashed] (2,4) -- (0,4) node[left] {$CMg$};
+  \draw[dashed] (4,0) node[below] {$q_{\min CMe}$} -- (4,8);
+  \fill (2,10) circle (1.5pt);
+  \draw[<->] (2,-2.2) -- (4,-2.2) node[midway,below,font=\small] {exceso de capacidad};
+\end{tikzpicture}
+\end{center}
+
+En el gráfico se leen las \textbf{dos desigualdades}:
+\[
+P = CMe \;\;(\text{por eso } \pi = 0) \qquad\text{y}\qquad P > CMg \;\;(\text{por eso hay PIE}),
+\]
+con $q^{*} < q_{\min CMe}$: cada laboratorio produce menos que su escala más barata (\textbf{exceso de capacidad}). Compáralo con competencia perfecta, donde también $\pi = 0$ pero $P = CMg = \min CMe$.
+
+¿Es malo? Hay un \textbf{dilema}: los pacientes ganan \textbf{variedad} (la lapicera o dosis que les acomoda), pero cada dosis cuesta más de lo que costaría con un producto único (en el caso, los \$45.000 que paga el Minsal).
+
+\begin{error}
+\textbf{Errores de hoy:} «hay barreras legales, la autoridad autorizó solo a 8» (eso es monopolio) y «no hay precio único» (eso es discriminación).
+\end{error}
+\begin{clave}
+\textbf{Competencia monopolística:} muchas empresas, producto diferenciado, \textbf{libre entrada}. Cada empresa cobra \textbf{un} precio; los precios difieren \emph{entre} empresas porque los productos son distintos. La entrada se detiene porque $\pi = 0$, no por una ley. En el largo plazo, $P = CMe > CMg$, en el tramo decreciente del $CMe$: hay exceso de capacidad, a cambio de variedad.
+\end{clave}
+
+\subsection*{11. Las farmacias de la avenida: Hotelling}
+
+Ahora el Ozempic ya está en todas las farmacias \textbf{al mismo precio}. Una avenida mide 1 km y los pacientes viven repartidos \textbf{uniformemente} a lo largo de ella. Cada uno compra en la farmacia más cercana, porque caminar le cuesta (\textbf{costo de traslado}). Llegan dos farmacias: Cruz Verde y Salcobrand. Como el precio es igual, lo único que eligen es \textbf{dónde ponerse}.
+
+\begin{center}
+\begin{tikzpicture}[x=11cm]
+  \draw[thick] (0,0) -- (1,0);
+  \foreach \x/\l in {0/0,0.25/{\tfrac14},0.5/{\tfrac12},0.75/{\tfrac34},1/{1\,\text{km}}} \draw (\x,0.12) -- (\x,-0.12) node[below] {$\l$};
+  \node[above,blue!60!black,font=\small] at (0.25,0.15) {óptimo social};
+  \node[above,blue!60!black,font=\small] at (0.75,0.15) {óptimo social};
+  \node[above,red!60!black,font=\small] at (0.5,0.55) {equilibrio: las dos aquí};
+  \draw[->,red!60!black] (0.5,0.55) -- (0.5,0.15);
+\end{tikzpicture}
+\end{center}
+
+\textbf{La historia.} Parten en $\tfrac14$ y $\tfrac34$: cada una tiene la mitad de la avenida y nadie camina más de 250 m. Pero Cruz Verde se corre a $0{,}3$. Ahora le compran todos los que están a la izquierda del punto medio entre $0{,}3$ y $0{,}75$, que es $0{,}525$: se queda con el 52,5\%. Salcobrand responde acercándose también. Esto sigue hasta que \textbf{las dos quedan en el centro}, una al lado de la otra, con 50\% cada una.
+
+\textbf{¿Por qué el centro es un equilibrio?} Porque ahí \textbf{ninguna gana moviéndose}: si una se aleja del centro, le deja a la otra más de la mitad de la avenida. Por eso se llama \textbf{mínima diferenciación}.
+
+\textbf{¿Por qué no es lo mejor para la sociedad?} Con las dos en el centro, el paciente del extremo camina 500 m y la distancia promedio es 250 m. Con $\tfrac14$ y $\tfrac34$, nadie camina más de 250 m y el promedio es 125 m. El óptimo social es $\tfrac14$ y $\tfrac34$ porque \textbf{minimiza la distancia total} recorrida. Pero ese óptimo \textbf{no se sostiene}: cada farmacia gana acercándose al centro.
+
+\textbf{¿Y si llega una tercera (Ahumada)?} La que queda en medio se queda solo con el pedacito entre las otras dos, así que le conviene saltar hacia afuera; entonces otra queda apretada y salta, y así sigue. \textbf{No hay equilibrio}.
+
+\begin{error}
+\textbf{Error de hoy, dos veces:} «a la misma distancia del centro, con incentivos a romperlo».
+\end{error}
+\begin{clave}
+\textbf{Hotelling:} el \textbf{equilibrio} es las dos en el centro, \textbf{sin incentivo a moverse} (mínima diferenciación). El \textbf{óptimo social} es $\tfrac14$ y $\tfrac34$ (minimiza la distancia total; nadie camina más de 250 m), y es él el que tiene incentivo a romperse. Con 3 vendedores no hay equilibrio. Moraleja: \textbf{lo óptimo para cada empresa no necesariamente es óptimo para la sociedad}.
+\end{clave}
+
+%=====================================================================
+\section*{Parte III. Cómo se escribe un comente que vale 5 puntos}
+
+Hoy varios comentes perdieron puntos porque tenían un ejemplo pero no un mecanismo, o porque no decían el veredicto. Usa siempre este orden:
+\begin{enumerate}[leftmargin=*,itemsep=2pt]
+\item \textbf{Veredicto} en la primera palabra: Verdadero, Falso o Incierto.
+\item \textbf{Qué parte es cierta}, o bajo qué condición sí se cumple (busca el «siempre» o el «por lo tanto» del enunciado).
+\item \textbf{El mecanismo}, como cadena de flechas: A $\Rightarrow$ B $\Rightarrow$ C.
+\item \textbf{El ejemplo} (fútbol u Ozempic), al final. Es un bonus, no reemplaza al paso 3.
+\end{enumerate}
+
+\textbf{Las frases para llevar al control:}
+\begin{enumerate}[leftmargin=*,itemsep=3pt]
+\item \textbf{La mitad:} Falso. Con demanda lineal y $CMg$ constante sí es la mitad; con $CMg$ creciente produce más de la mitad. Siempre produce menos.
+\item \textbf{Tramo inelástico:} Falso. Ahí $IMg < 0 \leq CMg$: subir el precio sube el ingreso y baja el costo. Siempre opera en el tramo elástico.
+\item \textbf{Elasticidad y poder:} Falso. $L = 1/|\varepsilon|$: más elástica $\Rightarrow$ menos margen.
+\item \textbf{Ineficiencia:} es por cantidad ($P > CMg$ deja fuera unidades valiosas); el rectángulo es transferencia, solo el triángulo es PIE.
+\item \textbf{Dos partes:} $p = CMg$ agranda la torta y $A = EC$ se la lleva entera; subir $p$ crea una PIE que no se recupera.
+\item \textbf{2.\textsuperscript{o} grado:} sin distorsión arriba, distorsión abajo; achicar el plan del bajo reduce la renta informacional del alto.
+\item \textbf{3.\textsuperscript{er} grado:} más elástico $\Rightarrow$ precio más bajo; con precio único puede haber exclusión y el bienestar cae.
+\item \textbf{Paquetes:} correlación negativa $\Rightarrow$ menos dispersión $\Rightarrow$ precio alto sin excluir.
+\item \textbf{Competencia monopolística:} $\pi = 0$ no es eficiencia: $P = CMe > CMg$, tramo decreciente, exceso de capacidad, a cambio de variedad.
+\item \textbf{Hotelling:} equilibrio en el centro (mínima diferenciación); óptimo social en $\tfrac14$ y $\tfrac34$; con 3 no hay equilibrio.
+\end{enumerate}
+
+\medskip
+\hrule
+\smallskip
+{\small\textit{Chequeo final de los ejercicios:} $\pi = IT - (CV + CF)$ con paréntesis $\cdot$ $\varepsilon = \tfrac{dQ}{dP}\cdot\tfrac{P}{Q}$ evaluada en el punto, y con fracciones $\cdot$ PIE $= \tfrac12\,(Q_{cp} - Q_m)\,(P_m - CMg(Q_m))$ $\cdot$ cerrar cada «compare» con la comparación explícita.}
+
+\end{document}

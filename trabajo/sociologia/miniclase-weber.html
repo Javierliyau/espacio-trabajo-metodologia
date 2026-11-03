@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Weber · Temporada 2 · Mini clase para la Prueba 1</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 10.6pt; line-height: 1.42; color: #1d1d1f; margin: 0; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; margin: 0; }
+  .cover { background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 55%, #ef4444 100%); color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 14px; }
+  .cover .kicker { letter-spacing: 3px; font-size: 9pt; text-transform: uppercase; opacity: .85; }
+  .cover h1 { font-size: 34pt; line-height: 1.05; margin: 6px 0 4px; }
+  .cover .sub { font-size: 12pt; opacity: .95; }
+  .card { display: flex; gap: 14px; border: 2px solid #1d1d1f; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; background: #fffbea; }
+  .card .avatar { font-size: 44pt; line-height: 1; }
+  .card table { border-collapse: collapse; font-size: 9.8pt; }
+  .card td { padding: 1px 8px 1px 0; vertical-align: top; }
+  .card td:first-child { font-weight: 700; white-space: nowrap; }
+  .legend { font-size: 9pt; color: #444; margin: 0 0 12px; }
+  .ep { border-left: 6px solid #b91c1c; padding: 2px 0 2px 12px; margin: 14px 0 6px; page-break-inside: avoid; }
+  .ep .n { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #b91c1c; font-weight: 700; }
+  .ep h2 { font-size: 15pt; }
+  .block { page-break-inside: avoid; }
+  .profe { background: #eef4ff; border: 1px solid #b6c9f0; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .profe::before { content: "🎙 El profe dijo: "; font-weight: 700; color: #1e40af; }
+  .profe .t { color: #64748b; font-size: 8.5pt; }
+  .libro { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .libro::before { content: "📖 La lectura: "; font-weight: 700; color: #374151; }
+  .trampa { background: #fff1f2; border: 1.5px dashed #e11d48; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .trampa::before { content: "⚠ Trampa de prueba: "; font-weight: 700; color: #be123c; }
+  .tip { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .tip::before { content: "💡 Para recordarlo: "; font-weight: 700; color: #047857; }
+  .building { width: 78%; margin: 8px auto; text-align: center; font-size: 9.8pt; }
+  .roof { background: #fde68a; border: 2px solid #92400e; border-radius: 8px 8px 0 0; padding: 6px; }
+  .roof .row { display: flex; gap: 6px; margin-top: 4px; }
+  .roof .row div { flex: 1; background: #fff7d6; border: 1px solid #b45309; border-radius: 6px; padding: 4px; }
+  .arrow { font-size: 9pt; color: #92400e; padding: 3px 0; border-left: 2px solid #92400e; border-right: 2px solid #92400e; background: #fffdf3; }
+  .base { background: #78350f; color: #fff; border: 2px solid #78350f; border-radius: 0 0 8px 8px; padding: 7px; }
+  table.saga { width: 100%; border-collapse: collapse; font-size: 9.6pt; margin: 6px 0; }
+  table.saga th { background: #1d1d1f; color: #fff; text-align: left; padding: 5px 7px; }
+  table.saga td { border-bottom: 1px solid #ddd; padding: 5px 7px; vertical-align: top; }
+  table.saga tr:nth-child(even) td { background: #fafafa; }
+  .clock { display: flex; height: 30px; border-radius: 8px; overflow: hidden; margin: 8px 0 2px; font-weight: 700; font-size: 10pt; color: #fff; }
+  .clock .paid { flex: 6; background: #16a34a; display: flex; align-items: center; justify-content: center; }
+  .clock .free { flex: 10; background: #b91c1c; display: flex; align-items: center; justify-content: center; }
+  .clocklbl { display: flex; font-size: 8.5pt; color: #555; }
+  .clocklbl div:first-child { flex: 6; text-align: center; } .clocklbl div:last-child { flex: 10; text-align: center; }
+  .formulas { display: flex; gap: 10px; margin: 6px 0; }
+  .formulas div { flex: 1; border: 2px solid #1d1d1f; border-radius: 10px; padding: 8px 10px; }
+  .formulas .f { font-family: Consolas, monospace; font-size: 15pt; font-weight: 700; }
+  .alien { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 0; }
+  .alien div { border: 1px solid #c4b5fd; background: #f5f3ff; border-radius: 8px; padding: 6px 9px; }
+  .alien b { color: #6d28d9; }
+  .bridge { display: flex; gap: 8px; margin: 6px 0; }
+  .bridge div { flex: 1; border-radius: 10px; padding: 8px 10px; color: #fff; font-size: 9.8pt; }
+  .newpage { page-break-before: always; }
+  .quiz { border: 2.5px solid #1d1d1f; border-radius: 14px; padding: 12px 16px; background: #fffdf5; }
+  .quiz h2 { font-size: 17pt; margin-bottom: 2px; }
+  .quiz ol { padding-left: 20px; margin: 8px 0 0; }
+  .quiz li { margin-bottom: 11px; }
+  .bet { float: right; font-size: 9pt; color: #555; }
+  .bet span { display: inline-block; width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 4px; text-align: center; line-height: 13px; margin-left: 3px; font-size: 8pt; }
+  .score { font-size: 9.5pt; background: #f1f5f9; border-radius: 8px; padding: 7px 10px; margin-top: 6px; }
+  .tweet { border: 1px solid #cbd5e1; border-radius: 12px; padding: 9px 12px; margin: 8px 0; background: #fff; }
+  .tweet .who { font-weight: 700; } .tweet .who span { color: #64748b; font-weight: 400; }
+  ul.t { margin: 4px 0; padding-left: 18px; } ul.t li { margin-bottom: 3px; }
+  .foot { font-size: 8pt; color: #777; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 5px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Sociología Económica · Prueba 1 · mié 28-10</div>
+  <h1>WEBER<br>Temporada 2</h1>
+  <div class="sub">9 episodios cortos · unos 15 minutos · con las frases del profe (clase 5, 21-10)</div>
+</div>
+
+<div class="card">
+  <div class="avatar">🎩</div>
+  <table>
+    <tr><td>Personaje</td><td>Max Weber (1864-1920), alemán. Murió de <b>gripe española</b>. Junto con Durkheim (y Marx), fundador de la sociología: «enseña cómo trabajar sociológicamente».</td></tr>
+    <tr><td>Superpoder</td><td>Mirar <b>desde adentro</b>: no le basta lo que la gente hace, quiere saber <b>qué sentido le da</b>.</td></tr>
+    <tr><td>Enemigo</td><td>La <b>jaula de hierro</b>: un mundo de reglas y cálculo que olvidó el «¿para qué?».</td></tr>
+    <tr><td>Rival</td><td><b>Marx</b>: para Weber, dar vuelta a Hegel fue un error, porque <b>las ideas también mueven la economía</b>.</td></tr>
+    <tr><td>Discos</td><td><b><i>La ética protestante y el espíritu del capitalismo</i> (1905)</b> · <b><i>Economía y sociedad</i> (1922, póstuma</b>: murió en 1920)</td></tr>
+  </table>
+</div>
+
+<p class="legend">🎙 = frase del profe en la clase 5 (con el minuto) · 📖 = de las lecturas (Schettino, Gilbert) · ⚠ = donde suelen pillar en V/F.</p>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 1</div><h2>El semáforo: Durkheim mira de afuera, Weber de adentro</h2></div>
+<p>15 peatones se detienen en rojo. <b>Durkheim</b> ve un patrón: la norma de tránsito funciona (hecho social). <b>Weber</b> le pregunta a cada uno <b>por qué</b>: uno no quiere que lo atropellen, otro respeta las reglas, otro da el ejemplo al niño que lleva de la mano… Es el mismo hecho, visto desde otro ángulo.</p>
+<div class="profe">El hecho social de Durkheim es <b>«una pura exterioridad»</b>. A Weber le interesa la subjetividad, pero <b>no la psicológica</b>: los motivos y significados que tienen en cuenta a otros. <span class="t">(C5, 00:07:20)</span></div>
+<div class="profe">Lo repitió dos veces: la sociología es <b>«la ciencia que estudia el sentido de la acción social»</b>. <span class="t">(C5, 00:11:15)</span></div>
+<p><b>Acción social</b> = aquella cuyo sentido está <b>referido a la conducta de otros</b>. Para comprenderla hay que mirarla «desde adentro»: <b><i>Verstehen</i></b> (comprensión; Gilbert lo traduce como «entendimiento enfático»).</p>
+<div class="formulas">
+  <div><b>✅ Sí es acción social</b><br>respetar el semáforo · lo que piensan y se dicen dos ciclistas <i>antes y después</i> de chocar</div>
+  <div><b>❌ No es acción social</b><br>retirar la mano de la olla caliente · jugar <b>Candy Crush</b> en el metro · meditar solo · el choque en sí (física)</div>
+</div>
+<div class="trampa">«Para Weber, toda conducta humana es acción social» → <b>F</b>. «Weber critica el hecho social por ser demasiado subjetivo» → <b>F</b>: lo critica por ser <b>pura exterioridad</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 2</div><h2>El tipo ideal: una caricatura útil</h2></div>
+<p>Es la herramienta de Weber para investigar: tomas un fenómeno y <b>exageras a propósito</b> sus rasgos esenciales para tener una versión «pura» y comparar la realidad con ella. Después le quitas o subrayas un rasgo y obtienes otros tipos.</p>
+<div class="profe">Es <b>«una exageración intencionada de los rasgos de un fenómeno para desarrollar análisis y establecer comparaciones»</b>. <b>No es un estereotipo</b>: eso es una generalización malintencionada, como «los humanistas son volados, los ingenieros cuadrados». <span class="t">(C5, 00:16:53)</span></div>
+<div class="tip">«Ideal» viene de <b>idea</b>, no de «deseable». El tipo ideal de burocracia no dice que la burocracia sea buena: describe la burocracia «químicamente pura». En la realidad los tipos aparecen <b>«medio entrelazados»</b>.</div>
+<div class="trampa">«El tipo ideal es un modelo de cómo deberían ser las cosas» → <b>F</b>. Ojo con las fuentes: el profe dice «exageración intencionada», pero <b>Gilbert</b> dice que «no es algo exagerado». Si la pregunta cita a Gilbert, «exagerado» es F.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 3</div><h2>Los 4 tipos de acción</h2></div>
+<table class="saga">
+  <tr><th>Tipo</th><th>Qué la mueve</th><th>Ejemplo del profe</th></tr>
+  <tr><td><b>Racional con arreglo a fines</b></td><td>Elegir los <b>mejores medios</b> para un fin: eficiencia, estrategia. Es el tipo puro del que salen los demás.</td><td>Tomar el camino más corto; bajar los precios para vender más.</td></tr>
+  <tr><td><b>Racional con arreglo a valores</b></td><td>Un código <b>ético</b>. Es racional porque igual se eligen medios. Puede llegar al <b>sacrificio</b> (<i>sacrum facere</i>, «hacer sagrado»).</td><td>El mártir; quien no miente aunque le cueste caro.</td></tr>
+  <tr><td><b>Afectiva</b></td><td>La emoción. Weber <b>«no la pesca mucho»</b>: está en el límite de la acción con sentido y es más de la psicología.</td><td>Gritar un gol.</td></tr>
+  <tr><td><b>Tradicional</b></td><td>La <b>costumbre</b>, la repetición mecánica.</td><td>Decir <b>«provecho»</b> aunque el otro coma pan con mantequilla; pararse y sentarse en misa; <b>La Tirana</b>.</td></tr>
+</table>
+<div class="profe">Sobre la tradicional, «algo que es central y que <b>muestra todo su genio</b>»: <b>su sentido fundante se perdió</b>, lo seguimos haciendo sin saber por qué. Y: «La próxima vez que le digan a alguien <b>"no tenís código"</b>, Weber lo entendería como un proceso constitutivo de nuestro tiempo». <span class="t">(C5, 00:25:45 y 00:29:29)</span></div>
+<div class="trampa">«Los 4 tipos agotan toda acción posible» → <b>F</b>: son tipos <b>puros y no exhaustivos</b>, y en la realidad se mezclan. «La acción con arreglo a valores es irracional» → <b>F</b>: es <b>racional</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 4 · ⭐ «el epígrafe más importante»</div><h2>Racionalización: el mundo que pregunta «¿cómo?» y no «¿para qué?»</h2></div>
+<p>La <b>racionalización</b> es el reemplazo de la tradición por la racionalidad como forma de pensar de la modernidad. Pero hay dos racionalidades, y solo una gana:</p>
+<div class="formulas">
+  <div style="border-color:#9ca3af"><div class="f" style="font-size:12pt">SUSTANTIVA 📉</div>Valores últimos: el bien, la justicia, la <b>salvación</b>. La aportó la religión. En la modernidad <b>se debilita y se agota</b>.</div>
+  <div style="border-color:#1e40af"><div class="f" style="font-size:12pt">FORMAL (instrumental) 📈</div>Reglas abstractas, procedimientos, <b>cálculo</b> y contabilidad. <b>Sobrevive</b>: es lo propio de nuestro tiempo.</div>
+</div>
+<p>¿Dónde se ve la formal? En el <b>Estado burocrático</b>, en el <b>mercado</b> (a la economía le interesan los medios, como la elasticidad), en el <b>capitalismo</b> (contabilidad, trabajo libre, mercado impersonal) y en la <b>ciencia</b>, que pregunta cómo caen los cuerpos, no para qué.</p>
+<div class="profe">«Esta es una cuestión que <b>a mí me dejó loco</b>»: la modernidad responde el <b>«¿cómo?»</b> y descuida el <b>«¿para qué?»</b>. «Todo es un medio, nada es un fin». <span class="t">(C5, 00:41:12)</span></div>
+<div class="trampa">«La racionalidad sustantiva se expande en la modernidad» → <b>F</b>: retrocede. «Weber, como Marx, ve al capitalismo como irracional» → <b>F</b>: para Weber es <b>esencialmente racional</b> (la trampa en la que caíste con Marx).</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 5</div><h2>Desencantamiento: se acabó la magia</h2></div>
+<p>El precio de la racionalidad formal. Los <b>misterios</b> (magia, mito, religión) pasan a ser <b>problemas de investigación</b>: la lluvia ya no se le pide a los dioses, se pronostica. Ahora es el propio ser humano quien tiene que darle sentido al mundo.</p>
+<p><b>Politeísmo valórico:</b> no faltan fuentes de sentido; hay <b>muchas, pero débiles</b>, como un «panteón de dioses disminuido». Unos privilegian el género, otros el medio ambiente, el deporte o la etnia, y ninguna orienta a todos.</p>
+<div class="profe">«El gran desafío del mundo moderno es <b>ponerlas a conversar</b>». <span class="t">(C5, 00:43:51)</span></div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 6</div><h2>La ética protestante (1905): rezar trabajando</h2></div>
+<p><b>Tesis:</b> el capitalismo no se entiende sin la <b>Reforma protestante</b>. Lutero clava sus 95 tesis en Wittenberg (1517) y el papa lo despacha con un «cuando se le pase la borrachera…», que el profe tradujo como <b>«curao no vale»</b>. Pero Weber se fija en <b>Calvino</b>:</p>
+<table class="saga">
+  <tr><th>1. Angustia</th><th>2. Señales</th><th>3. Ascetismo</th><th>4. Capitalismo</th></tr>
+  <tr><td>Nadie sabe si está salvado o condenado (<b>predestinación</b>).</td><td>La <b>prosperidad</b> y el rendimiento en el trabajo son <b>signos de salvación</b>. El trabajo es <b>vocación</b>.</td><td>Nada de lujo ni derroche: como monjes, pero dedicados <b>al trabajo</b>.</td><td>Se trabaja mucho, se gasta poco y se <b>reinvierte</b>. 💰</td></tr>
+</table>
+<p>La religión se va borrando, pero el hábito queda: <b>Knox</b> (teólogo) → <b>Baxter</b>, siglo XVII: <b>«el ocio es pecado»</b> → <b>Benjamin Franklin</b>, laico: <b>«el tiempo es dinero»</b>.</p>
+<div class="tip">La relación es de <b>afinidad electiva</b>: una <b>sintonía</b> entre una forma religiosa de ver el mundo y una forma económica de organizarlo. No es causa y efecto.</div>
+<div class="profe">La ética protestante <b>«no es el mejor trabajo de Weber»</b>, aunque ha generado «ríos de tinta». Y muchas veces se estudia sin la primera parte, la de la racionalización. <span class="t">(C5, 00:59:27 y 01:22:30)</span></div>
+<div class="trampa">«Para Weber, la ética protestante es la <b>causa única</b> del capitalismo» → <b>F</b>. Antes hubo comercio en las ciudades-Estado italianas del Renacimiento (y en Lisboa y Génova, según Gilbert). Weber tampoco niega el peso de lo material.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 7</div><h2>¿Por qué obedecemos? Poder, autoridad y dominación</h2></div>
+<p><b>Poder</b> = la probabilidad de que te obedezcan, <b>sin importar el fundamento</b> (un ejército de ocupación que apunta con el fusil). <b>Autoridad</b> = <b>poder + legitimidad</b>: los que obedecen creen que es correcto obedecer.</p>
+<table class="saga">
+  <tr><th>Dominación</th><th>Se obedece por…</th><th>Ejemplo del profe</th></tr>
+  <tr><td><b>Tradicional</b></td><td>el linaje, lo inmemorial</td><td>monarquías, sultanatos otomanos</td></tr>
+  <tr><td><b>Carismática</b></td><td>los dones excepcionales del líder</td><td>Fidel: un orden <b>inestable</b> que tiende a morir con el líder. Si sobrevive, se <b>rutiniza</b> (se anquilosa).</td></tr>
+  <tr><td><b>Legal-racional</b></td><td>la ley y el procedimiento</td><td>No importa quién está bajo la gorra del carabinero o la peluca del juez, sino que <b>concursó</b> y sigue la norma.</td></tr>
+</table>
+<div class="profe">En el uso común, «burocrático» es trámite inútil. Para Weber, esas instituciones que funcionan mal <b>«pecan de ser poco burocráticas»</b>: la burocracia es la forma <b>más pura</b> de la autoridad legal-racional. <span class="t">(C5, 01:35:30)</span></div>
+<div class="trampa">«Poder y autoridad son lo mismo» → <b>F</b>. «La dominación carismática es estable» → <b>F</b>. «Para Weber la burocracia es sinónimo de ineficiencia» → <b>F</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 8</div><h2>La jaula de hierro: Weber, el pesimista</h2></div>
+<p>La racionalidad formal es una <b>«carcasa»</b> o <b>jaula de hierro</b>: estamos atrapados en la racionalización y no se ven alternativas mejores. Lo que se escapa es <b>el sentido profundo de la vida</b>, y hoy se ve en el vacío, el malestar y el consumismo («la compra pierde la gracia apenas cruza la puerta»).</p>
+<div class="formulas">
+  <div><b>Weber: pesimista</b> 😞<br>No hay salida de la jaula. Y el socialismo tampoco la abriría: aumentaría el poder de las grandes organizaciones (Gilbert).</div>
+  <div><b>Durkheim: optimista</b> 🙂<br>Confía en la <b>educación republicana</b>: primero la repetición, después la comprensión, y así individuos libres (libertad como autogobierno).</div>
+</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 9 · final de temporada</div><h2>Clase, estatus y partido: los chilenos somos weberianos</h2></div>
+<p>Para Marx, tu lugar en la sociedad lo define <b>una</b> cosa: la propiedad. Para Weber son <b>tres</b> dimensiones que <b>no tienen por qué coincidir</b>:</p>
+<table class="saga">
+  <tr><th>Dimensión</th><th>Qué mide</th><th>Ejemplo del profe</th></tr>
+  <tr><td><b>Clase</b></td><td>La <b>situación económica</b>: «tu situación económica es tu clase».</td><td>—</td></tr>
+  <tr><td><b>Estatus</b></td><td>El <b>prestigio</b>: reconocimiento, estilo de vida (consumo, música, vacaciones) y <b>cierre social</b> (qué colegio, con quién casarse).</td><td>Los judíos en Europa: dinero sin estatus.</td></tr>
+  <tr><td><b>Partido</b></td><td>El <b>poder</b> en la arena política.</td><td>Al presidente de la <b>CPC</b> lo reciben en La Moneda; a un ciudadano común, no.</td></tr>
+</table>
+<div class="profe"><b>«Los chilenos somos profundamente weberianos»</b>: <i>new rich</i>, <b>«roto con plata»</b>. Son expresiones de la inconsistencia entre la situación económica (clase) y el prestigio (estatus). <span class="t">(C5, 01:48:02)</span></div>
+<div class="tip">El profe criticó los GSE de los estudios de mercado (C3, D, E): miden lo mismo en cantidades distintas y se pierde el fondo <b>cualitativo</b> del estatus. Todo esto está en <i>Economía y sociedad</i> (1922, póstuma).</div>
+<div class="trampa">«En Weber, estatus = ingreso» → <b>F</b>: el ingreso es la <b>clase</b>; el estatus es honor y estilo de vida.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Crossover</div><h2>Marx vs. Weber: la tabla que más preguntan</h2></div>
+<table class="saga">
+  <tr><th></th><th>Marx</th><th>Weber</th></tr>
+  <tr><td>¿Qué mueve la historia?</td><td>La economía (base) determina las ideas</td><td>Las <b>ideas también</b> mueven la economía (ética protestante)</td></tr>
+  <tr><td>Actor central</td><td>Las <b>clases</b></td><td>El <b>individuo</b> y el sentido de su acción</td></tr>
+  <tr><td>El capitalismo es…</td><td><b>irracional</b> (crisis, explotación)</td><td><b>racional</b> (cálculo, contabilidad)</td></tr>
+  <tr><td>Estratificación</td><td>1 dimensión: propiedad</td><td>3: clase, estatus, partido</td></tr>
+  <tr><td>El malestar moderno</td><td><b>alienación</b> (en el trabajo)</td><td><b>desencantamiento</b> y <b>jaula de hierro</b></td></tr>
+  <tr><td>¿Salida?</td><td>Sí: la revolución</td><td>No se ve; el socialismo traería más burocracia</td></tr>
+</table>
+</div>
+
+<div class="tweet"><div class="who">Weber en un tuit <span>@max_1905</span></div>
+La sociología estudia el sentido de la acción social. La modernidad nos volvió expertos en el «¿cómo?» y nos olvidó el «¿para qué?». Calvino ayudó a crear el capitalismo y ahora estamos en una jaula de hierro. Y no, no eres un «roto con plata»: tienes clase sin estatus. 🎩</div>
+
+<div class="quiz newpage">
+  <h2>🎮 Ronda Weber</h2>
+  <div>Marca la respuesta y tu <b>apuesta</b> (1 = adivino · 2 = creo · 3 = seguro).</div>
+  <div class="score"><b>Puntaje:</b> acierto = +1 · acierto apostando 3 = <b>+2</b> · error apostando 3 = <b>−1</b> · racha de 3 = +1. Mándame en el chat: <code>1b-3, 2F-2, …</code></div>
+  <ol>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Para Weber, la sociología es:<br>a) el estudio de los hechos sociales como cosas · b) la ciencia que estudia el sentido de la acción social · c) el estudio de la lucha de clases · d) la ciencia de las instituciones</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Jugar Candy Crush solo en el metro es acción social.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Decir «provecho» sin saber por qué se dice es una acción:<br>a) con arreglo a fines · b) con arreglo a valores · c) afectiva · d) tradicional</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> El tipo ideal es un modelo de cómo deberían ser las cosas.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>En la modernidad, la racionalidad que se expande es la:<br>a) sustantiva · b) formal o instrumental · c) carismática · d) tradicional</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Para Weber, la ética protestante es la causa única del capitalismo.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>La autoridad es:<br>a) poder + legitimidad · b) poder + fuerza · c) carisma + tradición · d) clase + estatus</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Una funcionaria que ganó un concurso público y aplica un reglamento ejerce una dominación:<br>a) tradicional · b) carismática · c) legal-racional · d) afectiva</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>El «roto con plata» tiene:<br>a) clase alta y estatus bajo · b) estatus alto y clase baja · c) partido sin clase · d) carisma rutinizado</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Weber, igual que Marx, ve al capitalismo como irracional.</li>
+  </ol>
+  <div class="score">🧑‍🔬 <b>Caso Einstein (2 min, sin puntaje):</b> un investigador chileno con doctorado gana poco, pero todos lo respetan. ¿Cómo lo describiría Weber con clase, estatus y partido?</div>
+</div>
+
+<div class="foot">Fuentes: transcripción de la clase 5 (21-10-2026, §1-§11); Schettino y Gilbert, según la ficha de Weber del 24-10. Los minutos son aproximados.</div>
+
+</body>
+</html>

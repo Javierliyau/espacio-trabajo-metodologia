@@ -1,0 +1,354 @@
+Econometría I
+Evaluación Práctica
+Econometría I
+Depto. de Economía, Universidad de Santiago de Chile (USACH)
+Otoño 2026
+Instrucciones
+Debe considerar las siguientes instrucciones de manera mandatoria para el desarrollo de esta
+parte de la prueba:
+1. La prueba debe realizar en grupos de mínimo y máximo de 2 personas. No se revisarán desa-
+rrollos individuales.
+2. La fecha máxima de entrega de esta parte de la prueba es el martes 11 de agosto, hasta las
+11:30.
+3. Debe enviar por correo electrónico su desarrollo. Enviar a los correos: brian.pfeng@usach.cl,
+alejandra.riquelme.p@usach.cl .
+4. Los retrasos en la entrega serán penalizados.
+5. Se revisará el ultimo correo enviado, con ese horario.
+6. El archivo debe contener como nombre los apellidos de los integrantes. Dentro del script, debe
+aparecer el nombre y apellido de ambos integrantes.
+7. El formato de entrega es un único script en R, que contiene todo el desarrollo, sus comentarios
+y los códigos utilizados.
+8. Sea riguroso con el orden y presentación, ya que también será evaluado.
+9. La ponderación de los códigos y estructura es de 10 % y del desarrollo de las soluciones será
+del 90 %.
+Econometría I Evaluación Práctica Depto. de Economía, USACH
+Instrucciones generales
+Esta evaluación consta detres secciones independientes, cada una construida sobre una base
+de datos real distinta (educación/SIMCE, delincuencia comunal, y precios de vivienda en la Región
+Metropolitana), y cada una diseñada para recorrerla mayor parteel contenido del curso: regresión
+lineal simple (RLS), regresión lineal múltiple (RLM), variables dummy, efectos de interacción, con-
+traste de Chow, y heterocedasticidad (detección y corrección). Cada sección vale 100 puntos. De las
+3 secciones es obligatorio desarrollar una sola, ustedes deberán escoger cual.
+Paracadamodelo o contraste que se le solicite, usted debe: (i) escribir en R el código corres-
+pondiente, (ii) ejecutarlo sobre la base de datos entregada, y (iii) responder las preguntas de
+interpretaciónusando los resultados numéricos que usted mismo obtenga. El uso de R
+es transversal a toda la evaluación, no una pregunta aislada.
+Debe adjuntar, junto con sus respuestas, unscript de R comentado y reproducibleque
+permita replicar cada uno de los resultados que usted reporte. Las respuestas sin código de
+respaldo no se corregirán como correctas aun si el número es el correcto.
+Redondee sus resultados a dos decimales y use coma decimal en su redacción (aunque R entregue
+los resultados con punto).
+2
+Econometría I Evaluación Práctica Depto. de Economía, USACH
+Sección 1. Educación  Brechas SIMCE por dependencia y GSE
+Contexto
+La Agencia de Calidad de la Educación aplica cada año la prueba SIMCE a los alumnos de
+4°básico de todo Chile. Un debate recurrente en política educacional es si el desempeño de un
+establecimiento depende principalmente delcontexto socioeconómicode sus estudiantes (medido
+por el SIMCE mediante el Grupo Socioeconómico, GSE) o si, controlando por ese contexto, eltipo
+de dependencia administrativa(municipal, particular subvencionado o particular pagado) sigue
+explicando diferencias de puntaje.
+Trabajará con la baseeducacion_simce_gse_2024.csv(6.556 establecimientos con 4°básico
+evaluado, SIMCE 2024), que cruza los resultados SIMCE con el Directorio Ocial de Establecimientos
+Educacionales 2025.
+Diccionario de variables
+V ariable Descripción
+simce_promedioPromedio de lectura y matemática del establecimiento (va-
+riable dependiente)
+grupo_socioeconomicoGSE del establecimiento, escala 1 (Bajo) a 5 (Alto)
+dependenciaTipo de dependencia administrativa del establecimiento
+(variable categórica: Municipal/SLE, Particular Subvencio-
+nado, Particular Pagado)
+dummy_rural1 = rural, 0 = urbano
+matricula_totalMatrícula total del establecimiento (todos los niveles)
+Preguntas
+P1. Regresión Lineal Simple (12 pts)
+a) Estime en R elModelo 1:simce_promedio~grupo_socioeconomicousandolm(). Reporte
+los coecientes estimados, sus errores estándar, valores-p y elR 2.
+b) Interprete económicamente ˆβ1.
+c) Interprete económicamente ˆβ0.
+d) Interprete elR 2 obtenido. ¾Qué porcentaje de la variación del SIMCE promedio quedasin
+explicarpor el contexto socioeconómico?
+e) Plantee la hipótesis de signicancia deβ 1, eligiendo y justicando si corresponde un con-
+traste deuna o dos colassegún lo que la teoría sugiere sobre el signo esperado de la
+relación entre contexto socioeconómico y desempeño académico. Ejecute en R el contraste
+que usted eligió y concluya.
+f) Vuelva a estimar el modelo tratandogrupo_socioeconomicocomo variablecategórica(por
+ejemplo, confactor(grupo_socioeconomico)en R), lo que genera un coeciente distinto
+para cada nivel de GSE respecto de una categoría base. Compare esos coecientes con la
+pendiente única del modelo continuo del inciso (a): ¾los saltos entre niveles consecutivos
+3
+Econometría I Evaluación Práctica Depto. de Economía, USACH
+son razonablemente parecidos entre sí (lo que respaldaría tratar el GSE como continuo), o
+hay evidencia de que la relación no es lineal?
+Nota metodológica.grupo_socioeconomicoes, en rigor, una variable ordinal (la Agencia de Calidad
+de la Educación la construye medianteclusteringsobre variables socioeconómicas continuas, no como
+una escala de intervalos). Tratarla como continua como en el inciso (a) supone que su efecto es
+igual entre niveles consecutivos, supuesto que usted evaluó en el inciso (f).De aquí en adelante, y
+salvo que se indique lo contrario, trategrupo_socioeconomicocomo variable continua.
+P2. Regresión Lineal Múltiple (12 pts)
+a) Estime en R elModelo 2: agreguematricula_totalydummy_ruralal Modelo 1.
+b) Interprete,ceteris paribus, los coecientes dematricula_totalydummy_ruralque usted
+obtuvo.
+c) Comente la diferencia entre signicancia estadística y signicancia práctica del coeciente
+dematricula_total. Si un colegio tiene 1.000 alumnos más que otro (manteniendo todo lo
+demás constante), ¾cuántos puntos SIMCE adicionales predice su modelo?
+d) Compare elR 2 ajustado del Modelo 2 con el del Modelo 1. ¾Justica la inclusión de las dos
+variables nuevas?
+e) Reporte el estadístico F de signicanciaglobaldel modelo. PlanteeH 0 yH 1 de este contras-
+te distinto de los contrastes t individuales de cada coeciente y concluya si el modelo
+en su conjunto es estadísticamente signicativo.
+P3. V ariables Dummy (14 pts)
+a) A partir de la variable categóricadependencia(que toma tres valores), construya en R las
+variables dummy necesarias para incorporar el tipo de dependencia.
+b) Estime elModelo 3: agregue al Modelo 1 las dummies que usted construyó.
+c) Interprete los coecientes osbtenidos.
+d) Con sus propios coecientes, calcule el puntaje SIMCE promedio predicho para GSE = 3 en
+cada uno de los tres tipos de dependencia. Comente la magnitud de las brechas resultantes.
+P4. Efectos de Interacción (12 pts)
+a) Estime en R elModelo 4: agregue al Modelo 3 la interacción entregrupo_socioeconomic
+oy cada una de las dummies de dependencia que usted construyó.
+b) En su estimación, ¾es estadísticamente signicativo el coeciente correspondiente a los es-
+tablecimientos particulares pagados, considerado por sí solo? Explique por qué estono
+implica que la dependencia particular pagada deje de importar, una vez que el modelo
+incluye interacciones.
+c) Con sus propios coecientes, calcule el efecto marginal total degrupo_socioeconomico
+sobresimce_promediopara cada tipo de dependencia.
+d) Interprete el resultado de (c) en términos de política educacional: ¾en qué tipo de estable-
+cimiento pesa más el contexto socioeconómico sobre el resultado académico?
+P5. Contraste de Chow (12 pts)
+4
+Econometría I Evaluación Práctica Depto. de Economía, USACH
+a) PlanteeH 0 yH 1 del contraste de Chow entre los tres grupos de dependencia, en términos
+de los coecientes del Modelo 4.
+b) UsandolinearHypothesis()del paquetecar(oanova()comparando el Modelo 4 con el
+Modelo 1), contraste formalmente esta hipótesis en R. Reporte el estadístico F obtenido y
+su valor-p.
+c) Concluya, al 5 % de signicancia, si los tres grupos de dependencia deben modelarse con
+una única recta o con rectas distintas.
+P6. Heterocedasticidad: detección (10 pts)
+a) Aplique en R los contrastes de Breusch-Pagan (bptest()delmtest) y de White. Reporte
+los estadísticos LM y sus valores-p.
+b) PlanteeH 0 yH 1 de ambos contrastes.
+c) Concluya, con sus propios resultados, si existe evidencia de heterocedasticidad.
+d) Proponga una razón económica por la quematricula_total(el tamaño del establecimiento)
+podría ser la fuente de la heterocedasticidad detectada.
+P7. Heterocedasticidad: corrección (10 pts)
+a) Obtenga en R los errores estándar robustos (HC1) del Modelo 2. Reporte una tabla com-
+parativa: errores estándar de MCO vs. robustos.
+b) Explique por qué los coecientesnocambian al pasar de MCO a errores robustos, pero los
+errores estándar sí.
+c) Con su propio error estándar robusto, recalcule el estadístico t degrupo_socioeconomico
+y compare la conclusión de signicancia con la obtenida bajo MCO.
+d) Mencione otra estrategia de corrección vista en clases (Mínimos Cuadrados Ponderados) y
+proponga una variable de ponderación razonable para este problema.
+P8. Síntesis y recomendación de política (6 pts)
+a) En un máximo de 150 palabras, redacte una recomendación de política educacional dirigida
+al Mineduc, apoyándose enal menos tresresultados estadísticos obtenidos a lo largo de
+esta sección (por ejemplo: magnitud de la brecha por dependencia, resultado del contraste
+de Chow, o el efecto marginal diferenciado del GSE por tipo de establecimiento).
+5
+Econometría I Evaluación Práctica Depto. de Economía, USACH
+Sección 2. Delincuencia comunal  Pobreza y criminalidad
+Contexto
+Un debate habitual en política de seguridad pública es si la pobreza comunal predice la tasa de
+criminalidad, y si esa relación es distinta en la Región Metropolitana respecto del resto del país.
+Trabajará con la basedelincuencia_comunal_2024.csv(345 comunas, año 2024), que cruza
+casos policiales de Delitos de Mayor Connotación Social (DMCS) construidos a partir de datos del
+CEAD con estimaciones de pobreza comunal 2024 del Ministerio de Desarrollo Social y Familia.
+Diccionario de variables
+V ariable Descripción
+tasa_dmcs_100kCasos de DMCS cada 100.000 habitantes, 2024 (variable
+dependiente)
+tasa_pobreza_ingresos_2
+024
+% de personas en pobreza por ingresos (SAE comunal)
+tasa_pobreza_multidim_2
+024
+% de personas en pobreza multidimensional (SAE comu-
+nal)
+poblacion_2024Población estimada de la comuna
+regionRegión a la que pertenece la comuna (variable categórica
+cruda)
+Preguntas
+P1. Regresión Lineal Simple (10 pts)
+a) Estime en R elModelo 1:tasa_dmcs_100k~tasa_pobreza_ingresos_2024.
+b) Interprete económicamente ˆβ1. Note el signo del coeciente que usted obtuvo.
+c) Proponga una explicación de por qué, a nivel comunal agregado, una mayor tasa de pobreza
+por ingresos podría asociarse con unamenortasa de DMCS por 100.000 habitantes (piense
+en la hipótesis de oportunidad delictiva).
+d) Interprete elR 2 obtenido.
+e) Plantee la hipótesis de signicancia deβ 1, eligiendo y justicando si corresponde un con-
+traste deuna o dos colas. Considere que aquí la teoría no ofrece una predicción de signo
+unívoca (piense en las hipótesis en competencia que discutió en el inciso (c)). Ejecute en R
+el contraste que usted eligió y concluya.
+P2. Regresión Lineal Múltiple (12 pts)
+a) Estime en R elModelo 2: agreguepoblacion_2024ytasa_pobreza_multidim_2024al
+Modelo 1.
+b) Interprete,ceteris paribus, el coeciente depoblacion_2024.
+6
+Econometría I Evaluación Práctica Depto. de Economía, USACH
+c) En su estimación, ¾es signicativo el coeciente detasa_pobreza_multidim_2024? Pro-
+ponga una explicación basada en su relación contasa_pobreza_ingresos_2024(pista:
+multicolinealidad). Puede vericar la correlación entre ambas concor().
+d) Compare elR 2 ajustado del Modelo 2 con el del Modelo 1. Comente si unR 2 relativamente
+bajo invalida la inferencia sobre los coecientes.
+e) Reporte el estadístico F de signicanciaglobaldel modelo (el que entregasummary()).
+PlanteeH 0 yH 1 de este contraste y concluya si el modelo en su conjunto es estadísticamente
+signicativo.
+P3. V ariables Dummy (14 pts)
+a) A partir de la variable categóricaregion, construya en R una dummy que distinga las
+comunas de la Región Metropolitana del resto del país.
+b) Estime elModelo 3: agregue al Modelo 1 la dummy que usted construyó.
+c) Indique explícitamente en su respuesta cuál codicó como categoría 1 y cuál quedó como
+categoría base (0): no se le indica de antemano qué convención usar.
+d) Interprete el coeciente de su dummy, señalando respecto a qué categoría base se está com-
+parando. ¾Es estadísticamente signicativo? Redacte con precisión qué puede y quéno
+puedearmar sobre la diferencia de criminalidad promedio entre ambos grupos, contro-
+lando por pobreza.
+e) Con sus propios coecientes, calcule la tasa de DMCS por 100.000 habitantes predicha para
+una comuna contasa_pobreza_ingresos_2024= 20 % en cada uno de los dos grupos.
+Comente si la diferencia le parece económicamente relevante.
+P4. Efectos de Interacción (12 pts)
+a) Estime en R elModelo 4: agregue al Modelo 3 la interacción entretasa_pobreza_ingreso
+s_2024y la dummy que usted construyó.
+b) Interprete el coeciente de la interacción que usted obtuvo. ¾Es estadísticamente signica-
+tivo?
+c) Con sus propios coecientes, calcule el efecto marginal total detasa_pobreza_ingresos_2
+024sobretasa_dmcs_100kpara cada uno de los dos grupos.
+d) Con base en (b) y (c), ¾hay evidencia estadística suciente para sostener que la relación
+pobreza-criminalidad es distinta entre ambos grupos? Justique.
+P5. Contraste de Chow (12 pts)
+a) PlanteeH 0 yH 1 del contraste de Chow entre comunas de la RM y del resto del país, en
+términos de los coecientes del Modelo 4.
+b) UsandolinearHypothesis()oanova()comparando el Modelo 4 con el Modelo 1, contraste
+formalmente esta hipótesis en R. Reporte el estadístico F obtenido y su valor-p.
+c) Concluya, al 5 % de signicancia, si corresponde modelar la RM y el resto del país con
+una sola recta o con rectas separadas. Relacione esta conclusión con lo encontrado en las
+Preguntas 3 y 4.
+P6. Heterocedasticidad: detección (10 pts)
+7
+Econometría I Evaluación Práctica Depto. de Economía, USACH
+a) Aplique en R los contrastes de Breusch-Pagan y de White sobre los residuos del Modelo 2.
+Reporte los estadísticos y sus valores-p.
+b) PlanteeH 0 yH 1 de ambos contrastes.
+c) Concluya, con sus propios resultados, si existe evidencia de heterocedasticidad en este mo-
+delo.
+d) Explique por qué el hecho de que la variable dependiente ya esté expresada como una tasa
+por cada 100.000 habitantes (y no como número absoluto de casos) puede ayudar a que la
+varianza del error no crezca mecánicamente con el tamaño de la comuna. Comente además
+por qué no rechazarH 0 con una muestra de solo 345 comunas no es garantía absoluta de
+homocedasticidad.
+P7. Heterocedasticidad: corrección (10 pts)
+a) Aun si sus contrastes de la Pregunta 6 no rechazan homocedasticidad, obtenga en R como
+buena práctica de robustez los errores estándar robustos (HC1) del Modelo 2. Compárelos
+con los de MCO.
+b) Explique, desde la lógica de agregación de datos comunales, por qué podría ser razonable
+ponderar porpoblacion_2024en la estimación (piense en que la tasa de una comuna
+pequeña es una estimación más ruidosa del verdadero riesgo delictivo).
+c) Estime en R el Modelo 2 por Mínimos Cuadrados Ponderados usandolm(...,weights=
+poblacion_2024). Compare sus coecientes con los de MCO: ¾se mantienen los signos?
+¾cambian las magnitudes de forma relevante?
+P8. Síntesis y recomendación de política (6 pts)
+a) En un máximo de 150 palabras, redacte una recomendación de política de seguridad pública,
+apoyándose enal menos tresresultados estadísticos de esta sección. Discuta explícitamente
+qué signica, para el diseño de política,notener evidencia estadística de una diferencia entre
+la RM y el resto del país.
+8
+Econometría I Evaluación Práctica Depto. de Economía, USACH
+Sección 3. Vivienda RM  Precio y tamaño de la propiedad
+Contexto
+El mercado inmobiliario de la Región Metropolitana es un ejemplo clásico para estudiar cómo el
+tamaño de una propiedad determina su precio, y cómo esa relación puede diferir según el nivel de
+ingreso de la comuna.
+Trabajará con la basevivienda_rm_2023.csv(8.774 avisos de venta de casas usadas, 52 comunas
+de la RM, julio de 2023, chilepropiedades.cl), cruzada con la tasa de pobreza comunal 2024.
+Diccionario de variables
+V ariable Descripción
+precio_ufPrecio de venta de la propiedad, en UF (variable de-
+pendiente)
+m2_construidosSupercie construida, en m²
+m2_terrenoSupercie de terreno, en m²
+banosNúmero de baños
+tasa_pobreza_comuna% de personas en pobreza por ingresos de la comuna,
+2024 (variable continua cruda)
+Preguntas
+P1. Regresión Lineal Simple (10 pts)
+a) Estime en R elModelo 1:precio_uf~m2_construidos.
+b) Interprete económicamente ˆβ1.
+c) Interprete económicamente ˆβ0.
+d) Interprete elR 2 obtenido.
+e) Plantee la hipótesis de signicancia deβ 1, eligiendo y justicando si corresponde un contras-
+te deuna o dos colassegún lo que cabría esperar del signo de la relación entre supercie
+y precio. Ejecute en R el contraste que usted eligió y concluya.
+P2. Regresión Lineal Múltiple (12 pts)
+a) Estime en R elModelo 2: agreguem2_terrenoybanosal Modelo 1.
+b) Interprete,ceteris paribus, los coecientes dem2_terrenoybanosque usted obtuvo.
+c) Compare el coeciente dem2_construidosen el Modelo 2 con el del Modelo 1. Si cambió,
+explique por qué (piense en la correlación entre el número de baños y la supercie construida,
+y en el concepto de sesgo por variable omitida).
+d) Compare elR 2 ajustado del Modelo 2 con el del Modelo 1. ¾Se justica estadísticamente
+incluir las variables adicionales?
+e) Reporte el estadístico F de signicanciaglobaldel modelo (el que entregasummary()).
+PlanteeH 0 yH 1 de este contraste y concluya si el modelo en su conjunto es estadísticamente
+signicativo.
+9
+Econometría I Evaluación Práctica Depto. de Economía, USACH
+P3. V ariables Dummy (14 pts)
+a) A partir de la variable continuatasa_pobreza_comuna, calcule la mediana de pobreza
+comunal en la muestra (conmedian()) y utilícela como umbral para construir en R una
+dummy que distinga comunas de mayores y menores ingresos relativos.
+b) Estime elModelo 3: agregue al Modelo 1 (junto am2_construidos) la dummy que usted
+construyó.
+c) Indique explícitamente en su respuesta qué codicó como categoría 1 (por ejemplo, ¾comu-
+nas bajo o sobre la mediana de pobreza?) y cuál quedó como categoría base: no se le indica
+de antemano qué convención usar.
+d) Interprete el coeciente de su dummy, señalando respecto a qué categoría base se está
+comparando.
+e) Con sus propios coecientes, calcule el precio predicho para una propiedad de 150 m²cons-
+truidos en cada uno de los dos grupos de comuna. Compare con la diferencia de precios
+promedio observada entre ambos grupos. Comente por qué podrían no coincidir exacta-
+mente.
+P4. Efectos de Interacción (12 pts)
+a) Estime en R elModelo 4: agregue al Modelo 3 la interacción entrem2_construidosy la
+dummy que usted construyó.
+b) En su estimación, ¾es signicativo el coeciente de su dummy por sí solo? Explique por qué
+estonoimplica que el nivel de ingreso de la comuna deje de inuir en el precio.
+c) Con sus propios coecientes, calcule el efecto marginal total dem2_construidossobrepre
+cio_ufen cada uno de los dos grupos de comuna.
+d) Interprete el resultado de (c): ¾en qué tipo de comuna vale más cada m²adicional cons-
+truido? Proponga una explicación económica.
+P5. Contraste de Chow (12 pts)
+a) PlanteeH 0 yH 1 del contraste de Chow entre comunas de altos y bajos ingresos, en términos
+de los coecientes del Modelo 4.
+b) UsandolinearHypothesis()oanova()comparando el Modelo 4 con el Modelo 1, contraste
+formalmente esta hipótesis en R. Reporte el estadístico F obtenido y su valor-p.
+c) Concluya, al 5 % de signicancia, si corresponde modelar ambos tipos de comuna con una
+sola recta o con rectas separadas.
+P6. Heterocedasticidad: detección (10 pts)
+a) Aplique en R los contrastes de Breusch-Pagan y de White sobre los residuos del Modelo 2.
+Reporte los estadísticos y sus valores-p.
+b) PlanteeH 0 yH 1 de ambos contrastes.
+c) Concluya, con sus propios resultados, si existe evidencia de heterocedasticidad.
+d) Explique, en términos económicos, por qué es razonable esperar que la varianza del error
+crezca con el tamaño de la propiedad (piense en qué factores no observados terminaciones,
+vista, antigüedad, ubicación exacta generan más dispersión de precios cuando la propiedad
+es grande y cara).
+10
+Econometría I Evaluación Práctica Depto. de Economía, USACH
+P7. Heterocedasticidad: corrección (10 pts)
+a) Obtenga en R los errores estándar robustos (HC1) del Modelo 2 y compárelos con los de
+MCO param2_construidos.
+b) Estime en R el modelo en logaritmos:log(precio_uf)~log(m2_construidos)+m2_terren
+o+banos. Aplique Breusch-Pagan sobre sus residuos y compare el estadístico LM con el del
+Modelo 2 en niveles. ¾La transformación logarítmica elimina completamente el problema, o
+solo lo atenúa?
+c) Mencione una ventaja adicional del modelo log-log más allá de la heterocedasticidad (pista:
+interpretación de los coecientes como elasticidades).
+P8. Síntesis (6 pts)
+a) En un máximo de 150 palabras, redacte una breve nota dirigida a una inmobiliaria o tasa-
+dor, apoyándose enal menos tresresultados estadísticos de esta sección (por ejemplo: el
+efecto marginal diferenciado del tamaño según tipo de comuna, el resultado del contraste
+de Chow, o la necesidad de reportar errores robustos al informar intervalos de conanza
+para tasaciones).
+11

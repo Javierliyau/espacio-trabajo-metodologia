@@ -1,0 +1,566 @@
+\documentclass[11pt]{article}
+
+% --- Idioma y fuentes ------------------------------------------------
+\usepackage[spanish,es-noshorthands,es-tabla]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% --- Geometría y encabezado ------------------------------------------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\setlength{\headheight}{38.22325pt}
+\addtolength{\topmargin}{-6.22325pt}
+
+% --- Matemáticas ------------------------------------------------------
+\usepackage{amsmath,amssymb}
+
+% --- Colores, tablas, listas, figuras ---------------------------------
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{needspace}
+\renewcommand{\arraystretch}{1.5}
+\graphicspath{{figuras/}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Econometría II}\\ Trabajo práctico --- Etapa 2}
+\fancyhead[C]{Universidad de Santiago de Chile}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\sloppy
+
+% =====================================================================
+%  PORTADA
+% =====================================================================
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\large Universidad de Santiago de Chile}\\[6pt]
+{\large Econometría II}\\[2cm]
+{\LARGE \textbf{Etapa 2: Análisis univariado y bivariado}}\\[10pt]
+{\large Trabajo Práctico --- Admisión Universidad 2026}\\[3cm]
+
+\textbf{Integrantes:}\quad
+David Cuevas $\bullet$ Javier Li-Yau $\bullet$ Benjamín Lizana $\bullet$ Ana Nacif
+
+\vspace{0.6cm}
+
+\textbf{Profesor:}\quad Brian Pfeng Ibacache
+\qquad
+\textbf{Fecha:}\quad 29 de octubre de 2026
+\end{titlepage}
+
+% =====================================================================
+\subsection*{1 \; Introducción}
+% =====================================================================
+
+En la Etapa 1 armamos una base de 108.251 estudiantes partiendo de las
+postulaciones. Con los filtros que entregó el profesor en la clase 5
+rehicimos la base desde el archivo de quienes rinden la PAES, y quedó en
+\textbf{168.714 estudiantes} que egresaron de enseñanza media en 2025,
+rindieron la PAES por primera vez y tienen las pruebas obligatorias, al
+menos una electiva y notas. De ellos, \textbf{60.234 (35,7\,\%)} se
+matricularon por vía regular en una de sus tres primeras preferencias. Los
+otros 108.480 (64,3\,\%) quedaron en la cuarta preferencia o más abajo, no
+se matricularon o no postularon.
+
+Sobre esa base hicimos el análisis univariado y bivariado de 22 variables
+candidatas: 19 del DEMRE o construidas con sus archivos, y 3 nuevas del
+MINEDUC (matrícula del colegio, experiencia de sus docentes e índice de
+vulnerabilidad). Con el \textit{Information Value} (IV), la
+tramificación en WOE, la revisión de monotonía y el factor de inflación de
+la varianza (VIF) llegamos a \textbf{9 variables definitivas}, que son las
+que pasan al modelo logit de la Etapa 3.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{2 \; Fuentes de datos}
+% =====================================================================
+
+Usamos los cuatro archivos del DEMRE del proceso de admisión 2026, que se
+unen por el identificador del estudiante, \texttt{ID\_aux}, y tres bases
+públicas del MINEDUC de 2025, el año en que los estudiantes cursaban
+cuarto medio. Estas últimas se unen por el colegio de egreso,
+\texttt{RBD}.
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm}
+                >{\raggedright\arraybackslash}p{6.4cm}
+                >{\raggedleft\arraybackslash}p{2.4cm}}
+\toprule
+\textbf{Archivo} & \textbf{Contenido} & \textbf{Filas} \\
+\midrule
+\multicolumn{3}{l}{\textit{DEMRE, admisión 2026 (se unen por \texttt{ID\_aux})}} \\
+B (\texttt{df1}) & Inscritos: colegio, sexo, ingreso familiar, PACE y BEA & 317.700 \\
+C (\texttt{df2}) & Rinden: notas, NEM, ranking y puntajes PAES & 317.700 \\
+D (\texttt{df3}) & Postulaciones (una fila por carrera postulada) & 1.686.689 \\
+Matrícula (\texttt{df4}) & Vía, tipo de matrícula y preferencia & 128.345 \\
+\midrule
+\multicolumn{3}{l}{\textit{MINEDUC, año 2025 (se unen por \texttt{RBD})}} \\
+Resumen de matrícula por establecimiento (corte 30-04-2025) & Matrícula total del colegio & Una por colegio \\
+Cargos docentes (corte 30-06-2025) & Años de servicio de cada docente de aula & Una por cargo \\
+IVE-SINAE media 2025 (JUNAEB) & Índice de vulnerabilidad del colegio & Una por colegio \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{3 \; Corrección de la base}
+% =====================================================================
+
+\subsubsection*{3.1 \; Qué cambió respecto de la Etapa 1}
+
+En la Etapa 1 partimos de las postulaciones y nos quedamos con quienes
+tenían al menos una postulación regular. Eso dejaba fuera a quienes
+rindieron la PAES y no postularon, que también son parte de la población
+que queremos explicar. Ahora la base maestra es el archivo C (los que
+rinden) y los demás archivos se pegan con \texttt{left\_join}, sin sacar
+a nadie:
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3em]
+  \item Del archivo D solo se usa la lista de \texttt{ID\_aux} distintos
+        para marcar si el estudiante postuló (\texttt{FLAG\_POSTULA}). No
+        se pegan columnas, así que no se duplican estudiantes.
+  \item Del archivo de matrícula se dejan solo las matrículas de vía
+        regular (\texttt{VIA} = 1) y tipo de matrícula 1. Quien no
+        aparece ahí queda con la variable de respuesta en 0.
+\end{itemize}
+
+\subsubsection*{3.2 \; Filtros aplicados}
+
+Sobre el archivo C, en este orden:
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=0.3em, label=\textbf{\alph*)}]
+  \item \textbf{Promoción 2025:} \texttt{SITUACION\_EGRESO} igual a 1.
+  \item \textbf{Rinde por primera vez:} sin puntajes de la rendición
+        regular anterior ni de las de invierno, actual y anterior.
+  \item \textbf{Pruebas obligatorias:} Competencia Lectora y Matemática 1
+        con 100 puntos o más (deja fuera los puntajes 0).
+  \item \textbf{Una electiva:} Ciencias o Historia con 100 puntos o más.
+  \item \textbf{Con notas:} \texttt{PROMEDIO\_NOTAS} distinto de 0.
+\end{enumerate}
+
+\subsubsection*{3.3 \; Observaciones en cada paso}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{9cm}
+                >{\raggedleft\arraybackslash}p{3cm}}
+\toprule
+\textbf{Paso} & \textbf{Observaciones} \\
+\midrule
+Archivo C completo & 317.700 \\
+Promoción 2025 & 218.066 \\
+Rinde por primera vez & 217.449 \\
+Competencia Lectora y Matemática 1 con 100 o más & 179.347 \\
+Al menos una electiva con 100 o más & 170.056 \\
+\rowcolor{yellow!30}
+\textbf{Con promedio de notas distinto de 0 (base final)} & \textbf{168.714} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsubsection*{3.4 \; Unión con los demás archivos}
+
+A los 168.714 estudiantes se les pegan, siempre con \texttt{left\_join},
+los datos del archivo B, la marca de postulación, la matrícula, las
+variables del colegio y las del MINEDUC. Antes de cada unión revisamos que
+la tabla que se pega tuviera una sola fila por \texttt{ID\_aux} o por
+\texttt{RBD}; por eso la base final sigue teniendo 168.714 filas, con
+cada \texttt{ID\_aux} una sola vez. La base de docentes trae una fila por
+cargo, así que primero la llevamos a una fila por colegio (sección 5.1).
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{4 \; Variable de respuesta}
+% =====================================================================
+
+La variable de respuesta es \texttt{PREF\_TOP3\_DUMMY}, que llamamos $Y$:
+\[
+Y_i =
+\begin{cases}
+1 & \text{si se matriculó por vía regular en su 1.ª, 2.ª o 3.ª preferencia} \\[4pt]
+0 & \text{si quedó en la 4.ª o más abajo, no se matriculó o no postuló}
+\end{cases}
+\]
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Valor} & \textbf{Estudiantes} & \textbf{Porcentaje} \\
+\midrule
+1 (preferencia 1 a 3)                                     & 60.234  & 35,7\% \\
+0 (preferencia 4 o más abajo, sin matrícula o sin postular) & 108.480 & 64,3\% \\
+\midrule
+\textbf{Total} & \textbf{168.714} & 100\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+De los 60.234 con valor 1, 39.958 quedaron en la primera preferencia,
+13.257 en la segunda y 7.019 en la tercera. De los 108.480 con valor 0,
+8.391 se matricularon en la cuarta preferencia o más abajo y 100.089 no
+tienen matrícula regular. Entre estos últimos están los 55.361 que no
+postularon: ninguno tiene valor 1, como era de esperar.
+\texttt{FLAG\_POSTULA} no se usa como variable explicativa, porque quien
+no postula no puede tener valor 1 y la variable separaría la muestra de
+forma trivial.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{5 \; Variables candidatas}
+% =====================================================================
+
+\subsubsection*{5.1 \; Variables del colegio y del MINEDUC}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3em]
+  \item \texttt{N\_ALUMNOS} e \texttt{INGRESO\_COLEGIO}: inscritos del
+        colegio en el proceso y mediana de su tramo de ingreso per
+        cápita, igual que en la Etapa 1. Sacamos
+        \texttt{N\_MATRICULADOS}, porque se conoce después de la
+        matrícula (\textit{ex post}).
+  \item \texttt{MAT\_TOTAL}: matrícula total del colegio en 2025.
+  \item \texttt{EXP\_DOCENTE}: promedio de años de servicio en el sistema
+        de los docentes de aula del colegio (\texttt{ID\_IFP} = 1),
+        contando a cada docente una vez por colegio.
+  \item \texttt{IVE\_MEDIA}: índice de vulnerabilidad escolar de media
+        2025 (JUNAEB), entre 0 y 1. Solo existe para colegios con
+        subvención.
+\end{itemize}
+
+\subsubsection*{5.2 \; Variables dummy y edad}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3em]
+  \item \texttt{TP\_DUMMY}: 1 si el colegio es técnico profesional (rama
+        T1 a T5). Hay 39.882 estudiantes de colegios técnico profesionales.
+  \item \texttt{PACE} y \texttt{BEA}: 1 si fue preseleccionado, 0 si no
+        (13.549 PACE y 13.436 BEA).
+  \item \texttt{RINDE\_CIEN}, \texttt{RINDE\_HCSOC} y \texttt{RINDE\_M2}:
+        1 si rindió Ciencias, Historia o Matemática 2 con 100 puntos o
+        más. 75.039 estudiantes rindieron Matemática 2.
+  \item \texttt{EDAD\_MESES}: edad en meses a diciembre de 2025, calculada
+        con \texttt{FECHA\_NACIMIENTO} (formato MMAAAA).
+  \item \texttt{GRUPO\_DEPENDENCIA}, \texttt{CODIGO\_REGION} y
+        \texttt{SEXO} se dejan como texto, para que la tramificación las
+        trate como categorías y no como números.
+\end{itemize}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{6 \; Análisis univariado}
+% =====================================================================
+
+\subsubsection*{6.1 \; Datos sin información}
+
+La regla que usamos es la del curso: una variable con más de 5\,\% de
+datos faltantes no se usa.
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.4cm}
+                >{\raggedleft\arraybackslash}p{1.4cm}
+                >{\raggedleft\arraybackslash}p{1.2cm}
+                >{\raggedright\arraybackslash}p{5cm}}
+\toprule
+\textbf{Variable} & \textbf{Casos} & \textbf{\%} & \textbf{Qué hicimos} \\
+\midrule
+\texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} & 46.668 & 27,66 & El 99 («prefiero no responder») es \texttt{NA}. Sale por la regla del 5\,\%. \\
+\texttt{IVE\_MEDIA} & 25.910 & 15,36 & No existe para colegios pagados (100\,\% de ellos sin dato, contra 3\,\% del resto). Sale por la regla; su información la recoge la dependencia. \\
+\texttt{INGRESO\_COLEGIO} & 61 & 0,04 & Colegios sin ningún inscrito que haya informado ingreso. Se queda. \\
+\texttt{MAT\_TOTAL}, \texttt{EXP\_DOCENTE} & 3 & 0,00 & Estudiantes sin \texttt{RBD}. Se quedan. \\
+\texttt{PACE}, \texttt{BEA} vacías & --- & --- & No fue preseleccionado: se codifican como 0. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsubsection*{6.2 \; Descriptivos y atípicos}
+
+Los atípicos se identifican con la regla de Tukey ($1{,}5 \times$ el
+rango intercuartílico). Se informan pero no se borran: son casos reales y,
+al tramificar, quedan en el tramo extremo de su variable.
+
+\begin{center}
+\begin{tabular}{lrrrrr}
+\toprule
+\textbf{Variable} & \textbf{Mínimo} & \textbf{Mediana} & \textbf{Promedio} & \textbf{Máximo} & \textbf{Atípicos} \\
+\midrule
+\texttt{PROMEDIO\_NOTAS}    & 4,18  & 6,13  & 6,09   & 7,00  & 61 \\
+\texttt{PTJE\_NEM}          & 157   & 751   & 738    & 1.000 & 116 \\
+\texttt{PTJE\_RANKING}      & 157   & 759   & 751    & 1.000 & 77 \\
+\texttt{CLEC\_REG\_ACTUAL}  & 100   & 590   & 605    & 1.000 & 101 \\
+\texttt{MATE1\_REG\_ACTUAL} & 100   & 601   & 629    & 1.000 & 17 \\
+\texttt{EDAD\_MESES}        & 181   & 218   & 223    & 860   & 8.513 \\
+\texttt{N\_ALUMNOS}         & 8     & 128   & 161    & 947   & 8.947 \\
+\texttt{INGRESO\_COLEGIO}   & 1,0   & 4,0   & 4,5    & 10,0  & 12.849 \\
+\texttt{MAT\_TOTAL}         & 0     & 905   & 1.011  & 3.923 & 8.129 \\
+\texttt{EXP\_DOCENTE}       & 2,4   & 12,8  & 12,9   & 35,7  & 1.865 \\
+\texttt{IVE\_MEDIA}         & 0,26  & 0,84  & 0,80   & 1,00  & 6.489 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsubsection*{6.3 \; Reglas de consistencia}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{7.6cm}
+                >{\raggedleft\arraybackslash}p{1.6cm}
+                >{\raggedright\arraybackslash}p{4.6cm}}
+\toprule
+\textbf{Regla} & \textbf{Casos} & \textbf{Decisión} \\
+\midrule
+\texttt{ID\_aux} duplicado & 0 & --- \\
+Promedio de notas fuera de 4,0 a 7,0 & 0 & --- \\
+Puntaje NEM fuera de 100 a 1.000 & 0 & --- \\
+Edad menor de 16 años & 5 & Se mantienen. \\
+Edad de 20 años o más & 4.439 & Se mantienen: egresados de educación de adultos. \\
+Edad de 30 años o más (máximo: 71 años) & 1.898 & Se mantienen, en el tramo de mayor edad. \\
+Colegio con matrícula total 0 en abril de 2025 & 4 & Se mantienen; quedan en el primer tramo de \texttt{MAT\_TOTAL}. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{7 \; Análisis bivariado}
+% =====================================================================
+
+\subsubsection*{7.1 \; WOE e \textit{Information Value}}
+
+Cada variable se cruza con la variable de respuesta. Con la función
+\texttt{woebin} de la librería \texttt{scorecard} se tramifica cada
+variable buscando el mayor IV, con tramos de al menos 5\,\% de la base.
+Para cada tramo $j$:
+\[
+\text{WOE}_j = \ln\!\left(\frac{\%\,\text{de los } Y=1 \text{ en el tramo } j}{\%\,\text{de los } Y=0 \text{ en el tramo } j}\right),
+\qquad
+\text{IV} = \sum_j \left(\%_{Y=1,j} - \%_{Y=0,j}\right)\text{WOE}_j .
+\]
+Un WOE positivo indica un tramo con más matrícula en las tres primeras
+preferencias que el promedio. Descartamos las variables con IV menor que
+0,02.
+
+\begin{center}
+\begin{tabular}{llrl}
+\toprule
+\textbf{N.°} & \textbf{Variable} & \textbf{IV} & \textbf{Poder predictivo} \\
+\midrule
+1  & \texttt{CLEC\_REG\_ACTUAL}             & 0,734 & Sospechoso ($>0{,}5$) \\
+2  & \texttt{MATE1\_REG\_ACTUAL}            & 0,627 & Sospechoso ($>0{,}5$) \\
+3  & \texttt{PROMEDIO\_NOTAS}               & 0,395 & Fuerte \\
+4  & \texttt{PTJE\_NEM}                     & 0,394 & Fuerte \\
+5  & \texttt{PTJE\_RANKING}                 & 0,376 & Fuerte \\
+6  & \texttt{PORC\_SUP\_NOTAS}              & 0,193 & Medio \\
+7  & \texttt{TP\_DUMMY}                     & 0,106 & Medio \\
+8  & \texttt{INGRESO\_COLEGIO}              & 0,106 & Medio \\
+9  & \texttt{GRUPO\_DEPENDENCIA}            & 0,104 & Medio \\
+10 & \texttt{IVE\_MEDIA}                    & 0,077 & Débil (sale por datos faltantes) \\
+11 & \texttt{EDAD\_MESES}                   & 0,051 & Débil \\
+12 & \texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} & 0,042 & Débil (sale por datos faltantes) \\
+13 & \texttt{BEA}                           & 0,033 & Débil \\
+14 & \texttt{RINDE\_M2}                     & 0,024 & Débil \\
+15 & \texttt{MAT\_TOTAL}                    & 0,022 & Débil \\
+\midrule
+\rowcolor{gray!15}
+16 & \texttt{CODIGO\_REGION}                & 0,018 & Inútil \\
+\rowcolor{gray!15}
+17 & \texttt{RINDE\_HCSOC}                  & 0,007 & Inútil \\
+\rowcolor{gray!15}
+18 & \texttt{N\_ALUMNOS}                    & 0,006 & Inútil \\
+\rowcolor{gray!15}
+19 & \texttt{RINDE\_CIEN}                   & 0,002 & Inútil \\
+\rowcolor{gray!15}
+20 & \texttt{EXP\_DOCENTE}                  & 0,002 & Inútil \\
+\rowcolor{gray!15}
+21 & \texttt{PACE}                          & 0,001 & Inútil \\
+\rowcolor{gray!15}
+22 & \texttt{SEXO}                          & 0,000 & Inútil \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Los dos IV sospechosos.} Competencia Lectora y Matemática 1
+tienen IV mayor que 0,5, lo que suele indicar que la variable contiene
+información del resultado. No es el caso: los puntajes PAES se conocen
+antes de postular, y son justamente lo que usan las universidades para
+seleccionar. Su poder predictivo alto es esperable y las mantenemos.
+
+\subsubsection*{7.2 \; Monotonía}
+
+Revisamos variable por variable que la tasa de matrícula en las tres
+primeras preferencias suba siempre o baje siempre de un tramo al
+siguiente. Todas las variables que pasan el corte de IV son monótonas,
+salvo la edad. Algunos ejemplos:
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4cm}
+                >{\raggedright\arraybackslash}p{9.4cm}}
+\toprule
+\textbf{Variable} & \textbf{Tasa de $Y=1$ por tramo} \\
+\midrule
+\texttt{MATE1\_REG\_ACTUAL} & 5,5 \% → 21,5 \% → 38,9 \% → 53,2 \% → 71,4 \% (de menos de 460 a 920 o más) \\
+\texttt{PROMEDIO\_NOTAS} & 13,0 \% → 21,9 \% → 28,7 \% → 37,3 \% → 50,6 \% (de menos de 5,5 a 6,3 o más) \\
+\texttt{PORC\_SUP\_NOTAS} & 48,2 \% → 40,1 \% → 31,0 \% → 21,0 \% (de menos de 30 a 80 o más) \\
+\texttt{INGRESO\_COLEGIO} & 24,5 \% → 33,9 \% → 38,4 \% → 56,3 \% \\
+\texttt{TP\_DUMMY} & 39,7 \% (no técnico) y 22,8 \% (técnico profesional) \\
+\texttt{BEA} & 34,5 \% (no) y 50,1 \% (sí) \\
+\texttt{EDAD\_MESES} & 35,5 \% → 38,1 \% → 20,6 \% (\textbf{sube y baja}) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{minipage}{0.49\textwidth}\centering
+\includegraphics[width=\linewidth]{MATE1_REG_ACTUAL}
+\end{minipage}\hfill
+\begin{minipage}{0.49\textwidth}\centering
+\includegraphics[width=\linewidth]{PROMEDIO_NOTAS}
+\end{minipage}
+
+\vspace{4pt}
+\begin{minipage}{0.49\textwidth}\centering
+\includegraphics[width=\linewidth]{CLEC_REG_ACTUAL}
+\end{minipage}\hfill
+\begin{minipage}{0.49\textwidth}\centering
+\includegraphics[width=\linewidth]{TP_DUMMY}
+\end{minipage}
+\captionof{figure}{Tramos de \texttt{woebin}: las barras son el porcentaje de la base en cada tramo y la línea, la tasa de matrícula en las tres primeras preferencias. El IV aparece en el título.}
+\end{center}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{8 \; Retramificación}
+% =====================================================================
+
+\textbf{Edad.} Con los tres tramos de \texttt{woebin} la tasa sube y
+baja: 35,5\,\% bajo los 18 años, 38,1\,\% entre 18 y 19, y 20,6\,\% desde
+los 19. Retramificamos con un solo corte en 228 meses (19 años). Quedan
+dos tramos monótonos: 37,2\,\% para los menores de 19 (91\,\% de la base)
+y 20,6\,\% para los de 19 o más. El IV pasa de 0,051 a 0,049, así que la
+variable conserva casi todo su poder y ahora tiene una lectura clara:
+quien egresa con más edad tiene menos probabilidad de quedar en sus tres
+primeras preferencias.
+
+\begin{center}
+\begin{minipage}{0.49\textwidth}\centering
+\includegraphics[width=\linewidth]{EDAD_MESES}
+\end{minipage}\hfill
+\begin{minipage}{0.49\textwidth}\centering
+\includegraphics[width=\linewidth]{EDAD_MESES_retramificada}
+\end{minipage}
+\captionof{figure}{Edad antes (izquierda) y después (derecha) de retramificar.}
+\end{center}
+
+\textbf{Dependencia.} \texttt{woebin} juntó a los municipales con los
+datos faltantes y dejó aparte a los servicios locales (SLEP), aunque
+ambos tienen tasas casi iguales (28,4\,\% y 29,2\,\%). Por juicio
+experto agrupamos en tres categorías con sentido: \textbf{público}
+(municipal y SLEP, 28,6\,\%), \textbf{subvencionado} (36,0\,\%) y
+\textbf{pagado} (53,1\,\%). La nueva variable, \texttt{DEPENDENCIA\_3},
+tiene un IV de 0,104 y es monótona.
+
+\textbf{Región.} \texttt{woebin} agrupó regiones que no tienen relación
+geográfica entre sí. No la retramificamos porque su IV (0,018) ya la deja
+fuera.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{9 \; Multicolinealidad y variables definitivas}
+% =====================================================================
+
+Con las 13 variables que pasan el IV y la regla de datos faltantes
+estimamos un logit con todas, usando sus WOE, y calculamos el VIF de cada
+una. Usamos el umbral del curso, VIF mayor que 2. Mientras alguna lo
+supere, sale la variable con mayor cociente VIF/IV: la más colineal y
+la que menos aporta. El VIF y el cociente se recalculan después de cada
+salida.
+
+\begin{center}
+\begin{tabular}{c>{\raggedright\arraybackslash}p{3.3cm}rrr>{\raggedright\arraybackslash}p{5.4cm}}
+\toprule
+\textbf{Paso} & \textbf{Sale} & \textbf{VIF} & \textbf{IV} & \textbf{VIF/IV} & \textbf{Motivo} \\
+\midrule
+1 & \texttt{PTJE\_NEM}       & 17,78 & 0,394 & 45,1 & Se calcula a partir del promedio de notas (correlación de los WOE: 0,96). \\
+2 & \texttt{PTJE\_RANKING}   & 10,17 & 0,376 & 27,1 & También se construye con las notas (0,95 con el promedio). \\
+3 & \texttt{INGRESO\_COLEGIO} & 2,34 & 0,106 & 22,1 & Se pisa con la dependencia (0,72). Juicio experto: ver abajo. \\
+4 & \texttt{PORC\_SUP\_NOTAS} & 3,12 & 0,193 & 16,2 & Posición del estudiante en su colegio, otra medida de las notas (0,79). \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Un paso por juicio experto.} En el paso 3, la regla del cociente
+sacaba a \texttt{DEPENDENCIA\_3} (VIF 2,38, IV 0,104, cociente 22,9) y no
+a \texttt{INGRESO\_COLEGIO} (22,1). Las dos miden casi lo mismo, el nivel
+socioeconómico del colegio, y sus números son casi iguales. Nos quedamos
+con la dependencia porque es una característica observada del colegio y
+no un promedio de ingresos autoinformados, donde además falta el dato del
+27,7\,\% de los estudiantes. En la Etapa 3 compararemos el modelo con cada
+una. Con las 9 variables que quedan, todos los VIF están bajo 2 (el mayor
+es 1,75).
+
+\needspace{12\baselineskip}
+\textbf{Variables definitivas y signo esperado.}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.2cm}
+                >{\centering\arraybackslash}p{1.9cm}
+                >{\raggedright\arraybackslash}p{7.3cm}}
+\toprule
+\textbf{Variable} & \textbf{Signo} & \textbf{Por qué} \\
+\midrule
+\texttt{CLEC\_REG\_ACTUAL}  & $+$ & Más puntaje abre más carreras de las primeras preferencias. \\
+\texttt{MATE1\_REG\_ACTUAL} & $+$ & Igual que Competencia Lectora. \\
+\texttt{PROMEDIO\_NOTAS}    & $+$ & Las notas entran a la ponderación por NEM y ranking. \\
+\texttt{TP\_DUMMY}          & $-$ & La formación técnica prepara menos para la PAES y muchos egresados siguen otras vías. \\
+\texttt{DEPENDENCIA\_3}     & pagado $+$ & Más recursos y preparación, y familias con más capacidad de pago de la matrícula. \\
+\texttt{EDAD\_MESES}        & $-$ & Egresar con 19 años o más suele indicar repitencia o educación de adultos. \\
+\texttt{BEA}                & $+$ & Es una beca al mejor 10\,\% de cada colegio: rendimiento y financiamiento. \\
+\texttt{RINDE\_M2}          & $+$ & Rendir Matemática 2 permite postular a más carreras. \\
+\texttt{MAT\_TOTAL}         & $+$ & Los colegios grandes suelen ser urbanos y con más oferta cerca. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Variables del MINEDUC.} De las tres que incorporamos, solo
+\texttt{MAT\_TOTAL} pasa el corte de IV, y por poco (0,022).
+\texttt{EXP\_DOCENTE} no discrimina (0,002). \texttt{IVE\_MEDIA} sí
+discrimina (0,077, con una tasa que baja de 41,3\,\% a 25,4\,\% a mayor
+vulnerabilidad), pero le falta el dato a todos los colegios pagados.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{10 \; Conclusión}
+% =====================================================================
+
+Con los filtros del profesor la base quedó en 168.714 estudiantes. Esta
+vez incluye a quienes rindieron la PAES y no postularon, y la variable de
+respuesta quedó en 35,7\,\% de matriculados en sus tres primeras
+preferencias, frente a 64,3\,\% del resto.
+
+De las 22 variables candidatas, 7 salen por tener IV menor que 0,02 y 2
+por tener más de 5\,\% de datos faltantes. Retramificamos la edad, que no
+era monótona, y agrupamos la dependencia por juicio experto. El VIF sacó
+cuatro variables que repetían la información de las notas o del nivel
+socioeconómico del colegio.
+
+Pasan a la Etapa 3 nueve variables: los puntajes de Competencia Lectora
+y Matemática 1, el promedio de notas, si el colegio es técnico
+profesional, su dependencia, la edad, la Beca de Excelencia Académica, si
+rindió Matemática 2 y la matrícula total del colegio. Con ellas se
+estimarán los modelos logit candidatos sobre las variables en WOE, con
+muestras de entrenamiento y de prueba.
+
+\end{document}

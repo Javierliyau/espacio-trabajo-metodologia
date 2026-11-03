@@ -1,0 +1,96 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Adjuntando el paquete: 'scorecard'
+
+The following object is masked from 'package:tidyr':
+
+    replace_na
+
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+PASOS: 317700 218066 217449 179347 170056 168714 
+N: 168714  I = 1: 60234  tasa: 35.7 %
+I : 0 % NA
+PROMEDIO_NOTAS : 0 % NA
+PORC_SUP_NOTAS : 0 % NA
+PTJE_NEM : 0 % NA
+PTJE_RANKING : 0 % NA
+CLEC_REG_ACTUAL : 0 % NA
+MATE1_REG_ACTUAL : 0 % NA
+RINDE_CIEN : 0 % NA
+RINDE_HCSOC : 0 % NA
+RINDE_M2 : 0 % NA
+GRUPO_DEPENDENCIA : 0 % NA
+TP_DUMMY : 0 % NA
+CODIGO_REGION : 0 % NA
+SEXO : 0 % NA
+PACE : 0 % NA
+BEA : 0 % NA
+INGRESO_PERCAPITA_GRUPO_FA : 27.66 % NA
+EDAD_MESES : 0 % NA
+N_ALUMNOS : 0 % NA
+INGRESO_COLEGIO : 0.04 % NA
+PROMEDIO_NOTAS : limites 4.605 y 7.605 | fuera: 61 
+PTJE_NEM : limites 316 y 1172 | fuera: 116 
+PTJE_RANKING : limites 302.5 y 1210.5 | fuera: 77 
+CLEC_REG_ACTUAL : limites 215 y 975 | fuera: 101 
+MATE1_REG_ACTUAL : limites 225 y 1001 | fuera: 17 
+EDAD_MESES : limites 204.5 y 232.5 | fuera: 8513 
+N_ALUMNOS : limites -93.5 y 374.5 | fuera: 8947 
+INGRESO_COLEGIO : limites 0 y 8 | fuera: 12849 
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 20 columns in 00:00:08
+PROMEDIO_NOTAS : 13 | 21.9 | 28.7 | 37.3 | 50.6 -> monotona: si 
+PORC_SUP_NOTAS : 48.2 | 40.1 | 31 | 21 -> monotona: si 
+PTJE_NEM : 13.4 | 22.6 | 29.6 | 40.4 | 52.7 -> monotona: si 
+PTJE_RANKING : 9.7 | 15.7 | 25.8 | 39.4 | 50.9 -> monotona: si 
+CLEC_REG_ACTUAL : 3.3 | 16.7 | 33.9 | 45 | 59.1 -> monotona: si 
+MATE1_REG_ACTUAL : 5.5 | 21.5 | 38.9 | 53.2 | 71.4 -> monotona: si 
+RINDE_CIEN : 37.3 | 35.1 -> monotona: si 
+RINDE_HCSOC : 33.5 | 37.3 -> monotona: si 
+RINDE_M2 : 32.5 | 39.7 -> monotona: si 
+GRUPO_DEPENDENCIA : 28.4 | 29.2 | 36 | 53.1 -> monotona: si 
+TP_DUMMY : 39.7 | 22.8 -> monotona: si 
+CODIGO_REGION : 33.4 | 36.6 | 40.4 | 43.4 -> monotona: si 
+SEXO : 35.4 | 36 -> monotona: si 
+PACE : 35.5 | 38.1 -> monotona: si 
+BEA : 34.5 | 50.1 -> monotona: si 
+INGRESO_PERCAPITA_GRUPO_FA : 30.1 | 35.3 | 40.1 | 53.2 -> monotona: si 
+EDAD_MESES : 35.5 | 38.1 | 20.6 -> monotona: no 
+N_ALUMNOS : 31.2 | 38 | 36.5 | 33 | 35.3 -> monotona: no 
+INGRESO_COLEGIO : 24.5 | 33.9 | 38.4 | 56.3 -> monotona: si 
+ℹ Creating woe binning ...
+ℹ The option bin_close_right was set to FALSE.
+✔ Binning on 168714 rows and 2 columns in 00:00:00
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 2 columns in 00:00:00
+ℹ Converting into woe values ...
+✔ Woe transformating on 168714 rows and 12 columns in 00:00:03
+ℹ Converting into woe values ...
+✔ Woe transformating on 168714 rows and 8 columns in 00:00:03
+OK cifras
+Avisos:
+1: package 'tidyverse' was built under R version 4.5.3 
+2: package 'ggplot2' was built under R version 4.5.3 
+3: package 'tidyr' was built under R version 4.5.3 
+4: package 'readr' was built under R version 4.5.3 
+5: package 'purrr' was built under R version 4.5.3 
+6: package 'dplyr' was built under R version 4.5.3 
+7: package 'stringr' was built under R version 4.5.3 
+8: package 'forcats' was built under R version 4.5.3 
+9: package 'lubridate' was built under R version 4.5.3 
+10: package 'scorecard' was built under R version 4.5.3 
+pdf 
+  2 
+EXPORTADO

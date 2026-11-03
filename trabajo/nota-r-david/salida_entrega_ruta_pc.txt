@@ -1,0 +1,301 @@
+Aviso:
+package 'writexl' was built under R version 4.5.3 
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Avisos:
+1: package 'tidyverse' was built under R version 4.5.3 
+2: package 'ggplot2' was built under R version 4.5.3 
+3: package 'tidyr' was built under R version 4.5.3 
+4: package 'readr' was built under R version 4.5.3 
+5: package 'purrr' was built under R version 4.5.3 
+6: package 'dplyr' was built under R version 4.5.3 
+7: package 'stringr' was built under R version 4.5.3 
+8: package 'forcats' was built under R version 4.5.3 
+9: package 'lubridate' was built under R version 4.5.3 
+
+Adjuntando el paquete: 'scorecard'
+
+The following object is masked from 'package:tidyr':
+
+    replace_na
+
+Aviso:
+package 'scorecard' was built under R version 4.5.3 
+[1] 168714
+
+     0      1 
+108480  60234 
+   
+        0     1
+  0 55361     0
+  1 53119 60234
+[1] 168714     20
+Tasa de Y = 1 (top 3): 35.7 %
+                     variable      tipo  n_na pct_na n_unicos minimo maximo
+1             PREF_TOP3_DUMMY   numeric     0   0.00        2   0.00      1
+2              PROMEDIO_NOTAS   numeric     0   0.00      145   4.18      7
+3              PORC_SUP_NOTAS   integer     0   0.00       10  10.00    100
+4                    PTJE_NEM   integer     0   0.00      331 157.00   1000
+5                PTJE_RANKING   integer     0   0.00      665 157.00   1000
+6             CLEC_REG_ACTUAL   integer     0   0.00       61 100.00   1000
+7            MATE1_REG_ACTUAL   integer     0   0.00       61 100.00   1000
+8                  RINDE_CIEN   numeric     0   0.00        2   0.00      1
+9                 RINDE_HCSOC   numeric     0   0.00        2   0.00      1
+10                   RINDE_M2   numeric     0   0.00        2   0.00      1
+11          GRUPO_DEPENDENCIA character     3   0.00        5     NA     NA
+12                   TP_DUMMY   numeric     0   0.00        2   0.00      1
+13              CODIGO_REGION character     3   0.00       17     NA     NA
+14                       SEXO character     0   0.00        2     NA     NA
+15                       PACE   numeric     0   0.00        2   0.00      1
+16                        BEA   numeric     0   0.00        2   0.00      1
+17 INGRESO_PERCAPITA_GRUPO_FA   integer 46668  27.66       11   1.00     10
+18                 EDAD_MESES   numeric     0   0.00      598 181.00    860
+19                  N_ALUMNOS   integer     3   0.00      341   8.00    947
+20            INGRESO_COLEGIO   numeric    61   0.04       20   1.00     10
+[1] "INGRESO_PERCAPITA_GRUPO_FA"
+ PROMEDIO_NOTAS PORC_SUP_NOTAS     PTJE_NEM     PTJE_RANKING  CLEC_REG_ACTUAL
+ Min.   :4.18   Min.   : 10.0   Min.   : 157   Min.   : 157   Min.   : 100   
+ 1st Qu.:5.73   1st Qu.: 20.0   1st Qu.: 637   1st Qu.: 643   1st Qu.: 500   
+ Median :6.13   Median : 50.0   Median : 751   Median : 759   Median : 590   
+ Mean   :6.09   Mean   : 47.7   Mean   : 738   Mean   : 751   Mean   : 605   
+ 3rd Qu.:6.48   3rd Qu.: 70.0   3rd Qu.: 851   3rd Qu.: 870   3rd Qu.: 690   
+ Max.   :7.00   Max.   :100.0   Max.   :1000   Max.   :1000   Max.   :1000   
+                                                                             
+ MATE1_REG_ACTUAL INGRESO_PERCAPITA_GRUPO_FA   EDAD_MESES    N_ALUMNOS  
+ Min.   : 100     Min.   : 1.00              Min.   :181   Min.   :  8  
+ 1st Qu.: 516     1st Qu.: 2.00              1st Qu.:215   1st Qu.: 82  
+ Median : 601     Median : 4.00              Median :218   Median :128  
+ Mean   : 629     Mean   : 4.78              Mean   :223   Mean   :161  
+ 3rd Qu.: 710     3rd Qu.: 7.00              3rd Qu.:222   3rd Qu.:199  
+ Max.   :1000     Max.   :10.00              Max.   :860   Max.   :947  
+                  NA's   :46668                            NA's   :3    
+ INGRESO_COLEGIO
+ Min.   : 1.00  
+ 1st Qu.: 3.00  
+ Median : 4.00  
+ Mean   : 4.55  
+ 3rd Qu.: 5.00  
+ Max.   :10.00  
+ NA's   :61     
+            PROMEDIO_NOTAS             PORC_SUP_NOTAS 
+                        61                          0 
+                  PTJE_NEM               PTJE_RANKING 
+                       116                         77 
+           CLEC_REG_ACTUAL           MATE1_REG_ACTUAL 
+                       101                         17 
+INGRESO_PERCAPITA_GRUPO_FA                 EDAD_MESES 
+                         0                       8513 
+                 N_ALUMNOS            INGRESO_COLEGIO 
+                      8947                      12849 
+
+--- GRUPO_DEPENDENCIA ---
+
+    1     2     3     4  <NA> 
+21822 89586 40362 16941     3 
+
+--- CODIGO_REGION ---
+
+    1    10    11    12    13    14    15    16     2     3     4     5     6 
+ 3321  7829  1029  1447 65044  3677  2559  4968  5697  2963  8028 17851  8819 
+    7     8     9  <NA> 
+10386 15165  9928     3 
+
+--- SEXO ---
+
+    1     2 
+78917 89797 
+                                 regla casos
+1                     ID_aux duplicado     0
+2 Promedio de notas fuera de 4,0 a 7,0     0
+3     Puntaje NEM fuera de 100 a 1.000     0
+4                Edad menor de 16 años     5
+5                Edad de 20 años o más  4439
+6                Edad de 30 años o más  1898
+[1] 71.67
+GRUPO_DEPENDENCIA     CODIGO_REGION         N_ALUMNOS   INGRESO_COLEGIO 
+                3                 3                 3                61 
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 19 columns in 00:00:05
+$CLEC_REG_ACTUAL
+
+$MATE1_REG_ACTUAL
+
+$PROMEDIO_NOTAS
+
+$TP_DUMMY
+
+            variable monotona
+1     PROMEDIO_NOTAS     TRUE
+2     PORC_SUP_NOTAS     TRUE
+3           PTJE_NEM     TRUE
+4       PTJE_RANKING     TRUE
+5    CLEC_REG_ACTUAL     TRUE
+6   MATE1_REG_ACTUAL     TRUE
+7         RINDE_CIEN     TRUE
+8        RINDE_HCSOC     TRUE
+9           RINDE_M2     TRUE
+10 GRUPO_DEPENDENCIA     TRUE
+11          TP_DUMMY     TRUE
+12     CODIGO_REGION     TRUE
+13              SEXO     TRUE
+14              PACE     TRUE
+15               BEA     TRUE
+16        EDAD_MESES    FALSE
+17         N_ALUMNOS    FALSE
+18   INGRESO_COLEGIO     TRUE
+$EDAD_MESES
+
+ℹ Creating woe binning ...
+ℹ The option bin_close_right was set to FALSE.
+✔ Binning on 168714 rows and 2 columns in 00:00:00
+$EDAD_MESES
+
+   
+    pagado publico subvencionado
+  1  21822       0             0
+  2      0       0         89586
+  3      0   40362             0
+  4      0   16941             0
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 2 columns in 00:00:00
+$DEPENDENCIA_3
+
+           variable        IV      poder
+5   CLEC_REG_ACTUAL 0.7338592 Sospechoso
+6  MATE1_REG_ACTUAL 0.6266258 Sospechoso
+1    PROMEDIO_NOTAS 0.3947503     Fuerte
+3          PTJE_NEM 0.3940968     Fuerte
+4      PTJE_RANKING 0.3756199     Fuerte
+2    PORC_SUP_NOTAS 0.1934893      Medio
+10         TP_DUMMY 0.1060490      Medio
+16  INGRESO_COLEGIO 0.1060077      Medio
+18    DEPENDENCIA_3 0.1037427      Medio
+17       EDAD_MESES 0.0486197      Débil
+14              BEA 0.0325367      Débil
+9          RINDE_M2 0.0238325      Débil
+11    CODIGO_REGION 0.0179766     Inútil
+8       RINDE_HCSOC 0.0066531     Inútil
+15        N_ALUMNOS 0.0063575     Inútil
+7        RINDE_CIEN 0.0017445     Inútil
+13             PACE 0.0009400     Inútil
+12             SEXO 0.0001703     Inútil
+ [1] "CLEC_REG_ACTUAL"  "MATE1_REG_ACTUAL" "PROMEDIO_NOTAS"   "PTJE_NEM"        
+ [5] "PTJE_RANKING"     "PORC_SUP_NOTAS"   "TP_DUMMY"         "INGRESO_COLEGIO" 
+ [9] "DEPENDENCIA_3"    "EDAD_MESES"       "BEA"              "RINDE_M2"        
+ℹ Converting into woe values ...
+✔ Woe transformating on 168714 rows and 12 columns in 00:00:02
+                variable  Estimate Std. Error   z value Pr(>|z|)   gvif
+                  <char>     <num>      <num>     <num>    <num>  <num>
+ 1:          (Intercept) -0.581629     0.0057 -102.8610   0.0000     NA
+ 2:  CLEC_REG_ACTUAL_woe  0.549410     0.0092   59.6654   0.0000  1.599
+ 3: MATE1_REG_ACTUAL_woe  0.451974     0.0101   44.7327   0.0000  1.756
+ 4:   PROMEDIO_NOTAS_woe  0.327868     0.0330    9.9425   0.0000 12.815
+ 5:         PTJE_NEM_woe  0.008849     0.0388    0.2281   0.8196 17.758
+ 6:     PTJE_RANKING_woe  0.179085     0.0370    4.8396   0.0000 15.198
+ 7:   PORC_SUP_NOTAS_woe -0.129352     0.0235   -5.5083   0.0000  3.369
+ 8:         TP_DUMMY_woe  0.325709     0.0192   16.9205   0.0000  1.183
+ 9:  INGRESO_COLEGIO_woe  0.032567     0.0256    1.2698   0.2041  2.337
+10:    DEPENDENCIA_3_woe -0.065842     0.0260   -2.5299   0.0114  2.379
+11:       EDAD_MESES_woe  0.114059     0.0280    4.0796   0.0000  1.040
+12:              BEA_woe  0.010412     0.0319    0.3262   0.7442  1.189
+13:         RINDE_M2_woe -0.060349     0.0379   -1.5941   0.1109  1.107
+                     CLEC_REG_ACTUAL_woe MATE1_REG_ACTUAL_woe
+CLEC_REG_ACTUAL_woe                 1.00                 0.63
+MATE1_REG_ACTUAL_woe                0.63                 1.00
+PROMEDIO_NOTAS_woe                  0.46                 0.44
+PTJE_NEM_woe                        0.47                 0.45
+PTJE_RANKING_woe                    0.45                 0.43
+PORC_SUP_NOTAS_woe                  0.34                 0.32
+TP_DUMMY_woe                        0.26                 0.24
+INGRESO_COLEGIO_woe                 0.30                 0.35
+DEPENDENCIA_3_woe                   0.30                 0.35
+EDAD_MESES_woe                      0.21                 0.20
+BEA_woe                             0.15                 0.14
+RINDE_M2_woe                        0.09                 0.25
+                     PROMEDIO_NOTAS_woe PTJE_NEM_woe PTJE_RANKING_woe
+CLEC_REG_ACTUAL_woe                0.46         0.47             0.45
+MATE1_REG_ACTUAL_woe               0.44         0.45             0.43
+PROMEDIO_NOTAS_woe                 1.00         0.96             0.95
+PTJE_NEM_woe                       0.96         1.00             0.96
+PTJE_RANKING_woe                   0.95         0.96             1.00
+PORC_SUP_NOTAS_woe                 0.79         0.80             0.80
+TP_DUMMY_woe                       0.13         0.13             0.10
+INGRESO_COLEGIO_woe                0.16         0.16             0.14
+DEPENDENCIA_3_woe                  0.15         0.15             0.13
+EDAD_MESES_woe                     0.18         0.18             0.17
+BEA_woe                            0.29         0.31             0.30
+RINDE_M2_woe                       0.15         0.15             0.15
+                     PORC_SUP_NOTAS_woe TP_DUMMY_woe INGRESO_COLEGIO_woe
+CLEC_REG_ACTUAL_woe                0.34         0.26                0.30
+MATE1_REG_ACTUAL_woe               0.32         0.24                0.35
+PROMEDIO_NOTAS_woe                 0.79         0.13                0.16
+PTJE_NEM_woe                       0.80         0.13                0.16
+PTJE_RANKING_woe                   0.80         0.10                0.14
+PORC_SUP_NOTAS_woe                 1.00        -0.04               -0.07
+TP_DUMMY_woe                      -0.04         1.00                0.25
+INGRESO_COLEGIO_woe               -0.07         0.25                1.00
+DEPENDENCIA_3_woe                 -0.08         0.30                0.72
+EDAD_MESES_woe                     0.09         0.04                0.08
+BEA_woe                            0.36        -0.05               -0.11
+RINDE_M2_woe                       0.15        -0.07                0.05
+                     DEPENDENCIA_3_woe EDAD_MESES_woe BEA_woe RINDE_M2_woe
+CLEC_REG_ACTUAL_woe               0.30           0.21    0.15         0.09
+MATE1_REG_ACTUAL_woe              0.35           0.20    0.14         0.25
+PROMEDIO_NOTAS_woe                0.15           0.18    0.29         0.15
+PTJE_NEM_woe                      0.15           0.18    0.31         0.15
+PTJE_RANKING_woe                  0.13           0.17    0.30         0.15
+PORC_SUP_NOTAS_woe               -0.08           0.09    0.36         0.15
+TP_DUMMY_woe                      0.30           0.04   -0.05        -0.07
+INGRESO_COLEGIO_woe               0.72           0.08   -0.11         0.05
+DEPENDENCIA_3_woe                 1.00           0.07   -0.11         0.04
+EDAD_MESES_woe                    0.07           1.00    0.04         0.04
+BEA_woe                          -0.11           0.04    1.00         0.07
+RINDE_M2_woe                      0.04           0.04    0.07         1.00
+Se elimina: PTJE_NEM | VIF = 17.76 | IV = 0.394 | VIF/IV = 45.1 
+Se elimina: PTJE_RANKING | VIF = 10.16 | IV = 0.376 | VIF/IV = 27 
+Se elimina: DEPENDENCIA_3 | VIF = 2.38 | IV = 0.104 | VIF/IV = 22.9 
+Se elimina: PORC_SUP_NOTAS | VIF = 3.1 | IV = 0.193 | VIF/IV = 16 
+Ninguna variable supera VIF = 2 
+           variable  gvif      IV  ratio
+             <char> <num>   <num>  <num>
+1:         RINDE_M2 1.106 0.02383 46.387
+2:              BEA 1.143 0.03254 35.121
+3:       EDAD_MESES 1.036 0.04862 21.308
+4:  INGRESO_COLEGIO 1.216 0.10601 11.473
+5:         TP_DUMMY 1.114 0.10605 10.508
+6:   PROMEDIO_NOTAS 1.306 0.39475  3.307
+7: MATE1_REG_ACTUAL 1.728 0.62663  2.757
+8:  CLEC_REG_ACTUAL 1.590 0.73386  2.167
+[1] "CLEC_REG_ACTUAL"  "MATE1_REG_ACTUAL" "PROMEDIO_NOTAS"   "TP_DUMMY"        
+[5] "INGRESO_COLEGIO"  "EDAD_MESES"       "BEA"              "RINDE_M2"        
+[1] "CLEC_REG_ACTUAL"  "MATE1_REG_ACTUAL" "PROMEDIO_NOTAS"   "TP_DUMMY"        
+[5] "EDAD_MESES"       "BEA"              "RINDE_M2"         "DEPENDENCIA_3"   
+ℹ Converting into woe values ...
+✔ Woe transformating on 168714 rows and 8 columns in 00:00:02
+               variable  gvif
+                 <char> <num>
+1:  CLEC_REG_ACTUAL_woe 1.589
+2: MATE1_REG_ACTUAL_woe 1.729
+3:   PROMEDIO_NOTAS_woe 1.305
+4:         TP_DUMMY_woe 1.138
+5:       EDAD_MESES_woe 1.036
+6:              BEA_woe 1.141
+7:         RINDE_M2_woe 1.106
+8:    DEPENDENCIA_3_woe 1.248
+          variable      IV      poder   VIF
+2  CLEC_REG_ACTUAL 0.73386 Sospechoso 1.589
+5 MATE1_REG_ACTUAL 0.62663 Sospechoso 1.729
+6   PROMEDIO_NOTAS 0.39475     Fuerte 1.305
+8         TP_DUMMY 0.10605      Medio 1.138
+3    DEPENDENCIA_3 0.10374      Medio 1.248
+4       EDAD_MESES 0.04862      Débil 1.036
+1              BEA 0.03254      Débil 1.141
+7         RINDE_M2 0.02383      Débil 1.106

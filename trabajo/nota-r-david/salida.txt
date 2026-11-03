@@ -1,0 +1,27 @@
+﻿Rscript.exe : Avisos:
+En línea: 1 Carácter: 630
++ ... ocation $d; & "C:\Program Files\R\R-4.5.2\bin\Rscript.exe" "David_Eco ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Avisos::String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+1: package 'dplyr' was built under R version 4.5.3 
+2: package 'ggplot2' was built under R version 4.5.3 
+3: package 'scorecard' was built under R version 4.5.3 
+4: package 'car' was built under R version 4.5.3 
+5: package 'carData' was built under R version 4.5.3 
+N de la muestra elegible: 168714 
+Error in `left_join()`:
+! Join columns in `x` must be present in the data.
+✖ Problem with `RBD`.
+Backtrace:
+    ▆
+ 1. ├─... %>% ...
+ 2. ├─dplyr::mutate(...)
+ 3. ├─dplyr::left_join(., colegio, by = "RBD")
+ 4. └─dplyr:::left_join.data.frame(., colegio, by = "RBD")
+ 5.   └─dplyr:::join_mutate(...)
+ 6.     └─dplyr:::join_cols(...)
+ 7.       └─dplyr:::check_join_vars(by$x, x_names, by$condition, "x", error_call = error_call)
+ 8.         └─rlang::abort(bullets, call = error_call)
+Ejecución interrumpida

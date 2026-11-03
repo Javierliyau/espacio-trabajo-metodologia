@@ -1,0 +1,398 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{fontspec,amsmath,amssymb,booktabs,graphicx,enumitem,parskip,xcolor}
+\setmainfont{Cambria}
+\usepackage{unicode-math}
+\setmathfont{Cambria Math}
+\usepackage[spanish,es-noshorthands]{babel}
+\pagestyle{plain}
+\begin{document}
+\begin{center}{\LARGE\bfseries Control 2 de Macro II · Caso real: «Cada vez más gente para la misma duplicación»}\end{center}
+
+\textbf{Prueba:} lun 2-11-2026, 09:50, control de lectura de Jones y Vollrath (JV) 5.1, 5.2.1 y 5.2.2 (pp. 97-115).
+
+\textbf{Qué es esto:} lectura pasiva completa del temario, contada con un caso real (los chips y la Ley de Moore), y las preguntas de desarrollo respondidas en orden de probabilidad. Las páginas son las de JV y sirven para ubicar el pasaje en la traducción.
+
+\textbf{Regla de lectura:} \textbf{[texto]} es lo que dice el libro y es lo que se responde en la prueba. \textbf{[caso]} es para recordar y no reemplaza al libro: si lo citas, va como ejemplo después de la respuesta.
+
+\textbf{Sin registrar:} la ayudantía del vie 30-10 no está en el proyecto, así que nada de aquí se apoya en ella.
+
+\section*{1. Qué preguntas son más probables}
+
+\textbf{Método} (\texttt{trabajo/macro-control2-prob.py} del espacio de trabajo; semilla 7; 2000 $\times$ 300 controles simulados). Para cada pregunta medí líneas del libro, ecuaciones y figuras, láminas de Droller y líneas de las clases 6-8 que la mencionan. A mano codifiqué el parecido con el Control 1 y si el libro la destaca. Sorteé los pesos de esos rasgos y el formato: 55 \% como el Control 1 (1 desarrollo, 1 analice, 3 comentes), 30 \% sin desarrollo y 15 \% con dos. Un desarrollo puede encadenar incisos, y lo más probable es que al menos una pregunta sea de 5.2, porque el temario la nombra.
+
+\textbf{Cuánto creerle:} es un modelo de juicio, no una frecuencia. Solo existe un control de Droller, así que no se puede calibrar, y la predicción anterior del banco para el Control 1 no acertó el tema principal. Sirve para ordenar el estudio. El modelo deja cerca de 17 \% de los lugares a preguntas que nadie anticipó.
+
+\begin{center}\small\begin{tabular}{p{0.6cm}p{9.4cm}p{1.8cm}p{1.9cm}}\toprule
+\# & Pregunta & P(aparece) & Rango 10-90 \\\midrule
+1 & Alza permanente de $s_R$: figuras 5.1-5.3, tasa y nivel & 85 \% & 69-97 \\
+2 & Monopolista: $p = r/\alpha$ y markup & 46 \% & 36-56 \\
+3 & $y^*(t)$, (5.10)-(5.11): $s_R$ dos veces y efecto escala & 39 \% & 26-54 \\
+4 & Derivar $g_A = \lambda n/(1-\phi)$ & 34 \% & 24-45 \\
+5 & Población: Solow contra Romer, y si deja de crecer & 28 \% & 17-41 \\
+6 & Interpretar $\phi$ y $\lambda$ & 26 \% & 17-34 \\
+7 & «Un subsidio a la I+D sube el crecimiento de largo plazo» & 25 \% & 13-39 \\
+8 & Bienes finales: problema y CPO (5.12)-(5.13) & 24 \% & 16-32 \\
+9 & Investigadores constantes: las cien ideas & 19 \% & 12-27 \\
+10 & Romer original, $\phi = 1$, y por qué se rechaza & 19 \% & 13-25 \\
+11 & Beneficio (5.14) y $x = K/A$ (5.15) & 18 \% & 13-24 \\
+12 & Qué agrega Romer a Solow & 14 \% & 10-19 \\
+13 & Rendimientos: constantes en $K, L_Y$, crecientes con $A$ & 14 \% & 6-23 \\
+14 & Los tres sectores & 10 \% & 5-16 \\
+\bottomrule\end{tabular}\end{center}
+
+Más abajo: detalles de 5.2.1 (8 \%), externalidades y recuperar (5.16) (7 \% cada una), SCB y frontera (5 \%), dos pasos (4 \%), «$\phi<1$ = sin derrames» (2 \%), Schumpeter (1 \%). Distribución del ingreso, $rK = \alpha^2 Y$: $\approx$ 0 \%, porque está en 5.2.4, fuera de la lectura.
+
+\textbf{Por bloque de conocimiento} (preguntas esperadas de unas 5): tasa contra nivel 1,5; microfundamentos de 5.2 1,1; $g_A$ y qué la mueve 0,8; $\phi$, $\lambda$ y Romer original 0,5; marco 0,4.
+
+\textbf{Lo que cambia con los supuestos.} El primer lugar no se mueve: $s_R$ queda entre 77 y 89 \%.
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item El monopolista está en segundo lugar \textbf{por la regla de que entre 5.2}. Sin esa regla el orden es $s_R$ 89, $y^*$ 45, $g_A$ 39, población 34, subsidio 31, $\phi$-$\lambda$ 30.
+\item $g_A$ (34 \%) sigue siendo mi apuesta como derivación pura del desarrollo, como dijo la predicción del 29-10. Sale menor que $s_R$ porque casi solo cabe en un desarrollo, mientras que $s_R$ cabe también en un comente.
+\item Estudia los tres juntos: en la prueba, $g_A$ y $s_R$ pueden ser incisos de una misma pregunta.
+\end{itemize}
+
+\section*{2. El caso}
+
+Gordon Moore, cofundador de Intel, escribió en 1965, cuando estaba en Fairchild, que los componentes de un chip se duplicaban cada año; en 1975 corrigió a cada dos años. La densidad de transistores ha crecido cerca de \textbf{35 \% anual} por medio siglo: la tasa casi no cambia. Parece una máquina que se alimenta sola.
+
+Bloom, Jones, Van Reenen y Webb (2020) miraron quién la mueve. Para mantener esa misma duplicación hoy hacen falta \textbf{más de 18 veces} los investigadores de 1971. La productividad de cada investigador cae cerca de \textbf{6,8 \% anual}.
+
+Eso es Romer con números. Si $g_A$ se mantiene y los investigadores crecen a tasa $n$, la ecuación (5.7) permite despejar $\phi$:
+
+\begin{equation*}35\% = \frac{\lambda \cdot 6{,}8\%}{1-\phi} \;\Rightarrow\; \frac{\lambda}{1-\phi} \approx 5 \;\Rightarrow\; \phi \approx 0{,}8 \text{ si } \lambda = 1\end{equation*}
+
+Muchos hombros de gigantes, pero \textbf{menos de 1}: justo lo que exige el libro. Bloom et al. reportan el mismo número ($\beta = 1-\phi \approx 0{,}2$ para Moore). Para toda la economía de EE. UU. obtienen $\beta \approx 3{,}1$, o sea $\phi \approx -2{,}1$: agotamiento de la pesca. En los dos casos $\phi < 1$, y con eso queda rechazado el $\phi = 1$ del Romer original.
+
+\textbf{Límites del caso.} Moore es un sector y el libro modela el stock total de ideas. El $\lambda = 1$ es un supuesto. El 6,8 \% de investigadores sale por construcción de la caída de productividad, porque Bloom et al. no lo informan aparte. El caso usa datos de EE. UU., que cuadran con el modelo porque describe a la frontera.
+
+\section*{3. Lectura pasiva, en el orden del libro}
+
+\subsection*{Introducción (pp. 97-99): de dónde sale $A$}
+
+\textbf{[texto]} Solow explica el crecimiento con un progreso técnico que cae del cielo. Este capítulo lo endogeniza: la tecnología mejora porque personas y empresas buscan ganancias, y aquí el libro cita el «propio interés» del carnicero de Adam Smith. Hay dos familias de modelos: Romer (1990), donde las ideas son \textbf{nuevas variedades} de bienes de capital, y la schumpeteriana (Aghion y Howitt), donde \textbf{mejora la calidad}. Esta lectura solo cubre Romer.
+
+\textbf{[caso]} Nadie descubre un chip nuevo por caridad: se invierte porque el que lo logra cobra por él.
+
+\subsection*{5.1, los elementos básicos (pp. 98-103)}
+
+\textbf{[texto]} El modelo describe a los países avanzados del mundo \textbf{tomados en conjunto}, no a un país: la transferencia de tecnología entre países queda para más adelante. Tiene los mismos elementos que Solow, más el trabajo dividido en dos usos:
+
+\begin{equation*}Y = K^\alpha (AL_Y)^{1-\alpha} \tag{5.1}\end{equation*}
+
+con $\dot K = s_K Y - \delta K$, $\dot L/L = n$ y $L_Y + L_A = L$, donde $L_A = s_R L$ son los investigadores.
+
+\textbf{Rendimientos (p. 100).} Con $A$ dado, (5.1) tiene rendimientos constantes en $K$ y $L_Y$. Al contar a $A$ como insumo son \textbf{crecientes}: duplicar $K$, $L_Y$ y $A$ más que duplica $Y$. El ejemplo del libro: Jobs y Wozniak no tuvieron que reinventar los planos del computador personal; para duplicar la producción bastaba con duplicar chips y galpón. La raíz está en la \textbf{no rivalidad} de las ideas.
+
+\textbf{[caso, aparte]} Apple se fundó en 1976 y el garaje es parte del mito: el propio Wozniak lo relativiza. En la prueba usa el ejemplo como lo trae el libro.
+
+\textbf{La función de producción de ideas (pp. 100-101):}
+
+\begin{equation*}\dot A = \theta L_A \tag{5.2}\end{equation*}
+
+Cada investigador produce $\theta$ ideas. Pero $\theta$ puede depender de lo ya descubierto:
+
+\begin{equation*}\theta = \bar\theta A^\phi \tag{5.3}\end{equation*}
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item $\phi > 0$: lo descubierto ayuda a descubrir. El libro cita el cálculo, el láser y \textbf{los circuitos integrados}.
+\item $\phi < 0$: \textbf{agotamiento de la pesca} (\emph{fishing out}), las ideas fáciles salen primero.
+\item $\phi = 0$: los dos efectos se compensan exactamente.
+\end{itemize}
+
+Además, con más investigadores aumenta la duplicación de esfuerzos, así que lo que entra es $L_A^\lambda$ con $0 < \lambda \le 1$:
+
+\begin{equation*}\dot A = \bar\theta L_A^\lambda A^\phi, \qquad \phi < 1 \tag{5.4}\end{equation*}
+
+\textbf{Individuo contra agregado (p. 102).} Cada investigador es pequeño, toma $\theta$ como dado y percibe rendimientos \textbf{constantes}. En el agregado no tienen por qué serlo, porque $\theta$ varía con el esfuerzo total (nota 3: $\theta = \bar\theta L_A^{\lambda-1}A^\phi$). Hay dos externalidades:
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item $\lambda < 1$ es \textbf{«pisarse los pies»} (\emph{stepping on toes}): ideas que no son nuevas para la economía. El libro lo compara con la congestión de una carretera.
+\item $\phi > 0$ es \textbf{«sobre hombros de gigantes»} (\emph{standing on shoulders}): Newton no se apropió de todo lo que aportó la gravitación y a su vez se apoyó en Kepler.
+\end{itemize}
+
+\textbf{[caso]} Cien equipos persiguen el mismo nodo y varios llegan a lo mismo (pies). Cada generación de chips sirve para diseñar y simular la siguiente (hombros).
+
+\subsection*{5.1.1, crecimiento en el modelo (pp. 103-107)}
+
+\textbf{[texto]} En la senda balanceada (SCB) $g_y = g_k = g_A$ (nota 4): el capital-producto es constante, como en Solow. Falta saber cuánto vale $g_A$. Se divide (5.4) por $A$:
+
+\begin{equation*}\frac{\dot A}{A} = \bar\theta \frac{L_A^\lambda}{A^{1-\phi}} \tag{5.5}\end{equation*}
+
+En la SCB eso es constante. Tomando logaritmos y derivando respecto del tiempo:
+
+\begin{equation*}0 = \lambda\frac{\dot L_A}{L_A} - (1-\phi)\frac{\dot A}{A} \tag{5.6}\end{equation*}
+
+y como $L_A = s_R L$ con $s_R$ constante, $\dot L_A / L_A = n$:
+
+\begin{equation*}g_A = \frac{\lambda n}{1-\phi} \tag{5.7}\end{equation*}
+
+\textbf{Las cien ideas (p. 105).} Sea $\lambda = 1$, $\phi = 0$ y $\bar\theta L_A = 100$. Se crean cien ideas \textbf{todos} los períodos, pero sobre un stock cada vez mayor, así que $g_A \to 0$. El progreso \textbf{no} se detiene; lo que se apaga es la tasa. Para crecer exponencialmente, las ideas nuevas tienen que aumentar, y para eso deben aumentar los investigadores.
+
+\textbf{Población (p. 105).} En Solow, un $n$ mayor \textbf{baja} el nivel de ingreso en la SCB, porque diluye el capital. Aquí se suma un efecto: las personas son el insumo de las ideas y las ideas son no rivales, así que más gente beneficia a todos. La evidencia es difícil, porque no sirve comparar países si el modelo describe a la frontera: el libro recuerda que el crecimiento rápido de la población y el del ingreso per cápita son ambos recientes, de la época de la Revolución Industrial. Si la población (o los investigadores) deja de crecer, el crecimiento de largo plazo se detiene.
+
+\textbf{[caso]} Jones (2022) llama a esto el resultado del «planeta vacío» (\emph{Empty Planet}): si la población termina cayendo, en estos modelos las ideas se detienen.
+
+\textbf{Romer original (pp. 105-106).} Con $\lambda = \phi = 1$:
+
+\begin{equation*}\frac{\dot A}{A} = \bar\theta L_A \tag{5.8}\end{equation*}
+
+Hay crecimiento sostenido con investigadores constantes. Esa ventaja es también el problema: como $L_A$ ha crecido muchísimo, $g$ debería haberse acelerado, y en EE. UU. ha estado cerca de 1,8 \% anual durante un siglo. Eso rechaza $\phi = 1$ (Jones 1995a, nota 5). También rechaza $\phi > 1$, que daría tasas crecientes aun con población constante (nota 6). \textbf{Ojo:} esto no descarta los derrames: $\phi$ puede ser positivo y grande (p. 106).
+
+\textbf{Política (p. 107).} Como en Solow, cambios en la tasa de inversión o en la fracción dedicada a I+D \textbf{no} mueven el crecimiento de largo plazo, porque ninguno está en (5.7). Afectan la transición y el nivel. Por lo tanto, ni un subsidio a la I+D cambia la tasa de largo plazo.
+
+\subsection*{5.1.2, efecto tasa contra efecto nivel (p. 107)}
+
+\textbf{[texto]} Lo anterior no es un rasgo de todos los modelos de ideas. Los que permiten que la política suba la tasa para siempre se apoyan en $\phi = 1$ o en algo equivalente, y por eso heredan la predicción falsa de aceleración. Jones (1995a) los generalizó a $\phi < 1$: se elimina esa predicción y, con ella, el efecto de la política sobre la tasa de largo plazo.
+
+\subsection*{5.1.3, alza permanente de $s_R$ (pp. 107-111)}
+
+\textbf{[texto]} Por ejemplo, por un subsidio a la I+D. Se analiza en \textbf{dos pasos}, porque $A$ no depende de $K$ ni de $Y$: primero la tecnología y, cuando $g_A$ ya es constante, el resto como Solow. Con $\lambda = 1$, $\phi = 0$ (sin pérdida cualitativa) se reescribe (5.5):
+
+\begin{equation*}\frac{\dot A}{A} = \bar\theta \frac{s_R L}{A} \tag{5.9}\end{equation*}
+
+\begin{center}\includegraphics[width=0.62\linewidth]{C:/Proyecto Metodologia de estudio/datos/material/macroeconomia-ii/kindle-estudio/_fuente/C05_JV-cap5/img/fig5_1.png}\end{center}
+
+\textbf{Figura 5.1.} Eje horizontal $L_A/A$; eje vertical $\dot A/A$. Una \textbf{recta fija} de pendiente $\bar\theta$ que pasa por el origen. La SCB está en $L_A/A = g_A/\bar\theta$, con $g_A = n$. Al subir $s_R$ en $t = 0$, $L_A/A$ \textbf{salta} a X ($s_R' L_0/A_0$), arriba en la misma recta. En X, $\dot A/A > n$: $A$ crece más rápido que $L$, así que $L_A/A$ cae (flechas a la izquierda) y la economía \textbf{se mueve por la recta} de vuelta a la SCB.
+
+\begin{center}\includegraphics[width=0.62\linewidth]{C:/Proyecto Metodologia de estudio/datos/material/macroeconomia-ii/kindle-estudio/_fuente/C05_JV-cap5/img/fig5_2.png}\end{center}
+
+\textbf{Figura 5.2.} $\dot A/A$ en el tiempo: en $g_A$, salto en $t = 0$ y regreso gradual a $g_A$.
+
+\begin{center}\includegraphics[width=0.62\linewidth]{C:/Proyecto Metodologia de estudio/datos/material/macroeconomia-ii/kindle-estudio/_fuente/C05_JV-cap5/img/fig5_3.png}\end{center}
+
+\textbf{Figura 5.3.} $\log A$ en el tiempo: pendiente $g_A$, más empinada tras $t = 0$ y otra vez $g_A$, pero en una recta paralela \textbf{más alta}. Esa distancia es el \textbf{efecto nivel}. El libro lo compara con un alza de la tasa de inversión en Solow.
+
+\textbf{El resto del modelo (pp. 110-111).} Como $g_A$ es constante, sirve el álgebra de Solow, con un término más:
+
+\begin{equation*}\left(\frac{y}{A}\right)^* = \left(\frac{s_K}{n+g_A+\delta}\right)^{\frac{\alpha}{1-\alpha}}(1-s_R) \tag{5.10}\end{equation*}
+
+$(1-s_R)$ convierte producto por trabajador ($Y/L_Y$) en producto per cápita ($Y/L$). De (5.9) en la SCB, $A = \bar\theta s_R L / g_A$. Reemplazando:
+
+\begin{equation*}y^*(t) = \left(\frac{s_K}{n+g_A+\delta}\right)^{\frac{\alpha}{1-\alpha}}(1-s_R)\frac{\bar\theta s_R}{g_A} L(t) \tag{5.11}\end{equation*}
+
+Tres lecturas:
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item $y^*$ es proporcional a $L$: \textbf{efecto escala en niveles}, una economía mundial más grande es más rica. Tiene dos vías: mercado mayor para cada idea (demanda) y más creadores de ideas (oferta). El origen es la no rivalidad.
+\item $s_K$ como en Solow.
+\item $s_R$ aparece \textbf{dos veces}: $(1-s_R)$ con efecto negativo (menos gente produciendo) y $s_R$ con efecto positivo (más ideas).
+\end{itemize}
+
+\textbf{[caso, cálculo propio]} Pasar $s_R$ de 1 \% a 2 \%, con $\lambda = 1$, $\phi = 0$, $n = 1\%$ (cifras ilustrativas). Como $\dot A/A = \bar\theta L_A/A$, duplicar $L_A$ lleva $g_A$ de 1 \% a \textbf{2 \%} de golpe. Después baja hasta volver a 1 \%. A la larga $A$ queda \textbf{2 veces} sobre la senda antigua, y por (5.11) $y^*$ queda $\frac{0{,}02 \times 0{,}98}{0{,}01 \times 0{,}99} = 1{,}98$ veces arriba. La transición es larga: llegar a la mitad de esa ganancia en $A$ toma unos 69 años. «No sube la tasa de largo plazo» no significa que la política no importe.
+
+\subsection*{5.2, la economía del modelo (pp. 111-112)}
+
+\textbf{[texto]} Romer (1990) mostró cómo sostener todo esto con agentes que maximizan beneficios, usando competencia imperfecta en equilibrio general. Tres sectores:
+
+\begin{center}\small\begin{tabular}{p{2.6cm}p{5.6cm}p{2.7cm}p{3.2cm}}\toprule
+Sector & Qué hace & Competencia & [caso] \\\midrule
+Investigación & Crea ideas (variedades de bienes de capital) y vende el derecho exclusivo & Se ve en 5.2.3 (no entra) & El que inventa un diseño de chip \\
+Bienes intermedios & Compra la patente, fabrica el bien de capital y lo vende & \textbf{Monopolio} & El fabricante con la patente \\
+Bienes finales & Combina trabajo y bienes de capital para producir $Y$ & \textbf{Perfecta} & El que arma el producto final \\
+\bottomrule\end{tabular}\end{center}
+
+El sector intermedio existe por los rendimientos crecientes: alguien tiene que cobrar sobre el costo marginal para pagar la idea. El libro menciona «nuevos chips de computador» entre sus ejemplos (p. 112).
+
+\subsection*{5.2.1, bienes finales (pp. 112-113)}
+
+\textbf{[texto]}
+
+\begin{equation*}Y = L_Y^{1-\alpha}\int_0^A x_j^\alpha\, dj\end{equation*}
+
+$A$ es el \textbf{rango} de bienes de capital disponibles. La integral es un tecnicismo que reemplaza a la suma. Con $A$ dado hay rendimientos constantes en $L_Y$ y en los $x_j$, por lo que el número de empresas queda indeterminado: se suponen muchas, idénticas, en competencia perfecta, y el precio de $Y$ se normaliza a 1. Las empresas resuelven:
+
+\begin{equation*}\max_{L_Y, x_j} \; L_Y^{1-\alpha}\int_0^A x_j^\alpha\, dj - wL_Y - \int_0^A p_j x_j\, dj\end{equation*}
+
+\begin{equation*}w = (1-\alpha)\frac{Y}{L_Y} \tag{5.12}\end{equation*}
+
+\begin{equation*}p_j = \alpha L_Y^{1-\alpha} x_j^{\alpha-1} \tag{5.13}\end{equation*}
+
+(5.13) es la \textbf{demanda inversa} por cada bien de capital, y es lo que usa el monopolista.
+
+\subsection*{5.2.2, bienes intermedios (pp. 113-115)}
+
+\textbf{[texto]} Cada firma ya pagó la patente, que es un costo fijo. Convierte 1 unidad de capital en 1 de bien de capital, con costo $r$:
+
+\begin{equation*}\max_x \; \pi = p(x)x - rx\end{equation*}
+
+La CPO lleva a $p'(x)x + p - r = 0$, es decir, $p = \dfrac{r}{1 + p'x/p}$. De (5.13), $p'x/p = \alpha - 1$, y por lo tanto:
+
+\begin{equation*}p = \frac{r}{\alpha}\end{equation*}
+
+El precio es un \textbf{markup} $1/\alpha > 1$ sobre el costo marginal $r$. Todas las firmas son iguales, así que $x_j = x$ y
+
+\begin{equation*}\pi = \alpha(1-\alpha)\frac{Y}{A} \tag{5.14}\end{equation*}
+
+Los pasos que el libro resume en «algo de álgebra»: $\pi = (p-r)x = (1-\alpha)px$, y $px = \alpha Y/A$ porque $Y = AL_Y^{1-\alpha}x^\alpha$. El capital total se reparte entre las variedades:
+
+\begin{equation*}\int_0^A x_j\, dj = K \;\Rightarrow\; x = \frac{K}{A} \tag{5.15}\end{equation*}
+
+Reemplazando en la producción:
+
+\begin{equation*}Y = AL_Y^{1-\alpha}x^\alpha = K^\alpha(AL_Y)^{1-\alpha} \tag{5.16}\end{equation*}
+
+\textbf{Se vuelve a (5.1):} con microfundamentos se obtiene la misma función agregada de la primera mitad.
+
+\textbf{[caso]} ASML dice que la litografía EUV es exclusiva suya y tuvo un margen bruto de 52,8 \% en 2025: precio muy sobre el costo y patentes de por medio. Es solo una ilustración: el margen bruto no es el $1-\alpha$ del modelo.
+
+\section*{4. Preguntas de desarrollo con respuesta, por probabilidad}
+
+\subsection*{1. Alza permanente de $s_R$ (85 \%)}
+
+\emph{Pregunta tipo: «Muestre gráficamente el efecto de un aumento permanente de la fracción dedicada a I+D. Nombre ejes, puntos y curvas, y distinga movimientos de desplazamientos.»}
+
+Con $\lambda = 1$, $\phi = 0$: $\dot A/A = \bar\theta L_A/A$, ec. (5.9).
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item \textbf{Fig. 5.1.} Ejes $L_A/A$ (horizontal) y $\dot A/A$ (vertical). Recta por el origen con pendiente $\bar\theta$. SCB en $L_A/A = n/\bar\theta$, con $\dot A/A = g_A = n$.
+\item \textbf{Impacto.} Con $s_R' > s_R$, $L_A$ salta y $A$ no alcanza a cambiar. $L_A/A$ salta a X. \textbf{La recta no se desplaza}, porque $\bar\theta$ no cambió: es un salto sobre la recta.
+\item \textbf{Transición.} En X, $\dot A/A > n$. $A$ crece más rápido que $L_A$, $L_A/A$ cae y la economía baja \textbf{por la recta} hasta $g_A = n$.
+\item \textbf{Fig. 5.2.} La tasa salta en $t = 0$ y vuelve gradualmente a $g_A$: efecto \textbf{transitorio} en la tasa.
+\item \textbf{Fig. 5.3.} $\log A$ termina en una recta paralela más alta: efecto \textbf{permanente} en el nivel.
+\item \textbf{Comentario.} (5.7) no contiene a $s_R$. Solo se mueve el nivel, y en $y^*$ también con el costo $(1-s_R)$. El libro compara esta dinámica con un alza de $s_K$ en Solow.
+\end{enumerate}
+
+\textbf{Variante:} si sube $\bar\theta$ en vez de $s_R$, la recta \textbf{sí} se empina. Ese es el caso de desplazamiento.
+
+\textbf{Corrección a la predicción del 29-10:} su pauta decía «recta se empina» al subir $s_R$ y usaba $L/A$ en el eje. En un control de lectura usa la figura del libro: eje $L_A/A$, recta fija.
+
+\subsection*{2. Monopolista y markup (46 \%)}
+
+\emph{«Plantee el problema de la firma de bienes intermedios y muestre que cobra un markup. ¿Por qué no cobra $r$?»}
+
+Derivación completa en 5.2.2, arriba: $\max_x p(x)x - rx$; CPO; $p'x/p = \alpha - 1$ desde (5.13); $p = r/\alpha$.
+
+\textbf{Comentario.} No cobra $r$ porque tiene poder de mercado y enfrenta una demanda con pendiente negativa. Además, \textbf{no podría}: con precio igual a costo marginal tendría beneficio cero y no recuperaría la patente, que es un costo fijo. El markup es lo que financia la idea, por eso los rendimientos crecientes requieren competencia imperfecta.
+
+\textbf{Precisión de lenguaje:} el libro llama «elasticidad» a $p'x/p = \alpha - 1$. Es la inversa de la elasticidad precio de la demanda, que vale $1/(\alpha-1)$; en valor absoluto, $1/(1-\alpha)$.
+
+\subsection*{3. $y^*(t)$ y el efecto escala (39 \%)}
+
+\emph{«Interprete (5.11). ¿Cómo afecta $s_R$? ¿Por qué una economía más grande es más rica?»}
+
+Se parte de (5.10) y se usa $A = \bar\theta s_R L/g_A$, que sale de (5.9) en la SCB. Luego:
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item $s_K$ como en Solow.
+\item $s_R$ dos veces, con signos opuestos: menos productores de bienes y más ideas.
+\item $y^* \propto L$ es efecto escala en \textbf{niveles}, por no rivalidad: demanda (mercado mayor) y oferta (más creadores).
+\end{itemize}
+
+\textbf{Trampa:} distingue \textbf{$n$} de \textbf{$L$}. Un $L$ mayor sube el nivel. Un $n$ mayor sube $g_A$ en (5.7), pero está en denominadores de (5.11) y baja ese nivel. Son preguntas distintas.
+
+\subsection*{4. Derivar $g_A$ (34 \%)}
+
+\emph{«A partir de (5.4), muestre que $g_A = \lambda n/(1-\phi)$. ¿Por qué no aparece $s_R$?»}
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item Dividir (5.4) por $A$: (5.5).
+\item En la SCB, $\dot A/A$ es constante. Logaritmos: $\ln(\dot A/A) = \ln\bar\theta + \lambda\ln L_A - (1-\phi)\ln A$.
+\item Derivar respecto del tiempo: (5.6).
+\item $L_A = s_R L$ con $s_R$ constante $\Rightarrow$ $\dot L_A/L_A = n$. Despejar: (5.7).
+\end{enumerate}
+
+\textbf{Comentario.} $s_R$ no aparece porque, en (5.6), al ser constante no aporta crecimiento: solo $L$ hace crecer a $L_A$. Con $n = 0$, $g_A = 0$. Se requiere $\phi < 1$: con $\phi = 1$ y $n > 0$ no hay tasa constante, porque se acelera (caso 5.8). Mayor $\lambda$ o $\phi$ suben $g_A$ para un $n$ dado.
+
+\textbf{[caso]} Moore: $\lambda/(1-\phi) \approx 5$; toda la economía: $\approx 0{,}3$.
+
+\subsection*{5. Población (28 \%)}
+
+\emph{«Compare el efecto de la población en Solow y en Romer.» o «Si la población deja de crecer, ¿qué ocurre?»}
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item \textbf{Solow:} $n$ mayor baja el nivel de la SCB, porque cada trabajador tiene menos capital; no afecta la tasa de largo plazo.
+\item \textbf{Romer:} además, las personas son el insumo de las ideas y las ideas no se diluyen. Con (5.7), $n$ determina $g_A$. Con (5.11), $L$ mayor sube el nivel.
+\item \textbf{Si $n = 0$:} el crecimiento de largo plazo se detiene, aunque siguen apareciendo ideas nuevas.
+\item \textbf{Evidencia:} no sirve comparar países, porque el modelo describe a la frontera. El libro apunta a que el crecimiento de la población y del ingreso se aceleraron en la misma época.
+\end{itemize}
+
+\subsection*{6. $\phi$ y $\lambda$ (26 \%)}
+
+\emph{«Explique los parámetros de (5.4). ¿Por qué un investigador percibe rendimientos constantes?»}
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item $\lambda \in (0,1]$: $\lambda < 1$ es duplicación, «pisarse los pies».
+\item $\phi > 0$: «sobre hombros de gigantes». $\phi < 0$: «agotamiento de la pesca». $\phi = 0$: se compensan.
+\item \textbf{Individuo:} toma $\theta$ como dado y percibe $\dot A = \theta L_A$, con rendimientos constantes. Son \textbf{externalidades} porque no internaliza su efecto sobre los demás, como un conductor en una carretera congestionada.
+\end{itemize}
+
+\textbf{Trampa:} la frase de los hombros de gigantes es de \textbf{Newton}, citando a sus antecesores como Kepler, según el libro. En clase 7 Droller la atribuyó a Einstein, «si no me equivoco». Responde con el libro.
+
+\subsection*{7. Comente: «Un subsidio a la I+D sube el crecimiento de largo plazo» (25 \%)}
+
+\textbf{Falso} en este modelo. $s_R$ no está en (5.7): la tasa sube solo en la transición (Fig. 5.2) y el efecto permanente es sobre el nivel (Fig. 5.3). Lo mismo vale para $s_K$. Solo sería cierto con $\phi = 1$ o un supuesto equivalente, pero eso predice una aceleración que los datos rechazan (Jones 1995a).
+
+\subsection*{8. Bienes finales y CPO (24 \%)}
+
+\emph{«Plantee el problema de las firmas de bienes finales y derive (5.12) y (5.13).»}
+
+Problema en 5.2.1, arriba. Derivar respecto de $L_Y$ da (5.12). Derivar respecto de cada $x_j$ da (5.13). Hay competencia perfecta y precio de $Y$ igual a 1; el número de firmas queda indeterminado por los rendimientos constantes. (5.13) es la demanda inversa que enfrenta el monopolista.
+
+\subsection*{9. Comente: «Con investigadores constantes, el progreso técnico se detiene» (19 \%)}
+
+\textbf{Falso.} Con $\bar\theta L_A = 100$ siempre se crean cien ideas (p. 105). Lo que tiende a cero es la \textbf{tasa} $g_A$, porque esas cien ideas son una fracción cada vez menor de $A$. Para crecer exponencialmente hace falta un $L_A$ creciente.
+
+\subsection*{10. Romer original (19 \%)}
+
+\emph{«¿Qué supone Romer (1990) y por qué se rechaza?»}
+
+$\lambda = \phi = 1$, ec. (5.8): la productividad investigadora es proporcional a $A$ y hay crecimiento con $L_A$ constante. Como $L_A$ aumentó muchísimo, $g$ debería haberse acelerado, y en EE. UU. estuvo cerca de 1,8 \% por un siglo. No rechaza los derrames, solo $\phi = 1$ exacto.
+
+\textbf{Comente asociado (2 \%):} «$\phi < 1$ implica que no hay derrames»: \textbf{falso}, $\phi$ puede ser positivo y grande (el caso Moore da $\approx$ 0,8).
+
+\subsection*{11. Beneficio y recuperar (5.1) (18 \% y 7 \%)}
+
+\emph{«Muestre (5.14), (5.15) y que se llega a (5.16).»}
+
+$\pi = (p-r)x$ con $r = \alpha p$ $\Rightarrow$ $\pi = (1-\alpha)px$. Como $p = \alpha L_Y^{1-\alpha}x^{\alpha-1}$ $\Rightarrow$ $px = \alpha L_Y^{1-\alpha}x^\alpha = \alpha Y/A$. Por lo tanto $\pi = \alpha(1-\alpha)Y/A$. Luego $x = K/A$, y reemplazando se llega a (5.16). \textbf{Comentario:} el agregado es igual a (5.1), con $A$ como número de variedades. Se reparte el mismo capital en más variedades y se produce más, porque cada una tiene rendimientos decrecientes.
+
+\subsection*{12. Marco (14 \% cada una)}
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item \textbf{Qué agrega a Solow:} $A$ endógeno, generado por personas que buscan ganancias. Pero en la SCB se parece a Solow: la política no mueve la tasa de largo plazo.
+\item \textbf{Rendimientos:} constantes en $K$ y $L_Y$ con $A$ dado; crecientes al contar $A$; por no rivalidad (Jobs y Wozniak, p. 100).
+\end{itemize}
+
+\subsection*{13. Tres sectores (10 \%)}
+
+La tabla de 5.2 es la respuesta. Finales con competencia perfecta, intermedios con monopolio e investigación crea ideas. Sin el monopolio no se financia la idea.
+
+\subsection*{Respuestas de una línea para las demás}
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item \textbf{SCB (5 \%):} $g_y = g_k = g_A$; se apoya en la razón capital-producto constante.
+\item \textbf{Frontera (5 \%):} el modelo describe a los países avanzados en conjunto, por eso no se contrasta entre países.
+\item \textbf{Dos pasos (4 \%):} primero $A$ (no depende de $K$ ni de $Y$), luego Solow.
+\item \textbf{Schumpeter (1 \%):} Romer son variedades; la línea de Schumpeter son calidades.
+\end{itemize}
+
+\section*{5. Las trampas, juntas}
+
+\begin{enumerate}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item \textbf{Fig. 5.1:} el eje es $L_A/A$. Al subir $s_R$ no se mueve la recta: se salta sobre ella. Solo un alza de $\bar\theta$ la empina.
+\item \textbf{Tasa contra nivel:} $s_R$ y $s_K$ mueven el nivel; solo $n$, $\lambda$ y $\phi$ mueven $g_A$.
+\item \textbf{$n$ contra $L$:} $n$ está en la tasa; $L$ en el nivel. No son el mismo efecto.
+\item \textbf{«Se detiene»:} con $L_A$ constante no se detienen las ideas, se apaga la tasa.
+\item \textbf{$\phi < 1$} no significa sin derrames.
+\item \textbf{Monopolista:} cobra $r/\alpha$, no $r$.
+\item \textbf{Fuera de la lectura:} $rK = \alpha^2 Y$, $P_A = \pi/r$ y $s_R$ de equilibrio (5.2.3-5.2.4). No los necesitas para responder.
+\item \textbf{Newton}, no Einstein.
+\end{enumerate}
+
+\section*{6. Fuentes del caso}
+
+Nada de esto es materia de prueba.
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+\item \textbf{Bloom, Jones, Van Reenen y Webb (2020),} \emph{Are Ideas Getting Harder to Find?}, AER 110(4). Leído directo: más de 18 veces desde 1971, -6,8 \% anual, densidad 35 \% anual; $\beta$ de 3,1 (agregado) y 0,2 (Moore). La tabla de resultados salió desalineada al extraer el texto; los valores se corroboran en la p. 1135.
+\item \textbf{Jones (2022),} \emph{The End of Economic Growth? Unintended Consequences of a Declining Population}, AER 112(11). Leído directo.
+\item \textbf{Jones (1995),} \emph{R\&D-Based Models of Economic Growth}, JPE 103(4). No se pudo abrir: la lectura de $\phi < 1$ viene del libro y de fuentes secundarias. Por eso no uso cifras suyas.
+\item \textbf{Moore:} Computer History Museum y ETHW.
+\item \textbf{Apple:} Network World, solo resultado de búsqueda (confianza media).
+\item \textbf{ASML:} margen bruto en su comunicado de resultados ante la SEC (alta). «EUV exclusivo» viene de su sitio web (media-alta).
+\item \textbf{Cálculo propio:} $\phi \approx 0{,}8$, los 2 \%, 1,98 y 69 años.
+\end{itemize}
+
+\end{document}

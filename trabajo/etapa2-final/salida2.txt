@@ -1,0 +1,37 @@
+Hubo 11 avisos (use warnings() para verlos)
+N = 168714  Y1 = 60234 
+                                 regla casos
+1                     ID_aux duplicado     0
+2 Promedio de notas fuera de 4,0 a 7,0     0
+3     Puntaje NEM fuera de 100 a 1.000     0
+4                Edad menor de 16 años     5
+5                Edad de 20 años o más  4439
+6                Edad de 30 años o más  1898
+edad max: 71 
+  paso            sale   vif    iv ratio juicio
+1    1        PTJE_NEM 17.76 0.394  45.1  FALSE
+2    2    PTJE_RANKING 10.16 0.376  27.0  FALSE
+3    3 INGRESO_COLEGIO  2.33 0.106  22.0   TRUE
+4    4  PORC_SUP_NOTAS  3.08 0.193  15.9  FALSE
+vars_sel: CLEC_REG_ACTUAL MATE1_REG_ACTUAL PROMEDIO_NOTAS TP_DUMMY DEPENDENCIA_3 EDAD_MESES BEA RINDE_M2 
+[1] TRUE
+                     Estimate Std. Error   z value Pr(>|z|)
+(Intercept)           -0.5817     0.0057 -102.9132   0.0000
+CLEC_REG_ACTUAL_woe    0.5490     0.0092   59.8525   0.0000
+MATE1_REG_ACTUAL_woe   0.4520     0.0100   45.1035   0.0000
+PROMEDIO_NOTAS_woe     0.4286     0.0105   40.8395   0.0000
+TP_DUMMY_woe           0.3356     0.0189   17.7793   0.0000
+DEPENDENCIA_3_woe     -0.0111     0.0189   -0.5909   0.5546
+EDAD_MESES_woe         0.1235     0.0279    4.4326   0.0000
+BEA_woe               -0.0030     0.0313   -0.0958   0.9237
+RINDE_M2_woe          -0.0626     0.0378   -1.6551   0.0979
+               variable  gvif
+                 <char> <num>
+1:  CLEC_REG_ACTUAL_woe 1.589
+2: MATE1_REG_ACTUAL_woe 1.729
+3:   PROMEDIO_NOTAS_woe 1.305
+4:         TP_DUMMY_woe 1.138
+5:    DEPENDENCIA_3_woe 1.248
+6:       EDAD_MESES_woe 1.036
+7:              BEA_woe 1.141
+8:         RINDE_M2_woe 1.106

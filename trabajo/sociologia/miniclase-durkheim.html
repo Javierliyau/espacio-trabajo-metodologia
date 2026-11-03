@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Durkheim · Temporada 3 · Mini clase para la Prueba 1</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 10.6pt; line-height: 1.42; color: #1d1d1f; margin: 0; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; margin: 0; }
+  .cover { background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 55%, #ef4444 100%); color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 14px; }
+  .cover .kicker { letter-spacing: 3px; font-size: 9pt; text-transform: uppercase; opacity: .85; }
+  .cover h1 { font-size: 34pt; line-height: 1.05; margin: 6px 0 4px; }
+  .cover .sub { font-size: 12pt; opacity: .95; }
+  .card { display: flex; gap: 14px; border: 2px solid #1d1d1f; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; background: #fffbea; }
+  .card .avatar { font-size: 44pt; line-height: 1; }
+  .card table { border-collapse: collapse; font-size: 9.8pt; }
+  .card td { padding: 1px 8px 1px 0; vertical-align: top; }
+  .card td:first-child { font-weight: 700; white-space: nowrap; }
+  .legend { font-size: 9pt; color: #444; margin: 0 0 12px; }
+  .ep { border-left: 6px solid #b91c1c; padding: 2px 0 2px 12px; margin: 14px 0 6px; page-break-inside: avoid; }
+  .ep .n { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #b91c1c; font-weight: 700; }
+  .ep h2 { font-size: 15pt; }
+  .block { page-break-inside: avoid; }
+  .profe { background: #eef4ff; border: 1px solid #b6c9f0; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .profe::before { content: "🎙 El profe dijo: "; font-weight: 700; color: #1e40af; }
+  .profe .t { color: #64748b; font-size: 8.5pt; }
+  .libro { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .libro::before { content: "📖 La lectura: "; font-weight: 700; color: #374151; }
+  .trampa { background: #fff1f2; border: 1.5px dashed #e11d48; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .trampa::before { content: "⚠ Trampa de prueba: "; font-weight: 700; color: #be123c; }
+  .tip { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .tip::before { content: "💡 Para recordarlo: "; font-weight: 700; color: #047857; }
+  .building { width: 78%; margin: 8px auto; text-align: center; font-size: 9.8pt; }
+  .roof { background: #fde68a; border: 2px solid #92400e; border-radius: 8px 8px 0 0; padding: 6px; }
+  .roof .row { display: flex; gap: 6px; margin-top: 4px; }
+  .roof .row div { flex: 1; background: #fff7d6; border: 1px solid #b45309; border-radius: 6px; padding: 4px; }
+  .arrow { font-size: 9pt; color: #92400e; padding: 3px 0; border-left: 2px solid #92400e; border-right: 2px solid #92400e; background: #fffdf3; }
+  .base { background: #78350f; color: #fff; border: 2px solid #78350f; border-radius: 0 0 8px 8px; padding: 7px; }
+  table.saga { width: 100%; border-collapse: collapse; font-size: 9.6pt; margin: 6px 0; }
+  table.saga th { background: #1d1d1f; color: #fff; text-align: left; padding: 5px 7px; }
+  table.saga td { border-bottom: 1px solid #ddd; padding: 5px 7px; vertical-align: top; }
+  table.saga tr:nth-child(even) td { background: #fafafa; }
+  .clock { display: flex; height: 30px; border-radius: 8px; overflow: hidden; margin: 8px 0 2px; font-weight: 700; font-size: 10pt; color: #fff; }
+  .clock .paid { flex: 6; background: #16a34a; display: flex; align-items: center; justify-content: center; }
+  .clock .free { flex: 10; background: #b91c1c; display: flex; align-items: center; justify-content: center; }
+  .clocklbl { display: flex; font-size: 8.5pt; color: #555; }
+  .clocklbl div:first-child { flex: 6; text-align: center; } .clocklbl div:last-child { flex: 10; text-align: center; }
+  .formulas { display: flex; gap: 10px; margin: 6px 0; }
+  .formulas div { flex: 1; border: 2px solid #1d1d1f; border-radius: 10px; padding: 8px 10px; }
+  .formulas .f { font-family: Consolas, monospace; font-size: 15pt; font-weight: 700; }
+  .alien { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 0; }
+  .alien div { border: 1px solid #c4b5fd; background: #f5f3ff; border-radius: 8px; padding: 6px 9px; }
+  .alien b { color: #6d28d9; }
+  .bridge { display: flex; gap: 8px; margin: 6px 0; }
+  .bridge div { flex: 1; border-radius: 10px; padding: 8px 10px; color: #fff; font-size: 9.8pt; }
+  .newpage { page-break-before: always; }
+  .quiz { border: 2.5px solid #1d1d1f; border-radius: 14px; padding: 12px 16px; background: #fffdf5; }
+  .quiz h2 { font-size: 17pt; margin-bottom: 2px; }
+  .quiz ol { padding-left: 20px; margin: 8px 0 0; }
+  .quiz li { margin-bottom: 11px; }
+  .bet { float: right; font-size: 9pt; color: #555; }
+  .bet span { display: inline-block; width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 4px; text-align: center; line-height: 13px; margin-left: 3px; font-size: 8pt; }
+  .score { font-size: 9.5pt; background: #f1f5f9; border-radius: 8px; padding: 7px 10px; margin-top: 6px; }
+  .tweet { border: 1px solid #cbd5e1; border-radius: 12px; padding: 9px 12px; margin: 8px 0; background: #fff; }
+  .tweet .who { font-weight: 700; } .tweet .who span { color: #64748b; font-weight: 400; }
+  ul.t { margin: 4px 0; padding-left: 18px; } ul.t li { margin-bottom: 3px; }
+  .foot { font-size: 8pt; color: #777; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 5px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Sociología Económica · Prueba 1 · mié 28-10</div>
+  <h1>DURKHEIM<br>Temporada 3</h1>
+  <div class="sub">8 episodios cortos · unos 15 minutos · con las frases del profe (repaso de la clase 5) y Timasheff</div>
+</div>
+
+<div class="card">
+  <div class="avatar">📊</div>
+  <table>
+    <tr><td>Personaje</td><td>Émile Durkheim, francés y judío, nacido en Épinal (Lorena): <b>1858-1917</b> según Timasheff (⚠ Schettino da <b>1860</b>). Fue profesor en Burdeos (1887) y París (1902). Su maestro fue <b>Comte</b>, y fundó la revista <i>L'Année sociologique</i> (1896).</td></tr>
+    <tr><td>Superpoder</td><td>Ve lo que ningún individuo ve solo: <b>la sociedad como una cosa</b>, que se puede medir con estadísticas.</td></tr>
+    <tr><td>Pregunta</td><td>No es la explotación (Marx) ni el sentido (Weber), sino el <b>consenso</b>: <b>¿qué mantiene unida a la sociedad?</b></td></tr>
+    <tr><td>Enemigo</td><td>La <b>anomia</b>: la falta de normas.</td></tr>
+    <tr><td>Rivales</td><td><b>Spencer</b> (individualismo), <b>Tarde</b> (la imitación) y <b>Weber</b>, que lo critica por quedarse en la «pura exterioridad».</td></tr>
+    <tr><td>Discos</td><td><b><i>La división del trabajo social</i> (1893)</b> · <b><i>Las reglas del método sociológico</i> (1895)</b> · <b><i>El suicidio</i> (1897)</b> · <b><i>Las formas elementales de la vida religiosa</i> (1912)</b></td></tr>
+  </table>
+</div>
+
+<p class="legend">🎙 = frase del profe (C5 = clase 5, con el minuto) · 📖 = Timasheff (T) o Schettino (S) · ⚠ = donde suelen pillar en V/F. Durkheim se vio en las clases 3-4, que no se grabaron: lo del profe sale de su repaso en la clase 5.</p>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 1</div><h2>El hecho social: lo que te presiona desde afuera</h2></div>
+<p>📖 Son «maneras de actuar, de pensar y de sentir» que están <b>fuera del individuo</b> y tienen el poder de <b>obligarlo</b> (<b>coacción</b>). No los inventaste tú: ya estaban cuando naciste, y si te sales de ellos hay sanción, sea una multa o que te miren raro.</p>
+<div class="profe">El hecho social <b>presiona</b> al individuo a obedecer y aparece como <b>«un patrón generalizado, una tendencia»</b>, así que invita a trabajar con <b>datos y estadísticas</b>. Ejemplos: el <b>dinero, la ley, la moda</b>. Algunos se «cristalizan» y pasan a ser <b>instituciones</b>, como el <b>matrimonio</b>. <span class="t">(C5, 00:07:20)</span></div>
+<p>¿Te acuerdas del semáforo? 15 peatones se detienen en rojo. Durkheim no pregunta por qué lo hace cada uno: ve la <b>eficacia de la norma</b>. La regla <b>se trata «como una cosa»</b>, desde afuera, sin introspección y sin prejuicios.</p>
+<div class="formulas">
+  <div><b>✅ Sí es hecho social</b><br>la ley de tránsito · la moda · el idioma · el matrimonio · el entusiasmo de una muchedumbre (una «corriente social»)</div>
+  <div><b>❌ No es hecho social</b><br><b>bostezar porque otro bostezó</b>: eso es imitación, y es la tesis de <b>Tarde</b>, no la de Durkheim</div>
+</div>
+<div class="trampa">«Lo que define al hecho social es que sea universal» → <b>F</b>. Lo definen la <b>coacción</b> y la <b>exterioridad</b> (y la difusión general), no la universalidad (T p. 142). «La imitación es el hecho social por excelencia» → <b>F</b>: esa es la tesis de Tarde.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 2</div><h2>Lo social se explica por lo social</h2></div>
+<p>La sociedad es una realidad <b><i>sui generis</i></b>: <b>no es la suma de los individuos</b>. Timasheff lo explica con la célula: la vida no está en cada átomo, sino en cómo se combinan. Esa postura se llama <b>realismo social</b> y es lo contrario del individualismo de Spencer.</p>
+<div class="libro">La regla de oro del método: «la causa determinante de un hecho social debe buscarse entre los <b>hechos sociales que le han precedido</b>». Si lo explicas con la psicología de cada uno, la explicación es <b>falsa</b>. <span class="t">(T pp. 151-152)</span></div>
+<p>Otras herramientas del método: el de las <b>variaciones concomitantes</b>, que compara cómo varían dos tasas entre grupos; la idea de <b>una causa por cada efecto</b>; y separar la <b>causa</b> de un hecho de su <b>función</b>, es decir, la necesidad social a la que responde.</p>
+<div class="trampa">«Para Durkheim, la sociedad es la suma de los individuos» → <b>F</b>. «Un hecho social puede explicarse por causas psicológicas individuales» → <b>F</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 3 · ⭐ «tres cosas al mismo tiempo»</div><h2>Conciencia colectiva y las dos solidaridades</h2></div>
+<div class="profe">La conciencia colectiva es <b>«el cúmulo de ideas y de prácticas que unen a los grupos sociales»</b>. Hay que ver <b>«tres cosas al mismo tiempo»</b>: la solidaridad, la conciencia colectiva y el papel de esta en cada tipo de solidaridad. Las dos solidaridades son <b>«dos formas históricas del vínculo social»</b>. <span class="t">(C5, 01:55:32)</span></div>
+<table class="saga">
+  <tr><th></th><th>MECÁNICA 🏘</th><th>ORGÁNICA 🏙</th></tr>
+  <tr><td><b>Sociedad</b></td><td>Tradicional</td><td>Moderna</td></tr>
+  <tr><td><b>Une por…</b></td><td><b>semejanza</b>: todos piensan y hacen más o menos lo mismo</td><td><b>diferencia</b> e <b>interdependencia</b>: cada uno hace algo distinto y todos se necesitan</td></tr>
+  <tr><td><b>Conciencia colectiva</b></td><td><b>Cubre</b> la conciencia individual</td><td><b>Se debilita</b> (no desaparece) y <b>«llega la conciencia individual»</b></td></tr>
+  <tr><td><b>Derecho</b></td><td><b>Represivo</b> (penal): castigar al que se desvía</td><td><b>Restitutivo</b> (civil, comercial): reparar y volver las cosas a su lugar</td></tr>
+  <tr><td><b>Ejemplo</b></td><td>Una aldea que castiga duro al que rompe la norma religiosa</td><td>La ciudad: dependes del panadero, la médica y el chofer de la micro</td></tr>
+</table>
+<div class="tip">Truco para no confundirte: <b>orgánica = órganos de un cuerpo</b>. El corazón y el pulmón son distintos y se necesitan, como las profesiones. <b>Mecánica = piezas iguales</b>, como tornillos idénticos. «Orgánica» suena antigua o natural, pero <b>es la moderna</b>.</div>
+<div class="trampa">«La solidaridad mecánica es propia de las sociedades industriales» → <b>F</b>. «A la orgánica le corresponde el derecho penal» → <b>F</b>: le corresponde el restitutivo. «Con la orgánica desaparece la conciencia colectiva» → <b>F</b>: se debilita.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 4</div><h2>La división del trabajo: el motor</h2></div>
+<p>¿Qué hace pasar a una sociedad de la solidaridad mecánica a la orgánica? La <b>división social del trabajo</b>, que es la separación de funciones y la especialización.</p>
+<div class="profe">Es un cambio <b>material o económico</b> con <b>consecuencias culturales</b>: el individuo se desmarca del grupo y exige un ámbito propio. <span class="t">(C5, ~01:57)</span></div>
+<p>📖 Según Timasheff, la <b>causa</b> de la división del trabajo es el aumento de la <b>densidad de la población</b>: más gente en contacto produce más competencia y, con ella, especialización. Su <b>función</b> es <b>integrar</b> la sociedad.</p>
+<div class="formulas">
+  <div><b>Smith / economía</b><br>La división del trabajo sirve para producir más (productividad).</div>
+  <div><b>Durkheim</b><br>La división del trabajo <b>produce cohesión</b>: crea un nuevo vínculo moral, la solidaridad orgánica.</div>
+</div>
+<div class="trampa">«La causa de la división del trabajo es la búsqueda de productividad o de felicidad» → <b>F</b> según Timasheff: la causa es la <b>densidad de la población</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 5</div><h2>Anomia: cuando se acaban las reglas</h2></div>
+<p><b>Anomia</b> = <b>falta de norma</b>, ausencia de una orientación normativa superior como la que antes daba la fe. Schettino la resume como «la ley del más fuerte». Para el profe aparece en <b>todas las esferas que aglutinan</b>: la política, la justicia y la educación.</p>
+<div class="profe">La anomia tiene dos efectos. Uno <b>ocasional</b>, el <b>«escándalo social»</b>: delitos de quien no se siente moralmente obligado. Y uno <b>macro y existencial</b>, el <b>«mal del infinito»</b>: <b>«yo soy la medida de mi propia satisfacción»</b>. Nunca haces lo suficiente, saltas de un objetivo a otro y lo conseguido <b>«se vuelve gris»</b>. Se conecta con la <b>lógica adquisitiva del consumo</b>. <span class="t">(C5, ~02:00)</span></div>
+<div class="tip">Es el mismo vacío que en Weber, por otro camino. Weber llega por el <b>desencantamiento</b> (sobra cálculo y falta sentido); Durkheim, por la <b>anomia</b> (faltan normas que pongan límite al deseo); Marx, por la <b>alienación</b> (el trabajo empobrecido).</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 6</div><h2><i>El suicidio</i> (1897): lo más íntimo también es social</h2></div>
+<p>El golpe maestro: toma el acto que parece más <b>individual</b>, quitarse la vida, y muestra que la <b>tasa</b> de suicidios varía según el grupo de forma estable. Esa tasa es un <b>hecho social</b>.</p>
+<table class="saga">
+  <tr><th>Tipo</th><th>Por qué</th><th>Ejemplo (Timasheff)</th></tr>
+  <tr><td><b>Egoísta</b></td><td><b>Poca integración</b> al grupo</td><td>Célibes, protestantes</td></tr>
+  <tr><td><b>Anómico</b></td><td><b>Trastorno de las normas</b> por cambios súbitos</td><td>Quiebra o crisis económica brusca</td></tr>
+  <tr><td><b>Altruista</b></td><td><b>Integración excesiva</b>: el grupo vale más que uno</td><td>Ejércitos, pueblos primitivos</td></tr>
+</table>
+<div class="trampa">«El suicidio de protestantes y célibes es anómico» → <b>F</b>: es <b>egoísta</b>, por poca integración.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 7</div><h2>La religión: la sociedad adorándose a sí misma</h2></div>
+<p>En <i>Las formas elementales de la vida religiosa</i> (1912) estudia el <b>tótem</b> de los <b>arunta</b> (Australia). Toda religión divide el mundo en <b>sagrado</b> y <b>profano</b>. Su tesis es que la religión es <b>la sociedad personificada</b>: al adorar el tótem, el clan se adora a sí mismo. Su función es la <b>solidaridad</b>.</p>
+<div class="trampa">«Para Durkheim, la religión es una ilusión sin función social» → <b>F</b>. Ojo con el cruce: para <b>Marx</b>, la religión es ideología (superestructura); para <b>Weber</b>, la ética calvinista tiene una afinidad con el capitalismo; para <b>Durkheim</b>, produce cohesión.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 8 · final de temporada</div><h2>Durkheim, el optimista: la escuela como salida</h2></div>
+<div class="profe">Durkheim tenía un diagnóstico <b>«más amable y auspicioso»</b>: confiaba en la <b>educación republicana</b>. Las virtudes no tienen por qué ser religiosas: ser responsable, trabajador y puntual puede caracterizar <b>«a un chileno»</b>. <span class="t">(C5, 01:38:07-01:41:42)</span></div>
+<table class="saga">
+  <tr><th>1.° Repetición</th><th>2.° Comprensión reflexiva</th><th>Resultado</th></tr>
+  <tr><td>Rutina y ritual: puntualidad, respetar el turno para hablar, someterse a evaluaciones.</td><td>Entender el porqué: «la puntualidad es respeto del tiempo de otros».</td><td>Individuos <b>libres</b>, con la <b>libertad como autogobierno</b>: elegir con conocimiento valores valiosos para mí y para otros, no «hacer lo que uno quiere».</td></tr>
+</table>
+<div class="trampa">«Durkheim, como Weber, es pesimista sobre la modernidad» → <b>F</b>. Weber ve una jaula de hierro sin salida; Durkheim ve una salida en la escuela.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Crossover</div><h2>Los 3 clásicos en una tabla</h2></div>
+<table class="saga">
+  <tr><th></th><th>Marx</th><th>Weber</th><th>Durkheim</th></tr>
+  <tr><td>Pregunta central</td><td>La <b>explotación</b> y el cambio</td><td>El <b>sentido</b> de la acción</td><td>El <b>consenso</b>: qué nos une</td></tr>
+  <tr><td>Se mira desde…</td><td>Las clases y la base económica</td><td><b>Adentro</b>: el individuo y su sentido</td><td><b>Afuera</b>: hechos sociales «como cosas»</td></tr>
+  <tr><td>Herramienta</td><td>Materialismo histórico</td><td>Comprensión y tipo ideal</td><td>Estadística y variaciones concomitantes</td></tr>
+  <tr><td>Malestar moderno</td><td><b>Alienación</b></td><td><b>Desencantamiento</b> y jaula de hierro</td><td><b>Anomia</b> y mal del infinito</td></tr>
+  <tr><td>¿Salida?</td><td>La revolución</td><td>No se ve (pesimista)</td><td>La educación republicana (optimista)</td></tr>
+  <tr><td>División del trabajo</td><td>Fragmenta y aliena</td><td>Especialización burocrática</td><td><b>Produce solidaridad</b> orgánica</td></tr>
+</table>
+</div>
+
+<div class="tweet"><div class="who">Durkheim en un tuit <span>@emile_1893</span></div>
+No te suicidas solo: hay una tasa. No inventaste el idioma ni la moda: te presionan desde afuera. Antes nos unía ser iguales; ahora, ser distintos y necesitarnos. Si se acaban las normas, viene la sed de infinito. Mi apuesta: más escuela, no menos. 📊</div>
+
+<div class="quiz newpage">
+  <h2>🎮 Ronda Durkheim</h2>
+  <div>Marca la respuesta y tu <b>apuesta</b> (1 = adivino · 2 = creo · 3 = seguro).</div>
+  <div class="score"><b>Puntaje:</b> acierto = +1 · acierto apostando 3 = <b>+2</b> · error apostando 3 = <b>−1</b> · racha de 3 = +1. Mándame en el chat: <code>1b-3, 2F-2, …</code></div>
+  <ol>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Durkheim propone tratar los hechos sociales:<br>a) como sentidos mentados · b) como cosas · c) como tipos ideales · d) como superestructura</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Según Timasheff, lo que define al hecho social es su universalidad.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Una aldea donde todos creen lo mismo y castigan con dureza al que se desvía tiene solidaridad:<br>a) orgánica · b) mecánica · c) anómica · d) restitutiva</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> A la solidaridad orgánica le corresponde el derecho restitutivo.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Según Timasheff, la causa de la división del trabajo es:<br>a) la búsqueda de productividad · b) el aumento de la densidad de la población · c) la lucha de clases · d) la ética protestante</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Con la solidaridad orgánica, la conciencia colectiva desaparece.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>«Yo soy la medida de mi propia satisfacción» describe:<br>a) el desencantamiento · b) la alienación · c) el mal del infinito · d) la jaula de hierro</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>El suicidio de célibes y protestantes, por baja integración, es:<br>a) anómico · b) egoísta · c) altruista · d) fatalista</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Para Durkheim, la imitación (bostezar porque otro bosteza) es un hecho social.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Ante el malestar moderno, ¿quién confía en la educación republicana como salida?<br>a) Marx · b) Weber · c) Durkheim · d) ninguno de los tres</li>
+  </ol>
+  <div class="score">🧑‍🔬 <b>Caso Einstein (2 min, sin puntaje):</b> en Chile, el «porcentaje de niños talentosos que no llegan a la universidad» se mantiene estable año tras año. ¿Por qué Durkheim diría que es un <b>hecho social</b> y que no se explica por la flojera de cada niño?</div>
+</div>
+
+<div class="foot">Fuentes: Timasheff, cap. 9 (pp. 140-155); Schettino, cap. 3; repaso de Durkheim en la clase 5 (21-10-2026, 00:07:20, 01:38-01:41 y 01:55-02:03), según la ficha de Durkheim del 24-10. Las clases 3 y 4 no se grabaron: los apuntes de Paula pueden agregar frases del profe.</div>
+
+</body>
+</html>

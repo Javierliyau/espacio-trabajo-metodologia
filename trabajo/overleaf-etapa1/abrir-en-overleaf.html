@@ -1,0 +1,518 @@
+<!doctype html><meta charset="utf-8"><title>Abrir en Overleaf</title>
+<body style="font-family:sans-serif;margin:3em"><h2>Econometría II · Etapa 1 (Beamer)</h2>
+<p>Crea un proyecto nuevo en tu cuenta de Overleaf con <code>main.tex</code> (pdfLaTeX).</p>
+<form action="https://www.overleaf.com/docs" method="post" target="_blank">
+<input type="hidden" name="snip_name" value="Econometria II - Etapa 1 (presentacion)">
+<input type="hidden" name="engine" value="pdflatex">
+<textarea name="snip" style="display:none">\begin{filecontents*}[overwrite]{cajas.sty}
+% =====================================================================
+%  cajas.sty -- Sistema semantico de cajas y convenciones TikZ
+%  Extraido del Manual de Estilo LaTeX (USACH)
+%  Compatible con article y beamer.
+% =====================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{cajas}[2026/07/31 Cajas semanticas y convenciones graficas]
+
+% --- MATEMATICAS -----------------------------------------------------
+\RequirePackage{amsmath,amssymb,amsthm,mathtools,bm}
+\RequirePackage{cancel}
+
+% --- REFERENCIAS -------------------------------------------------------
+% [hyphens] permite que \url corte tras un guion -- sin esto, un slug
+% largo sin &quot;/&quot; (tipo &quot;camara-chilena-de-la-construccion-...&quot;) no tiene
+% ningun punto de corte y se desborda del margen entero.
+% En beamer, hyperref ya carga url.sty antes de llegar aqui; pedirlo de
+% nuevo con otras opciones da &quot;Option clash&quot;. Si ya esta cargado, no lo
+% volvemos a pedir.
+\makeatletter
+\@ifpackageloaded{url}{}{\RequirePackage[hyphens]{url}}
+\makeatother
+
+% --- COLORES: table habilita \rowcolor -------------------------------
+\RequirePackage[dvipsnames,table]{xcolor}
+
+% --- CAJAS: [most] carga enhanced automaticamente --------------------
+\RequirePackage[most]{tcolorbox}
+\tcbuselibrary{breakable}
+
+% --- GRAFICOS --------------------------------------------------------
+\RequirePackage{tikz}
+\usetikzlibrary{decorations.pathreplacing, arrows.meta}
+\RequirePackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\RequirePackage{forest}
+
+% --- TABLAS Y LISTAS -------------------------------------------------
+\RequirePackage{multirow}
+\RequirePackage{booktabs}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\RequirePackage{graphicx}
+
+% =====================================================================
+%  ESTILOS GLOBALES DE CAJAS
+%  Mapa semantico:
+%    definicion -&gt; gris   -&gt; conceptos y definiciones
+%    teorema    -&gt; verde  -&gt; reglas, propiedades, tablas resumen
+%    ejemplo    -&gt; azul   -&gt; ejemplos ilustrativos
+%    nota       -&gt; ambar  -&gt; advertencias y conclusiones
+%    enunciado  -&gt; naranja-&gt; comentes (verdadero/falso)
+%    practica   -&gt; teal   -&gt; casos practicos numericos
+%
+%  POLITICA DE SALTO DE PAGINA (no breakable por defecto):
+%  Ninguna caja es &quot;breakable&quot; por defecto. Si el contenido no cabe en lo
+%  que resta de la pagina, la caja completa salta entera a la siguiente
+%  en vez de partirse a la mitad (asi nunca queda un titulo huerfano ni
+%  una lista cortada entre paginas).
+%
+%  Consecuencia: una caja MAS ALTA que una pagina no tiene adonde saltar
+%  completa y se desborda. Por eso el contenido largo (una &quot;Herramienta&quot;
+%  o &quot;Receta&quot; con varios pasos extensos, un ejemplo con 4+ Pasos de
+%  desarrollo) NO debe ir dentro de una caja: sacalo del sistema de cajas
+%  por completo (encabezado + texto corrido + enumerate normal). Ver la
+%  seccion &quot;Cuando NO usar una caja&quot; en CLAUDE.md para el criterio exacto.
+%
+%  Si en un caso raro una caja SI necesita partirse (contenido que no
+%  llega al umbral de &quot;sacar de la caja&quot; pero aun asi no cabe en una
+%  pagina), agrega `breakable` a mano en esa instancia puntual:
+%    \begin{tcolorbox}[teorema, breakable] ... \end{tcolorbox}
+%  y verifica con pdftoppm que el corte cae entre parrafos, nunca a mitad
+%  de un item de lista ni justo despues del titulo.
+% =====================================================================
+\tcbset{
+  boxrule=0.6pt, arc=3pt,
+  left=6pt, right=6pt, top=6pt, bottom=6pt,
+  definicion/.style={
+    enhanced,
+    colback=gray!5!white,
+    colframe=black!70,
+    title=\textbf{Definición},
+    fonttitle=\bfseries},
+  teorema/.style={
+    enhanced,
+    colback=green!8!white,
+    colframe=green!50!black,
+    title=\textbf{Teorema},
+    fonttitle=\bfseries},
+  ejemplo/.style={
+    enhanced,
+    colback=blue!5!white,
+    colframe=blue!70!black,
+    title=\textbf{Ejemplo},
+    fonttitle=\bfseries},
+  nota/.style={
+    enhanced,
+    colback=yellow!10!white,
+    colframe=orange!80!black,
+    title=\textbf{Nota},
+    fonttitle=\bfseries},
+  enunciado/.style={
+    enhanced,
+    colback=orange!8!white,
+    colframe=orange!85!black,
+    fonttitle=\bfseries},
+  practica/.style={
+    enhanced,
+    colback=teal!5!white,
+    colframe=teal!60!black,
+    fonttitle=\bfseries},
+}
+
+% =====================================================================
+%  ATAJOS DE CONTENIDO
+%  Encapsulan la estructura de un comente y de un caso practico
+%  para que no haya que reescribir el andamiaje cada vez.
+% =====================================================================
+
+% \comente{titulo}{enunciado}{VERDADERO|FALSO}{desarrollo}
+\newcommand{\comente}[4]{%
+  \begin{tcolorbox}[enunciado, title={\large\textbf{Comentario:} #1}]
+  \textbf{Enunciado:} \textit{``#2&#x27;&#x27;}
+
+  \medskip\hrule\medskip
+
+  \textbf{Pauta de Respuesta --- \textcolor{red}{#3}}
+
+  #4
+  \end{tcolorbox}%
+}
+
+% \begin{caso}{titulo} ... \end{caso}
+\newtcolorbox{caso}[1]{practica, title={\textbf{Caso Práctico:} #1}}
+
+% \begin{conclusion} ... \end{conclusion}   (para anidar dentro de caso)
+\newtcolorbox{conclusion}{nota, title=\textbf{Conclusión}}
+
+% =====================================================================
+%  CONVENCIONES DE COLOR PARA GRAFICOS
+%  Estilos TikZ nombrados: en vez de recordar &quot;blue!80!black, very thick&quot;
+%  se escribe [rp-original]. Cambiar el color aqui lo cambia en todo el curso.
+% =====================================================================
+\tikzset{
+  eje/.style={-&gt;, thick},
+  rp-original/.style={blue!80!black, very thick},
+  rp-nueva/.style={red!80!black, very thick, dashed},
+  rp-ficticia/.style={orange!80!black, dashed, very thick},
+  ci-optima/.style={red!70!black, very thick},
+  ci-otra/.style={black!50, thick},
+  proyeccion/.style={dashed, gray, thick},
+  senda/.style={green!50!black, dashed, thick},
+  llave/.style={decorate, decoration={brace, amplitude=6pt}, thick},
+  llave-inv/.style={decorate, decoration={brace, amplitude=6pt, mirror}, thick},
+  paso/.style={draw, rounded corners, fill=orange!12!white,
+               text width=5.5cm, align=center, inner sep=6pt,
+               font=\footnotesize},
+  flecha-paso/.style={-&gt;, very thick, orange!70!black},
+  % Areas sombreadas frecuentes
+  areaexcedente/.style={yellow!40, opacity=0.8},
+  areaganancia/.style={blue!30, opacity=0.7},
+  areanuevos/.style={green!40, opacity=0.8},
+  areaperdida/.style={orange!40, opacity=0.8},
+}
+
+\endinput
+\end{filecontents*}
+\begin{filecontents*}[overwrite]{slides.sty}
+% =====================================================================
+%  slides.sty -- Estilo para presentaciones (documentclass beamer)
+%  Reutiliza el mismo sistema de cajas que los apuntes.
+% =====================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{slides}[2026/07/31 Estilo de presentaciones]
+
+\RequirePackage[spanish, es-noshorthands]{babel}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+
+% cajas.sty NO carga geometry ni fancyhdr, por eso es seguro en beamer
+\RequirePackage{cajas}
+
+% Beamer trae su propio xcolor/tikz; estas lineas evitan choques
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+
+% Las cajas tcolorbox dentro de beamer necesitan menos padding
+\tcbset{
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+  fontupper=\small,
+}
+
+% Paleta del tema alineada a la semantica de cajas
+\definecolor{acento}{RGB}{31,90,140}
+\setbeamercolor{structure}{fg=acento}
+\setbeamercolor{frametitle}{fg=acento}
+\setbeamerfont{frametitle}{series=\bfseries}
+
+% =====================================================================
+%  Identidad y portada -- mismos comandos que estilo/apunte.sty, para
+%  que un documento nuevo se complete igual sea apunte o presentacion.
+% =====================================================================
+\newcommand{\@curso}{Curso}
+\newcommand{\curso}[1]{\renewcommand{\@curso}{#1}\subtitle{#1}}
+\newcommand{\autoria}[1]{\author{#1}}
+\newcommand{\institucion}[1]{\institute{#1}}
+
+% \logo{figuras/logo.png.png} -- va solo en la portada (\titlegraphic),
+% no en cada frame: repetirlo en cada slide compite con el frametitle.
+% Si el archivo no existe el documento compila igual, como en apunte.sty.
+\renewcommand{\logo}[1]{%
+  \titlegraphic{\IfFileExists{#1}{\includegraphics[height=1.1cm]{#1}}{}}%
+}
+
+% --- RESALTADO DE PUNTOS CLAVE ---------------------------------------
+% \destacar{texto} -- alias en espanol de \alert (respeta overlays,
+% \destacar&lt;2-&gt;{...} funciona igual que \alert&lt;2-&gt;{...}). Tinta ambar,
+% el mismo tono que la caja &quot;nota&quot; (orange!80!black en cajas.sty), para
+% que resaltar en slides use la misma semantica de color que en apuntes.
+\setbeamercolor{alerted text}{fg=orange!80!black}
+\let\destacar\alert
+
+% --- AGENDA RECURRENTE (opcional) ------------------------------------
+% Llamar \agendaporsecciones en el preambulo de presentaciones largas
+% (mas de ~15 slides o 3+ secciones). Inserta una slide de contenidos
+% al empezar cada \section, resaltando la seccion en curso. En
+% presentaciones cortas de una sola seccion no aporta nada: no activar.
+\newcommand{\agendaporsecciones}{%
+  \AtBeginSection[]{%
+    \begin{frame}{Contenidos}
+      \tableofcontents[currentsection]
+    \end{frame}
+  }%
+}
+
+\endinput
+\end{filecontents*}
+% =====================================================================
+%  Econometría II -- Presentación Etapa 1 (jue 15-10-2026, máx. 10 min)
+%  Fuente: informe-etapa-1-postulantes.tex (base de 108.251 x 30)
+%  Lo que evalúa el profesor (clase 08-10): población y N, creación de
+%  variables, y efecto esperado a priori de cada X sobre la Y.
+% =====================================================================
+\documentclass[aspectratio=169]{beamer}
+\usetheme{default}
+\usepackage{slides}
+
+\autoria{David Cuevas \and Javier Li-Yau \and Benjamín Lizana \and Ana Nacif}
+\institucion{Universidad de Santiago de Chile}
+
+\title{Matrícula en las tres primeras preferencias}
+\curso{Econometría II --- Trabajo práctico, Etapa 1 \quad Prof.\ Brian Pfeng}
+\date{15 de octubre de 2026}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Población}
+
+\begin{frame}{¿De qué depende que un postulante se matricule en una de sus tres primeras preferencias?}
+  \vfill
+  \begin{center}
+    {\Huge 55,7\,\%}\\[6pt]
+    {\large de los 108.251 postulantes de la promoción 2025 lo logró}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Todos los datos vienen de cuatro archivos públicos del DEMRE, admisión 2026}
+  \begin{center}
+  \small
+  \begin{tabular}{llr}
+    \toprule
+    \textbf{Archivo} &amp; \textbf{Qué aporta} &amp; \textbf{Filas} \\
+    \midrule
+    B: \texttt{ArchivoB\_Adm2026REG.csv} &amp; Inscritos: colegio, sexo, ingreso, PACE, BEA &amp; 317.700 \\
+    C: \texttt{ArchivoC\_Adm2026REG.csv} &amp; Notas, NEM, ranking y puntajes PAES &amp; 317.700 \\
+    D: \texttt{ArchivoD\_Adm2026REG.csv} &amp; Postulaciones (una fila por carrera) &amp; 1.686.689 \\
+    M: \texttt{ArchivoMatr\_Adm2026.csv} &amp; Matrícula: vía, tipo, preferencia, puntaje &amp; 128.345 \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  Se unen por \texttt{ID\_aux} en \destacar{una fila por estudiante}.
+  \vfill
+  {\footnotesize Fuente: DEMRE, Universidad de Chile, portal de bases de datos
+  del proceso de admisión 2026, y su libro de códigos. Procesamiento propio
+  en R (\texttt{tidyverse}, \texttt{writexl}).\par}
+\end{frame}
+
+\begin{frame}{Nuestra población son 108.251 egresados 2025 que postularon por la vía regular}
+  \begin{center}
+  \begin{tikzpicture}[x=1cm, y=0.62cm]
+    \foreach \etiqueta/\ancho/\n [count=\i] in {
+        {Unión de los cuatro archivos}/7.00/317.700,
+        {Egresados en 2025}/4.82/218.989,
+        {Alumnos regulares}/4.80/218.066,
+        {Postularon por vía regular}/2.53/114.865,
+        {No matriculados, o vía regular y tipo 1}/2.39/108.598} {
+      \pgfmathsetmacro{\yy}{-\i}
+      \fill[blue!25] (0,\yy-0.35) rectangle (\ancho,\yy+0.35);
+      \node[left, font=\small] at (0,\yy) {\etiqueta};
+      \node[right, font=\small] at (\ancho,\yy) {\n};
+    }
+    \fill[yellow!40] (0,-6.35) rectangle (2.39,-5.65);
+    \node[left, font=\small\bfseries] at (0,-6) {Rindieron el proceso y NEM $&gt;0$};
+    \node[right, font=\small\bfseries] at (2.39,-6) {$N=108.251$};
+  \end{tikzpicture}
+  \end{center}
+  \medskip
+  \destacar{Los que no se matricularon se quedan}; salen los matriculados por
+  otra vía o con otro tipo de matrícula.
+\end{frame}
+
+\begin{frame}{La $Y$ vale 0 si quedó en la 4.ª preferencia o más abajo, o si no se matriculó}
+  \[
+  \texttt{PREF\_TOP3\_DUMMY}_i =
+  \begin{cases}
+    1 &amp; \text{se matriculó en su 1.ª, 2.ª o 3.ª preferencia} \\[2pt]
+    0 &amp; \text{quedó en la 4.ª o más abajo, o no se matriculó}
+  \end{cases}
+  \]
+  \begin{center}
+  \begin{tikzpicture}[x=1cm, y=1cm]
+    \fill[green!45!black!35] (0,0) rectangle (6.13,1.0);
+    \fill[orange!55]         (6.13,0) rectangle (6.98,1.0);
+    \fill[red!35]            (6.98,0) rectangle (11.00,1.0);
+    \node[align=center, font=\small] at (3.07,0.5) {$Y=1$: preferencia 1 a 3};
+    \node[align=center, font=\small] at (8.99,0.5) {$Y=0$: no se matriculó};
+    \draw[-&gt;] (6.55,1.0) -- (6.55,1.4) node[above, font=\small] {$Y=0$: preferencia 4 o más};
+    \node[below, font=\small] at (3.07,0) {60.300 (55,7\,\%)};
+    \node[below, font=\small] at (6.55,-0.4) {8.403 (7,8\,\%)};
+    \node[below, font=\small] at (8.99,0) {39.548 (36,5\,\%)};
+  \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Variables creadas}
+
+\begin{frame}{Del estudiante creamos tres dummies, además de la $Y$}
+  \begin{center}
+  \begin{tabular}{llr}
+    \toprule
+    \textbf{Variable} &amp; \textbf{Construcción} &amp; \textbf{Con 1} \\
+    \midrule
+    \texttt{TP\_DUMMY} &amp; 1 si la rama es técnico profesional (T1 a T5) &amp; 18.877 \\
+    \texttt{PACE} &amp; 1 si fue preseleccionado PACE (vacío $\to$ 0) &amp; 7.790 \\
+    \texttt{BEA} &amp; 1 si tiene Beca de Excelencia Académica (vacío $\to$ 0) &amp; 9.916 \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  \begin{itemize}[itemsep=4pt]
+    \item El ingreso familiar 99 («prefiero no responder») pasa a \texttt{NA}:
+          29.199 casos (27\,\%).
+    \item Un puntaje 0 en Lectora o Matemática 1 es quien no rindió esa prueba.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Del colegio creamos tres variables, calculadas por RBD antes de filtrar}
+  \begin{center}
+  \begin{tabular}{lll}
+    \toprule
+    \textbf{Variable} &amp; \textbf{Cálculo por RBD} &amp; \textbf{Mediana} \\
+    \midrule
+    \texttt{N\_ALUMNOS} &amp; Inscritos del colegio en el proceso &amp; 129 \\
+    \texttt{INGRESO\_COLEGIO} &amp; Mediana del tramo de ingreso (sin el 99) &amp; 4 \\
+    \texttt{N\_MATRICULADOS} &amp; Matriculados vía regular, tipo 1 (0 si no hay) &amp; 54 \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  Se calculan con \destacar{todos los inscritos del colegio}, no solo con los
+  que quedan en la base. Usamos la mediana porque los tramos de ingreso son
+  ordinales y el último es abierto.
+\end{frame}
+
+% ---------------------------------------------------------------------
+\section{Efecto esperado}
+
+\begin{frame}{A mejor rendimiento académico, mayor probabilidad de quedar en las tres primeras}
+  \begin{center}
+  \begin{tabular}{lcl}
+    \toprule
+    \textbf{Variable} &amp; \textbf{Signo} &amp; \textbf{Por qué} \\
+    \midrule
+    \texttt{PTJE\_NEM}, \texttt{PTJE\_RANKING} &amp; $+$ &amp; Pesan en el puntaje ponderado \\
+    \texttt{CLEC}, \texttt{MATE1} &amp; $+$ &amp; Más puntaje, más carreras alcanzables \\
+    \texttt{BEA} (10\,\% mejor del curso) &amp; $+$ &amp; Buen rendimiento y beca para pagar \\
+    \texttt{PACE} &amp; $+$ &amp; Cupos garantizados en universidades PACE \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  El puntaje decide si \destacar{alcanza el corte} de las carreras que más
+  quiere.
+\end{frame}
+
+\begin{frame}{El contexto socioeconómico debería subir la probabilidad de matricularse arriba}
+  \begin{center}
+  \begin{tabular}{lcl}
+    \toprule
+    \textbf{Variable} &amp; \textbf{Signo} &amp; \textbf{Por qué} \\
+    \midrule
+    \texttt{INGRESO\_PERCAPITA} &amp; $+$ &amp; Puede pagar y preparar la PAES \\
+    \texttt{INGRESO\_COLEGIO} &amp; $+$ &amp; Entorno con más recursos y redes \\
+    \texttt{GRUPO\_DEPENDENCIA} &amp; $+$ &amp; Particular pagado frente a público \\
+    \texttt{TP\_DUMMY} &amp; $-$ &amp; Menos preparación PAES; más salida a CFT \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  El efecto del ingreso puede ser menor por la \destacar{gratuidad}: es
+  parte de lo que el modelo tiene que medir.
+\end{frame}
+
+\begin{frame}{En el colegio y el territorio, el signo no es obvio a priori}
+  \begin{center}
+  \begin{tabular}{lcl}
+    \toprule
+    \textbf{Variable} &amp; \textbf{Signo} &amp; \textbf{Por qué} \\
+    \midrule
+    \texttt{N\_MATRICULADOS} &amp; $+$ &amp; Cultura de seguir estudios en el colegio \\
+    \texttt{N\_ALUMNOS} &amp; ? &amp; Más recursos, pero menos atención por alumno \\
+    \texttt{CODIGO\_REGION} &amp; ? &amp; Más oferta en Santiago, pero más competencia \\
+    \texttt{SEXO} &amp; ? &amp; Mujeres: más NEM; hombres: más MATE1 \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  \texttt{N\_MATRICULADOS} se lee mejor como tasa: \destacar{matriculados
+  sobre inscritos} del colegio.
+\end{frame}
+
+\begin{frame}{Las variables de la matrícula no pueden ser $X$: solo existen si se matriculó}
+  \begin{center}
+  \begin{tabular}{ll}
+    \toprule
+    \textbf{Variable} &amp; \textbf{Problema} \\
+    \midrule
+    \texttt{PREFERENCIA} &amp; Con ella se construye la $Y$ \\
+    \texttt{PTJE\_POND} &amp; Es el puntaje de la carrera en que ya quedó \\
+    \texttt{VIA}, \texttt{TIPO\_MATRICULA} &amp; Vacías en los 39.548 no matriculados \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  Usarlas sería explicar la $Y$ \destacar{con la misma $Y$}: quedan en la
+  base solo como información.
+\end{frame}
+
+% ---------------------------------------------------------------------
+\begin{frame}{Lo que deja la Etapa 1 y lo que viene}
+  \begin{itemize}[itemsep=7pt]
+    \item Población: $N = 108.251$ egresados 2025 que postularon por la vía
+          regular, incluidos los no matriculados.
+    \item La $Y$ queda en 55,7\,\% frente a 44,3\,\%.
+    \item El rendimiento y el ingreso deberían subir la probabilidad; TP la
+          bajaría; colegio y región quedan abiertos.
+  \end{itemize}
+  \vfill
+  \begin{tcolorbox}[nota]
+  \textbf{Etapa 2:} cruzar cada $X$ con la $Y$ y agregar variables del
+  MINEDUC por RBD (cursos, alumnos por profesor, ruralidad).
+  \end{tcolorbox}
+\end{frame}
+
+% =====================================================================
+\appendix
+\section*{Respaldo}
+
+\begin{frame}{Respaldo: estadísticas de la base final}
+  \begin{center}
+  \begin{tabular}{lrrrr}
+    \toprule
+    \textbf{Variable} &amp; \textbf{Mín.} &amp; \textbf{Mediana} &amp; \textbf{Promedio} &amp; \textbf{Máx.} \\
+    \midrule
+    \texttt{PTJE\_NEM}          &amp; 163 &amp; 779 &amp; 767 &amp; 1.000 \\
+    \texttt{PTJE\_RANKING}      &amp; 163 &amp; 793 &amp; 781 &amp; 1.000 \\
+    \texttt{CLEC\_REG\_ACTUAL}  &amp; 0   &amp; 634 &amp; 640 &amp; 1.000 \\
+    \texttt{MATE1\_REG\_ACTUAL} &amp; 0   &amp; 645 &amp; 668 &amp; 1.000 \\
+    \texttt{INGRESO\_COLEGIO}   &amp; 1,0 &amp; 4,0 &amp; 4,8 &amp; 10,0 \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+  \medskip
+  3.196 colegios; 59.799 mujeres (55,2\,\%) y 48.452 hombres.
+\end{frame}
+
+\begin{frame}{Respaldo: resto de las variables continuas}
+  \begin{center}
+  \begin{tabular}{lrrrr}
+    \toprule
+    \textbf{Variable} &amp; \textbf{Mín.} &amp; \textbf{Mediana} &amp; \textbf{Promedio} &amp; \textbf{Máx.} \\
+    \midrule
+    \texttt{PROMEDIO\_NOTAS}           &amp; 4,20  &amp; 6,23  &amp; 6,19  &amp; 7,00 \\
+    \texttt{PTJE\_POND} (matriculados) &amp; 354,6 &amp; 710,7 &amp; 713,6 &amp; 998,4 \\
+    \texttt{N\_ALUMNOS}                &amp; 8     &amp; 129   &amp; 164   &amp; 947 \\
+    \texttt{N\_MATRICULADOS}           &amp; 0     &amp; 54    &amp; 70    &amp; 447 \\
+    \bottomrule
+  \end{tabular}
+  \end{center}
+\end{frame}
+
+\end{document}
+</textarea>
+<button type="submit" style="font-size:1.3em;padding:.6em 1.2em">Abrir en Overleaf</button></form>

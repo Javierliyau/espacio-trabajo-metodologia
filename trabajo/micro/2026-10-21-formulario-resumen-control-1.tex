@@ -1,0 +1,164 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage[most]{tcolorbox}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\columnsep}{16pt}
+\setlist{leftmargin=*,itemsep=1pt,topsep=2pt}
+
+\newtcolorbox{caja}[1]{colback=blue!4,colframe=blue!50!black,boxrule=0.5pt,arc=2pt,left=4pt,right=4pt,top=2pt,bottom=2pt,title={\small\bfseries #1},fonttitle=\small,toptitle=1pt,bottomtitle=1pt}
+\newtcolorbox{trampa}{colback=red!5,colframe=red!60!black,boxrule=0.5pt,arc=2pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries Microeconomía II (Mundaca) --- Formulario y resumen del Control 1}\\[2pt]
+{\small Monopolio $\cdot$ discriminación de 1.\textsuperscript{er}, 2.\textsuperscript{o} y 3.\textsuperscript{er} grado $\cdot$ competencia monopolística $\cdot$ Hotelling $\cdot$ (repaso de competencia perfecta). No entra teoría de juegos.}
+\end{center}
+\vspace{-4pt}
+\hrule
+\vspace{4pt}
+
+\begin{multicols}{2}
+
+\begin{caja}{0. Competencia perfecta (punto de comparación)}
+\begin{itemize}
+\item Precio-aceptante: $P = CMg$ (tramo creciente del $CMg$).
+\item \textbf{Cierre} (corto plazo): produce si $P \geq \min CVMe$; si $P < \min CVMe$, cierra y pierde solo el $CF$.
+\item \textbf{Largo plazo:} entrada y salida hasta $\pi = 0$ $\Rightarrow$ $P = CMg = \min CMe$.
+\item Es eficiente en Pareto: no queda ningún trato con valoración $> CMg$ sin hacer.
+\end{itemize}
+\end{caja}
+
+\begin{caja}{1. Monopolio: la receta del matemático}
+\begin{enumerate}
+\item Dar vuelta la demanda: $q = \alpha - \frac{p}{\beta} \;\Rightarrow\; P = \alpha\beta - \beta q$.
+\item Lineal $P = a - bQ$ $\Rightarrow$ $IT = aQ - bQ^2$, $\;IMg = a - 2bQ$.
+\item $CMg = c'(q)$; $\;CF$ = la constante de $c(q)$.
+\item $IMg = CMg \Rightarrow Q_m$; el \textbf{precio se lee en la demanda}: $P_m = P(Q_m)$.
+\item $\pi = P_mQ_m - \big(CV(Q_m) + CF\big)$ \;(con paréntesis).
+\item Opera si $P_m \geq CVMe(Q_m)$; comparar también con $CMe$.
+\item $\varepsilon = \dfrac{dQ}{dP}\cdot\dfrac{P}{Q}$ \textbf{en el punto} (fracción) $\Rightarrow |\varepsilon| > 1$.
+\item Lerner $= \dfrac{P - CMg}{P}$ y verificar que es $\dfrac{1}{|\varepsilon|}$.
+\item Gráfico: $D$, $IMg$, $CMg$, punto $(Q_m, P_m)$.
+\end{enumerate}
+\end{caja}
+
+\begin{caja}{2. Lerner y elasticidad (énfasis del profesor)}
+\[
+IMg = P\Big(1 - \tfrac{1}{|\varepsilon|}\Big) = CMg \;\Rightarrow\; L = \frac{P - CMg}{P} = \frac{1}{|\varepsilon|}
+\]
+\begin{itemize}
+\item Más elástica $\Rightarrow$ menor margen $\Rightarrow$ menos poder de mercado.
+\item $|\varepsilon| \to \infty$ $\Rightarrow$ $L \to 0$, $P = CMg$: como competencia perfecta.
+\item $|\varepsilon|$ cerca de 1 $\Rightarrow$ margen y PIE grandes.
+\item \textbf{Nunca} en el tramo inelástico: ahí $IMg < 0 \leq CMg$; subir $P$ sube el ingreso y baja el costo.
+\item Margen $= \tfrac13$ del precio $\Rightarrow |\varepsilon| = 3 \Rightarrow \varepsilon = -3$.
+\end{itemize}
+\end{caja}
+
+\begin{caja}{3. Bienestar: monopolio contra competencia perfecta}
+\begin{itemize}
+\item CP: $P(Q) = CMg(Q) \Rightarrow Q_{cp}, P_{cp}$.
+\item $EC = \tfrac12\,Q\,(a - P)$ \;(demanda lineal con intercepto $a$).
+\item $EP = IT - CV$ \;(sin $CF$) $= $ área entre $P$ y el $CMg$.
+\item $ES = EC + EP$; \quad $PIE = ES_{cp} - ES_m$.
+\item $PIE = \tfrac12\,(Q_{cp} - Q_m)\,\big(P_m - CMg(Q_m)\big)$.
+\item Rectángulo $(P_m - P_{cp})\,Q_m$ = \textbf{transferencia}, no pérdida.
+\item \textbf{¿La mitad?} Solo con demanda lineal y $CMg$ constante. Con $CMg$ creciente produce \emph{más} de la mitad. Siempre produce \textbf{menos}.
+\item Cierre: la ineficiencia es por \textbf{cantidad} ($P > CMg$), no por precio.
+\end{itemize}
+\end{caja}
+
+\begin{caja}{4. No es eficiente en Pareto (desarrollo)}
+En $Q_m$: $P > CMg$ $\Rightarrow$ hay consumidores que valoran el bien más que su costo y no compran $\Rightarrow$ venderles a un precio entre $CMg$ y $P$ mejora a ambos sin empeorar a nadie (mejora de Pareto). No lo hace porque, con precio único, bajar $P$ lo baja en todas las unidades: $IMg < P$. Resultado: PIE. \emph{Ozempic: vale 60 para María, cuesta 20, se vende a 100.}
+\end{caja}
+
+\begin{caja}{5. Monopolio natural y regulación}
+\begin{itemize}
+\item $CMe$ decreciente en todo el tramo relevante (costo fijo grande). $CT = CF + cQ$: $CMe = \tfrac{CF}{Q} + c > CMg = c$.
+\item $P = CMg$: $Q$ eficiente, pérdida $= CF$ $\Rightarrow$ \textbf{subsidio} $= CF$ (Metro).
+\item $P = CMe$: $\pi = 0$, se autofinancia; $P > CMg$ $\Rightarrow$ PIE menor que la del monopolio. Con dos raíces, la \textbf{mayor} (la más cercana a $Q$ eficiente).
+\item Problema práctico: el regulador \textbf{no conoce los costos} (asimetría de información; incentivo a inflarlos; empresa modelo). Enel, Aguas Andinas.
+\item \textbf{Monopolio social} ($p = CMe$) con $CMg$ creciente (Ayudantía 2): produce \emph{más} que CP; EC máximo, ES menor que en CP.
+\end{itemize}
+\end{caja}
+
+\begin{caja}{6. Discriminación de 1.\textsuperscript{er} grado y dos partes}
+\begin{itemize}
+\item 1.\textsuperscript{er} grado: cobra a cada uno su disposición a pagar $\Rightarrow$ $IMg$ = demanda $\Rightarrow Q = Q_{cp}$. \textbf{PIE $= 0$}, $EC = 0$: cambia la distribución, no la eficiencia.
+\item \textbf{Dos partes} (consumidores idénticos): $p = CMg$ (agranda la torta) y $A = EC(p = CMg)$ (se la lleva entera). Igual a 1.\textsuperscript{er} grado. Subir $p$ sobre $CMg$ crea PIE que $A$ no recupera.
+\item Con consumidores distintos: $p$ algo sobre el $CMg$.
+\end{itemize}
+\end{caja}
+
+\begin{caja}{7. 2.\textsuperscript{o} grado: menú y autoselección}
+No identifica al tipo $\Rightarrow$ menú (calidades, paquetes, descuentos por volumen).
+\begin{enumerate}
+\item \textbf{Participación del bajo} (igualdad): $P_B = v_B(\text{plan }B)$, $EC_B = 0$.
+\item \textbf{Renta informacional} del alto: $R = v_A(\text{plan }B) - P_B$.
+\item \textbf{Autoselección del alto} (igualdad): $P_A = v_A(\text{plan }A) - R$.
+\item Cerrar con $\pi$ y comparar: precio único $<$ menú $<$ 1.\textsuperscript{er} grado.
+\end{enumerate}
+\textbf{Sin distorsión arriba} (el alto recibe la cantidad eficiente); \textbf{distorsión abajo}: achicar el plan del bajo reduce $R$ y sube $P_A$. Costo: PIE en el tipo bajo.
+\end{caja}
+
+\begin{caja}{8. 3.\textsuperscript{er} grado: grupos identificables, sin reventa}
+\[
+IMg_1 = IMg_2 = CMg \;\Rightarrow\; P_i = \frac{CMg}{1 - 1/|\varepsilon_i|}
+\]
+Lerner por mercado: $L_i = 1/|\varepsilon_i|$.
+\begin{itemize}
+\item Más elástico (más sustitutos, menos ingreso: estudiantes) $\Rightarrow$ \textbf{precio más bajo}.
+\item \textbf{Precio único:} sumar las demandas \emph{en cantidades} donde ambas son positivas, $IMg = CMg$ y revisar que el precio deje a los dos dentro; si no, puede convenir atender solo al inelástico (\textbf{exclusión}).
+\item Prohibir discriminar empeora el bienestar si hay exclusión.
+\end{itemize}
+\textit{Parque (Ayud. 2):} $x_1 = 360 - p$, $x_2 = 240 - p$, $CMg = 60$ $\Rightarrow$ $x_1 = 150, p_1 = 210$; $x_2 = 90, p_2 = 150$. Precio único: $X = 600 - 2p \Rightarrow IMg = 300 - X = 60 \Rightarrow X = 240$, $p = 180 < 240$ (atiende a los dos).
+\end{caja}
+
+\begin{caja}{9. Paquetes}
+Correlación \textbf{negativa} de valoraciones $\Rightarrow$ menos dispersión de la disposición a pagar $\Rightarrow$ precio alto sin excluir. Puro (solo el paquete) contra mixto (paquete y sueltos). Con correlación positiva no ayuda.
+\end{caja}
+
+\begin{caja}{10. Competencia monopolística}
+\textbf{Muchas empresas $+$ producto diferenciado $+$ libre entrada.} Cada una cobra \textbf{un} precio.
+\begin{itemize}
+\item Corto plazo: $IMg = CMg$; si $P > CMe$, $\pi > 0$ $\Rightarrow$ atrae entrada.
+\item Largo plazo: la demanda de cada una baja y se vuelve más elástica hasta la \textbf{tangencia} con el $CMe$ en su \textbf{tramo decreciente}:
+\[
+P = CMe \;(\pi = 0), \qquad P > CMg \;(\text{PIE})
+\]
+y $q^* < q_{\min CMe}$.
+\item Exceso de capacidad: costo de la \textbf{variedad}. No es eficiente en Pareto.
+\end{itemize}
+\end{caja}
+
+\begin{caja}{11. Hotelling (línea de largo 1, precios iguales)}
+\begin{itemize}
+\item Cada consumidor va a la más cercana; frontera = punto medio entre las dos.
+\item \textbf{Equilibrio:} ambas en $\tfrac12$, sin incentivo a moverse (\textbf{mínima diferenciación}).
+\item \textbf{Óptimo social:} $\tfrac14$ y $\tfrac34$ (minimiza la distancia total: la mitad), pero se rompe: cada una gana acercándose al centro.
+\item Con 3 vendedores: \textbf{no hay equilibrio}.
+\item «Lo óptimo para cada empresa no necesariamente es óptimo para la sociedad.»
+\end{itemize}
+\end{caja}
+
+\begin{caja}{12. Comentes y chequeos}
+\textbf{Comente:} veredicto (V/F/I) $\to$ qué es cierto o bajo qué condición $\to$ \textbf{mecanismo} ($A \Rightarrow B \Rightarrow C$) $\to$ ejemplo (fútbol, Ozempic). Ojo con «siempre» y «por lo tanto».
+
+\textbf{Chequeos:} (1) tiempo por puntaje: matemático 40', desarrollos 10', comentes 5'; (2) subrayar el sujeto; (3) cerrar cada «compare» con la comparación; (4) no reusar cifras sin revisar. Fracciones, gráficos rotulados.
+\end{caja}
+
+\begin{trampa}
+\small\textbf{Tus errores de hoy:} competencia monopolística $\neq$ monopolio (hay libre entrada) y $\neq$ discriminación (un precio por empresa) $\cdot$ Hotelling: el equilibrio es el centro, el óptimo social es el que se rompe $\cdot$ más elástico $\Rightarrow$ menos poder $\cdot$ la PIE es solo el triángulo $\cdot$ 2.\textsuperscript{o} grado: nombrar las restricciones y cerrar con $\pi$.
+\end{trampa}
+
+\end{multicols}
+\end{document}

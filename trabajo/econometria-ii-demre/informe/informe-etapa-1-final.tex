@@ -1,0 +1,411 @@
+\documentclass[11pt]{article}
+
+% --- Idioma y fuentes ------------------------------------------------
+\usepackage[spanish,es-noshorthands,es-tabla]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+% --- Geometría y encabezado ------------------------------------------
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\setlength{\headheight}{38.22325pt}
+\addtolength{\topmargin}{-6.22325pt}
+
+% --- Matemáticas ------------------------------------------------------
+\usepackage{amsmath,amssymb}
+
+% --- Colores, tablas, listas, código ----------------------------------
+\usepackage[dvipsnames,table]{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{listings}
+\renewcommand{\arraystretch}{1.5}
+
+\lstset{
+  language=R,
+  basicstyle=\ttfamily\footnotesize,
+  commentstyle=\color{gray}\itshape,
+  keywordstyle=\color{blue!70!black},
+  stringstyle=\color{teal!60!black},
+  breaklines=true,
+  columns=fullflexible,
+  showstringspaces=false
+}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textbf{Econometría II}\\ Trabajo práctico --- Etapa 1}
+\fancyhead[C]{Universidad de Santiago de Chile}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+\sloppy
+
+% =====================================================================
+%  PORTADA
+% =====================================================================
+\begin{titlepage}
+\centering
+\vspace*{3cm}
+{\large Universidad de Santiago de Chile}\\[6pt]
+{\large Econometría II}\\[2cm]
+{\LARGE \textbf{Etapa 1: Construcción de la base de datos}}\\[10pt]
+{\large Trabajo Práctico --- Admisión Universidad 2026}\\[3cm]
+
+\textbf{Integrantes:}\quad
+David Cuevas $\bullet$ Javier Li-Yau $\bullet$ Benjamín Lizana $\bullet$ Ana Nacif
+
+\vspace{0.6cm}
+
+\textbf{Profesor:}\quad Brian Pfeng Ibacache
+\qquad
+\textbf{Fecha:}\quad 8 de octubre de 2026
+\end{titlepage}
+
+% =====================================================================
+\subsection*{1 \; Introducción}
+% =====================================================================
+
+Con cuatro archivos del DEMRE del proceso de admisión 2026 armamos una
+base de 60.544 estudiantes que egresaron de enseñanza media en 2025 y
+que se matricularon por vía regular, con tipo de matrícula postulación
+regular, a lo más en su tercera preferencia. Ese filtro deja a todos
+dentro de sus tres primeras opciones, así que por sí solo no permite
+distinguirlos. Lo que sí cambia de uno a otro es en cuál de las tres
+quedaron: 40.173 (66,4\,\%) lograron la primera y 20.371 (33,6\,\%) se
+matricularon en la segunda o la tercera. Nuestro trabajo apunta a
+explicar de qué depende quedar en la primera preferencia, y esa división
+es la variable de respuesta, \texttt{PREF\_PRIMERA\_DUMMY}.
+
+La base tiene una fila por estudiante y 29 variables. De cada uno trae
+su promedio de notas, sus puntajes NEM y ranking, sus puntajes de
+Competencia Lectora y Matemática 1, su sexo, su tramo de ingreso
+familiar, si fue preseleccionado PACE o BEA y la preferencia en que se
+matriculó. De su colegio de egreso trae la dependencia, la rama
+educacional, la región y la comuna, y tres variables que calculamos
+nosotros: inscritos en la PAES, matriculados y promedio del tramo de
+ingreso de sus inscritos. Con esta información se estimará el modelo
+logit de la Etapa 3.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{2 \; Fuentes de datos}
+% =====================================================================
+
+Todos los datos vienen del portal de bases de datos del DEMRE, proceso de
+admisión 2026. Usamos cuatro archivos, que se unen por el identificador
+del estudiante, \texttt{ID\_aux}.
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.4cm}
+                >{\raggedright\arraybackslash}p{6.4cm}
+                >{\raggedleft\arraybackslash}p{2.6cm}}
+\toprule
+\textbf{Archivo} & \textbf{Contenido} & \textbf{Filas} \\
+\midrule
+B (\texttt{df1}) & Inscritos: colegio, domicilio, sexo, ingreso familiar & 317.700 \\
+C (\texttt{df2}) & Notas, NEM, ranking y puntajes PAES & 317.700 \\
+D (\texttt{df3}) & Postulaciones (una fila por carrera postulada) & 1.686.689 \\
+Matrícula (\texttt{df4}) & Vía, tipo de matrícula, preferencia y puntaje & 128.345 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{3 \; Construcción de la base}
+% =====================================================================
+
+\subsubsection*{3.1 \; Variables del colegio}
+
+Antes de filtrar, calculamos las variables del colegio agrupando por
+establecimiento (\texttt{RBD}). Se calculan antes porque necesitan a todos
+los estudiantes del colegio, no solo a los que quedan en la base final.
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3em]
+  \item Del archivo B: número de inscritos del colegio y promedio del
+        ingreso per cápita familiar de sus inscritos.
+  \item Del archivo de matrícula: número de matriculados por vía regular y
+        tipo de matrícula 1 que egresaron del colegio. Los colegios sin
+        matriculados quedan con 0.
+\end{itemize}
+
+\subsubsection*{3.2 \; Selección de columnas y unión}
+
+De cada archivo dejamos solo las columnas que usamos (detalle en la
+sección 7). El archivo D trae una fila por carrera postulada; nos quedamos con las
+postulaciones de tipo regular y lo dejamos en una fila por estudiante
+(188.538 estudiantes). El archivo de
+matrícula ya trae una fila por estudiante.
+
+Luego unimos los cuatro archivos por \texttt{ID\_aux} con
+\texttt{full\_join}, lo que da 317.700 filas, y a esa base le aplicamos
+los filtros.
+
+\subsubsection*{3.3 \; Filtros aplicados}
+
+\begin{enumerate}[leftmargin=1.5em, itemsep=0.3em, label=\textbf{\alph*)}]
+  \item \textbf{Promoción del año:} estudiantes que egresaron de enseñanza
+        media en 2025 (\texttt{ANYO\_EGRESO} igual a 2025).
+  \item \textbf{Vía y tipo de matrícula:} matriculados por vía regular
+        (\texttt{VIA} igual a 1) con tipo de matrícula «postulación
+        regular» (\texttt{TIPO\_MATRICULA} igual a 1).
+  \item \textbf{Inscripción en el proceso:} inscribieron al menos una
+        prueba del proceso 2026 (\texttt{RINDIO\_PROCESO\_ACTUAL} igual
+        a 1).
+  \item \textbf{Preferencia:} matriculados en su primera, segunda o
+        tercera preferencia (\texttt{PREFERENCIA} entre 1 y 3).
+\end{enumerate}
+
+Además, sacamos a quienes no tienen puntaje NEM o lo tienen igual a 0,
+porque sin notas de enseñanza media no se pueden comparar con el resto.
+
+\subsubsection*{3.4 \; Observaciones en cada paso}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{9cm}
+                >{\raggedleft\arraybackslash}p{3cm}}
+\toprule
+\textbf{Paso} & \textbf{Observaciones} \\
+\midrule
+Unión de los cuatro archivos & 317.700 \\
+Egresados en 2025 & 218.989 \\
+Vía regular y tipo de matrícula 1 & 69.004 \\
+Inscribieron alguna prueba del proceso 2026 & 69.002 \\
+Matriculados en preferencia 1 a 3 & 60.558 \\
+\rowcolor{yellow!30}
+\textbf{Con puntaje NEM distinto de 0 (base final)} & \textbf{60.544} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{4 \; Variable de respuesta}
+% =====================================================================
+
+Por los filtros, todos los estudiantes de la base se matricularon en una
+de sus tres primeras preferencias. Por eso la variable de respuesta separa
+a quienes quedaron en su primera preferencia de quienes quedaron en la
+segunda o la tercera:
+
+\[
+\texttt{PREF\_PRIMERA\_DUMMY}_i =
+\begin{cases}
+1 & \text{si se matriculó en su primera preferencia} \\[4pt]
+0 & \text{si se matriculó en su segunda o tercera preferencia}
+\end{cases}
+\]
+
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+\textbf{Valor} & \textbf{Estudiantes} & \textbf{Porcentaje} \\
+\midrule
+1 (primera preferencia) & 40.173 & 66,4\% \\
+0 (segunda o tercera)   & 20.371 & 33,6\% \\
+\midrule
+\textbf{Total} & \textbf{60.544} & 100\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+De los 20.371 que no quedaron en su primera preferencia, 13.322 se
+matricularon en la segunda y 7.049 en la tercera.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{5 \; Variables creadas}
+% =====================================================================
+
+\subsubsection*{5.1 \; Variables del establecimiento}
+
+Se pegan a cada estudiante por el \texttt{RBD} de su colegio de egreso.
+Así cada estudiante tiene información de su colegio en el mismo proceso
+2026.
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3em]
+  \item \texttt{N\_ALUMNOS}: número de inscritos en el proceso 2026 que
+        egresaron del colegio.
+  \item \texttt{INGRESO\_COLEGIO}: promedio de
+        \texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} de los inscritos del
+        colegio. El promedio incluye el código 99 («prefiero no
+        responder»), así que no queda en la escala de 1 a 10 de los
+        tramos: su promedio es 31,8 (sección 8).
+  \item \texttt{N\_MATRICULADOS}: número de egresados del colegio que se
+        matricularon por vía regular y tipo de matrícula 1.
+\end{itemize}
+
+Los 244 estudiantes sin colegio de egreso registrado (sección 6) quedan
+agrupados en el cálculo como si fueran un solo colegio, con 3.169
+inscritos y 902 matriculados. Para ellos estas tres variables no
+describen un establecimiento real. Sin ese grupo, el colegio más grande
+tiene 947 inscritos y 447 matriculados.
+
+No incluimos si el colegio es rural ni el número de alumnos por curso,
+porque las bases del DEMRE no traen esa información: para construirlas
+se necesitan los registros de establecimientos del MINEDUC.
+
+\subsubsection*{5.2 \; Variables dummy}
+
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3em]
+  \item \texttt{PREF\_PRIMERA\_DUMMY}: variable de respuesta (sección 4).
+  \item \texttt{TP\_DUMMY}: 1 si el colegio es técnico profesional
+        (rama T1 a T5), 0 si no. Hay 9.110 estudiantes de colegios
+        técnico profesionales y 51.434 del resto. Entre esos 51.434 están los
+        244 sin colegio registrado, que quedan con 0 aunque no se conoce
+        su rama.
+\end{itemize}
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{6 \; Datos sin información}
+% =====================================================================
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.4cm}
+                >{\raggedleft\arraybackslash}p{1.8cm}
+                >{\raggedright\arraybackslash}p{5.6cm}}
+\toprule
+\textbf{Variable} & \textbf{Casos} & \textbf{Qué significa} \\
+\midrule
+\texttt{RBD}, \texttt{RAMA\_EDUCACIONAL}, \texttt{GRUPO\_DEPENDENCIA},
+\texttt{CODIGO\_COMUNA} & 244 & Estudiante sin colegio de egreso registrado. \\
+\texttt{CODIGO\_REGION} & 10 & Región del colegio sin dato. \\
+\texttt{PACE} & 55.382 & No fue preseleccionado PACE. \\
+\texttt{BEA} & 53.805 & No fue preseleccionado a la Beca de Excelencia Académica. \\
+\texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} igual a 99 & 16.235 & «Prefiero no responder». \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+En el resto de las variables no hay datos faltantes. Para los 244
+estudiantes sin colegio, sin embargo, \texttt{N\_ALUMNOS},
+\texttt{INGRESO\_COLEGIO}, \texttt{N\_MATRICULADOS} y \texttt{TP\_DUMMY}
+tienen valores que no corresponden a un colegio (sección 5).
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{7 \; Definición de las variables}
+% =====================================================================
+
+Fuente: B, C, D y M (matrícula) son los archivos del DEMRE; «creada»
+indica que la construimos nosotros.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{5.4cm}
+                  >{\raggedright\arraybackslash}p{1.4cm}
+                  >{\raggedright\arraybackslash}p{6.6cm}}
+\toprule
+\textbf{Variable} & \textbf{Fuente} & \textbf{Definición} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{Variable} & \textbf{Fuente} & \textbf{Definición} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\multicolumn{3}{l}{\textit{Identificación y respuesta}} \\
+\texttt{ID\_aux} & B, C, D, M & Identificador único del estudiante. \\
+\texttt{PREF\_PRIMERA\_DUMMY} & Creada & Variable de respuesta: 1 si se matriculó en su primera preferencia, 0 si en la segunda o tercera. \\
+\midrule
+\multicolumn{3}{l}{\textit{Estudiante}} \\
+\texttt{FECHA\_NACIMIENTO} & B & Mes y año de nacimiento (MMAAAA). Es numérica, así que los meses 1 a 9 quedan sin el cero inicial: 42006 es abril de 2006. \\
+\texttt{SEXO} & B & 1 hombre, 2 mujer. \\
+\texttt{CODIGO\_COMUNA\_D} & B & Comuna de domicilio del estudiante. \\
+\texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} & B & Tramo de ingreso per cápita del grupo familiar, de 1 a 10; 99 es «prefiero no responder». \\
+\texttt{PACE} & B & Preseleccionado PACE por el MINEDUC. \\
+\texttt{BEA} & B & Preseleccionado a la Beca de Excelencia Académica. \\
+\texttt{ANYO\_EGRESO} & B & Año de egreso de enseñanza media (2025 en toda la base). \\
+\texttt{RINDIO\_PROCESO\_ACTUAL} & B & 1 si inscribió al menos una prueba del proceso 2026 (1 en toda la base). \\
+\midrule
+\multicolumn{3}{l}{\textit{Notas y puntajes}} \\
+\texttt{PROMEDIO\_NOTAS} & C & Promedio de notas de enseñanza media. \\
+\texttt{PTJE\_NEM} & C & Puntaje NEM (notas de enseñanza media). \\
+\texttt{PTJE\_RANKING} & C & Puntaje ranking de notas. \\
+\texttt{CLEC\_REG\_ACTUAL} & C & Puntaje PAES de Competencia Lectora, rendición regular 2026. \\
+\texttt{MATE1\_REG\_ACTUAL} & C & Puntaje PAES de Competencia Matemática 1, rendición regular 2026. \\
+\midrule
+\multicolumn{3}{l}{\textit{Postulación y matrícula}} \\
+\texttt{TIPO\_PREF} & D & Tipo de postulación (REGULAR en toda la base). \\
+\texttt{PREFERENCIA} & M & Preferencia en que se matriculó (1 a 3 en la base). Con ella se construye la variable de respuesta. \\
+\texttt{VIA} & M & Vía de matrícula (1, regular, en toda la base). \\
+\texttt{TIPO\_MATRICULA} & M & Tipo de matrícula (1, postulación regular, en toda la base). \\
+\texttt{PTJE\_POND} & M & Puntaje ponderado con que se matriculó. \\
+\midrule
+\multicolumn{3}{l}{\textit{Colegio de egreso}} \\
+\texttt{RBD} & B & Identificador del establecimiento. \\
+\texttt{RAMA\_EDUCACIONAL} & B & H1 y H2 humanista científico (diurno y nocturno); T1 a T5 técnico profesional. \\
+\texttt{GRUPO\_DEPENDENCIA} & B & 1 particular pagado, 2 particular subvencionado, 3 municipal, 4 servicio local de educación. \\
+\texttt{CODIGO\_REGION} & B & Región del establecimiento. \\
+\texttt{CODIGO\_COMUNA} & B & Comuna del establecimiento. \\
+\texttt{TP\_DUMMY} & Creada & 1 si el colegio es técnico profesional (T1 a T5), 0 si no. \\
+\texttt{N\_ALUMNOS} & Creada & Inscritos del proceso que egresaron del colegio. \\
+\texttt{INGRESO\_COLEGIO} & Creada & Promedio de \texttt{INGRESO\_PERCAPITA\_GRUPO\_FA} de los inscritos del colegio, incluido el código 99. \\
+\texttt{N\_MATRICULADOS} & Creada & Egresados del colegio matriculados por vía regular y tipo de matrícula 1. \\
+\end{longtable}
+
+\texttt{PREFERENCIA} y \texttt{PTJE\_POND} quedan en la base como
+información de la matrícula, pero no se usarán como variables
+explicativas: la variable de respuesta se construye con
+\texttt{PREFERENCIA}, y \texttt{PTJE\_POND} es el puntaje ponderado de
+la carrera en que el estudiante ya quedó matriculado, así que depende
+del resultado.
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{8 \; Base final}
+% =====================================================================
+
+La base final (\texttt{df\_final}) tiene \textbf{60.544 filas y 29
+columnas}, con una fila por estudiante: cada \texttt{ID\_aux} aparece una
+sola vez. Los estudiantes vienen de 3.108 colegios distintos.
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Variable} & \textbf{Mínimo} & \textbf{Mediana} & \textbf{Promedio} & \textbf{Máximo} \\
+\midrule
+\texttt{PROMEDIO\_NOTAS}   & 4,50  & 6,33  & 6,27  & 7,00 \\
+\texttt{PTJE\_NEM}         & 259   & 808   & 792   & 1.000 \\
+\texttt{PTJE\_RANKING}     & 259   & 822   & 806   & 1.000 \\
+\texttt{CLEC\_REG\_ACTUAL} & 316   & 663   & 667   & 1.000 \\
+\texttt{MATE1\_REG\_ACTUAL}& 320   & 682   & 698   & 1.000 \\
+\texttt{PTJE\_POND}        & 354,6 & 716,1 & 718,6 & 998,4 \\
+\texttt{N\_ALUMNOS}        & 8     & 127   & 172   & 3.169 \\
+\texttt{INGRESO\_COLEGIO}  & 1,0   & 29,7  & 31,8  & 94,1 \\
+\texttt{N\_MATRICULADOS}   & 1     & 55    & 74    & 902 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+En la base hay 31.981 mujeres (52,8\%) y 28.563 hombres (47,2\%).
+
+\medskip\hrule\medskip
+
+% =====================================================================
+\subsection*{9 \; Conclusión}
+% =====================================================================
+
+La base final tiene 60.544 estudiantes, uno por fila: el 66,4\,\% quedó
+en su primera preferencia y el 33,6\,\% en la segunda o la tercera. Como
+todos cumplen los mismos filtros, esa diferencia se estudiará con sus
+notas, sus puntajes, su ingreso familiar y las variables de su colegio.
+\texttt{PREFERENCIA} y \texttt{PTJE\_POND} quedan fuera del modelo porque
+dependen del resultado. Antes de estimar hay que recalcular
+\texttt{INGRESO\_COLEGIO} sin el código 99 y dejar sin valor las
+variables del colegio de los 244 estudiantes sin \texttt{RBD}.
+
+% =====================================================================
+\end{document}

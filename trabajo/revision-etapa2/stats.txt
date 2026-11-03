@@ -1,0 +1,93 @@
+PREF:
+    p1     p2     p3  p4mas  nomat 
+ 39958  13257   7019   8391 100089 
+flag x Y:
+   
+        0     1
+  0 55361     0
+  1 53119 60234
+colegios: 3288  cols: 34 
+
+    1     2 
+78917 89797 
+PACE/BEA/TP/M2: 13549 13436 39882 75039 
+                     min     med     mean      max
+PROMEDIO_NOTAS     4.180   6.130    6.085    7.000
+PTJE_NEM         157.000 751.000  737.868 1000.000
+PTJE_RANKING     157.000 759.000  750.636 1000.000
+CLEC_REG_ACTUAL  100.000 590.000  604.877 1000.000
+MATE1_REG_ACTUAL 100.000 601.000  628.943 1000.000
+EDAD_MESES       181.000 218.000  222.552  860.000
+N_ALUMNOS          8.000 128.000  160.626  947.000
+INGRESO_COLEGIO    1.000   4.000    4.547   10.000
+MAT_TOTAL          0.000 905.000 1011.234 3923.000
+EXP_DOCENTE        2.400  12.829   12.889   35.667
+IVE_MEDIA          0.257   0.839    0.796    1.000
+MAT_TOTAL atip: 8129 
+EXP_DOCENTE atip: 1865 
+IVE_MEDIA atip: 6489 
+reglas: edad<16a 5  edad>=20a 4439  edad>=30a 1898  prom fuera[4,7] 0  NEM fuera[100,1000] 0  MAT_TOTAL=0: 4 colegios MAT0: 1  dupID: 0 
+        variable        bin count_distr   posprob         woe
+1 PROMEDIO_NOTAS [-Inf,5.5)   0.1315006 0.1298116 -1.31429679
+2 PROMEDIO_NOTAS  [5.5,5.8)   0.1510367 0.2194490 -0.68055124
+3 PROMEDIO_NOTAS    [5.8,6)   0.1254075 0.2871254 -0.32105745
+4 PROMEDIO_NOTAS    [6,6.3)   0.2152459 0.3731241  0.06949113
+5 PROMEDIO_NOTAS [6.3, Inf)   0.3768093 0.5055133  0.61038313
+          variable        bin count_distr    posprob        woe
+1 MATE1_REG_ACTUAL [-Inf,460)  0.08538118 0.05463381 -2.2625906
+2 MATE1_REG_ACTUAL  [460,560)  0.28365162 0.21474841 -0.7082081
+3 MATE1_REG_ACTUAL  [560,720)  0.38396932 0.38895664  0.1366288
+4 MATE1_REG_ACTUAL  [720,920)  0.18767263 0.53153523  0.7146374
+5 MATE1_REG_ACTUAL [920, Inf)  0.05932525 0.71365771  1.5015444
+  variable      bin count_distr   posprob        woe
+1 TP_DUMMY [-Inf,1)   0.7636118 0.3968812  0.1698517
+2 TP_DUMMY [1, Inf)   0.2363882 0.2282483 -0.6298998
+  variable      bin count_distr   posprob         woe
+1      BEA [-Inf,1)  0.92036227 0.3445176 -0.05489754
+2      BEA [1, Inf)  0.07963773 0.5014885  0.59428302
+         variable                  bin count_distr   posprob         woe
+1 INGRESO_COLEGIO [-Inf,2.5)%,%missing  0.10094598 0.2449651 -0.53731957
+2 INGRESO_COLEGIO            [2.5,5.5)  0.67715187 0.3391571 -0.07872399
+3 INGRESO_COLEGIO            [5.5,7.5)  0.12469623 0.3838293  0.11500257
+4 INGRESO_COLEGIO           [7.5, Inf)  0.09720592 0.5634146  0.84336075
+        variable       bin count_distr   posprob        woe
+1 PORC_SUP_NOTAS [-Inf,30)   0.2716728 0.4815098  0.5143342
+2 PORC_SUP_NOTAS   [30,50)   0.2281079 0.4014811  0.1890312
+3 PORC_SUP_NOTAS   [50,80)   0.2949133 0.3102138 -0.2107909
+4 PORC_SUP_NOTAS [80, Inf)   0.2053060 0.2101161 -0.7358971
+         bin count_distr   posprob          woe   total_iv
+1 [-Inf,216)   0.3051910 0.3547485 -0.009902251 0.05112309
+2  [216,228)   0.6052373 0.3805136  0.100959822 0.05112309
+3 [228, Inf)   0.0895717 0.2059952 -0.760907574 0.05112309
+                bin count_distr   posprob         woe  total_iv
+1 publico%,%missing   0.3396636 0.2864098 -0.32455635 0.1037427
+2     subvencionado   0.5309933 0.3598330  0.01223984 0.1037427
+3            pagado   0.1293431 0.5308863  0.71203140 0.1037427
+          bin count_distr   posprob
+1 3%,%missing   0.2392510 0.2841075
+2           4   0.1004125 0.2918954
+3           2   0.5309933 0.3598330
+4           1   0.1293431 0.5308863
+                    PTJE_NEM_woe PTJE_RANKING_woe PORC_SUP_NOTAS_woe
+PROMEDIO_NOTAS_woe          0.96             0.95               0.79
+PTJE_NEM_woe                1.00             0.96               0.80
+PTJE_RANKING_woe            0.96             1.00               0.80
+PORC_SUP_NOTAS_woe          0.80             0.80               1.00
+INGRESO_COLEGIO_woe         0.16             0.14              -0.07
+                    DEPENDENCIA_3_woe
+PROMEDIO_NOTAS_woe               0.15
+PTJE_NEM_woe                     0.15
+PTJE_RANKING_woe                 0.13
+PORC_SUP_NOTAS_woe              -0.08
+INGRESO_COLEGIO_woe              0.72
+Sale: PTJE_NEM VIF 17.78 IV 0.394 ratio 45.1 
+Sale: PTJE_RANKING VIF 10.17 IV 0.376 ratio 27.1 
+Sale: DEPENDENCIA_3 VIF 2.38 IV 0.104 ratio 22.9 
+Sale: PORC_SUP_NOTAS VIF 3.12 IV 0.193 ratio 16.1 
+[1] "CLEC_REG_ACTUAL"  "MATE1_REG_ACTUAL" "PROMEDIO_NOTAS"   "TP_DUMMY"        
+[5] "INGRESO_COLEGIO"  "EDAD_MESES"       "BEA"              "RINDE_M2"        
+[9] "MAT_TOTAL"       
+pdf 
+  2 
+pdf 
+  2 

@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Control --- Macroeconomía II}\\[4pt]
+{\large Guía tipo control: Solow con progreso tecnológico}\\[4pt]
+60 puntos \quad$\cdot$\quad 50 minutos \quad$\cdot$\quad sin apuntes \quad$\cdot$\quad con calculadora
+\end{center}
+
+\hrule
+\medskip
+
+\textit{Sea claro con los gráficos. Nombre los ejes, los puntos de equilibrio y todas las curvas. Diferencie movimientos y desplazamientos de las curvas.}
+
+En toda la guía considere el modelo de Solow visto en clase con progreso tecnológico exógeno:
+\[
+Y = K^{\alpha}(AL)^{1-\alpha}, \qquad \frac{\dot A}{A} = g, \qquad \frac{\dot L}{L} = n, \qquad \dot K = sY - \delta K, \qquad 0<\alpha<1,
+\]
+y defina las variables por trabajador efectivo $\tilde k \equiv \dfrac{K}{AL}$ e $\tilde y \equiv \dfrac{Y}{AL}$, y las variables por trabajador $k \equiv \dfrac{K}{L}$ e $y \equiv \dfrac{Y}{L}$.
+
+\begin{enumerate}[leftmargin=*, itemsep=12pt]
+
+\item \textbf{(15 puntos)} Resolución del modelo.
+\begin{enumerate}[label=\alph*), leftmargin=*, itemsep=4pt]
+\item \textbf{(3 pts)} Escriba la función de producción en unidades de trabajo efectivo, $\tilde y = f(\tilde k)$.
+\item \textbf{(5 pts)} Muestre paso a paso que la dinámica del capital por trabajador efectivo es
+\[
+\dot{\tilde k} = s\,\tilde k^{\alpha} - (n + g + \delta)\,\tilde k .
+\]
+Explique qué representa cada uno de los tres términos de $(n+g+\delta)$.
+\item \textbf{(3 pts)} Encuentre $\tilde k^{*}$ e $\tilde y^{*}$ en función de los parámetros $s$, $n$, $g$, $\delta$ y $\alpha$.
+\item \textbf{(4 pts)} Reemplace los valores $\alpha = \tfrac{1}{3}$, $s = 0{,}20$, $n = 0{,}01$, $g = 0{,}02$ y $\delta = 0{,}05$. Calcule $\tilde k^{*}$, $\tilde y^{*}$ y el consumo por trabajador efectivo $\tilde c^{*}$. Verifique $\tilde c^{*}$ por un segundo camino.
+\end{enumerate}
+
+\item \textbf{(10 puntos)} ¿Por qué la tecnología aumenta el trabajo? Suponga que la función de producción fuera
+\[
+Y = B\,K^{\alpha}L^{1-\alpha}, \qquad \frac{\dot B}{B} = g_B .
+\]
+\begin{enumerate}[label=\alph*), leftmargin=*, itemsep=4pt]
+\item \textbf{(6 pts)} Encuentre la tasa a la que crecen $y$ y $k$ en el sendero de crecimiento balanceado. Muestre el desarrollo con logaritmos y derivadas.
+\item \textbf{(4 pts)} Muestre que este modelo es equivalente al del enunciado si $B = A^{1-\alpha}$. ¿Qué relación hay entre $g_B$ y $g$?
+\end{enumerate}
+
+\item \textbf{(10 puntos)} Inmigración. La economía se encuentra en su sendero de crecimiento balanceado cuando, en $t_0$, llega de una sola vez un flujo de inmigrantes que aumenta $L$ en un $10\%$. La tasa $n$ no cambia.
+\begin{enumerate}[label=\alph*), leftmargin=*, itemsep=4pt]
+\item \textbf{(5 pts)} ¿Qué ocurre en el momento del shock y en el largo plazo con $\tilde k$, $\tilde y$ e $y$? ¿Cambia $\tilde k^{*}$?
+\item \textbf{(5 pts)} Grafique la dinámica en el diagrama de Solow en $\tilde k$ y la trayectoria de $\ln y$ contra el tiempo.
+\end{enumerate}
+
+\item \textbf{(10 puntos)} Destrucción de capital. La economía se encuentra en su sendero de crecimiento balanceado cuando, en $t_0$, un terremoto destruye la mitad del stock de capital $K$.
+\begin{enumerate}[label=\alph*), leftmargin=*, itemsep=4pt]
+\item \textbf{(5 pts)} ¿Qué ocurre en el momento del shock con el nivel de $y$ y con su tasa de crecimiento? ¿Es esa tasa mayor o menor que $g$? Justifique con $\dot{\tilde k}/\tilde k$.
+\item \textbf{(5 pts)} ¿La economía vuelve al mismo sendero de $\ln y$ que tenía antes del terremoto o a uno paralelo? Grafique el diagrama de Solow en $\tilde k$ y $\ln y$ contra el tiempo.
+\end{enumerate}
+
+\item \textbf{(5 puntos)} Suponga que la tasa de crecimiento de la población baja de forma permanente de $n_1$ a $n_2 < n_1$. ¿Qué ocurre con $\tilde k^{*}$ e $\tilde y^{*}$? ¿A qué tasa crecen $y$ e $Y$ en el largo plazo? Distinga el efecto nivel del efecto tasa.
+
+\item \textbf{(10 puntos)} Verdadero o Falso. Justifique con ecuaciones.
+\begin{enumerate}[label=\alph*), leftmargin=*, itemsep=4pt]
+\item \textbf{(5 pts)} Según el modelo de Solow visto en clase, en el sendero de crecimiento balanceado la razón capital-producto, $K/Y$, crece a tasa $g$.
+\item \textbf{(5 pts)} Según el modelo de Solow visto en clase, con mercados competitivos, en el sendero de crecimiento balanceado el salario real crece a tasa $g$, mientras que la tasa de interés real (el producto marginal del capital) permanece constante.
+\end{enumerate}
+
+\end{enumerate}
+
+\medskip
+\hrule
+\smallskip
+{\small\textit{Antes de empezar:} (1) reparte el tiempo por puntaje (P1 13 min; P2, P3, P4 y P6 8 min c/u; P5 4 min); (2) al tomar logaritmos, que no se caiga el $\ln$ en ningún término; (3) escribe siempre $\dot{\tilde k}$ completo y su signo a cada lado de $\tilde k^{*}$; (4) di «por trabajador efectivo» o «por trabajador», nunca solo «capital»; (5) en V/F, el veredicto es la primera palabra.}
+
+\end{document}

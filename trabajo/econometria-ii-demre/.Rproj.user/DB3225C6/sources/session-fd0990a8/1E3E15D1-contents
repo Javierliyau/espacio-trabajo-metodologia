@@ -1,0 +1,5 @@
+rm(list=ls())
+cat("\014")
+
+postulantes <- data.frame(ID_aux = unique(postulaciones$ID_aux))
+nrow(postulantes)

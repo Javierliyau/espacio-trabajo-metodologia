@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ficha de viaje · Solow · Control 1 Macro II</title>
+<style>
+body{font-family:system-ui,sans-serif;max-width:640px;margin:auto;padding:14px;line-height:1.45;font-size:17px;color:#222}
+h1{font-size:21px;margin:.2em 0}h2{font-size:18px;margin-top:1.4em;border-bottom:2px solid #ddd}
+details{background:#f4f6fa;border-radius:8px;padding:8px 10px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+details p,details ul{margin:.5em 0 .2em}
+.r{color:#0a6b2f;font-weight:700}.f{color:#a3122a;font-weight:700}
+table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid #ccc;padding:4px 6px;vertical-align:top}
+.n{color:#666;font-size:14px}
+</style></head><body>
+<h1>Ficha de viaje · Solow (Control 1, mié 14-10 09:50)</h1>
+<p class="n">Alcance: hasta la última slide de 2-Solow, con tecnología y senda balanceada. No entran la regla de oro ni el capital humano. Primero responde en voz baja y después abre la respuesta.</p>
+
+<h2>1. El mecanismo en 6 pasos (dilo de memoria)</h2>
+<details><summary>Ver los 6 pasos</summary><ul>
+<li><b>Producción:</b> y = f(k) = k<sup>α</sup>, con rendimientos decrecientes en k.</li>
+<li><b>Inversión:</b> se ahorra e invierte una fracción s, es decir, i = s·f(k).</li>
+<li><b>Inversión requerida:</b> (n+δ)·k, que repone el capital depreciado (δk) y equipa a los trabajadores nuevos (nk, la dilución).</li>
+<li><b>Ecuación de Solow:</b> k̇ = s·f(k) − (n+δ)·k. Si la inversión supera la requerida, k sube; si no la alcanza, k baja.</li>
+<li><b>Convergencia:</b> por los rendimientos decrecientes, k̇/k = s·k<sup>α−1</sup> − (n+δ) cae a medida que k sube, la brecha se cierra y la economía llega a k*.</li>
+<li><b>Estado estacionario:</b> las variables per cápita quedan constantes. El crecimiento sostenido de y solo viene de la tecnología (g), que es exógena.</li>
+</ul></details>
+
+<h2>2. Hoja de fórmulas: intenta cada una antes de abrirla</h2>
+<details><summary>k* e y* sin tecnología (y = k<sup>α</sup>)</summary>
+<p>k* = (s/(n+δ))<sup>1/(1−α)</sup> · y* = (s/(n+δ))<sup>α/(1−α)</sup> · c* = (1−s)·y*</p></details>
+<details><summary>Ecuación de k̃ = K/(AL) y su estado estacionario</summary>
+<p>k̃̇ = s·k̃<sup>α</sup> − (n+g+δ)·k̃<br>k̃* = (s/(n+g+δ))<sup>1/(1−α)</sup> · ỹ* = (s/(n+g+δ))<sup>α/(1−α)</sup></p></details>
+<details><summary>y(t) en la senda balanceada</summary>
+<p>y(t) = A(t)·ỹ* = A(0)·e<sup>gt</sup>·(s/(n+g+δ))<sup>α/(1−α)</sup>. s, n y δ determinan el <b>nivel</b>; g determina la <b>pendiente</b> de ln y.</p></details>
+<details><summary>Relación entre K̇/K, k̇/k y n; entre ẏ/y y k̇/k</summary>
+<p>K̇/K = k̇/k + n · ẏ/y = α·k̇/k (Cobb-Douglas)</p></details>
+<details><summary>Tasa de crecimiento de un producto, un cociente y una potencia</summary>
+<p>Producto: suma de las tasas · cociente: resta · potencia x<sup>a</sup>: a por la tasa de x. (La tasa es la derivada del logaritmo respecto al tiempo.)</p></details>
+<details><summary>Tasas de crecimiento en EE y en la senda balanceada</summary>
+<table><tr><th></th><th>EE sin tecnología</th><th>Senda balanceada</th></tr>
+<tr><td>k̃, ỹ</td><td>—</td><td>0</td></tr>
+<tr><td>y, k, c (por trabajador)</td><td>0</td><td>g</td></tr>
+<tr><td>Y, K (agregadas)</td><td>n</td><td>n + g</td></tr></table></details>
+
+<h2>3. Shocks: qué curva se mueve y qué pasa</h2>
+<details><summary>Sube s (o hay un subsidio a la inversión)</summary>
+<p><b>Se desplaza</b> s·f(k) hacia arriba, y k* e y* suben. En la transición, k̇/k &gt; 0 y va cayendo hasta 0. Es un <b>efecto nivel, no tasa</b>: en el largo plazo y vuelve a crecer a 0 (o a g). El consumo cae en t = 0, porque y está dado y (1−s) baja, y después sube.<br>
+<span class="n">Ejercicio D (y = k<sup>0,5</sup>, n+δ = 0,1, s de 0,2 a 0,3): k* pasa de 4 a 9, y* de 2 a 3, c* de 1,6 a 2,1, y en t = 0 el consumo es c = 0,7·2 = 1,4.</span></p></details>
+<details><summary>Sube n (o sube δ)</summary>
+<p>La recta (n+δ)·k <b>rota</b> y queda más empinada, así que k* e y* bajan. En la transición, el crecimiento per cápita es negativo, y en el largo plazo vuelve a 0 (o a g). Con n mayor, Y y K crecen más rápido porque crecen a n.</p></details>
+<details><summary>Sube A una vez (un salto de nivel)</summary>
+<p>f(k) y s·f(k) se desplazan hacia arriba, y k* e y* suben. Es un efecto nivel y la tasa de largo plazo no cambia.</p></details>
+<details><summary>Sube g</summary>
+<p>En el diagrama de k̃, la recta (n+g+δ)·k̃ queda más empinada y k̃* baja. Aun así, y crece más rápido, porque la pendiente de ln y pasa a ser el g nuevo. Es lo único que cambia la tasa de largo plazo.</p></details>
+<details><summary>Lista de chequeo del gráfico (Droller: «nombre los ejes, equilibrios y curvas»)</summary>
+<ul><li>Ejes: k en el horizontal; y, i y (n+δ)k en el vertical.</li>
+<li>Las tres curvas con nombre: f(k), s·f(k) y (n+δ)·k.</li>
+<li>Marca k*, y* (sobre f(k)) e i* (sobre s·f(k)), además de k₀ y las flechas de la dinámica.</li>
+<li>Distingue desplazamiento (la curva se mueve) de movimiento (k avanza a lo largo de la curva).</li>
+<li>Al lado, ln y contra t: un salto o una transición y después la misma pendiente.</li></ul></details>
+
+<h2>4. V/F con el mecanismo (1 minuto cada uno)</h2>
+<details><summary>1. «En EE las variables per cápita crecen a tasa 0 y las agregadas, Y y K, a tasa (δ + n).»</summary>
+<p><span class="f">Falso.</span> Y y K crecen a n: K̇/K = k̇/k + n = 0 + n. δ no es una tasa de crecimiento: es la depreciación, y ya está dentro de la condición de EE.</p></details>
+<details><summary>2. «Un aumento de s genera crecimiento per cápita en el corto plazo, pero no en el largo plazo.»</summary>
+<p><span class="r">Verdadero.</span> s·f(k) se desplaza hacia arriba; en el k* antiguo la inversión supera a (n+δ)k, así que k̇ &gt; 0. Por los rendimientos decrecientes, k̇/k cae hasta 0 en el nuevo k*. Es un efecto nivel.</p></details>
+<details><summary>3. «El término n·k de la ecuación de Solow es depreciación física del capital.»</summary>
+<p><span class="f">Falso.</span> Es la dilución: el capital por trabajador cae porque la población crece y hay que equipar a los trabajadores nuevos. La depreciación física es δ·k.</p></details>
+<details><summary>4. «k* depende de la condición inicial k₀.»</summary>
+<p><span class="f">Falso.</span> k* = (s/(n+δ))<sup>1/(1−α)</sup> depende solo de los parámetros. k₀ cambia la trayectoria, no el destino: para cualquier k₀ &gt; 0 la economía converge al mismo k*.</p></details>
+<details><summary>5. «Cuanto más lejos (por debajo) de su EE está una economía, más rápido crece.»</summary>
+<p><span class="r">Verdadero</span>, con los parámetros dados. k̇/k = s·k<sup>α−1</sup> − (n+δ) es decreciente en k: mientras más abajo de k*, mayor la brecha. Es convergencia <b>condicional</b>.</p></details>
+<details><summary>6. «Un aumento permanente de s es un movimiento a lo largo de la curva s·f(k).»</summary>
+<p><span class="f">Falso.</span> Es un <b>desplazamiento</b> de s·f(k) hacia arriba. El movimiento a lo largo de la curva es la transición de k hacia el nuevo k*.</p></details>
+<details><summary>7. «Con progreso técnico, en la senda balanceada k = K/L es constante.»</summary>
+<p><span class="f">Falso.</span> La que es constante es k̃ = K/(AL). Como k = A·k̃, k crece a g.</p></details>
+<details><summary>8. «Un subsidio permanente a la inversión eleva la tasa de crecimiento de largo plazo de y.»</summary>
+<p><span class="f">Falso.</span> Funciona como un aumento de s: sube el nivel de k̃* e ỹ* y hay crecimiento extra solo durante la transición. La tasa de largo plazo es g, que es exógena.</p></details>
+<details><summary>9. «Un aumento de n reduce permanentemente la tasa de crecimiento del PIB per cápita.»</summary>
+<p><span class="f">Falso.</span> (n+δ)k queda más empinada y k* e y* bajan: el efecto es de <b>nivel</b>. El crecimiento per cápita baja solo en la transición y después vuelve a 0 (o a g).</p></details>
+<details><summary>10. «Según Solow, los países pobres siempre crecen más rápido que los ricos.»</summary>
+<p><span class="f">Falso.</span> La convergencia es condicional: se da solo entre países con los mismos s, n, δ y g. Un país pobre con un k* bajo puede estar cerca de su EE y crecer lento.</p></details>
+
+<h2>5. Comentes con casos reales (para leer y razonar)</h2>
+<p class="n">Son el mismo mecanismo con nombre y apellido. Igual que antes: contesta primero y después abre. En el control, el caso sirve de ejemplo, pero lo que da puntaje es el mecanismo.</p>
+<details><summary>A. Corea del Sur (1960-1990): «Su crecimiento acelerado muestra que una tasa de ahorro alta genera crecimiento permanente.»</summary>
+<p><span class="f">Falso</span> (o Incierto). Corea subió s con fuerza: s·f(k) se desplazó hacia arriba y el país partía muy por debajo de su k*, así que tenía mucho crecimiento de transición. Por los rendimientos decrecientes, ese crecimiento se agota cuando k se acerca a k*. Para crecer en forma sostenida hace falta g. Lo que dejó el ahorro alto fue un <b>nivel</b> de y más alto.</p></details>
+<details><summary>B. La URSS: «Invirtió una fracción altísima del PIB por décadas; según Solow, era esperable que su crecimiento se desacelerara.»</summary>
+<p><span class="r">Verdadero.</span> Acumular capital sin progreso técnico choca con los rendimientos decrecientes: k̇/k = s·k<sup>α−1</sup> − (n+δ) cae a medida que k sube, y el crecimiento per cápita tiende a 0. Sin g no hay crecimiento de largo plazo, por mucho que se invierta.</p></details>
+<details><summary>C. Alemania y Japón después de 1945: «Que crecieran más rápido que EE.UU. tras la guerra contradice a Solow.»</summary>
+<p><span class="f">Falso</span>, es justo lo que predice el modelo. La guerra destruyó capital (k₀ muy bajo), pero no cambió los parámetros (s, n, δ, tecnología), así que k* siguió igual. Con k₀ muy por debajo de k*, k̇/k es alto y crecen rápido mientras vuelven a su EE. Es el V/F 4 (k* no depende de k₀) aplicado a un caso.</p></details>
+<details><summary>D. China, política de hijo único: «Al bajar n, elevó permanentemente la tasa de crecimiento del PIB per cápita.»</summary>
+<p><span class="f">Falso.</span> Bajar n rota (n+δ)·k hacia abajo y k* e y* suben: es un efecto <b>nivel</b>. El crecimiento per cápita sube solo durante la transición y en el largo plazo vuelve a 0 (o a g). El crecimiento agregado de Y incluso baja, porque es n (o n+g).</p></details>
+<details><summary>E. Nigeria y EE.UU. (PIB per cápita 2023: ~807 contra ~85.810 dólares): «Que Nigeria no esté alcanzando a EE.UU. refuta el modelo de Solow.»</summary>
+<p><span class="f">Falso.</span> Solow predice convergencia <b>condicional</b>, no absoluta. Cada país converge a <i>su propio</i> k*, que depende de s, n, δ y A. Si Nigeria tiene un s más bajo, un n más alto o un A menor, su k* es bajo y puede estar cerca de él aunque sea pobre. (Clase 1: estas brechas motivan hablar de instituciones y geografía, que en Solow entran a través de A.)</p></details>
+<details><summary>F. EE.UU. por más de un siglo: «Que su PIB per cápita haya crecido a una tasa casi constante, cerca de 2 % anual, solo es consistente con Solow si hay progreso técnico.»</summary>
+<p><span class="r">Verdadero.</span> Sin tecnología, en EE el producto per cápita crece a 0. Para tener una tasa per cápita positiva y estable hace falta la senda balanceada: y = A·ỹ*, que crece a g. La recta de ln y contra t tiene pendiente g ≈ 2 %.</p></details>
+<details><summary>G. Chile después de 1998: «La desaceleración del crecimiento chileno solo puede explicarse por una caída del ahorro.»</summary>
+<p><span class="f">Falso</span> (o Incierto). Según Solow, el crecimiento cae aunque s no cambie, porque a medida que k se acerca a k* el crecimiento de transición se agota (rendimientos decrecientes). En el largo plazo, lo que manda es el crecimiento de la productividad (g). El Apunte 4 (Productividad y crecimiento, Chile) apunta justamente a la productividad estancada. Este es el cruce con Política Económica.</p></details>
+<details><summary>H. Una reforma hipotética: «Si una reforma de pensiones elevara permanentemente el ahorro nacional, Chile crecería más rápido para siempre.»</summary>
+<p><span class="f">Falso.</span> Más ahorro equivale a subir s: s·f(k) se desplaza hacia arriba y k* e y* suben. Hay más crecimiento durante la transición y un nivel de ingreso más alto, pero la tasa de largo plazo sigue siendo g. Además, el consumo cae al principio: c = (1−s)·y con y dado.</p></details>
+
+<p class="n">Recordatorio de la plantilla V/F: veredicto → ecuación o gráfico → intuición.</p>
+</body></html>

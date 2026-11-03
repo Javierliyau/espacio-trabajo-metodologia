@@ -1,0 +1,474 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Adjuntando el paquete: 'scorecard'
+
+The following object is masked from 'package:tidyr':
+
+    replace_na
+
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+Rows: 317700 Columns: 22
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr  (5): ID_aux, FECHA_NACIMIENTO, RAMA_EDUCACIONAL, BEA, PACE
+dbl (17): ANYO_PROCESO, RBD, COD_ENS, REGIMEN, GRUPO_DEPENDENCIA, ANYO_EGRES...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+Rows: 317700 Columns: 38
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr  (6): ID_aux, RAMA_EDUCACIONAL, MODULO_REG_ACTUAL, MODULO_INV_ACTUAL, MO...
+dbl (32): RBD, COD_ENS, GRUPO_DEPENDENCIA, SITUACION_EGRESO, CODIGO_REGION, ...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+Rows: 1686689 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr (2): ID_aux, TIPO_PREF
+dbl (4): ORDEN_PREF, COD_CARRERA_PREF, ESTADO_PREF, PTJE_PREF
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+Rows: 128345 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ";"
+chr (1): ID_aux
+dbl (6): CODIGO_UNIV, CODIGO, VIA, PREFERENCIA, PTJE_POND, TIPO_MATRICULA
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+    1     2     3     4     5     6     7     8     9    10  <NA> 
+44143 33292 23462 21515 17187 15786 25050 20567 14384 14402 87912 
+# A tibble: 3,318 × 3
+     RBD N_ALUMNOS INGRESO_COLEGIO
+   <dbl>     <int>           <dbl>
+ 1     1       116               2
+ 2     4       415               4
+ 3     5       204               4
+ 4     7       260               2
+ 5     8        90               4
+ 6    15        34               3
+ 7    25        72               3
+ 8    28        16               1
+ 9    32        58               4
+10    45        95               3
+# ℹ 3,308 more rows
+# A tibble: 317,700 × 10
+   ID_aux           FECHA_NACIMIENTO   RBD RAMA_EDUCACIONAL GRUPO_DEPENDENCIA
+   <chr>            <chr>            <dbl> <chr>                        <dbl>
+ 1 id_5100551670077 082007               1 T2                               4
+ 2 id_2166521776627 022007               1 T2                               4
+ 3 id_5995559379565 072006               1 T2                               4
+ 4 id_6153961675327 031997               1 T2                               4
+ 5 id_3049530274928 122003               1 T2                               4
+ 6 id_5744557074488 042007               1 T2                               4
+ 7 id_5949559874951 042006               1 T2                               4
+ 8 id_5399553579930 012008               1 T2                               4
+ 9 id_5554555375449 112006               1 T2                               4
+10 id_316931149445  032008               1 T2                               4
+# ℹ 317,690 more rows
+# ℹ 5 more variables: CODIGO_REGION <dbl>, SEXO <dbl>, PACE <chr>, BEA <chr>,
+#   INGRESO_PERCAPITA_GRUPO_FA <dbl>
+# A tibble: 168,714 × 10
+   ID_aux    PROMEDIO_NOTAS PORC_SUP_NOTAS PTJE_NEM PTJE_RANKING CLEC_REG_ACTUAL
+   <chr>              <dbl>          <dbl>    <dbl>        <dbl>           <dbl>
+ 1 id_76940…           6.17             20      765          811             576
+ 2 id_62076…           6.55             10      873          958             567
+ 3 id_89349…           5.38             90      541          541             590
+ 4 id_84219…           6.23             30      781          798             576
+ 5 id_86579…           6.4              10      830          894             484
+ 6 id_79830…           6.03             10      725          746             555
+ 7 id_89426…           6.85             10      958         1000             477
+ 8 id_83859…           6.7              10      915         1000             555
+ 9 id_86099…           5.77             30      652          652             410
+10 id_31420…           6.9              10      972         1000             567
+# ℹ 168,704 more rows
+# ℹ 4 more variables: MATE1_REG_ACTUAL <dbl>, CIEN_REG_ACTUAL <dbl>,
+#   HCSOC_REG_ACTUAL <dbl>, MATE2_REG_ACTUAL <dbl>
+# A tibble: 188,538 × 2
+   ID_aux           FLAG_POSTULA
+   <chr>                   <dbl>
+ 1 id_769407672945             1
+ 2 id_620766277076             1
+ 3 id_8934989673400            1
+ 4 id_8616986271673            1
+ 5 id_894268975429             1
+ 6 id_960669671061             1
+ 7 id_8098980479898            1
+ 8 id_8070980477092            1
+ 9 id_176961775696             1
+10 id_8796987279672            1
+# ℹ 188,528 more rows
+# A tibble: 118,795 × 2
+   ID_aux          PREFERENCIA
+   <chr>                 <dbl>
+ 1 id_961939672191           1
+ 2 id_132331374239           1
+ 3 id_205632072566           1
+ 4 id_756107573618           1
+ 5 id_769407672945           1
+ 6 id_311803175187           1
+ 7 id_646206477620           4
+ 8 id_894268975429           1
+ 9 id_816168176618           1
+10 id_399763977970           1
+# ℹ 118,785 more rows
+# A tibble: 168,714 × 21
+   ID_aux    PROMEDIO_NOTAS PORC_SUP_NOTAS PTJE_NEM PTJE_RANKING CLEC_REG_ACTUAL
+   <chr>              <dbl>          <dbl>    <dbl>        <dbl>           <dbl>
+ 1 id_76940…           6.17             20      765          811             576
+ 2 id_62076…           6.55             10      873          958             567
+ 3 id_89349…           5.38             90      541          541             590
+ 4 id_84219…           6.23             30      781          798             576
+ 5 id_86579…           6.4              10      830          894             484
+ 6 id_79830…           6.03             10      725          746             555
+ 7 id_89426…           6.85             10      958         1000             477
+ 8 id_83859…           6.7              10      915         1000             555
+ 9 id_86099…           5.77             30      652          652             410
+10 id_31420…           6.9              10      972         1000             567
+# ℹ 168,704 more rows
+# ℹ 15 more variables: MATE1_REG_ACTUAL <dbl>, CIEN_REG_ACTUAL <dbl>,
+#   HCSOC_REG_ACTUAL <dbl>, MATE2_REG_ACTUAL <dbl>, FECHA_NACIMIENTO <chr>,
+#   RBD <dbl>, RAMA_EDUCACIONAL <chr>, GRUPO_DEPENDENCIA <dbl>,
+#   CODIGO_REGION <dbl>, SEXO <dbl>, PACE <chr>, BEA <chr>,
+#   INGRESO_PERCAPITA_GRUPO_FA <dbl>, FLAG_POSTULA <dbl>, PREFERENCIA <dbl>
+[1] 168714
+
+     0      1 
+108480  60234 
+   
+        0     1
+  0 55361     0
+  1 53119 60234
+
+     0      1 
+128832  39882 
+
+     0      1 
+155165  13549 
+
+     0      1 
+155278  13436 
+
+    1     2     3     4     5     6     7     8     9    10    11    12    13 
+39958 13257  7019  3337  1878  1096   669   433   301   194   154    94    81 
+   14    15    16    17    18    19    20 
+   49    33    30    12    15    11     4 
+    ID_aux          PROMEDIO_NOTAS  PORC_SUP_NOTAS      PTJE_NEM     
+ Length:168714      Min.   :4.180   Min.   : 10.00   Min.   : 157.0  
+ Class :character   1st Qu.:5.730   1st Qu.: 20.00   1st Qu.: 637.0  
+ Mode  :character   Median :6.130   Median : 50.00   Median : 751.0  
+                    Mean   :6.085   Mean   : 47.65   Mean   : 737.9  
+                    3rd Qu.:6.480   3rd Qu.: 70.00   3rd Qu.: 851.0  
+                    Max.   :7.000   Max.   :100.00   Max.   :1000.0  
+                                                                     
+  PTJE_RANKING    CLEC_REG_ACTUAL  MATE1_REG_ACTUAL CIEN_REG_ACTUAL 
+ Min.   : 157.0   Min.   : 100.0   Min.   : 100.0   Min.   :   0.0  
+ 1st Qu.: 643.0   1st Qu.: 500.0   1st Qu.: 516.0   1st Qu.:   0.0  
+ Median : 759.0   Median : 590.0   Median : 601.0   Median : 395.0  
+ Mean   : 750.6   Mean   : 604.9   Mean   : 628.9   Mean   : 333.2  
+ 3rd Qu.: 870.0   3rd Qu.: 690.0   3rd Qu.: 710.0   3rd Qu.: 471.0  
+ Max.   :1000.0   Max.   :1000.0   Max.   :1000.0   Max.   :1000.0  
+                                                                    
+ HCSOC_REG_ACTUAL MATE2_REG_ACTUAL FECHA_NACIMIENTO        RBD       
+ Min.   :   0     Min.   :   0.0   Length:168714      Min.   :    1  
+ 1st Qu.:   0     1st Qu.:   0.0   Class :character   1st Qu.: 4659  
+ Median : 377     Median :   0.0   Mode  :character   Median : 9767  
+ Mean   : 287     Mean   : 189.1                      Mean   :12039  
+ 3rd Qu.: 493     3rd Qu.: 396.0                      3rd Qu.:17772  
+ Max.   :1000     Max.   :1000.0                      Max.   :42356  
+                                                      NA's   :3      
+ RAMA_EDUCACIONAL   GRUPO_DEPENDENCIA  CODIGO_REGION          SEXO          
+ Length:168714      Length:168714      Length:168714      Length:168714     
+ Class :character   Class :character   Class :character   Class :character  
+ Mode  :character   Mode  :character   Mode  :character   Mode  :character  
+                                                                            
+                                                                            
+                                                                            
+                                                                            
+      PACE              BEA          INGRESO_PERCAPITA_GRUPO_FA
+ Min.   :0.00000   Min.   :0.00000   Min.   : 1.000            
+ 1st Qu.:0.00000   1st Qu.:0.00000   1st Qu.: 2.000            
+ Median :0.00000   Median :0.00000   Median : 4.000            
+ Mean   :0.08031   Mean   :0.07964   Mean   : 4.779            
+ 3rd Qu.:0.00000   3rd Qu.:0.00000   3rd Qu.: 7.000            
+ Max.   :1.00000   Max.   :1.00000   Max.   :10.000            
+                                     NA's   :46668             
+  FLAG_POSTULA     PREFERENCIA       N_ALUMNOS     INGRESO_COLEGIO 
+ Min.   :0.0000   Min.   : 1.000   Min.   :  8.0   Min.   : 1.000  
+ 1st Qu.:0.0000   1st Qu.: 1.000   1st Qu.: 82.0   1st Qu.: 3.000  
+ Median :1.0000   Median : 1.000   Median :128.0   Median : 4.000  
+ Mean   :0.6719   Mean   : 1.981   Mean   :160.6   Mean   : 4.547  
+ 3rd Qu.:1.0000   3rd Qu.: 2.000   3rd Qu.:199.0   3rd Qu.: 5.000  
+ Max.   :1.0000   Max.   :20.000   Max.   :947.0   Max.   :10.000  
+                  NA's   :100089   NA's   :3       NA's   :61      
+ PREF_TOP3_DUMMY    TP_DUMMY        RINDE_CIEN      RINDE_HCSOC    
+ Min.   :0.000   Min.   :0.0000   Min.   :0.0000   Min.   :0.0000  
+ 1st Qu.:0.000   1st Qu.:0.0000   1st Qu.:0.0000   1st Qu.:0.0000  
+ Median :0.000   Median :0.0000   Median :1.0000   Median :1.0000  
+ Mean   :0.357   Mean   :0.2364   Mean   :0.7246   Mean   :0.5746  
+ 3rd Qu.:1.000   3rd Qu.:0.0000   3rd Qu.:1.0000   3rd Qu.:1.0000  
+ Max.   :1.000   Max.   :1.0000   Max.   :1.0000   Max.   :1.0000  
+                                                                   
+    RINDE_M2           MES              ANIO        EDAD_MESES   
+ Min.   :0.0000   Min.   : 1.000   Min.   :1954   Min.   :181.0  
+ 1st Qu.:0.0000   1st Qu.: 3.000   1st Qu.:2007   1st Qu.:215.0  
+ Median :0.0000   Median : 7.000   Median :2007   Median :218.0  
+ Mean   :0.4448   Mean   : 6.528   Mean   :2007   Mean   :222.6  
+ 3rd Qu.:1.0000   3rd Qu.:10.000   3rd Qu.:2008   3rd Qu.:222.0  
+ Max.   :1.0000   Max.   :12.000   Max.   :2010   Max.   :860.0  
+                                                                 
+ PREF_TOP3_DUMMY PROMEDIO_NOTAS  PORC_SUP_NOTAS      PTJE_NEM     
+ Min.   :0.000   Min.   :4.180   Min.   : 10.00   Min.   : 157.0  
+ 1st Qu.:0.000   1st Qu.:5.730   1st Qu.: 20.00   1st Qu.: 637.0  
+ Median :0.000   Median :6.130   Median : 50.00   Median : 751.0  
+ Mean   :0.357   Mean   :6.085   Mean   : 47.65   Mean   : 737.9  
+ 3rd Qu.:1.000   3rd Qu.:6.480   3rd Qu.: 70.00   3rd Qu.: 851.0  
+ Max.   :1.000   Max.   :7.000   Max.   :100.00   Max.   :1000.0  
+                                                                  
+  PTJE_RANKING    CLEC_REG_ACTUAL  MATE1_REG_ACTUAL   RINDE_CIEN    
+ Min.   : 157.0   Min.   : 100.0   Min.   : 100.0   Min.   :0.0000  
+ 1st Qu.: 643.0   1st Qu.: 500.0   1st Qu.: 516.0   1st Qu.:0.0000  
+ Median : 759.0   Median : 590.0   Median : 601.0   Median :1.0000  
+ Mean   : 750.6   Mean   : 604.9   Mean   : 628.9   Mean   :0.7246  
+ 3rd Qu.: 870.0   3rd Qu.: 690.0   3rd Qu.: 710.0   3rd Qu.:1.0000  
+ Max.   :1000.0   Max.   :1000.0   Max.   :1000.0   Max.   :1.0000  
+                                                                    
+  RINDE_HCSOC        RINDE_M2      GRUPO_DEPENDENCIA     TP_DUMMY     
+ Min.   :0.0000   Min.   :0.0000   Length:168714      Min.   :0.0000  
+ 1st Qu.:0.0000   1st Qu.:0.0000   Class :character   1st Qu.:0.0000  
+ Median :1.0000   Median :0.0000   Mode  :character   Median :0.0000  
+ Mean   :0.5746   Mean   :0.4448                      Mean   :0.2364  
+ 3rd Qu.:1.0000   3rd Qu.:1.0000                      3rd Qu.:0.0000  
+ Max.   :1.0000   Max.   :1.0000                      Max.   :1.0000  
+                                                                      
+ CODIGO_REGION          SEXO                PACE              BEA         
+ Length:168714      Length:168714      Min.   :0.00000   Min.   :0.00000  
+ Class :character   Class :character   1st Qu.:0.00000   1st Qu.:0.00000  
+ Mode  :character   Mode  :character   Median :0.00000   Median :0.00000  
+                                       Mean   :0.08031   Mean   :0.07964  
+                                       3rd Qu.:0.00000   3rd Qu.:0.00000  
+                                       Max.   :1.00000   Max.   :1.00000  
+                                                                          
+ INGRESO_PERCAPITA_GRUPO_FA   EDAD_MESES      N_ALUMNOS     INGRESO_COLEGIO 
+ Min.   : 1.000             Min.   :181.0   Min.   :  8.0   Min.   : 1.000  
+ 1st Qu.: 2.000             1st Qu.:215.0   1st Qu.: 82.0   1st Qu.: 3.000  
+ Median : 4.000             Median :218.0   Median :128.0   Median : 4.000  
+ Mean   : 4.779             Mean   :222.6   Mean   :160.6   Mean   : 4.547  
+ 3rd Qu.: 7.000             3rd Qu.:222.0   3rd Qu.:199.0   3rd Qu.: 5.000  
+ Max.   :10.000             Max.   :860.0   Max.   :947.0   Max.   :10.000  
+ NA's   :46668                              NA's   :3       NA's   :61      
+           PREF_TOP3_DUMMY             PROMEDIO_NOTAS 
+                      0.00                       0.00 
+            PORC_SUP_NOTAS                   PTJE_NEM 
+                      0.00                       0.00 
+              PTJE_RANKING            CLEC_REG_ACTUAL 
+                      0.00                       0.00 
+          MATE1_REG_ACTUAL                 RINDE_CIEN 
+                      0.00                       0.00 
+               RINDE_HCSOC                   RINDE_M2 
+                      0.00                       0.00 
+         GRUPO_DEPENDENCIA                   TP_DUMMY 
+                      0.00                       0.00 
+             CODIGO_REGION                       SEXO 
+                      0.00                       0.00 
+                      PACE                        BEA 
+                      0.00                       0.00 
+INGRESO_PERCAPITA_GRUPO_FA                 EDAD_MESES 
+                     27.66                       0.00 
+                 N_ALUMNOS            INGRESO_COLEGIO 
+                      0.00                       0.04 
+PROMEDIO_NOTAS : limites 4.605 y 7.605 | atipicos: 61 
+PTJE_NEM : limites 316 y 1172 | atipicos: 116 
+PTJE_RANKING : limites 302.5 y 1210.5 | atipicos: 77 
+CLEC_REG_ACTUAL : limites 215 y 975 | atipicos: 101 
+MATE1_REG_ACTUAL : limites 225 y 1001 | atipicos: 17 
+EDAD_MESES : limites 204.5 y 232.5 | atipicos: 8513 
+N_ALUMNOS : limites -93.5 y 374.5 | atipicos: 8947 
+INGRESO_COLEGIO : limites 0 y 8 | atipicos: 12849 
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 20 columns in 00:00:05
+                                             variable    IV
+CLEC_REG_ACTUAL                       CLEC_REG_ACTUAL 0.734
+MATE1_REG_ACTUAL                     MATE1_REG_ACTUAL 0.627
+PROMEDIO_NOTAS                         PROMEDIO_NOTAS 0.395
+PTJE_NEM                                     PTJE_NEM 0.394
+PTJE_RANKING                             PTJE_RANKING 0.376
+PORC_SUP_NOTAS                         PORC_SUP_NOTAS 0.193
+TP_DUMMY                                     TP_DUMMY 0.106
+INGRESO_COLEGIO                       INGRESO_COLEGIO 0.106
+GRUPO_DEPENDENCIA                   GRUPO_DEPENDENCIA 0.104
+EDAD_MESES                                 EDAD_MESES 0.051
+INGRESO_PERCAPITA_GRUPO_FA INGRESO_PERCAPITA_GRUPO_FA 0.042
+BEA                                               BEA 0.033
+RINDE_M2                                     RINDE_M2 0.024
+CODIGO_REGION                           CODIGO_REGION 0.018
+RINDE_HCSOC                               RINDE_HCSOC 0.007
+N_ALUMNOS                                   N_ALUMNOS 0.006
+RINDE_CIEN                                 RINDE_CIEN 0.002
+PACE                                             PACE 0.001
+SEXO                                             SEXO 0.000
+          variable        bin count count_distr   neg   pos    posprob
+            <char>     <char> <int>       <num> <int> <int>      <num>
+1: CLEC_REG_ACTUAL [-Inf,440) 12239  0.07254288 11835   404 0.03300923
+2: CLEC_REG_ACTUAL  [440,540) 40503  0.24006899 33729  6774 0.16724687
+3: CLEC_REG_ACTUAL  [540,600) 37453  0.22199106 24743 12710 0.33935866
+4: CLEC_REG_ACTUAL  [600,700) 42871  0.25410458 23577 19294 0.45004782
+5: CLEC_REG_ACTUAL [700, Inf) 35648  0.21129248 14596 21052 0.59055206
+           woe      bin_iv  total_iv breaks is_special_values
+         <num>       <num>     <num> <char>            <lgcl>
+1: -2.78907280 0.285576722 0.7338592    440             FALSE
+2: -1.01693740 0.201823707 0.7338592    540             FALSE
+3: -0.07782469 0.001329069 0.7338592    600             FALSE
+4:  0.38785135 0.039940090 0.7338592    700             FALSE
+5:  0.95457690 0.205189602 0.7338592    Inf             FALSE
+PROMEDIO_NOTAS : 13 21.9 28.7 37.3 50.6 -> monotona: TRUE 
+PORC_SUP_NOTAS : 48.2 40.1 31 21 -> monotona: TRUE 
+PTJE_NEM : 13.4 22.6 29.6 40.4 52.7 -> monotona: TRUE 
+PTJE_RANKING : 9.7 15.7 25.8 39.4 50.9 -> monotona: TRUE 
+CLEC_REG_ACTUAL : 3.3 16.7 33.9 45 59.1 -> monotona: TRUE 
+MATE1_REG_ACTUAL : 5.5 21.5 38.9 53.2 71.4 -> monotona: TRUE 
+RINDE_CIEN : 37.3 35.1 -> monotona: TRUE 
+RINDE_HCSOC : 33.5 37.3 -> monotona: TRUE 
+RINDE_M2 : 32.5 39.7 -> monotona: TRUE 
+GRUPO_DEPENDENCIA : 28.4 29.2 36 53.1 -> monotona: TRUE 
+TP_DUMMY : 39.7 22.8 -> monotona: TRUE 
+CODIGO_REGION : 33.4 36.6 40.4 43.4 -> monotona: TRUE 
+SEXO : 35.4 36 -> monotona: TRUE 
+PACE : 35.5 38.1 -> monotona: TRUE 
+BEA : 34.5 50.1 -> monotona: TRUE 
+INGRESO_PERCAPITA_GRUPO_FA : 30.1 35.3 40.1 53.2 -> monotona: TRUE 
+EDAD_MESES : 35.5 38.1 20.6 -> monotona: FALSE 
+N_ALUMNOS : 31.2 38 36.5 33 35.3 -> monotona: FALSE 
+INGRESO_COLEGIO : 24.5 33.9 38.4 56.3 -> monotona: TRUE 
+ℹ Creating woe binning ...
+ℹ The option bin_close_right was set to FALSE.
+✔ Binning on 168714 rows and 2 columns in 00:00:00
+   
+    pagado publico subvencionado
+  1  21822       0             0
+  2      0       0         89586
+  3      0   40362             0
+  4      0   16941             0
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 2 columns in 00:00:00
+ℹ Converting into woe values ...
+✔ Woe transformating on 168714 rows and 12 columns in 00:00:02
+                variable     Estimate Std. Error   z value Pr(>|z|)      gvif
+                  <char>        <num>      <num>     <num>    <num>     <num>
+ 1:          (Intercept) -0.581629187     0.0057 -102.8610   0.0000        NA
+ 2:  CLEC_REG_ACTUAL_woe  0.549410293     0.0092   59.6654   0.0000  1.599071
+ 3: MATE1_REG_ACTUAL_woe  0.451974059     0.0101   44.7327   0.0000  1.756172
+ 4:   PROMEDIO_NOTAS_woe  0.327867556     0.0330    9.9425   0.0000 12.815213
+ 5:         PTJE_NEM_woe  0.008848699     0.0388    0.2281   0.8196 17.758494
+ 6:     PTJE_RANKING_woe  0.179085239     0.0370    4.8396   0.0000 15.198209
+ 7:   PORC_SUP_NOTAS_woe -0.129351894     0.0235   -5.5083   0.0000  3.369275
+ 8:         TP_DUMMY_woe  0.325709019     0.0192   16.9205   0.0000  1.182698
+ 9:  INGRESO_COLEGIO_woe  0.032567316     0.0256    1.2698   0.2041  2.337315
+10:              BEA_woe  0.010411543     0.0319    0.3262   0.7442  1.189283
+11:         RINDE_M2_woe -0.060349117     0.0379   -1.5941   0.1109  1.106780
+12:    DEPENDENCIA_3_woe -0.065842192     0.0260   -2.5299   0.0114  2.378830
+13:       EDAD_MESES_woe  0.114059104     0.0280    4.0796   0.0000  1.039902
+ℹ Converting into woe values ...
+✔ Woe transformating on 168714 rows and 8 columns in 00:00:02
+               variable     Estimate Std. Error   z value Pr(>|z|)     gvif
+                 <char>        <num>      <num>     <num>    <num>    <num>
+1:          (Intercept) -0.581678885     0.0057 -102.9132   0.0000       NA
+2:  CLEC_REG_ACTUAL_woe  0.548983166     0.0092   59.8525   0.0000 1.588677
+3: MATE1_REG_ACTUAL_woe  0.451991582     0.0100   45.1035   0.0000 1.728556
+4:   PROMEDIO_NOTAS_woe  0.428606926     0.0105   40.8395   0.0000 1.305119
+5:         TP_DUMMY_woe  0.335620806     0.0189   17.7793   0.0000 1.138085
+6:    DEPENDENCIA_3_woe -0.011141448     0.0189   -0.5909   0.5546 1.247565
+7:       EDAD_MESES_woe  0.123510817     0.0279    4.4326   0.0000 1.035946
+8:              BEA_woe -0.002995822     0.0313   -0.0958   0.9237 1.141012
+9:         RINDE_M2_woe -0.062630692     0.0378   -1.6551   0.0979 1.105970
+Hubo 11 avisos (use warnings() para verlos)
+
+===== CHEQUEOS EXTRA =====
+ℹ Using "','" as decimal and "'.'" as grouping mark. Use `read_delim()` for more control.
+PACE crudo:
+
+  PACE   <NA> 
+ 15552 302148 
+BEA crudo:
+
+   BEA   <NA> 
+ 14464 303236 
+RAMA:
+
+    H1     H2     T1     T2     T3     T4     T5   <NA> 
+123901   4928  12515  14626  10592   1862    287      3 
+RINDE_*:
+  RINDE_CIEN RINDE_HCSOC RINDE_M2
+0      46458       71768    93675
+1     122256       96946    75039
+FECHA ej:
+[1] "111971" "081971" "111971" "041971" "121971" "101972"
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  181.0   215.0   218.0   222.6   222.0   860.0 
+dup ID df1: 0 
+        variable                           bin count count_distr   neg   pos
+          <char>                        <char> <int>       <num> <int> <int>
+1: CODIGO_REGION 6%,%13%,%16%,%4%,%3%,%missing 89825  0.53240988 59859 29966
+2: CODIGO_REGION                 9%,%5%,%7%,%8 53330  0.31609706 33812 19518
+3: CODIGO_REGION               1%,%2%,%12%,%11 11494  0.06812713  6855  4639
+4: CODIGO_REGION                  14%,%10%,%15 14065  0.08336593  7954  6111
+     posprob         woe       bin_iv  total_iv                        breaks
+       <num>       <num>        <num>     <num>                        <char>
+1: 0.3336042 -0.10359954 0.0056259169 0.0179766 6%,%13%,%16%,%4%,%3%,%missing
+2: 0.3659854  0.03885019 0.0004797015 0.0179766                 9%,%5%,%7%,%8
+3: 0.4036019  0.19784936 0.0027352538 0.0179766               1%,%2%,%12%,%11
+4: 0.4344828  0.32474433 0.0091357258 0.0179766                  14%,%10%,%15
+   is_special_values
+              <lgcl>
+1:             FALSE
+2:             FALSE
+3:             FALSE
+4:             FALSE
+   variable      bin count count_distr   neg   pos   posprob        woe
+     <char>   <char> <int>       <num> <int> <int>     <num>      <num>
+1: RINDE_M2 [-Inf,1) 93675   0.5552296 63206 30469 0.3252629 -0.1413606
+2: RINDE_M2 [1, Inf) 75039   0.4447704 45274 29765 0.3966604  0.1689291
+       bin_iv   total_iv breaks is_special_values
+        <num>      <num> <char>            <lgcl>
+1: 0.01085753 0.02383252      1             FALSE
+2: 0.01297499 0.02383252    Inf             FALSE
+     variable        bin  count count_distr   neg   pos   posprob         woe
+       <char>     <char>  <int>       <num> <int> <int>     <num>       <num>
+1: EDAD_MESES [-Inf,228) 153602   0.9104283 96481 57121 0.3718767  0.06415457
+2: EDAD_MESES [228, Inf)  15112   0.0895717 11999  3113 0.2059952 -0.76090757
+        bin_iv   total_iv breaks is_special_values
+         <num>      <num> <char>            <lgcl>
+1: 0.003780531 0.04861966    228             FALSE
+2: 0.044839124 0.04861966    Inf             FALSE
+                   CLEC_REG_ACTUAL_woe MATE1_REG_ACTUAL_woe PROMEDIO_NOTAS_woe
+PROMEDIO_NOTAS_woe                0.46                 0.44               1.00
+PTJE_NEM_woe                      0.47                 0.45               0.96
+PTJE_RANKING_woe                  0.45                 0.43               0.95
+                   PTJE_NEM_woe PTJE_RANKING_woe PORC_SUP_NOTAS_woe
+PROMEDIO_NOTAS_woe         0.96             0.95               0.79
+PTJE_NEM_woe               1.00             0.96               0.80
+PTJE_RANKING_woe           0.96             1.00               0.80
+                   TP_DUMMY_woe INGRESO_COLEGIO_woe BEA_woe RINDE_M2_woe
+PROMEDIO_NOTAS_woe         0.13                0.16    0.29         0.15
+PTJE_NEM_woe               0.13                0.16    0.31         0.15
+PTJE_RANKING_woe           0.10                0.14    0.30         0.15
+                   DEPENDENCIA_3_woe EDAD_MESES_woe
+PROMEDIO_NOTAS_woe              0.15           0.18
+PTJE_NEM_woe                    0.15           0.18
+PTJE_RANKING_woe                0.13           0.17

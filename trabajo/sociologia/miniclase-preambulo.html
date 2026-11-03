@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Preámbulo · Temporada 0 · Mini clase para la Prueba 1</title>
+<style>
+  @page { size: A4; margin: 14mm 14mm 14mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Segoe UI", Arial, sans-serif; font-size: 10.6pt; line-height: 1.42; color: #1d1d1f; margin: 0; }
+  h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; margin: 0; }
+  .cover { background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 55%, #ef4444 100%); color: #fff; border-radius: 14px; padding: 22px 26px; margin-bottom: 14px; }
+  .cover .kicker { letter-spacing: 3px; font-size: 9pt; text-transform: uppercase; opacity: .85; }
+  .cover h1 { font-size: 34pt; line-height: 1.05; margin: 6px 0 4px; }
+  .cover .sub { font-size: 12pt; opacity: .95; }
+  .card { display: flex; gap: 14px; border: 2px solid #1d1d1f; border-radius: 12px; padding: 12px 14px; margin-bottom: 12px; background: #fffbea; }
+  .card .avatar { font-size: 44pt; line-height: 1; }
+  .card table { border-collapse: collapse; font-size: 9.8pt; }
+  .card td { padding: 1px 8px 1px 0; vertical-align: top; }
+  .card td:first-child { font-weight: 700; white-space: nowrap; }
+  .legend { font-size: 9pt; color: #444; margin: 0 0 12px; }
+  .ep { border-left: 6px solid #b91c1c; padding: 2px 0 2px 12px; margin: 14px 0 6px; page-break-inside: avoid; }
+  .ep .n { font-size: 8.5pt; letter-spacing: 2px; text-transform: uppercase; color: #b91c1c; font-weight: 700; }
+  .ep h2 { font-size: 15pt; }
+  .block { page-break-inside: avoid; }
+  .profe { background: #eef4ff; border: 1px solid #b6c9f0; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .profe::before { content: "🎙 El profe dijo: "; font-weight: 700; color: #1e40af; }
+  .profe .t { color: #64748b; font-size: 8.5pt; }
+  .libro { background: #f3f4f6; border: 1px solid #d1d5db; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .libro::before { content: "📖 La lectura: "; font-weight: 700; color: #374151; }
+  .trampa { background: #fff1f2; border: 1.5px dashed #e11d48; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .trampa::before { content: "⚠ Trampa de prueba: "; font-weight: 700; color: #be123c; }
+  .tip { background: #ecfdf5; border: 1px solid #a7f3d0; border-radius: 10px; padding: 7px 11px; margin: 7px 0; }
+  .tip::before { content: "💡 Para recordarlo: "; font-weight: 700; color: #047857; }
+  .building { width: 78%; margin: 8px auto; text-align: center; font-size: 9.8pt; }
+  .roof { background: #fde68a; border: 2px solid #92400e; border-radius: 8px 8px 0 0; padding: 6px; }
+  .roof .row { display: flex; gap: 6px; margin-top: 4px; }
+  .roof .row div { flex: 1; background: #fff7d6; border: 1px solid #b45309; border-radius: 6px; padding: 4px; }
+  .arrow { font-size: 9pt; color: #92400e; padding: 3px 0; border-left: 2px solid #92400e; border-right: 2px solid #92400e; background: #fffdf3; }
+  .base { background: #78350f; color: #fff; border: 2px solid #78350f; border-radius: 0 0 8px 8px; padding: 7px; }
+  table.saga { width: 100%; border-collapse: collapse; font-size: 9.6pt; margin: 6px 0; }
+  table.saga th { background: #1d1d1f; color: #fff; text-align: left; padding: 5px 7px; }
+  table.saga td { border-bottom: 1px solid #ddd; padding: 5px 7px; vertical-align: top; }
+  table.saga tr:nth-child(even) td { background: #fafafa; }
+  .clock { display: flex; height: 30px; border-radius: 8px; overflow: hidden; margin: 8px 0 2px; font-weight: 700; font-size: 10pt; color: #fff; }
+  .clock .paid { flex: 6; background: #16a34a; display: flex; align-items: center; justify-content: center; }
+  .clock .free { flex: 10; background: #b91c1c; display: flex; align-items: center; justify-content: center; }
+  .clocklbl { display: flex; font-size: 8.5pt; color: #555; }
+  .clocklbl div:first-child { flex: 6; text-align: center; } .clocklbl div:last-child { flex: 10; text-align: center; }
+  .formulas { display: flex; gap: 10px; margin: 6px 0; }
+  .formulas div { flex: 1; border: 2px solid #1d1d1f; border-radius: 10px; padding: 8px 10px; }
+  .formulas .f { font-family: Consolas, monospace; font-size: 15pt; font-weight: 700; }
+  .alien { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin: 6px 0; }
+  .alien div { border: 1px solid #c4b5fd; background: #f5f3ff; border-radius: 8px; padding: 6px 9px; }
+  .alien b { color: #6d28d9; }
+  .bridge { display: flex; gap: 8px; margin: 6px 0; }
+  .bridge div { flex: 1; border-radius: 10px; padding: 8px 10px; color: #fff; font-size: 9.8pt; }
+  .newpage { page-break-before: always; }
+  .quiz { border: 2.5px solid #1d1d1f; border-radius: 14px; padding: 12px 16px; background: #fffdf5; }
+  .quiz h2 { font-size: 17pt; margin-bottom: 2px; }
+  .quiz ol { padding-left: 20px; margin: 8px 0 0; }
+  .quiz li { margin-bottom: 11px; }
+  .bet { float: right; font-size: 9pt; color: #555; }
+  .bet span { display: inline-block; width: 16px; height: 16px; border: 1.5px solid #555; border-radius: 4px; text-align: center; line-height: 13px; margin-left: 3px; font-size: 8pt; }
+  .score { font-size: 9.5pt; background: #f1f5f9; border-radius: 8px; padding: 7px 10px; margin-top: 6px; }
+  .tweet { border: 1px solid #cbd5e1; border-radius: 12px; padding: 9px 12px; margin: 8px 0; background: #fff; }
+  .tweet .who { font-weight: 700; } .tweet .who span { color: #64748b; font-weight: 400; }
+  ul.t { margin: 4px 0; padding-left: 18px; } ul.t li { margin-bottom: 3px; }
+  .foot { font-size: 8pt; color: #777; margin-top: 10px; border-top: 1px solid #ddd; padding-top: 5px; }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="kicker">Sociología Económica · Prueba 1 · mié 28-10</div>
+  <h1>PREÁMBULO<br>Temporada 0: la modernidad</h1>
+  <div class="sub">7 episodios cortos · unos 15 minutos · con las frases del profe (clases 1 y 2)</div>
+</div>
+
+<div class="card">
+  <div class="avatar">🌍</div>
+  <table>
+    <tr><td>Qué es</td><td>La <b>precuela</b> de los cuatro clásicos: el mundo que Marx, Weber, Durkheim y Tocqueville intentan explicar.</td></tr>
+    <tr><td>Idea fuerza</td><td>La modernidad son <b>tres revoluciones simultáneas</b> (política, económica y epistemológica), todas con <b>el individuo al centro</b>.</td></tr>
+    <tr><td>Elenco</td><td>Hobbes, Locke, Montesquieu, Rousseau · Smith · Platón, Aristóteles, Bacon, Descartes, Newton · Hegel, Feuerbach → Marx</td></tr>
+    <tr><td>Remate</td><td>Marx da vuelta la dialéctica de Hegel. Ahí empieza la Temporada 1.</td></tr>
+  </table>
+</div>
+
+<p class="legend">🎙 = frase del profe (C1 o C2 = clase 1 o 2, con el minuto de inicio del tema) · ⚠ = donde suelen pillar en V/F. El profe dijo que de esto entra «algo» en la prueba: apunta a las ideas grandes, no a los detalles.</p>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 1</div><h2>«Moderno» = el modo de ser de hoy</h2></div>
+<p><b>Moderno</b> viene del latín <i>modo</i> («recién», «ahora») y <i>hodiernus</i> («de hoy»): es <b>la forma de ser de hoy</b>. Parece decir poco, pero no es poco: casi todo lo que nos parece natural es moderno. Hace 300 o 400 años no tenía sentido hablar de presidente de la república, parlamento, elecciones, fábrica o verdad científica.</p>
+<div class="profe">La historia humana empieza hace unos <b>7 millones de años</b>, cuando un homínido «baja de los árboles». La modernidad son unos <b>350 años</b>: <b>«un pestañeo»</b>. <span class="t">(C2, 00:01:10)</span></div>
+<div class="trampa">«La modernidad es un proceso de miles de años» → <b>F</b>: son unos 350-400 años.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 2 · ⭐ la idea que más repitió</div><h2>Tres revoluciones, un protagonista</h2></div>
+<table class="saga">
+  <tr><th>Revolución</th><th>Qué cambia</th><th>El individuo pasa a ser…</th></tr>
+  <tr><td><b>🏛 Política</b></td><td>Liberalismo y contractualistas → Revolución Francesa</td><td><b>Sujeto de derecho</b></td></tr>
+  <tr><td><b>🏭 Económica</b></td><td>Capitalismo industrial: empresa, banca y máquina</td><td><b>Emprendedor</b></td></tr>
+  <tr><td><b>🔬 Epistemológica</b></td><td>Racionalismo + empirismo = método científico</td><td><b>Sustancia pensante</b> («pienso, luego existo»)</td></tr>
+</table>
+<div class="profe">Las separaciones entre política, economía y ciencia son <b>«un tanto artificiales»</b>: las tres revoluciones se cruzan y se alimentan. <span class="t">(C2, 00:15:44)</span></div>
+<div class="trampa">«Para el profesor, la modernidad es ante todo un cambio económico» → <b>F</b>: son tres revoluciones simultáneas. La idea común es el <b>individuo al centro</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 3</div><h2>Revolución política: el contrato</h2></div>
+<p>El poder ya no se justifica por <b>derecho divino</b>. Se buscan <b>fundamentos racionales</b>: el Estado nace de un <b>pacto</b> entre individuos.</p>
+<table class="saga">
+  <tr><th>Autor</th><th>Obra</th><th>La idea que entra</th></tr>
+  <tr><td><b>Hobbes</b></td><td><i>Leviatán</i> (1651)</td><td>Estado de naturaleza: <b>«el hombre es lobo del hombre»</b>. Se cede libertad a cambio de orden. Fundamento racional, pero defiende la <b>monarquía</b>.</td></tr>
+  <tr><td><b>Locke</b></td><td><i>Segundo tratado sobre el gobierno civil</i> (Revolución Gloriosa, 1688)</td><td>El poder requiere <b>consentimiento</b>. Hay <b>derechos naturales</b> previos al Estado: <b>vida, libertad y propiedad</b>. La propiedad son los bienes a los que se les <b>incorporó trabajo</b>.</td></tr>
+  <tr><td><b>Montesquieu</b></td><td><i>El espíritu de las leyes</i></td><td><b>Separación de poderes</b>: ejecutivo, legislativo y judicial.</td></tr>
+  <tr><td><b>Rousseau</b></td><td><i>El contrato social</i></td><td><b>Voluntad general</b> y <b>poder constituyente</b> (el profe lo conectó con el debate constitucional chileno).</td></tr>
+</table>
+<p>Hitos: la <b>guerra civil inglesa</b> (decapitación de Carlos I), la <b>Revolución Gloriosa</b> (monarquía parlamentaria) y la <b>Revolución Francesa (1789)</b>, con los <b>derechos de primera generación</b>: vida, libertad de asociación y de expresión. Sobre ellos se reclaman después salud, educación y seguridad social.</p>
+<div class="tip">Puentes con la temporada: <b>Montesquieu es el maestro de Tocqueville</b> («el poder se opone al poder») y la propiedad como <b>trabajo incorporado</b> de Locke anticipa la teoría del valor de Marx.</div>
+<div class="trampa">«Para Hobbes existen derechos naturales a la vida, la libertad y la propiedad» → <b>F</b>: eso es <b>Locke</b>. «La voluntad general es de Montesquieu» → <b>F</b>: es de <b>Rousseau</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 4</div><h2>Revolución económica: empresa, banca y máquina</h2></div>
+<p>El capitalismo industrial nace del cruce de varias fuentes:</p>
+<div class="formulas">
+  <div><b>⚔ Empresa de conquista</b><br>Los imperios coloniales aseguran materia prima, mano de obra y mercado. <b>1492</b>: Colón, la unificación de España y la expulsión de los judíos.</div>
+  <div><b>🏦 Banca</b><br>Los comerciantes judíos expulsados empujan la banca (Shylock en <i>El mercader de Venecia</i>, los Rothschild). «Matrimonio» de banca e industria.</div>
+  <div><b>⚙ Máquina</b><br>Fuerza motriz mecánica en vez de animal o humana: la hiladora <b>Jenny</b> reemplaza a 8 personas; la máquina de vapor de <b>Watt</b>. Detrás está la ciencia (termodinámica).</div>
+</div>
+<p><b>Consecuencias:</b> migración del campo a la ciudad (<i>Los comedores de papas</i>, de Van Gogh) y la paradoja de que el maquinismo <b>necesita menos gente</b>: nace la <b>cuestión social</b>, terreno fértil para Marx y su ejército industrial de reserva.</p>
+<table class="saga">
+  <tr><th>Los socialistas denuncian…</th><th>Adam Smith promete…</th></tr>
+  <tr><td>El valor se reparte en <b>interés</b>, <b>utilidad</b> y <b>salario</b>: una fisura «irreconciliable» entre capitalista y obrero.</td><td><i>La riqueza de las naciones</i>: la riqueza ya no es acumular metales (<b>mercantilismo</b>), sino producir y distribuir por el mercado. Distingue <b>demanda absoluta</b> y <b>demanda efectiva</b>.</td></tr>
+</table>
+<div class="profe">El <b>emprendedor</b> es «una cuestión absolutamente moderna»: si corre el riesgo y tiene una buena idea, ya no lo frenan las reglamentaciones del Estado. <span class="t">(C2, 00:15:44)</span></div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 5</div><h2>Revolución epistemológica: Bacon + Descartes</h2></div>
+<p>La pelea de dos mil años sobre <b>cómo conocemos</b>, en <i>La escuela de Atenas</i> de Rafael:</p>
+<table class="saga">
+  <tr><th></th><th>RACIONALISMO ☝</th><th>EMPIRISMO 👋</th></tr>
+  <tr><td><b>Padre</b></td><td><b>Platón</b>, que apunta hacia arriba (las ideas)</td><td><b>Aristóteles</b>, con la mano hacia el mundo tangible</td></tr>
+  <tr><td><b>Se conoce por…</b></td><td>La mente; los <b>sentidos engañan</b> (la caverna, <i>Matrix</i>)</td><td>La <b>experiencia</b> y los sentidos: observar y clasificar</td></tr>
+  <tr><td><b>Siglo XVII</b></td><td><b>Descartes</b>, <i>Discurso del método</i>: duda de todo, salvo de que duda. <b>«Pienso, luego existo»</b></td><td><b>Bacon</b>, <i>Novum Organum</i> (1620): multiplicar y variar observaciones, <b>experimentar</b> (<i>natura vexata</i>)</td></tr>
+</table>
+<div class="profe">«Pienso, luego existo» es <b>«probablemente la idea más fundamental del mundo moderno»</b>: marca a fuego la centralidad del individuo. El método de Descartes, en 4 pasos (ver el todo → dividirlo → explicar cada parte → reconstruir), es el <b>«tatarabuelo del método científico»</b>. <span class="t">(C2, 00:31:06)</span></div>
+<p>Racionalistas y empiristas <b>se encuentran</b> y de ahí nace el <b>método científico</b>: Galileo (el plano inclinado) y <b>Newton</b>, que con un prisma separa la luz (análisis) y la vuelve a juntar (síntesis).</p>
+<div class="trampa">«El método científico nace solo del empirismo» → <b>F</b>: nace del <b>encuentro</b> entre racionalismo y empirismo. «<i>Novum Organum</i> es de Descartes» → <b>F</b>: es de <b>Bacon</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 6</div><h2>Hegel: el jefe final de inicios del siglo XIX</h2></div>
+<p><b>Idealismo:</b> «las ideas presiden la realidad», con aire de familia con Platón. Todo está relacionado, y esa unidad es la <b>Idea</b> o el <b>Espíritu absoluto</b>. Obra: <i>Fenomenología del espíritu</i>.</p>
+<div class="libro"><b>Dialéctica:</b> la caricatura es tesis → antítesis → síntesis. Más preciso: <b>oposición de contrarios y superación</b> (<i>Aufhebung</i>). La antítesis <b>no es necesariamente un conflicto</b>: es problematizar. Ejemplo: el botón, la flor y la semilla.</div>
+<p>Hegel es «muy bueno para las tríadas». La que más sirve: <b>familia</b> (unidad) → <b>sociedad civil</b> (diferencia: el mercado) → <b>Estado</b> (que unifica las dos).</p>
+<div class="trampa">Consecuencia <b>conservadora</b>: para Hegel, el orden de su época es <b>necesario e inevitable</b>. «Para Hegel la antítesis siempre es un conflicto» → <b>F</b>.</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Episodio 7 · ⭐ «lo que se les quiso decir»</div><h2>Feuerbach y la inversión de Marx</h2></div>
+<p>Los <b>jóvenes hegelianos</b> usan los conceptos de Hegel para <b>criticarlo</b>: si la técnica avanza tanto, ¿por qué sufre la clase obrera?</p>
+<div class="libro"><b>Feuerbach</b>, <i>La esencia del cristianismo</i> (1841), la «primera crítica moderna» de la religión: <b>Dios es la proyección inversa de las limitaciones humanas</b>. No lo sabemos todo, así que lo imaginamos omnisciente; duramos poco, así que lo imaginamos eterno; estamos limitados en el espacio, así que lo imaginamos omnipresente.</div>
+<div class="profe">«Si les preguntan en la casa qué es lo que se les quiso decir en esta charla»: <b>la inversión de la dialéctica hegeliana por Marx</b>. Ya no son las ideas las que mueven la historia, sino la <b>reproducción material de la vida</b>. Y <b>«no se entiende Marx sin Hegel»</b>. <span class="t">(C2, 01:43:57)</span></div>
+<div class="trampa">«Dios es la proyección inversa de las limitaciones humanas» es de Marx → <b>F</b>: es de <b>Feuerbach</b>. («La religión es el opio del pueblo», en cambio, sí es de Marx).</div>
+</div>
+
+<div class="block">
+<div class="ep"><div class="n">Crossover</div><h2>De la precuela a los 4 clásicos</h2></div>
+<table class="saga">
+  <tr><th>En el preámbulo…</th><th>…lo retoma</th><th>Así</th></tr>
+  <tr><td>Hegel y su dialéctica</td><td><b>Marx</b></td><td>La da vuelta: la base material manda</td></tr>
+  <tr><td>Locke: propiedad = trabajo incorporado</td><td><b>Marx</b></td><td>El trabajo crea el valor (y la plusvalía)</td></tr>
+  <tr><td>Smith y la división del trabajo</td><td><b>Durkheim</b></td><td>La división del trabajo produce <b>solidaridad</b>, no solo riqueza</td></tr>
+  <tr><td>El método científico</td><td><b>Durkheim</b> y <b>Weber</b></td><td>Hechos sociales «como cosas» frente a la comprensión del sentido</td></tr>
+  <tr><td>Montesquieu</td><td><b>Tocqueville</b></td><td>Su maestro: el poder debe oponerse al poder</td></tr>
+  <tr><td>La Revolución Francesa</td><td><b>Tocqueville</b></td><td>Una revolución «religiosa» que continuó la centralización</td></tr>
+</table>
+</div>
+
+<div class="tweet"><div class="who">La modernidad en un tuit <span>@hodiernus</span></div>
+Tengo 350 años, un pestañeo. Te hice ciudadano (Locke), emprendedor (Smith) y sustancia pensante (Descartes). Hegel dijo que todo esto era necesario; Marx lo dio vuelta. Después vinieron cuatro a explicarme. 🌍</div>
+
+<div class="quiz newpage">
+  <h2>🎮 Ronda Preámbulo</h2>
+  <div>Marca la respuesta y tu <b>apuesta</b> (1 = adivino · 2 = creo · 3 = seguro).</div>
+  <div class="score"><b>Puntaje:</b> acierto = +1 · acierto apostando 3 = <b>+2</b> · error apostando 3 = <b>−1</b> · racha de 3 = +1. Mándame en el chat: <code>1b-3, 2F-2, …</code></div>
+  <ol>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Según el profesor, «moderno» significa:<br>a) la forma de ser de hoy · b) lo que viene después del Renacimiento · c) lo industrial · d) lo racional</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Para Hobbes, en el estado de naturaleza existen derechos naturales a la vida, la libertad y la propiedad.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>La separación de poderes en ejecutivo, legislativo y judicial es de:<br>a) Hobbes · b) Locke · c) Montesquieu · d) Rousseau</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Los conceptos de «voluntad general» y «poder constituyente» vienen de:<br>a) Hobbes · b) Rousseau · c) Montesquieu · d) Hegel</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> Para el profesor, lo común a las revoluciones política, económica y epistemológica es que ponen al individuo al centro.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>Según la clase, el capitalismo industrial nace del cruce de:<br>a) la empresa de conquista, la banca y la máquina · b) solo la ética protestante · c) la agricultura feudal y los gremios · d) el mercantilismo y el oro</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><i>Novum Organum</i> (1620) y la idea de experimentar con la naturaleza «bajo apremio» son de:<br>a) Descartes · b) Bacon · c) Newton · d) Galileo</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> El método científico nace solo del empirismo, después de descartar el racionalismo.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span><b>V/F:</b> En la dialéctica de Hegel, la antítesis es siempre un conflicto.</li>
+    <li><span class="bet">apuesta <span>1</span><span>2</span><span>3</span></span>«Dios es la proyección inversa de las limitaciones humanas» es la tesis de:<br>a) Feuerbach · b) Marx · c) Hegel · d) Weber</li>
+  </ol>
+  <div class="score">🧑‍🔬 <b>Caso Einstein (2 min, sin puntaje):</b> en la Edad Media, un niño talentoso hijo de siervo no tenía ninguna chance de ser científico. ¿Qué cambia con cada una de las tres revoluciones modernas para que esa chance exista, al menos en teoría?</div>
+</div>
+
+<div class="foot">Fuentes: clase 1 (23-09-2026, contractualismo, 00:50:34) y clase 2 (30-09-2026, §1-§6 y «Pistas de prueba»). Las clases 3 y 4 no se grabaron.</div>
+
+</body>
+</html>

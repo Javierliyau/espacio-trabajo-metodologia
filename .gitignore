@@ -1,0 +1,18 @@
+# Local / regenerable
+.claude/settings.local.json
+.claude/settings.json.bak*
+.claude/ctx/estado/
+.claude/ctx/pdf/
+.claude/ctx/busqueda.json
+Thumbs.db
+*.log
+
+# Material con derechos de autor o pesado (igual que el proyecto principal)
+*.pdf
+*.epub
+# Datos crudos DEMRE/Mineduc: pesados (hasta 96 MB) y se re-descargan
+**/datos/crudos/
+trabajo/revision-05/Archivo*.csv
+*.rar
+*.zip
+*.rds

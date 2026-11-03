@@ -1,0 +1,68 @@
+% =====================================================================
+%  slides.sty -- Estilo para presentaciones (documentclass beamer)
+%  Reutiliza el mismo sistema de cajas que los apuntes.
+% =====================================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{slides}[2026/07/31 Estilo de presentaciones]
+
+\RequirePackage[spanish, es-noshorthands]{babel}
+\RequirePackage[T1]{fontenc}
+\RequirePackage{lmodern}
+
+% cajas.sty NO carga geometry ni fancyhdr, por eso es seguro en beamer
+\RequirePackage{cajas}
+
+% Beamer trae su propio xcolor/tikz; estas lineas evitan choques
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+
+% Las cajas tcolorbox dentro de beamer necesitan menos padding
+\tcbset{
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+  fontupper=\small,
+}
+
+% Paleta del tema alineada a la semantica de cajas
+\definecolor{acento}{RGB}{31,90,140}
+\setbeamercolor{structure}{fg=acento}
+\setbeamercolor{frametitle}{fg=acento}
+\setbeamerfont{frametitle}{series=\bfseries}
+
+% =====================================================================
+%  Identidad y portada -- mismos comandos que estilo/apunte.sty, para
+%  que un documento nuevo se complete igual sea apunte o presentacion.
+% =====================================================================
+\newcommand{\@curso}{Curso}
+\newcommand{\curso}[1]{\renewcommand{\@curso}{#1}\subtitle{#1}}
+\newcommand{\autoria}[1]{\author{#1}}
+\newcommand{\institucion}[1]{\institute{#1}}
+
+% \logo{figuras/logo.png.png} -- va solo en la portada (\titlegraphic),
+% no en cada frame: repetirlo en cada slide compite con el frametitle.
+% Si el archivo no existe el documento compila igual, como en apunte.sty.
+\renewcommand{\logo}[1]{%
+  \titlegraphic{\IfFileExists{#1}{\includegraphics[height=1.1cm]{#1}}{}}%
+}
+
+% --- RESALTADO DE PUNTOS CLAVE ---------------------------------------
+% \destacar{texto} -- alias en espanol de \alert (respeta overlays,
+% \destacar<2->{...} funciona igual que \alert<2->{...}). Tinta ambar,
+% el mismo tono que la caja "nota" (orange!80!black en cajas.sty), para
+% que resaltar en slides use la misma semantica de color que en apuntes.
+\setbeamercolor{alerted text}{fg=orange!80!black}
+\let\destacar\alert
+
+% --- AGENDA RECURRENTE (opcional) ------------------------------------
+% Llamar \agendaporsecciones en el preambulo de presentaciones largas
+% (mas de ~15 slides o 3+ secciones). Inserta una slide de contenidos
+% al empezar cada \section, resaltando la seccion en curso. En
+% presentaciones cortas de una sola seccion no aporta nada: no activar.
+\newcommand{\agendaporsecciones}{%
+  \AtBeginSection[]{%
+    \begin{frame}{Contenidos}
+      \tableofcontents[currentsection]
+    \end{frame}
+  }%
+}
+
+\endinput

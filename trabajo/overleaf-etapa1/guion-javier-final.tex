@@ -1,0 +1,59 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}\usepackage{lmodern}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{booktabs,tabularx,xcolor,amssymb}
+\usepackage[most]{tcolorbox}
+\definecolor{USACHNavy}{RGB}{15,32,67}
+\newtcolorbox{guion}{colback=USACHNavy!5,colframe=USACHNavy!60,boxrule=0pt,leftrule=3pt,sharp corners,left=6pt,right=6pt,top=4pt,bottom=4pt}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\pagestyle{plain}
+\begin{document}
+{\LARGE\bfseries Guion final de Javier $\cdot$ láminas 3, 9 y 10 (+11)\par}\medskip
+
+Cada frase en negrita repite lo que dijo el profe en la clase del 08-10 (entre corchetes, el minuto). Si el grupo pasó la 9 a respaldo, sáltala: lo del sexo ya lo dice la lámina 7.\par
+
+\textbf{Tiempo total:} 1 min 45 s (1 min 20 s sin la 9).\par
+
+\medskip\hrule\medskip
+
+\section*{Lámina 3 $\cdot$ Fuentes de datos $\cdot$ 40 s}
+
+\begin{guion}Los datos vienen de cuatro archivos públicos del DEMRE, admisión 2026. Y esto \textbf{no es una muestra, es la población completa} [00:55:43].\par \textbf{La unidad es la persona} [00:55:43]: cada estudiante tiene un ID\_aux \textbf{anonimizado} [01:59:41], y con esa llave unimos los cuatro archivos.\par Así tenemos \textbf{variables asociadas a la persona} [01:59:41], como el promedio de notas, el ranking, el sexo y el ingreso.\par Pero \textbf{esa persona estudió en un colegio, y el colegio tiene un RBD} [02:01:08]: agrupando por RBD construimos \textbf{variables asociadas al colegio}.\par El archivo de postulaciones tiene 1,7 millones de filas, porque cada alumno postula a varias carreras; lo dejamos en una fila por estudiante. Con eso armamos la población y \textbf{llegamos al N} [00:54:17], que muestra mi compañero.\end{guion}
+
+\textit{Pasas la palabra para la lámina 4.}\par
+
+\medskip\hrule\medskip
+
+\section*{Lámina 9 $\cdot$ Descriptivas $\cdot$ 25 s (solo si sigue en la presentación)}
+
+\begin{guion}Estos descriptivos ya \textbf{conversan con la interpretación a priori} [00:55:43].\par La mediana de notas es 6,23: postulan estudiantes de buen rendimiento, y por eso esperamos que el puntaje \textbf{afecte la probabilidad de que se matricule} arriba [01:59:41].\par Y hay 55 \% de mujeres: ellas tienen mejor NEM y los hombres más puntaje en matemática, así que el signo del sexo \textbf{no es obvio} y lo tiene que decidir el modelo.\end{guion}
+
+\medskip\hrule\medskip
+
+\section*{Lámina 10 $\cdot$ Conclusiones $\cdot$ 40 s}
+
+\begin{guion}En resumen, el objetivo de esta etapa era \textbf{armar una base de datos que contenga la población que corresponde} [00:54:17]: \textbf{llegamos a un N de 108.251}.\par La Y es \textbf{el complemento}: 1 si quedó en sus tres primeras preferencias y 0 \textbf{todos los que no están dentro de eso} [00:22:29], incluidos los no matriculados. Queda en 56 contra 44.\par Para la Etapa 2 \textbf{no nos vamos a quedar con los mínimos} [02:02:13]: vamos a \textbf{ir al MINEDUC y usar el RBD} [02:01:08] para traer \textbf{matriculados, cuántos cursos tiene el colegio y un ratio estudiantes-profesores} [02:01:08], que nos dicen si el colegio \textbf{es muy grande o muy chico} y nos pueden \textbf{ayudar a predecir la probabilidad de que el estudiante se matricule} [02:01:08].\par Preferimos el colegio antes que la comuna, porque \textbf{las comunas son muy heterogéneas} [02:02:13].\end{guion}
+
+\medskip\hrule\medskip
+
+\section*{Lámina 11 $\cdot$ Cierre $\cdot$ 5 s}
+
+\begin{guion}Muchas gracias. ¿Preguntas?\end{guion}
+
+\medskip\hrule\medskip
+
+\section*{Si te preguntan}
+
+\textbf{¿Por qué dicen que es población?}\par
+\begin{guion}Porque están todos los que cumplen los criterios, no una parte al azar. Como usted dijo, \textbf{esto no es una muestra, es la población completa}.\end{guion}
+
+\textbf{¿Y los que rindieron y no postularon?} $\rightarrow$ lámina de respaldo.\par
+\begin{guion}Lo consideramos: quien no postuló no ordenó preferencias, así que no participa del evento que modelamos. Si prefiere que los incluyamos, los agregamos en la Etapa 2.\end{guion}
+
+\textbf{¿Qué signo esperan del ratio estudiantes-profesor?}\par
+\begin{guion}Negativo: más alumnos por profesor es menos atención por alumno, y eso debería bajar el puntaje.\end{guion}
+
+\textbf{¿Por qué full join?}\par
+\begin{guion}Para no perder a nadie: los no matriculados no están en el archivo de matrícula y los necesitamos para la Y = 0.\end{guion}
+\end{document}

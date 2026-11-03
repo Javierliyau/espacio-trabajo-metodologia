@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>El caso Daraprim: los 6 comentes del Control 1 en una sola historia</title>
+<style>
+body{font-family:Georgia,'Times New Roman',serif;max-width:720px;margin:auto;padding:16px 18px 60px;line-height:1.6;font-size:18px;color:#1d1d1f;background:#fffdf8}
+h1{font-size:27px;line-height:1.25;margin:.3em 0 .1em}
+h2{font-size:21px;margin-top:2em;padding-top:.4em;border-top:3px solid #e8e2d4}
+h3{font-size:18px;margin:1.3em 0 .3em}
+.sub{color:#6b6458;font-style:italic;margin-top:0}
+.box{border-radius:10px;padding:12px 15px;margin:14px 0;font-family:system-ui,sans-serif;font-size:16px;line-height:1.5}
+.enun{background:#eef2fb;border-left:5px solid #3c5aa6}
+.frase{background:#eaf6ee;border-left:5px solid #2e7d4f}
+.trampa{background:#fdeeee;border-left:5px solid #b3261e}
+.dato{background:#f4f0e6;border-left:5px solid #a08a4a}
+.v{display:inline-block;font-family:system-ui,sans-serif;font-weight:700;color:#fff;background:#b3261e;border-radius:6px;padding:1px 9px;font-size:15px}
+table{border-collapse:collapse;width:100%;font-family:system-ui,sans-serif;font-size:15px;margin:10px 0}
+td,th{border:1px solid #d8d2c4;padding:6px 8px;text-align:left;vertical-align:top}
+th{background:#f4f0e6}
+.n{font-family:system-ui,sans-serif;font-size:14px;color:#6b6458}
+svg text{font-family:system-ui,sans-serif}
+.toc{font-family:system-ui,sans-serif;font-size:15px;background:#f4f0e6;border-radius:10px;padding:10px 16px}
+.toc a{color:#3c5aa6}
+</style></head><body>
+
+<h1>El hombre más odiado de internet y la pastilla de 750 dólares</h1>
+<p class="sub">Los 6 comentes del Control 1 de Microeconomía II (Mundaca, 2026-1) explicados con una sola historia. Es para leer de corrido, sin lápiz.</p>
+
+<div class="toc"><b>Índice</b> · <a href="#historia">La historia</a> · <a href="#modelo">El modelo de juguete</a> · <a href="#c1">C1 Tramo inelástico</a> · <a href="#c2">C2 Precio y cantidad</a> · <a href="#c3">C3 PIE y excedente</a> · <a href="#c4">C4 Discriminación perfecta</a> · <a href="#d1">D1 Lerner</a> · <a href="#d2">D2 Pareto</a> · <a href="#mapa">Todo conectado</a></div>
+
+<h2 id="historia">1. La historia</h2>
+<p>En agosto de 2015, una pequeña farmacéutica llamada <b>Turing Pharmaceuticals</b> compró los derechos en Estados Unidos de un remedio de los años cincuenta: el <b>Daraprim</b> (pirimetamina). Sirve para tratar la toxoplasmosis, una infección parasitaria que puede ser mortal para pacientes con VIH, personas trasplantadas, bebés y embarazadas.</p>
+<p>El Daraprim no tenía patente. Aun así, Turing era <b>el único vendedor</b>: el remedio se distribuía por un circuito cerrado y los laboratorios de genéricos no podían conseguir muestras para hacer las pruebas que exige el regulador. Era un monopolio con una barrera de entrada hecha a la medida.</p>
+<p>El dueño era <b>Martin Shkreli</b>, un ex administrador de fondos de 32 años. Lo primero que hizo fue subir el precio de <b>13,50 a 750 dólares por pastilla</b>, más de 5000 %. Se estimó que producir cada pastilla costaba alrededor de un dólar o menos.</p>
+<p>Hubo escándalo: candidatos presidenciales, audiencias en el Congreso (donde Shkreli sonreía y se negaba a declarar) y titulares que lo llamaron «el hombre más odiado de internet». Para completar el personaje, ese mismo año pagó unos 2 millones de dólares por el único ejemplar de un disco del Wu-Tang Clan.</p>
+<p>¿Cómo terminó? Una farmacia de preparados ofreció una versión casera por cerca de <b>un dólar la cápsula</b>. En 2017, Shkreli fue condenado por fraude de valores, en un caso aparte. En 2020 se aprobó por fin un <b>genérico</b>. Y en 2022, en una demanda de la FTC y del estado de Nueva York, un tribunal le prohibió de por vida trabajar en la industria farmacéutica y le ordenó devolver 64,6 millones de dólares.</p>
+<div class="box dato"><b>Por qué este caso sirve para el control:</b> tiene un monopolista de manual (un solo vendedor y una barrera de entrada), un precio muy por encima del costo marginal, pacientes que se quedaron sin el remedio, una transferencia gigante de los pacientes a la empresa y, al final, la entrada de competencia. Esos son los 6 comentes.</div>
+
+<h2 id="modelo">2. El modelo de juguete (los números que usaremos)</h2>
+<p>Los datos reales son enredados, así que los simplificamos. Usamos un mercado de Daraprim inventado y fácil de calcular:</p>
+<table>
+<tr><th>Elemento</th><th>Valor</th></tr>
+<tr><td>Demanda</td><td>P = 100 − Q (Q = pacientes al mes)</td></tr>
+<tr><td>Ingreso marginal</td><td>IMg = 100 − 2Q (mismo intercepto, el doble de pendiente)</td></tr>
+<tr><td>Costo marginal</td><td>CMg = 20 (constante)</td></tr>
+<tr><td><b>Competencia</b> (P = CMg)</td><td>P<sub>c</sub> = 20 · Q<sub>c</sub> = 80</td></tr>
+<tr><td><b>Monopolio</b> (IMg = CMg)</td><td>100 − 2Q = 20 → Q<sub>m</sub> = 40 → P<sub>m</sub> = 100 − 40 = 60</td></tr>
+</table>
+<p>Y dos pacientes que nos acompañan desde el principio: <b>Ana</b>, que valora el remedio en 100, y <b>Beto</b>, que lo valora en 40.</p>
+
+<svg viewBox="0 0 520 420" width="100%" role="img" aria-label="Gráfico del monopolio">
+  <polygon points="60,40 60,168 220,168" fill="#cfe0ff"/>
+  <polygon points="60,168 220,168 220,296 60,296" fill="#ffd9a8"/>
+  <polygon points="220,168 220,296 380,296" fill="#f6b3ad"/>
+  <line x1="60" y1="20" x2="60" y2="360" stroke="#222" stroke-width="2"/>
+  <line x1="60" y1="360" x2="490" y2="360" stroke="#222" stroke-width="2"/>
+  <text x="18" y="30" font-size="15">P ($)</text>
+  <text x="440" y="390" font-size="15">Q (pacientes)</text>
+  <line x1="60" y1="40" x2="460" y2="360" stroke="#3c5aa6" stroke-width="3"/>
+  <text x="400" y="300" font-size="14" fill="#3c5aa6" font-weight="700">Demanda</text>
+  <line x1="60" y1="40" x2="260" y2="360" stroke="#7a4fb5" stroke-width="2.5" stroke-dasharray="7,4"/>
+  <text x="262" y="352" font-size="14" fill="#7a4fb5" font-weight="700">IMg</text>
+  <line x1="60" y1="296" x2="480" y2="296" stroke="#2e7d4f" stroke-width="3"/>
+  <text x="448" y="288" font-size="14" fill="#2e7d4f" font-weight="700">CMg</text>
+  <line x1="60" y1="168" x2="220" y2="168" stroke="#555" stroke-dasharray="4,3"/>
+  <line x1="220" y1="168" x2="220" y2="360" stroke="#555" stroke-dasharray="4,3"/>
+  <line x1="380" y1="296" x2="380" y2="360" stroke="#555" stroke-dasharray="4,3"/>
+  <circle cx="220" cy="168" r="5" fill="#b3261e"/>
+  <circle cx="220" cy="296" r="5" fill="#7a4fb5"/>
+  <circle cx="380" cy="296" r="5" fill="#2e7d4f"/>
+  <text x="22" y="173" font-size="14">P<tspan font-size="10" dy="3">m</tspan><tspan dy="-3">=60</tspan></text>
+  <text x="22" y="301" font-size="14">P<tspan font-size="10" dy="3">c</tspan><tspan dy="-3">=20</tspan></text>
+  <text x="200" y="378" font-size="14">Q<tspan font-size="10" dy="3">m</tspan><tspan dy="-3">=40</tspan></text>
+  <text x="360" y="378" font-size="14">Q<tspan font-size="10" dy="3">c</tspan><tspan dy="-3">=80</tspan></text>
+  <text x="80" y="155" font-size="13" font-weight="700">EC = 800</text>
+  <text x="85" y="238" font-size="13" font-weight="700">Transferencia</text>
+  <text x="85" y="255" font-size="13">(EP) = 1600</text>
+  <text x="232" y="260" font-size="13" font-weight="700" fill="#8a1c15">PIE = 800</text>
+  <text x="228" y="160" font-size="12" fill="#b3261e">monopolio</text>
+  <text x="388" y="316" font-size="12" fill="#2e7d4f">competencia</text>
+</svg>
+<p class="n">Azul: excedente del consumidor con monopolio. Naranjo: lo que los pacientes que siguen comprando le pagan de más a la empresa (transferencia). Rojo: la PIE, lo que nadie se queda. Con competencia, el EC sería el triángulo completo bajo la demanda y sobre P = 20: 3200.</p>
+
+<h2 id="c1">3. Comente 1: ¿un monopolista puede operar en el tramo inelástico?</h2>
+<div class="box enun"><b>«Un monopolista maximizador de beneficios puede elegir operar en el tramo inelástico de la demanda si allí el precio es suficientemente alto.»</b></div>
+<p><span class="v">FALSO</span></p>
+<p>Pónte en el lugar de Shkreli el día que compró el Daraprim. A 13,50 dólares, la demanda era <b>muy inelástica</b>: es un remedio que salva vidas y no tenía sustituto. ¿Qué pasa si sube el precio?</p>
+<ul>
+<li><b>Los ingresos suben</b>, porque casi nadie deja de comprar: la cantidad cae proporcionalmente menos de lo que sube el precio.</li>
+<li><b>Los costos bajan</b>, porque vende un poco menos.</li>
+<li>Entonces <b>la ganancia sube por los dos lados.</b> Le conviene seguir subiendo.</li>
+</ul>
+<p>¿Hasta cuándo? Hasta que la demanda se vuelve <b>elástica</b>, es decir, hasta que cada alza ya espanta a suficientes clientes como para que el ingreso deje de crecer. Por eso el salto no fue de 13,50 a 20: fue a 750. Shkreli no estaba «operando en el tramo inelástico con un precio alto»; subió el precio <b>justamente para salir</b> del tramo inelástico.</p>
+<p>La fórmula dice lo mismo: <b>IMg = P·(1 − 1/|ε|)</b>.</p>
+<ul>
+<li>Si |ε| &lt; 1 (tramo inelástico), el paréntesis es negativo, así que el <b>IMg es negativo</b>.</li>
+<li>El óptimo es IMg = CMg, y el CMg es positivo. Un IMg negativo nunca puede igualar a un CMg positivo.</li>
+<li>Por lo tanto, en el óptimo siempre se cumple <b>|ε| &gt; 1</b>.</li>
+</ul>
+<p>En el modelo de juguete: con P = 30 vende Q = 70 e ingresa 2100. Si sube a P = 40, vende Q = 60 e ingresa 2400. El ingreso sube y además produce 10 unidades menos. Ninguna razón para quedarse en P = 30.</p>
+<div class="box frase"><b>Frase para el control:</b> Falso. Como IMg = P(1 − 1/|ε|), en el tramo inelástico el IMg es negativo y no puede igualar a un CMg positivo. Si estuviera ahí, subir P aumentaría el ingreso y reduciría el costo, así que el monopolista siempre opera en el tramo elástico (|ε| &gt; 1). En competencia perfecta, en cambio, la firma enfrenta una demanda infinitamente elástica y P = CMg.</div>
+<div class="box trampa"><b>Tu trampa:</b> pusiste «V» porque «tiene más poder de mercado y puede cobrar más caro». Es cierto que cobra caro, pero lo logra <b>subiendo hasta el tramo elástico</b>. Un precio «suficientemente alto» no existe dentro del tramo inelástico: ahí siempre conviene subirlo más.</div>
+
+<h2 id="c2">4. Comente 2: ¿de dónde sale el precio?</h2>
+<div class="box enun"><b>«Una vez que el monopolista encuentra el precio óptimo usando IMg = CMg, la cantidad óptima se obtiene desde la curva de ingreso marginal.»</b></div>
+<p><span class="v">FALSO</span>: el orden está al revés.</p>
+<p>Shkreli no decide primero el precio. La pregunta que se hace es: <b>¿cuántas pastillas me conviene vender?</b> Le conviene vender una más mientras esa pastilla adicional le aporte más ingreso (IMg) del que le cuesta (CMg). Eso define la <b>cantidad</b>.</p>
+<p>Después hace la segunda pregunta: <b>¿cuál es el precio más alto al que los pacientes compran esa cantidad?</b> Esa respuesta no está en el IMg: está en la <b>demanda</b>, que es la que dice cuánto está dispuesta a pagar la gente.</p>
+<table>
+<tr><th>Paso</th><th>Curva</th><th>En el juguete</th></tr>
+<tr><td>1. La cantidad</td><td>Cruce IMg = CMg</td><td>100 − 2Q = 20 → <b>Q<sub>m</sub> = 40</b></td></tr>
+<tr><td>2. El precio</td><td>Subes por la vertical hasta la <b>demanda</b></td><td>P = 100 − 40 = <b>60</b></td></tr>
+<tr><td>Error</td><td>Leer el precio en el IMg</td><td>IMg(40) = 20: ¡cobrarías lo mismo que en competencia y regalarías la ganancia!</td></tr>
+</table>
+<div class="box frase"><b>Frase para el control:</b> Falso. IMg = CMg determina la cantidad óptima Q<sub>m</sub>, y el precio se obtiene de la curva de demanda evaluada en Q<sub>m</sub>. Como la demanda está sobre el IMg, P<sub>m</sub> &gt; IMg(Q<sub>m</sub>) = CMg; leer el precio en el IMg lo subestima. En competencia, en cambio, P = CMg.</div>
+<div class="box trampa"><b>Tu trampa:</b> es el mismo error que en el matemático del domingo, cuando sacaste el P<sub>máx</sub> del IMg. En el gráfico se ve así: primero buscas el cruce IMg = CMg, bajas a Q, y desde Q <b>subes hasta la demanda</b>.</div>
+
+<h2 id="c3">5. Comente 3: ¿la PIE es todo lo que pierden los pacientes?</h2>
+<div class="box enun"><b>«La pérdida irrecuperable de eficiencia del monopolio corresponde a toda la pérdida de excedente del consumidor.»</b></div>
+<p><span class="v">FALSO</span></p>
+<p>Cuando el Daraprim pasó a 750 dólares, a los pacientes les pasaron <b>dos cosas distintas</b>:</p>
+<ul>
+<li><b>Ana</b> (y los hospitales que igual lo compraron) siguió comprando, pero pagando mucho más. Ana pierde, pero <b>esa plata no desaparece: se la queda Turing</b>. Es una <b>transferencia</b>, el rectángulo naranjo del gráfico. Para la sociedad es un cambio de bolsillo.</li>
+<li><b>Beto</b> (y los pacientes, aseguradoras u hospitales que dejaron de comprarlo o lo racionaron) se quedó sin el remedio, aunque lo valoraba en más de lo que cuesta fabricarlo. Ese beneficio <b>no lo recibe nadie</b>: ni Beto ni Turing. Es el triángulo rojo, la <b>PIE</b>.</li>
+</ul>
+<table>
+<tr><th></th><th>Competencia</th><th>Monopolio</th><th>Cambio</th></tr>
+<tr><td>EC (pacientes)</td><td>3200</td><td>800</td><td><b>−2400</b></td></tr>
+<tr><td>EP (Turing)</td><td>0</td><td>1600</td><td>+1600</td></tr>
+<tr><td>Total (sociedad)</td><td>3200</td><td>2400</td><td><b>−800 = PIE</b></td></tr>
+</table>
+<p>Los pacientes pierden 2400, pero la sociedad pierde 800. Son cifras distintas porque miden cosas distintas. Hay un detalle más: aquí el CMg es constante. Si el CMg fuera <b>creciente</b>, como en el matemático de Mundaca (c = 2q²), la PIE incluiría además un pedazo que pierde el <b>productor</b>. Así que la PIE no es ni siquiera solo del consumidor.</p>
+<div class="box frase"><b>Frase para el control:</b> Falso. La caída del EC tiene dos partes: el rectángulo (P<sub>m</sub> − P<sub>c</sub>)·Q<sub>m</sub>, que se transfiere al productor y no es pérdida social, y el triángulo de consumidores que dejan de comprar. La PIE es solo la parte del excedente que nadie recibe: el triángulo del consumidor más, si el CMg es creciente, uno del productor. En el C1 2026-1, el EC cae 6400 (de 10 000 a 3600) y la PIE es solo 2400.</div>
+<div class="box trampa"><b>Tu trampa (sujeto):</b> escribiste que la PIE es «lo que pierde el monopolio». La PIE es lo que pierde la <b>sociedad</b>. Al monopolio le va muy bien: gana el rectángulo.</div>
+
+<h2 id="c4">6. Comente 4: ¿con discriminación perfecta hay más ineficiencia?</h2>
+<div class="box enun"><b>«Cuando el monopolista puede aplicar discriminación perfecta, la pérdida de eficiencia respecto del mercado competitivo es mayor en comparación con monopolio de precio único.»</b></div>
+<p><span class="v">FALSO</span></p>
+<p>Imagina un Shkreli con superpoderes: sabe exactamente cuánto vale el remedio para cada paciente y le cobra <b>a cada uno ese máximo</b>. A Ana le cobra 100 y a Beto le cobra 40.</p>
+<p>¿Le conviene venderle a Beto? Sí: 40 &gt; 20, que es el costo. Con precio único no lo hacía porque bajar el precio para Beto le obligaba a bajárselo también a Ana. <b>Ahora puede bajárselo solo a Beto</b>, así que vende a todos los que pagan al menos el costo: Q = 80, igual que en competencia.</p>
+<table>
+<tr><th></th><th>¿Ana compra?</th><th>¿Beto compra?</th><th>Excedente total</th><th>¿Quién se lo queda?</th><th>PIE</th></tr>
+<tr><td>Competencia</td><td>Sí</td><td>Sí</td><td>3200</td><td>Pacientes</td><td>0</td></tr>
+<tr><td>Precio único</td><td>Sí</td><td><b>No</b></td><td>2400</td><td>Repartido</td><td><b>800</b></td></tr>
+<tr><td>Discriminación perfecta</td><td>Sí</td><td>Sí</td><td>3200</td><td><b>Todo Turing</b></td><td><b>0</b></td></tr>
+</table>
+<p>¿Pasó algo parecido en la realidad? En parte. Turing anunció descuentos para hospitales y programas de asistencia para algunos pacientes, mientras mantenía el precio de lista de 750. Eso es <b>cobrar distinto según quién compra</b>: una discriminación imperfecta, que deja vender a algunos «Betos» sin bajarle el precio a todos.</p>
+<p>La clave del comente: con discriminación perfecta a los pacientes les va <b>pésimo</b> (EC = 0), pero eso es un problema de <b>reparto</b>, no de eficiencia. La torta es igual de grande que en competencia; solo que se la come entera la empresa.</p>
+<div class="box frase"><b>Frase para el control:</b> Falso. Con discriminación de primer grado, cada unidad se vende al precio de reserva del comprador, así que la demanda pasa a ser el IMg y el monopolista produce hasta P = CMg, es decir, Q = Q<sub>c</sub>. La PIE es 0, menor que con precio único. Lo que cambia es la distribución: el EC cae a 0 y el productor captura todo el excedente.</div>
+
+<h2 id="d1">7. Desarrollo 1: elasticidad y poder de mercado (Lerner)</h2>
+<div class="box enun"><b>«Explique la relación entre elasticidad de demanda y poder de mercado del monopolista. (Pista: Lerner)»</b></div>
+<p><b>Poder de mercado</b> es la capacidad de cobrar por sobre el costo marginal. El <b>índice de Lerner</b> lo mide como el margen sobre el precio:</p>
+<p style="text-align:center;font-size:20px"><b>L = (P − CMg) / P = 1 / |ε|</b></p>
+<p>Se obtiene de la condición de óptimo: IMg = P(1 − 1/|ε|) = CMg. Despejando, (P − CMg)/P = 1/|ε|.</p>
+<p><b>La intuición con el Daraprim:</b> si los pacientes no tienen alternativa (demanda poco elástica), subir el precio casi no espanta a nadie, y Shkreli puede cobrar muchísimo por sobre el costo. Si hubiera un genérico a la vuelta de la esquina (demanda muy elástica), cualquier alza los haría cambiarse, y el margen se derrumba. <b>Menos elasticidad significa más poder de mercado.</b></p>
+<table>
+<tr><th>Caso</th><th>|ε|</th><th>Lerner</th><th>Lectura</th></tr>
+<tr><td>Competencia perfecta</td><td>→ ∞</td><td>0</td><td>P = CMg, sin poder</td></tr>
+<tr><td>Modelo de juguete (Q = 40, P = 60)</td><td>1·60/40 = 1,5</td><td>40/60 = 2/3</td><td>Las dos fórmulas coinciden</td></tr>
+<tr><td>Daraprim real (P ≈ 750, CMg ≈ 1)</td><td>≈ 1,001</td><td>≈ 0,999</td><td>Margen casi total; elasticidad apenas sobre 1</td></tr>
+</table>
+<p>Fíjate en el Daraprim real: si Turing maximizaba ganancias, Lerner implica que en 750 dólares la elasticidad estaba <b>apenas sobre 1</b>. Subió justo hasta el borde del tramo elástico, que es lo que dice el Comente 1. <b>El C1 y el D1 son la misma idea</b>: como el monopolista opera donde |ε| &gt; 1, el Lerner queda siempre entre 0 y 1.</p>
+<div class="box frase"><b>Estructura para los 10 puntos:</b> (1) definir el poder de mercado como P &gt; CMg; (2) derivar L = (P − CMg)/P = 1/|ε| desde IMg = CMg; (3) interpretar: a menor elasticidad, mayor margen, porque los clientes no tienen sustitutos; (4) los extremos: competencia L = 0, y el monopolio opera con |ε| &gt; 1, así que 0 &lt; L &lt; 1; (5) un ejemplo numérico, como el del C1 2026-1: |ε| = 1,5 y L = 2/3.</div>
+<div class="box trampa"><b>Tu respuesta</b> tenía bien la dirección (más inelástico, más poder), pero le faltaban la <b>fórmula</b>, su <b>derivación</b> y los <b>extremos</b>. Además, contradecía lo que pusiste en el C1: si el monopolista operara en el tramo inelástico, el Lerner sería mayor que 1, lo que es imposible porque implica CMg &lt; 0.</div>
+
+<h2 id="d2">8. Desarrollo 2: ¿por qué el monopolio no es eficiente en sentido de Pareto?</h2>
+<div class="box enun"><b>«Explique por qué el monopolio no es eficiente en sentido de Pareto.»</b></div>
+<p><b>Eficiente en sentido de Pareto</b> significa que no se puede mejorar a nadie sin empeorar a otro. Si existe un cambio en que alguien gana y nadie pierde, la situación <b>no</b> es eficiente.</p>
+<p>Con el Daraprim a 750 dólares, había pacientes como Beto: lo valoraban más de lo que cuesta fabricarlo (un dólar), pero menos de 750. Supón que alguien le vende a Beto, y solo a él, a un precio entre el costo y lo que él lo valora:</p>
+<ul>
+<li>Beto gana: obtiene un remedio que vale más de lo que paga.</li>
+<li>El vendedor gana: cobra más de lo que le cuesta.</li>
+<li>Ana no pierde nada: sigue igual que antes.</li>
+</ul>
+<p>Esa mejora de Pareto existía y nadie la hacía. De hecho, <b>pasó en la vida real</b>: cuando la farmacia de preparados ofreció la versión casera a cerca de un dólar, apareció justo ese trato que convenía a los dos lados. Y en 2020, cuando entró el genérico, el mercado empezó a moverse hacia el resultado competitivo.</p>
+<p><b>¿Por qué Shkreli no se lo vendía a Beto?</b> Porque con un precio único, bajarlo para Beto obligaba a bajárselo también a Ana y a todos los que ya pagaban 750. Por eso el <b>IMg es menor que P</b>: cada venta adicional tiene un costo escondido, que es el descuento que hay que darles a todos los demás. El monopolista se detiene donde IMg = CMg, con <b>P &gt; CMg</b>, y quedan sin hacerse transacciones que valían la pena.</p>
+<div class="box frase"><b>Estructura para los 10 puntos:</b> (1) definir la eficiencia de Pareto; (2) el monopolio fija IMg = CMg, por lo que en Q<sub>m</sub> se cumple P &gt; CMg; (3) entre Q<sub>m</sub> y Q<sub>c</sub> hay unidades que los consumidores valoran más que su costo y que no se transan, así que existe una mejora de Pareto no aprovechada; (4) la causa: con precio único, IMg &lt; P, porque vender una unidad más obliga a bajar el precio de todas; (5) gráfico con demanda, IMg y CMg con nombre, P<sub>m</sub>, Q<sub>m</sub>, P<sub>c</sub>, Q<sub>c</sub> y el triángulo de la PIE; (6) cierre: en competencia P = CMg, se transan todas las unidades valiosas y la PIE es 0.</div>
+<div class="box frase"><b>En una línea:</b> el monopolio es ineficiente porque cobra más de lo que cuesta producir, y deja sin comprar a gente que pagaría más que ese costo. Esas ventas que no ocurren son la PIE.</div>
+
+<h2 id="mapa">9. Todo conectado: un solo gráfico, seis respuestas</h2>
+<p>Los seis ítems son <b>el mismo gráfico mirado desde distintos ángulos</b>:</p>
+<table>
+<tr><th>Ítem</th><th>Qué mirar en el gráfico</th><th>Idea en una línea</th></tr>
+<tr><td>C1</td><td>Dónde está el punto de monopolio sobre la demanda</td><td>Siempre en el tramo elástico, porque IMg &gt; 0 cuando |ε| &gt; 1</td></tr>
+<tr><td>C2</td><td>El camino IMg = CMg → Q → subir a la demanda</td><td>La cantidad sale del IMg; el precio sale de la demanda</td></tr>
+<tr><td>C3</td><td>El rectángulo naranjo frente al triángulo rojo</td><td>Transferencia ≠ PIE</td></tr>
+<tr><td>C4</td><td>Qué pasa con el triángulo rojo si se le cobra a cada uno su máximo</td><td>Desaparece: PIE = 0; todo va al productor</td></tr>
+<tr><td>D1</td><td>La distancia vertical entre P<sub>m</sub> y el CMg</td><td>Ese margen es Lerner = 1/|ε|</td></tr>
+<tr><td>D2</td><td>Las unidades entre Q<sub>m</sub> y Q<sub>c</sub></td><td>Valen más de lo que cuestan y no se transan: no es Pareto-eficiente</td></tr>
+</table>
+<p>Y la historia completa de Shkreli, en una sola cadena: <b>una barrera de entrada</b> deja a un solo vendedor → la demanda es inelástica, así que <b>sube el precio hasta el tramo elástico</b> (C1) → elige la cantidad con IMg = CMg y <b>cobra lo que dice la demanda</b> (C2) → el margen enorme refleja la <b>baja elasticidad</b> (D1) → los pacientes que siguen comprando le <b>transfieren</b> plata y los que dejan de comprar generan la <b>PIE</b> (C3) → existen tratos que convienen a todos y no se hacen, así que <b>no es Pareto-eficiente</b> (D2) → si pudiera cobrarle a cada uno su máximo, la PIE desaparecería, pero los pacientes quedarían con nada (C4) → cuando entra competencia, el precio baja hacia el CMg y la PIE se achica.</p>
+<div class="box dato"><b>Los 4 chequeos del control, aplicados aquí:</b> (1) el matemático vale 40 de 80, así que dale la mitad del tiempo; (2) subraya el sujeto: consumidor, productor o sociedad (la trampa del C3); (3) cierra siempre comparando con competencia o con precio único; (4) no reuses una cifra de otro ítem sin revisar que signifique lo mismo.</div>
+<p class="n">Datos del caso: Turing compró el Daraprim en agosto de 2015 y subió el precio de 13,50 a 750 dólares por pastilla. Una farmacia de preparados ofreció una alternativa a cerca de 1 dólar. El genérico se aprobó en 2020. En 2022 hubo un fallo contra Shkreli en la demanda de la FTC y Nueva York (prohibición de por vida en la industria y devolución de 64,6 millones). El costo de producción es una estimación de prensa. Las cifras del modelo de juguete (P = 100 − Q, CMg = 20) son inventadas para calcular.</p>
+</body></html>

@@ -1,0 +1,145 @@
+{
+ "fecha_declarada": "2026-10-21",
+ "fuente": "C:/Proyecto Metodologia de estudio/datos/material/microeconomia-ii/2026-10-21-prediccion-control-1-mundaca.tex",
+ "nota": "Registrada después de la prueba desde el documento del 21-10; probabilidades copiadas sin cambios.",
+ "candidatos": [
+  {
+   "id": "C1",
+   "bloque": "comentes",
+   "texto": "tramo inelástico",
+   "p": 0.45
+  },
+  {
+   "id": "C2",
+   "bloque": "comentes",
+   "texto": "PIE = toda la pérdida de EC",
+   "p": 0.4
+  },
+  {
+   "id": "C3",
+   "bloque": "comentes",
+   "texto": "competencia perfecta con más PIE",
+   "p": 0.35
+  },
+  {
+   "id": "C4",
+   "bloque": "comentes",
+   "texto": "margen 1/3",
+   "p": 0.35
+  },
+  {
+   "id": "C5",
+   "bloque": "comentes",
+   "texto": "produce la mitad",
+   "p": 0.35
+  },
+  {
+   "id": "C6",
+   "bloque": "comentes",
+   "texto": "3.er grado: prohibir",
+   "p": 0.35
+  },
+  {
+   "id": "C7",
+   "bloque": "comentes",
+   "texto": "competencia monopolística",
+   "p": 0.35
+  },
+  {
+   "id": "C8",
+   "bloque": "comentes",
+   "texto": "cantidad desde el IMg",
+   "p": 0.3
+  },
+  {
+   "id": "C9",
+   "bloque": "comentes",
+   "texto": "Hotelling",
+   "p": 0.3
+  },
+  {
+   "id": "C10",
+   "bloque": "comentes",
+   "texto": "3.er grado: más elástico",
+   "p": 0.25
+  },
+  {
+   "id": "C11",
+   "bloque": "comentes",
+   "texto": "tarifa en dos partes",
+   "p": 0.2
+  },
+  {
+   "id": "C12",
+   "bloque": "comentes",
+   "texto": "2.º grado",
+   "p": 0.15
+  },
+  {
+   "id": "D1",
+   "bloque": "desarrollos",
+   "texto": "Lerner",
+   "p": 0.7
+  },
+  {
+   "id": "D2",
+   "bloque": "desarrollos",
+   "texto": "no eficiente en el sentido de Pareto",
+   "p": 0.35
+  },
+  {
+   "id": "D3",
+   "bloque": "desarrollos",
+   "texto": "monopolio natural",
+   "p": 0.35
+  },
+  {
+   "id": "D4",
+   "bloque": "desarrollos",
+   "texto": "Hotelling",
+   "p": 0.25
+  },
+  {
+   "id": "D5",
+   "bloque": "desarrollos",
+   "texto": "2.º grado",
+   "p": 0.2
+  },
+  {
+   "id": "D6",
+   "bloque": "desarrollos",
+   "texto": "eficiencia de la discriminación",
+   "p": 0.15
+  },
+  {
+   "id": "M1",
+   "bloque": "matemático",
+   "texto": "a: equilibrio de monopolio",
+   "p": 0.85
+  },
+  {
+   "id": "M2",
+   "bloque": "matemático",
+   "texto": "a: 3.er grado",
+   "p": 0.15
+  },
+  {
+   "id": "M3",
+   "bloque": "matemático",
+   "texto": "b: PIE frente a CP",
+   "p": 0.65
+  },
+  {
+   "id": "M4",
+   "bloque": "matemático",
+   "texto": "b: 3.er grado",
+   "p": 0.25
+  },
+  {
+   "id": "M5",
+   "bloque": "matemático",
+   "texto": "b: monopolio social",
+   "p": 0.1
+  }
+ ]
+}

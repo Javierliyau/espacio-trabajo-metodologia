@@ -1,0 +1,60 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{array}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+{\large\textbf{Econometría II · Preparación PEP 1}}\hfill 1 de noviembre de 2026
+
+\vspace{2pt}\hrule\vspace{10pt}
+
+{\Large\textbf{Ejercicio 2. WOE e IV}}\hfill Tiempo: 60 min
+
+\textit{Ejercicio de práctica con datos ficticios; no proviene de una prueba del profesor.}
+
+\vspace{4pt}
+Un banco analiza la edad como variable de un modelo de \textit{scoring} de créditos de consumo. Un cliente es «malo» si cae en mora de 90 días o más durante la ventana de observación, y «bueno» en caso contrario.
+
+\begin{center}
+\begin{tabular}{l>{\raggedleft\arraybackslash}p{2cm}>{\raggedleft\arraybackslash}p{2cm}}
+\toprule
+\textbf{Tramo de edad} & \textbf{Buenos} & \textbf{Malos} \\
+\midrule
+18-24    & 480   & 290 \\
+25-34    & 1.040 & 200 \\
+35-44    & 880   & 250 \\
+45-54    & 960   & 180 \\
+55 o más & 640   & 80  \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Usa
+\[
+\text{WOE}=\ln\!\left(\frac{\%\,\text{buenos}}{\%\,\text{malos}}\right),
+\]
+donde cada porcentaje es la distribución sobre el total de buenos o de malos.
+
+\begin{enumerate}[label=\textbf{\alph*)},leftmargin=*,itemsep=8pt]
+  \item Calcula el WOE y el IV de cada tramo, y el IV total.
+  \item Lee el IV total con los umbrales de Siddiqi. ¿La edad predice?
+  \item ¿El WOE es monótono? Si no lo es, fusiona los tramos que corresponda, justifica por qué esa fusión y no otra, y recalcula la tasa de malos, el WOE y el IV total.
+  \item ¿Con qué valor entra en la regresión una persona de 38 años, antes y después de la fusión?
+  \item ¿Cuántos $\beta$ usa la variable si entra con WOE? ¿Y si entra con \textit{dummies}? Responde con los tramos finales.
+\end{enumerate}
+
+\vspace{6pt}
+\textit{Cada resultado se entrega con su frase de interpretación.}
+
+\end{document}

@@ -1,0 +1,582 @@
+﻿
+> rm(list = ls())
+
+> bf <- function(n) list.files("C:/Espacio de trabajo Metodologia de estudio/trabajo/econometria-ii-demre/datos/crudos", 
++     pattern = paste0("^", n, "$"), recursive = TRUE, full.names = TRUE)[1]
+
+> library(writexl)
+
+> library(tidyverse)
+Rscript.exe : ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+En línea: 1 Carácter: 611
++ ... ocation $d; & "C:\Program Files\R\R-4.5.2\bin\Rscript.exe" -e "source ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (── Attaching co...yverse 2.0.0 ──:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+✔ dplyr     1.2.1     ✔ readr     2.2.0
+✔ forcats   1.0.1     ✔ stringr   1.6.0
+✔ ggplot2   4.0.3     ✔ tibble    3.3.1
+✔ lubridate 1.9.5     ✔ tidyr     1.3.2
+✔ purrr     1.2.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+> library(scorecard)
+
+Adjuntando el paquete: 'scorecard'
+
+The following object is masked from 'package:tidyr':
+
+    replace_na
+
+
+> options(scipen = 999, digits = 4)
+
+> set.seed(2026)
+
+> df1 <- read.csv2(bf("ArchivoB_Adm2026REG.csv"))
+
+> df2 <- read.csv2(bf("ArchivoC_Adm2026REG.csv"))
+
+> df3 <- read.csv2(bf("ArchivoD_Adm2026REG.csv"))
+
+> df4 <- read.csv2(bf("ArchivoMatr_Adm2026.csv"))
+
+> df1 <- df1 %>% mutate(INGRESO_PERCAPITA_GRUPO_FA = ifelse(INGRESO_PERCAPITA_GRUPO_FA == 
++     99, NA, INGRESO_PERCAPITA_GRUPO_FA))
+
+> colegio <- df1 %>% filter(!is.na(RBD)) %>% group_by(RBD) %>% 
++     summarise(N_ALUMNOS = n(), INGRESO_COLEGIO = median(INGRESO_PERCAPITA_GRUPO_FA, 
++         na.rm = TRUE))
+
+> df1 <- df1 %>% select(ID_aux, FECHA_NACIMIENTO, RBD, 
++     RAMA_EDUCACIONAL, GRUPO_DEPENDENCIA, CODIGO_REGION, SEXO, 
++     PACE, BEA, INGRESO_PERCAPITA_GRUPO_FA)
+
+> otras <- df2 %>% select(CLEC_INV_ACTUAL:MODULO_INV_ANTERIOR)
+
+> df2$SOLO_REGULAR <- apply(otras, 1, function(x) sum(!is.na(x) & 
++     x != "") == 0)
+
+> df2 <- df2 %>% filter(SITUACION_EGRESO == 1) %>% filter(SOLO_REGULAR) %>% 
++     filter(CLEC_REG_ACTUAL >= 100, MATE1_REG_ACTUAL >= 100) %>% 
++     filter(CIEN_REG_ACTUAL >= 100 | HCSOC_REG_ACTUAL >= 100) %>% 
++     filter(PROMEDIO_NOTAS != 0) %>% select(ID_aux, PROMEDIO_NOTAS, 
++     PORC_SUP_NOT .... [TRUNCATED] 
+
+> df3 <- df3 %>% distinct(ID_aux) %>% mutate(FLAG_POSTULA = 1)
+
+> df4 <- df4 %>% filter(VIA == 1 & TIPO_MATRICULA == 
++     1) %>% select(ID_aux, PREFERENCIA)
+
+> df_final <- merge(df2, df1, by = "ID_aux", all.x = TRUE)
+
+> df_final <- merge(df_final, df3, by = "ID_aux", all.x = TRUE)
+
+> df_final <- merge(df_final, df4, by = "ID_aux", all.x = TRUE)
+
+> df_final <- merge(df_final, colegio, by = "RBD", all.x = TRUE)
+
+> nrow(df_final)
+[1] 168714
+
+> df_final$PREF_TOP3_DUMMY <- ifelse(df_final$PREFERENCIA %in% 
++     c(1, 2, 3), 1, 0)
+
+> table(df_final$PREF_TOP3_DUMMY)
+
+     0      1 
+108480  60234 
+
+> df_final$FLAG_POSTULA <- ifelse(is.na(df_final$FLAG_POSTULA), 
++     0, 1)
+
+> table(df_final$FLAG_POSTULA, df_final$PREF_TOP3_DUMMY)
+   
+        0     1
+  0 55361     0
+  1 53119 60234
+
+> df_final$TP_DUMMY <- ifelse(df_final$RAMA_EDUCACIONAL %in% 
++     c("T1", "T2", "T3", "T4", "T5"), 1, 0)
+
+> df_final$PACE <- ifelse(is.na(df_final$PACE) | df_final$PACE == 
++     "", 0, 1)
+
+> df_final$BEA <- ifelse(is.na(df_final$BEA) | df_final$BEA == 
++     "", 0, 1)
+
+> df_final$RINDE_CIEN <- ifelse(df_final$CIEN_REG_ACTUAL >= 
++     100, 1, 0)
+
+> df_final$RINDE_HCSOC <- ifelse(df_final$HCSOC_REG_ACTUAL >= 
++     100, 1, 0)
+
+> df_final$RINDE_M2 <- ifelse(df_final$MATE2_REG_ACTUAL >= 
++     100, 1, 0)
+
+> fecha <- as.numeric(df_final$FECHA_NACIMIENTO)
+
+> df_final$EDAD_MESES <- (2025 - fecha%%10000) * 12 + 
++     (12 - fecha%/%10000)
+
+> df_final$GRUPO_DEPENDENCIA <- as.character(df_final$GRUPO_DEPENDENCIA)
+
+> df_final$CODIGO_REGION <- as.character(df_final$CODIGO_REGION)
+
+> df_final$SEXO <- as.character(df_final$SEXO)
+
+> write_xlsx(df_final, file.path(tempdir(), "base.xlsx"))
+
+> dt <- df_final %>% select(PREF_TOP3_DUMMY, PROMEDIO_NOTAS, 
++     PORC_SUP_NOTAS, PTJE_NEM, PTJE_RANKING, CLEC_REG_ACTUAL, 
++     MATE1_REG_ACTUAL, RINDE_CIEN, RINDE_HCSOC, RINDE_M2, GRUPO_DEPENDENCIA, 
++     TP_DUMMY, CODIGO_REGION, SEXO, PACE, BEA, INGRESO_PERCAPITA_GRUPO_FA, 
++     EDAD_MESES,  .... [TRUNCATED] 
+
+> dim(dt)
+[1] 168714     20
+
+> cat("Tasa de Y = 1 (top 3):", round(100 * mean(dt$PREF_TOP3_DUMMY), 
++     1), "%\n")
+Tasa de Y = 1 (top 3): 35.7 %
+
+> inspeccion <- data.frame(variable = names(dt), tipo = sapply(dt, 
++     function(x) class(x)[1]), n_na = sapply(dt, function(x) sum(is.na(x))), 
++     pct_na = sapply(dt, function(x) round(100 * mean(is.na(x)), 
++         2)), n_unicos = sapply(dt, function(x) length(unique(x))), 
++     minimo = s .... [TRUNCATED] 
+
+> inspeccion
+                     variable      tipo  n_na pct_na n_unicos minimo maximo
+1             PREF_TOP3_DUMMY   numeric     0   0.00        2   0.00      1
+2              PROMEDIO_NOTAS   numeric     0   0.00      145   4.18      7
+3              PORC_SUP_NOTAS   integer     0   0.00       10  10.00    100
+4                    PTJE_NEM   integer     0   0.00      331 157.00   1000
+5                PTJE_RANKING   integer     0   0.00      665 157.00   1000
+6             CLEC_REG_ACTUAL   integer     0   0.00       61 100.00   1000
+7            MATE1_REG_ACTUAL   integer     0   0.00       61 100.00   1000
+8                  RINDE_CIEN   numeric     0   0.00        2   0.00      1
+9                 RINDE_HCSOC   numeric     0   0.00        2   0.00      1
+10                   RINDE_M2   numeric     0   0.00        2   0.00      1
+11          GRUPO_DEPENDENCIA character     3   0.00        5     NA     NA
+12                   TP_DUMMY   numeric     0   0.00        2   0.00      1
+13              CODIGO_REGION character     3   0.00       17     NA     NA
+14                       SEXO character     0   0.00        2     NA     NA
+15                       PACE   numeric     0   0.00        2   0.00      1
+16                        BEA   numeric     0   0.00        2   0.00      1
+17 INGRESO_PERCAPITA_GRUPO_FA   integer 46668  27.66       11   1.00     10
+18                 EDAD_MESES   numeric     0   0.00      598 181.00    860
+19                  N_ALUMNOS   integer     3   0.00      341   8.00    947
+20            INGRESO_COLEGIO   numeric    61   0.04       20   1.00     10
+
+> vars_na_alto <- inspeccion$variable[inspeccion$pct_na > 
++     5]
+
+> vars_na_alto
+[1] "INGRESO_PERCAPITA_GRUPO_FA"
+
+> vars_num <- names(dt)[sapply(dt, is.numeric)]
+
+> vars_num <- setdiff(vars_num, "PREF_TOP3_DUMMY")
+
+> vars_num <- vars_num[sapply(dt[, vars_num], function(x) length(unique(x)) > 
++     2)]
+
+> summary(dt[, vars_num])
+ PROMEDIO_NOTAS PORC_SUP_NOTAS     PTJE_NEM     PTJE_RANKING  CLEC_REG_ACTUAL
+ Min.   :4.18   Min.   : 10.0   Min.   : 157   Min.   : 157   Min.   : 100   
+ 1st Qu.:5.73   1st Qu.: 20.0   1st Qu.: 637   1st Qu.: 643   1st Qu.: 500   
+ Median :6.13   Median : 50.0   Median : 751   Median : 759   Median : 590   
+ Mean   :6.09   Mean   : 47.7   Mean   : 738   Mean   : 751   Mean   : 605   
+ 3rd Qu.:6.48   3rd Qu.: 70.0   3rd Qu.: 851   3rd Qu.: 870   3rd Qu.: 690   
+ Max.   :7.00   Max.   :100.0   Max.   :1000   Max.   :1000   Max.   :1000   
+                                                                             
+ MATE1_REG_ACTUAL INGRESO_PERCAPITA_GRUPO_FA   EDAD_MESES    N_ALUMNOS  
+ Min.   : 100     Min.   : 1.00              Min.   :181   Min.   :  8  
+ 1st Qu.: 516     1st Qu.: 2.00              1st Qu.:215   1st Qu.: 82  
+ Median : 601     Median : 4.00              Median :218   Median :128  
+ Mean   : 629     Mean   : 4.78              Mean   :223   Mean   :161  
+ 3rd Qu.: 710     3rd Qu.: 7.00              3rd Qu.:222   3rd Qu.:199  
+ Max.   :1000     Max.   :10.00              Max.   :860   Max.   :947  
+                  NA's   :46668                            NA's   :3    
+ INGRESO_COLEGIO
+ Min.   : 1.00  
+ 1st Qu.: 3.00  
+ Median : 4.00  
+ Mean   : 4.55  
+ 3rd Qu.: 5.00  
+ Max.   :10.00  
+ NA's   :61     
+
+> atipicos_iqr <- function(x) {
++     q <- quantile(x, c(0.25, 0.75), na.rm = TRUE)
++     ric <- q[2] - q[1]
++     sum(x < q[1] - 1.5 * ric | x > q[2] + 1.5 * ric, na.rm = TRUE)
++ }
+
+> sapply(dt[, vars_num], atipicos_iqr)
+            PROMEDIO_NOTAS             PORC_SUP_NOTAS 
+                        61                          0 
+                  PTJE_NEM               PTJE_RANKING 
+                       116                         77 
+           CLEC_REG_ACTUAL           MATE1_REG_ACTUAL 
+                       101                         17 
+INGRESO_PERCAPITA_GRUPO_FA                 EDAD_MESES 
+                         0                       8513 
+                 N_ALUMNOS            INGRESO_COLEGIO 
+                      8947                      12849 
+
+> par(mfrow = c(2, 5))
+
+> for (v in vars_num) boxplot(dt[[v]], main = v, cex.main = 0.7, 
++     col = "lightblue")
+
+> par(mfrow = c(1, 1))
+
+> vars_cat <- names(dt)[sapply(dt, function(x) is.factor(x) | 
++     is.character(x))]
+
+> for (v in vars_cat) {
++     cat("\n---", v, "---\n")
++     print(table(dt[[v]], useNA = "ifany"))
++ }
+
+--- GRUPO_DEPENDENCIA ---
+
+    1     2     3     4  <NA> 
+21822 89586 40362 16941     3 
+
+--- CODIGO_REGION ---
+
+    1    10    11    12    13    14    15    16     2     3     4     5     6 
+ 3321  7829  1029  1447 65044  3677  2559  4968  5697  2963  8028 17851  8819 
+    7     8     9  <NA> 
+10386 15165  9928     3 
+
+--- SEXO ---
+
+    1     2 
+78917 89797 
+
+> reglas <- data.frame(regla = c("ID_aux duplicado", 
++     "Promedio de notas fuera de 4,0 a 7,0", "Puntaje NEM fuera de 100 a 1.000", 
++     "Edad menor de 16 años", "Edad de 20 años o más", "Edad de 30 años o más"), 
++     casos = c(sum(duplicated(df_final$ID_aux)), sum(dt$PROMEDIO_NOTAS < 
++     .... [TRUNCATED] 
+
+> reglas
+                                 regla casos
+1                     ID_aux duplicado     0
+2 Promedio de notas fuera de 4,0 a 7,0     0
+3     Puntaje NEM fuera de 100 a 1.000     0
+4                Edad menor de 16 años     5
+5                Edad de 20 años o más  4439
+6                Edad de 30 años o más  1898
+
+> max(dt$EDAD_MESES, na.rm = TRUE)/12
+[1] 71.67
+
+> dt <- dt[, setdiff(names(dt), vars_na_alto)]
+
+> colSums(is.na(dt))[colSums(is.na(dt)) > 0]
+GRUPO_DEPENDENCIA     CODIGO_REGION         N_ALUMNOS   INGRESO_COLEGIO 
+                3                 3                 3                61 
+
+> bins <- woebin(dt, y = "PREF_TOP3_DUMMY")
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 19 columns in 00:00:05
+
+> woebin_plot(bins$CLEC_REG_ACTUAL)
+$CLEC_REG_ACTUAL
+
+
+> woebin_plot(bins$MATE1_REG_ACTUAL)
+$MATE1_REG_ACTUAL
+
+
+> woebin_plot(bins$PROMEDIO_NOTAS)
+$PROMEDIO_NOTAS
+
+
+> woebin_plot(bins$TP_DUMMY)
+$TP_DUMMY
+
+
+> monotonia <- data.frame(variable = names(bins), monotona = sapply(bins, 
++     function(b) {
++         tasa <- b$posprob[b$bin != "missing"]
++         sum(diff(tasa) < 0) == 0 | sum(diff(tasa) > 0) == 0
++     }), row.names = NULL)
+
+> monotonia
+            variable monotona
+1     PROMEDIO_NOTAS     TRUE
+2     PORC_SUP_NOTAS     TRUE
+3           PTJE_NEM     TRUE
+4       PTJE_RANKING     TRUE
+5    CLEC_REG_ACTUAL     TRUE
+6   MATE1_REG_ACTUAL     TRUE
+7         RINDE_CIEN     TRUE
+8        RINDE_HCSOC     TRUE
+9           RINDE_M2     TRUE
+10 GRUPO_DEPENDENCIA     TRUE
+11          TP_DUMMY     TRUE
+12     CODIGO_REGION     TRUE
+13              SEXO     TRUE
+14              PACE     TRUE
+15               BEA     TRUE
+16        EDAD_MESES    FALSE
+17         N_ALUMNOS    FALSE
+18   INGRESO_COLEGIO     TRUE
+
+> woebin_plot(bins$EDAD_MESES)
+$EDAD_MESES
+
+
+> bins_edad <- woebin(dt, y = "PREF_TOP3_DUMMY", x = "EDAD_MESES", 
++     breaks_list = list(EDAD_MESES = c(228)))
+ℹ Creating woe binning ...
+ℹ The option bin_close_right was set to FALSE.
+✔ Binning on 168714 rows and 2 columns in 00:00:00
+
+> woebin_plot(bins_edad$EDAD_MESES)
+$EDAD_MESES
+
+
+> dt$DEPENDENCIA_3 <- case_when(dt$GRUPO_DEPENDENCIA == 
++     "1" ~ "pagado", dt$GRUPO_DEPENDENCIA == "2" ~ "subvencionado", 
++     dt$GRUPO_DEPENDENCIA %in% c("3", "4") ~ "publico")
+
+> table(dt$GRUPO_DEPENDENCIA, dt$DEPENDENCIA_3)
+   
+    pagado publico subvencionado
+  1  21822       0             0
+  2      0       0         89586
+  3      0   40362             0
+  4      0   16941             0
+
+> bins_dep <- woebin(dt, y = "PREF_TOP3_DUMMY", x = "DEPENDENCIA_3")
+ℹ Creating woe binning ...
+✔ Binning on 168714 rows and 2 columns in 00:00:00
+
+> woebin_plot(bins_dep$DEPENDENCIA_3)
+$DEPENDENCIA_3
+
+
+> bins_adj <- c(bins[setdiff(names(bins), c("EDAD_MESES", 
++     "GRUPO_DEPENDENCIA"))], bins_edad, bins_dep)
+
+> iv_tab <- data.frame(variable = names(bins_adj), IV = sapply(bins_adj, 
++     function(b) b$total_iv[1]), row.names = NULL)
+
+> iv_tab <- iv_tab[order(-iv_tab$IV), ]
+
+> iv_tab$poder <- cut(iv_tab$IV, breaks = c(-Inf, 0.02, 
++     0.1, 0.3, 0.5, Inf), labels = c("Inútil", "Débil", "Medio", 
++     "Fuerte", "Sospechoso"), right = FALSE)
+
+> iv_tab
+           variable        IV      poder
+5   CLEC_REG_ACTUAL 0.7338592 Sospechoso
+6  MATE1_REG_ACTUAL 0.6266258 Sospechoso
+1    PROMEDIO_NOTAS 0.3947503     Fuerte
+3          PTJE_NEM 0.3940968     Fuerte
+4      PTJE_RANKING 0.3756199     Fuerte
+2    PORC_SUP_NOTAS 0.1934893      Medio
+10         TP_DUMMY 0.1060490      Medio
+16  INGRESO_COLEGIO 0.1060077      Medio
+18    DEPENDENCIA_3 0.1037427      Medio
+17       EDAD_MESES 0.0486197      Débil
+14              BEA 0.0325367      Débil
+9          RINDE_M2 0.0238325      Débil
+11    CODIGO_REGION 0.0179766     Inútil
+8       RINDE_HCSOC 0.0066531     Inútil
+15        N_ALUMNOS 0.0063575     Inútil
+7        RINDE_CIEN 0.0017445     Inútil
+13             PACE 0.0009400     Inútil
+12             SEXO 0.0001703     Inútil
+
+> vars_iv <- iv_tab$variable[iv_tab$IV >= 0.02]
+
+> vars_iv
+ [1] "CLEC_REG_ACTUAL"  "MATE1_REG_ACTUAL" "PROMEDIO_NOTAS"   "PTJE_NEM"        
+ [5] "PTJE_RANKING"     "PORC_SUP_NOTAS"   "TP_DUMMY"         "INGRESO_COLEGIO" 
+ [9] "DEPENDENCIA_3"    "EDAD_MESES"       "BEA"              "RINDE_M2"        
+
+> dt_woe <- as.data.frame(woebin_ply(dt[, c(vars_iv, 
++     "PREF_TOP3_DUMMY")], bins_adj[vars_iv]))
+ℹ Converting into woe values ...
+✔ Woe transformating on 168714 rows and 12 columns in 00:00:02
+
+> vars_woe <- paste0(vars_iv, "_woe")
+
+> f_full <- as.formula(paste("PREF_TOP3_DUMMY ~", paste(vars_woe, 
++     collapse = " + ")))
+
+> m_full <- glm(f_full, family = binomial(), data = dt_woe)
+
+> vif(m_full, merge_coef = TRUE)
+                variable  Estimate Std. Error   z value Pr(>|z|)   gvif
+                  <char>     <num>      <num>     <num>    <num>  <num>
+ 1:          (Intercept) -0.581629     0.0057 -102.8610   0.0000     NA
+ 2:  CLEC_REG_ACTUAL_woe  0.549410     0.0092   59.6654   0.0000  1.599
+ 3: MATE1_REG_ACTUAL_woe  0.451974     0.0101   44.7327   0.0000  1.756
+ 4:   PROMEDIO_NOTAS_woe  0.327868     0.0330    9.9425   0.0000 12.815
+ 5:         PTJE_NEM_woe  0.008849     0.0388    0.2281   0.8196 17.758
+ 6:     PTJE_RANKING_woe  0.179085     0.0370    4.8396   0.0000 15.198
+ 7:   PORC_SUP_NOTAS_woe -0.129352     0.0235   -5.5083   0.0000  3.369
+ 8:         TP_DUMMY_woe  0.325709     0.0192   16.9205   0.0000  1.183
+ 9:  INGRESO_COLEGIO_woe  0.032567     0.0256    1.2698   0.2041  2.337
+10:    DEPENDENCIA_3_woe -0.065842     0.0260   -2.5299   0.0114  2.379
+11:       EDAD_MESES_woe  0.114059     0.0280    4.0796   0.0000  1.040
+12:              BEA_woe  0.010412     0.0319    0.3262   0.7442  1.189
+13:         RINDE_M2_woe -0.060349     0.0379   -1.5941   0.1109  1.107
+
+> round(cor(dt_woe[, vars_woe]), 2)
+                     CLEC_REG_ACTUAL_woe MATE1_REG_ACTUAL_woe
+CLEC_REG_ACTUAL_woe                 1.00                 0.63
+MATE1_REG_ACTUAL_woe                0.63                 1.00
+PROMEDIO_NOTAS_woe                  0.46                 0.44
+PTJE_NEM_woe                        0.47                 0.45
+PTJE_RANKING_woe                    0.45                 0.43
+PORC_SUP_NOTAS_woe                  0.34                 0.32
+TP_DUMMY_woe                        0.26                 0.24
+INGRESO_COLEGIO_woe                 0.30                 0.35
+DEPENDENCIA_3_woe                   0.30                 0.35
+EDAD_MESES_woe                      0.21                 0.20
+BEA_woe                             0.15                 0.14
+RINDE_M2_woe                        0.09                 0.25
+                     PROMEDIO_NOTAS_woe PTJE_NEM_woe PTJE_RANKING_woe
+CLEC_REG_ACTUAL_woe                0.46         0.47             0.45
+MATE1_REG_ACTUAL_woe               0.44         0.45             0.43
+PROMEDIO_NOTAS_woe                 1.00         0.96             0.95
+PTJE_NEM_woe                       0.96         1.00             0.96
+PTJE_RANKING_woe                   0.95         0.96             1.00
+PORC_SUP_NOTAS_woe                 0.79         0.80             0.80
+TP_DUMMY_woe                       0.13         0.13             0.10
+INGRESO_COLEGIO_woe                0.16         0.16             0.14
+DEPENDENCIA_3_woe                  0.15         0.15             0.13
+EDAD_MESES_woe                     0.18         0.18             0.17
+BEA_woe                            0.29         0.31             0.30
+RINDE_M2_woe                       0.15         0.15             0.15
+                     PORC_SUP_NOTAS_woe TP_DUMMY_woe INGRESO_COLEGIO_woe
+CLEC_REG_ACTUAL_woe                0.34         0.26                0.30
+MATE1_REG_ACTUAL_woe               0.32         0.24                0.35
+PROMEDIO_NOTAS_woe                 0.79         0.13                0.16
+PTJE_NEM_woe                       0.80         0.13                0.16
+PTJE_RANKING_woe                   0.80         0.10                0.14
+PORC_SUP_NOTAS_woe                 1.00        -0.04               -0.07
+TP_DUMMY_woe                      -0.04         1.00                0.25
+INGRESO_COLEGIO_woe               -0.07         0.25                1.00
+DEPENDENCIA_3_woe                 -0.08         0.30                0.72
+EDAD_MESES_woe                     0.09         0.04                0.08
+BEA_woe                            0.36        -0.05               -0.11
+RINDE_M2_woe                       0.15        -0.07                0.05
+                     DEPENDENCIA_3_woe EDAD_MESES_woe BEA_woe RINDE_M2_woe
+CLEC_REG_ACTUAL_woe               0.30           0.21    0.15         0.09
+MATE1_REG_ACTUAL_woe              0.35           0.20    0.14         0.25
+PROMEDIO_NOTAS_woe                0.15           0.18    0.29         0.15
+PTJE_NEM_woe                      0.15           0.18    0.31         0.15
+PTJE_RANKING_woe                  0.13           0.17    0.30         0.15
+PORC_SUP_NOTAS_woe               -0.08           0.09    0.36         0.15
+TP_DUMMY_woe                      0.30           0.04   -0.05        -0.07
+INGRESO_COLEGIO_woe               0.72           0.08   -0.11         0.05
+DEPENDENCIA_3_woe                 1.00           0.07   -0.11         0.04
+EDAD_MESES_woe                    0.07           1.00    0.04         0.04
+BEA_woe                          -0.11           0.04    1.00         0.07
+RINDE_M2_woe                      0.04           0.04    0.07         1.00
+
+> umbral_vif <- 2
+
+> vars_sel <- vars_iv
+
+> repeat {
++     f <- as.formula(paste("PREF_TOP3_DUMMY ~", paste(paste0(vars_sel, 
++         "_woe"), collapse = " + ")))
++     m <- glm(f, family = binomial(), data = dt_woe)
++     v <- vif(m)
++     v$variable <- sub("_woe$", "", v$variable)
++     v <- merge(v, iv_tab[, c("variable", "IV")], by =  .... [TRUNCATED] 
+Se elimina: PTJE_NEM | VIF = 17.76 | IV = 0.394 | VIF/IV = 45.1 
+Se elimina: PTJE_RANKING | VIF = 10.16 | IV = 0.376 | VIF/IV = 27 
+Se elimina: DEPENDENCIA_3 | VIF = 2.38 | IV = 0.104 | VIF/IV = 22.9 
+Se elimina: PORC_SUP_NOTAS | VIF = 3.1 | IV = 0.193 | VIF/IV = 16 
+Ninguna variable supera VIF = 2 
+           variable  gvif      IV  ratio
+             <char> <num>   <num>  <num>
+1:         RINDE_M2 1.106 0.02383 46.387
+2:              BEA 1.143 0.03254 35.121
+3:       EDAD_MESES 1.036 0.04862 21.308
+4:  INGRESO_COLEGIO 1.216 0.10601 11.473
+5:         TP_DUMMY 1.114 0.10605 10.508
+6:   PROMEDIO_NOTAS 1.306 0.39475  3.307
+7: MATE1_REG_ACTUAL 1.728 0.62663  2.757
+8:  CLEC_REG_ACTUAL 1.590 0.73386  2.167
+
+> vars_sel
+[1] "CLEC_REG_ACTUAL"  "MATE1_REG_ACTUAL" "PROMEDIO_NOTAS"   "TP_DUMMY"        
+[5] "INGRESO_COLEGIO"  "EDAD_MESES"       "BEA"              "RINDE_M2"        
+
+> x_finales <- c("CLEC_REG_ACTUAL", "MATE1_REG_ACTUAL", 
++     "PROMEDIO_NOTAS", "TP_DUMMY", "DEPENDENCIA_3", "EDAD_MESES", 
++     "BEA", "RINDE_M2")
+
+> setdiff(vars_sel, x_finales)
+[1] "INGRESO_COLEGIO"
+
+> setdiff(x_finales, vars_sel)
+[1] "DEPENDENCIA_3"
+
+> dt_woe_final <- as.data.frame(woebin_ply(dt[, c("PREF_TOP3_DUMMY", 
++     x_finales)], bins_adj[x_finales]))
+ℹ Converting into woe values ...
+✔ Woe transformating on 168714 rows and 8 columns in 00:00:02
+
+> modelo_final <- glm(PREF_TOP3_DUMMY ~ ., family = binomial(), 
++     data = dt_woe_final)
+
+> summary(modelo_final)
+
+Call:
+glm(formula = PREF_TOP3_DUMMY ~ ., family = binomial(), data = dt_woe_final)
+
+Coefficients:
+                     Estimate Std. Error z value             Pr(>|z|)    
+(Intercept)          -0.58168    0.00565 -102.91 < 0.0000000000000002 ***
+CLEC_REG_ACTUAL_woe   0.54898    0.00917   59.85 < 0.0000000000000002 ***
+MATE1_REG_ACTUAL_woe  0.45199    0.01002   45.10 < 0.0000000000000002 ***
+PROMEDIO_NOTAS_woe    0.42861    0.01049   40.84 < 0.0000000000000002 ***
+TP_DUMMY_woe          0.33562    0.01888   17.78 < 0.0000000000000002 ***
+DEPENDENCIA_3_woe    -0.01114    0.01885   -0.59                0.555    
+EDAD_MESES_woe        0.12351    0.02786    4.43            0.0000093 ***
+BEA_woe              -0.00300    0.03126   -0.10                0.924    
+RINDE_M2_woe         -0.06263    0.03784   -1.66                0.098 .  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 219896  on 168713  degrees of freedom
+Residual deviance: 189308  on 168705  degrees of freedom
+AIC: 189326
+
+Number of Fisher Scoring iterations: 4
+
+
+> vif(modelo_final, merge_coef = TRUE)
+               variable  Estimate Std. Error   z value Pr(>|z|)  gvif
+                 <char>     <num>      <num>     <num>    <num> <num>
+1:          (Intercept) -0.581679     0.0057 -102.9132   0.0000    NA
+2:  CLEC_REG_ACTUAL_woe  0.548983     0.0092   59.8525   0.0000 1.589
+3: MATE1_REG_ACTUAL_woe  0.451992     0.0100   45.1035   0.0000 1.729
+4:   PROMEDIO_NOTAS_woe  0.428607     0.0105   40.8395   0.0000 1.305
+5:         TP_DUMMY_woe  0.335621     0.0189   17.7793   0.0000 1.138
+6:    DEPENDENCIA_3_woe -0.011141     0.0189   -0.5909   0.5546 1.248
+7:       EDAD_MESES_woe  0.123511     0.0279    4.4326   0.0000 1.036
+8:              BEA_woe -0.002996     0.0313   -0.0958   0.9237 1.141
+9:         RINDE_M2_woe -0.062631     0.0378   -1.6551   0.0979 1.106
+Hubo 11 avisos (use warnings() para verlos)

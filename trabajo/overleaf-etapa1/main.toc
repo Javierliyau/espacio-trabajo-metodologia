@@ -1,0 +1,4 @@
+\babel@toc {spanish}{}\relax 
+\beamer@sectionintoc {1}{Población}{2}{0}{1}
+\beamer@sectionintoc {2}{Variables creadas}{6}{0}{2}
+\beamer@sectionintoc {3}{Efecto esperado}{8}{0}{3}

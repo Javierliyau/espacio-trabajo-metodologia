@@ -1,0 +1,175 @@
+{
+ "campeon": "1.0",
+ "nota": "Lo escribe `motor ciclo` / `motor rollback`. No editar a mano.",
+ "historial": [
+  {
+   "fecha": "2026-10-04",
+   "de": null,
+   "a": "1.0",
+   "motivo": "diseno a priori (Fase 2)"
+  }
+ ],
+ "retadores": [
+  {
+   "version": "1.1",
+   "creado": "2026-10-04",
+   "origen": "estructural (Fase 4: alcance por posicion)",
+   "estado": "archivado",
+   "resultados": [
+    {
+     "n": 11,
+     "dif_brier": -0.0025656727272727053,
+     "ic90": [
+      -0.007697018181818177,
+      0.0
+     ],
+     "cuad_campeon": 0.13616980718216506,
+     "cuad_retador": 0.13616980718216506,
+     "n_cuad": 8,
+     "pasa": false,
+     "motivos": [
+      "el IC 90 % del Brier no queda entero bajo 0"
+     ],
+     "fecha": "2026-10-04 12:28",
+     "contra": "1.0"
+    },
+    {
+     "n": 11,
+     "dif_brier": -0.0025656727272727053,
+     "ic90": [
+      -0.007697018181818177,
+      0.0
+     ],
+     "cuad_campeon": 0.13616980718216506,
+     "cuad_retador": 0.13616980718216506,
+     "n_cuad": 8,
+     "pasa": false,
+     "motivos": [
+      "el IC 90 % del Brier no queda entero bajo 0"
+     ],
+     "fecha": "2026-10-04 20:00",
+     "contra": "1.0"
+    },
+    {
+     "n": 11,
+     "dif_brier": -0.0025656727272727053,
+     "ic90": [
+      -0.007697018181818177,
+      0.0
+     ],
+     "cuad_campeon": 0.13616980718216506,
+     "cuad_retador": 0.13616980718216506,
+     "n_cuad": 8,
+     "pasa": false,
+     "motivos": [
+      "el IC 90 % del Brier no queda entero bajo 0"
+     ],
+     "fecha": "2026-10-11 20:00",
+     "contra": "1.0"
+    },
+    {
+     "n": 12,
+     "dif_brier": -0.0023518666666666466,
+     "ic90": [
+      -0.007055599999999995,
+      0.0
+     ],
+     "cuad_campeon": 0.17946223456463561,
+     "cuad_retador": 0.17946223456463561,
+     "n_cuad": 9,
+     "pasa": false,
+     "motivos": [
+      "el IC 90 % del Brier no queda entero bajo 0"
+     ],
+     "fecha": "2026-10-22 16:34",
+     "contra": "1.0"
+    },
+    {
+     "n": 13,
+     "dif_brier": -0.0021709538461538278,
+     "ic90": [
+      -0.006512861538461534,
+      0.0
+     ],
+     "cuad_campeon": 0.23802797360817202,
+     "cuad_retador": 0.23802797360817202,
+     "n_cuad": 10,
+     "pasa": false,
+     "motivos": [
+      "el IC 90 % del Brier no queda entero bajo 0"
+     ],
+     "fecha": "2026-10-29 10:12",
+     "contra": "1.0"
+    }
+   ]
+  },
+  {
+   "version": "1.2",
+   "creado": "2026-10-22 16:34",
+   "origen": "deriva en Microeconomía II (formato: 2 preguntas, fuera del rango del profesor (7-9)): vida media a la mitad",
+   "estado": "archivado",
+   "resultados": [
+    {
+     "n": 12,
+     "dif_brier": 0.0005852500000000186,
+     "ic90": [
+      0.0,
+      0.0017557500000000142
+     ],
+     "cuad_campeon": 0.17946223456463561,
+     "cuad_retador": 0.17812761332412586,
+     "n_cuad": 9,
+     "pasa": false,
+     "motivos": [
+      "el IC 90 % del Brier no queda entero bajo 0"
+     ],
+     "fecha": "2026-10-22 16:34",
+     "contra": "1.0"
+    }
+   ]
+  },
+  {
+   "version": "1.3",
+   "creado": "2026-10-29 10:12",
+   "origen": "deriva en Macroeconomía II (profesor nuevo en el ramo (Droller)): vida media a la mitad",
+   "estado": "archivado",
+   "resultados": [
+    {
+     "n": 13,
+     "dif_brier": 0.0,
+     "ic90": [
+      0.0,
+      0.0
+     ],
+     "cuad_campeon": 0.23802797360817202,
+     "cuad_retador": 0.23802797360817202,
+     "n_cuad": 10,
+     "pasa": false,
+     "motivos": [
+      "el IC 90 % del Brier no queda entero bajo 0"
+     ],
+     "fecha": "2026-10-29 10:12",
+     "contra": "1.0"
+    }
+   ]
+  }
+ ],
+ "platt": null,
+ "ultimo_ciclo": {
+  "fecha": "2026-10-29 10:12",
+  "motivo": "ingreso de una prueba con prediccion",
+  "hash": "e0dcf13c433fda4c860565b290428c80daea3a8d",
+  "campeon": "1.0",
+  "walk_forward": {
+   "n_brier": 13,
+   "brier": 0.2520802051282051,
+   "n_cuad": 10,
+   "cuad": 0.23802797360817202,
+   "n_prosp": 2
+  }
+ },
+ "deriva_atendida": [
+  "20261010-220946-control-1",
+  "20261007-123249-control-1"
+ ]
+}

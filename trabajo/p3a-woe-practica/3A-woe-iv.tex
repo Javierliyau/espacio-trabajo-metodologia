@@ -1,0 +1,76 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=1.6cm]{geometry}
+\usepackage{booktabs,array,enumitem,amsmath}
+\renewcommand{\arraystretch}{1.6}
+\pagestyle{empty}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries 3A. Antigüedad laboral en un \emph{scoring} de consumo}\\[2pt]
+Econometría II · PEP 1 · práctica en frío · \textbf{25 min} · calculadora, sin pauta
+\end{center}
+
+\noindent\textbf{Convención del profe:} $\text{WOE}=\ln(\%B/\%M)\cdot 100$ (buenos arriba). \quad $\text{IV}=\sum(\%B-\%M)\,\ln(\%B/\%M)$.
+
+\begin{center}
+\begin{tabular}{lrrrrr}\toprule
+Antigüedad (años) & $<1$ & 1--3 & 3--5 & 5--10 & 10 o más\\\midrule
+Buenos & 300 & 900 & 700 & 1.100 & 1.000\\
+Malos  & 150 & 250 & 120 & 150 & 180\\\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=\alph*),itemsep=2pt]
+\item Tasa de malos de la cartera.
+\item WOE de cada tramo e IV total. ¿La antigüedad predice, según Siddiqi?
+\item ¿Es monótono el WOE? Si no lo es, fusiona los tramos que corresponda y recalcula el WOE y el IV.
+\item Con los tramos finales, ¿con qué valor entra al modelo una persona con 7 años de antigüedad?
+\item ¿Cuántos $\beta$ estima el logit si la antigüedad entra (i) continua, (ii) como factor de los tramos finales, (iii) como WOE?
+\end{enumerate}
+
+\bigskip
+\noindent\textbf{a)} Total buenos $=$ \rule{2.5cm}{0.4pt} \quad Total malos $=$ \rule{2.5cm}{0.4pt} \quad Tasa de malos $=$ \rule{2.5cm}{0.4pt}
+
+\bigskip
+\noindent\textbf{b)} Tabla de trabajo (tramos originales)
+\begin{center}\small
+\begin{tabular}{|l|r|r|>{\centering}p{1.25cm}|>{\centering}p{1.25cm}|>{\centering}p{1.4cm}|>{\centering}p{2.1cm}|>{\centering}p{1.25cm}|>{\centering\arraybackslash}p{1.6cm}|}\hline
+Tramo & $B$ & $M$ & $\%B$ & $\%M$ & $\%B-\%M$ & $\ln(\%B/\%M)$ & WOE & IV parcial\\\hline
+$<1$     & 300   & 150 & & & & & & \\\hline
+1--3     & 900   & 250 & & & & & & \\\hline
+3--5     & 700   & 120 & & & & & & \\\hline
+5--10    & 1.100 & 150 & & & & & & \\\hline
+10 o más & 1.000 & 180 & & & & & & \\\hline
+Total    &       &     & 100\,\% & 100\,\% & & & & IV $=$\\\hline
+\end{tabular}
+\end{center}
+¿Predice según Siddiqi? \rule{11cm}{0.4pt}
+
+\bigskip
+\noindent\textbf{c)} ¿Monótono? \rule{3cm}{0.4pt} \quad ¿Qué tramos fusionas y por qué? \rule{5cm}{0.4pt}
+
+\begin{center}\small
+\begin{tabular}{|l|r|r|>{\centering}p{1.25cm}|>{\centering}p{1.25cm}|>{\centering}p{1.4cm}|>{\centering}p{2.1cm}|>{\centering}p{1.25cm}|>{\centering\arraybackslash}p{1.6cm}|}\hline
+Tramo final & $B$ & $M$ & $\%B$ & $\%M$ & $\%B-\%M$ & $\ln(\%B/\%M)$ & WOE & IV parcial\\\hline
+ & & & & & & & & \\\hline
+ & & & & & & & & \\\hline
+ & & & & & & & & \\\hline
+ & & & & & & & & \\\hline
+Total & & & 100\,\% & 100\,\% & & & & IV $=$\\\hline
+\end{tabular}
+\end{center}
+
+\bigskip
+\noindent\textbf{d)} Una persona con 7 años entra con el valor \rule{4cm}{0.4pt}\\[6pt]
+porque \rule{14cm}{0.4pt}
+
+\bigskip
+\noindent\textbf{e)} (i) continua: \rule{1.5cm}{0.4pt} $\beta$ \quad (ii) factor: \rule{1.5cm}{0.4pt} $\beta$ \quad (iii) WOE: \rule{1.5cm}{0.4pt} $\beta$\\[4pt]
+Justificación: \rule{13cm}{0.4pt}
+
+\vfill
+\noindent\small Hora de inicio: \rule{2cm}{0.4pt} \quad Hora de término: \rule{2cm}{0.4pt} \quad Al terminar: foto o resultados al chat para corregir con la pauta.
+\end{document}

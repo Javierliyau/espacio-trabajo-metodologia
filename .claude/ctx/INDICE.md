@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:49. 306 archivos, ~131470.7k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 13:16. 309 archivos, ~131478.5k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -60,6 +60,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:49. 306 archivos, ~131
 | ⚠ 7.5k | 446 | `trabajo/nota-r-david/v7_tal_cual.R` | ======================================== L1; ECONOMETRIA II - USACH / ETAPA 2 - VERSI L2; Integrantes: David Cuevas, Javier Li-Yau L3; Referencia metodologica: GermanCredit_Sc L4; Objetivo: Y=1 si matricula REGULAR en pr L5; Alcance: descripcion, consistencia, WOE/ L6; NOTA: ejecutar sobre los archivos DEMRE  L7; de entregarlos. No se incluyen cifras in L8; +68 |
 | ⚠ 7.3k | 472 | `trabajo/micro/2026-11-01-parche-motor.py` | ---- parciales L13; ---- resoluciones con correcciones super L86; ---- dominio L104; ---- evaluar: separar el calculo de la e L141; ---- postmortem L264; ---- hash_global L274; ---- tablero L280; ---- predicciones manuales L298; +4 |
 | ⚠ 7.2k | 566 | `trabajo/etapa2-final/informe-etapa-2-con-mineduc.tex` |  |
+| ⚠ 7.1k | 325 | `trabajo/guia-filtrada/2026-11-03-guia-filtrada-10-ejercicios-pep1.tex` |  |
 | ⚠ 7.1k | 559 | `trabajo/informe-etapa-2.antes-benja.tex` |  |
 | ⚠ 7.0k | 601 | `trabajo/nota-r-david/salida4.txt` |  |
 | ⚠ 7.0k | 421 | `trabajo/nota-r-david/auditado.R` | ======================================== L1; ECONOMETRIA II - USACH / ETAPA 2 - VERSI L2; Integrantes: David Cuevas, Javier Li-Yau L3; Referencia metodologica: GermanCredit_Sc L4; Objetivo: Y=1 si matricula REGULAR en pr L5; Alcance: descripcion, consistencia, WOE/ L6; NOTA: ejecutar sobre los archivos DEMRE  L7; de entregarlos. No se incluyen cifras in L8; +62 |
@@ -221,6 +222,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:49. 306 archivos, ~131
 | 603 | 60 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-2-woe-iv.tex` |  |
 | 589 | 46 | `trabajo/micro/2026-11-01-verificar.py` | Compara campeon.json con el respaldo y r L1 |
 | 563 | 74 | `trabajo/macro/datos-chile/y.csv` |  |
+| 559 | 36 | `trabajo/guia-filtrada/calc.py` |  |
 | 557 | 33 | `trabajo/lectura-pep1/verif3.py` | calculator path with rounded means L8; German credit cuenta L13; Siddiqi L18; scorecard lamina 7 L26; DiD CK L28; SLEP invented L30 |
 | 555 | 74 | `trabajo/macro/datos-chile/k.csv` |  |
 | 553 | 57 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-3-did-slep.tex` |  |
@@ -272,6 +274,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:49. 306 archivos, ~131
 | 194 | 9 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/02_descriptivos.csv` |  |
 | 183 | 9 | `trabajo/lectura-pep1/fix.py` |  |
 | 177 | 15 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/08_ranking_iv.csv` |  |
+| 174 | 13 | `trabajo/guia-filtrada/calc2.py` |  |
 | 166 | 16 | `trabajo/nota-r-david/salida_v7_tal_cual.txt` |  |
 | 164 | 8 | `trabajo/etapa2-final/filtros.R` |  |
 | 162 | 6 | `trabajo/econometria-ii-etapa2/informe-salidas/tramos-retramificados.csv` |  |

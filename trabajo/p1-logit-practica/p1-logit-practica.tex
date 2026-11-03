@@ -11,10 +11,14 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{4pt}
 
+% Cuadriculado de 5 mm (tamaño estándar de GoodNotes)
+\tcbset{cuadri/.style={enhanced,colback=white,colframe=black!25,boxrule=0.4pt,
+    title={\small Desarrollo},coltitle=black!60,colbacktitle=black!5,
+    underlay={\begin{tcbclipinterior}\draw[step=5mm,black!15,line width=0.25pt]
+      (interior.south west) grid (interior.north east);\end{tcbclipinterior}}}}
 % Recuadro en blanco para desarrollar a mano; ocupa el resto de la página
 \newcommand{\desarrollo}{%
-  \begin{tcolorbox}[enhanced,height fill,colback=white,colframe=black!25,boxrule=0.4pt,
-    title={\small Desarrollo},coltitle=black!60,colbacktitle=black!5]
+  \begin{tcolorbox}[cuadri,height fill]
   \end{tcolorbox}}
 % Encabezado de cada parte
 \newcommand{\parte}[2]{%
@@ -46,8 +50,7 @@ Todos los coeficientes son significativos al 5\,\%. \quad Recuerda: $\hat P = \d
 
 \newpage
 \parte{b) (8 pts)}{Calcula el efecto marginal de CARGA en los dos perfiles de a). Interpreta el de PROP $=0$ para un aumento de \textbf{10 puntos} de carga. ¿Por qué el efecto es distinto en los dos perfiles si $\hat\beta_{\text{CARGA}}$ es uno solo?}
-\begin{tcolorbox}[enhanced,height=13.5cm,colback=white,colframe=black!25,boxrule=0.4pt,
-    title={\small Desarrollo},coltitle=black!60,colbacktitle=black!5]
+\begin{tcolorbox}[cuadri,height=13.5cm]
 \end{tcolorbox}
 
 \parte{c) (5 pts)}{Calcula e interpreta $e^{\hat\beta_{\text{PROP}}}$.}

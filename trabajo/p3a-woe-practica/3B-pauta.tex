@@ -1,0 +1,112 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{booktabs,array,enumitem,amsmath,amssymb,xcolor,tcolorbox}
+\pagestyle{empty}
+\newtcolorbox{ejemplar}{colback=green!5,colframe=green!40!black,title=Respuesta ejemplar,fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newtcolorbox{trampa}{colback=red!5,colframe=red!50!black,title=Trampas,fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries 3B. Leer una \emph{scorecard} · pauta}\\[2pt]
+Econometría II · PEP 1 · Fuente: clase 5 (puntos de edad y antigüedad) + datos creados
+\end{center}
+
+\begin{center}\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{llr|llr}\toprule
+Variable & Tramo & Puntos & Variable & Tramo & Puntos\\\midrule
+Edad & $<25$ & 40 & Antigüedad & $<1$ año & 43\\
+ & 25--39 & 52 & & 1--3 & 53\\
+ & 40 o más & 62 & & 3--7 & 65\\
+Historial & con atrasos & 20 & & 7 o más & 60\\
+ & sin historial & 35 & \multicolumn{3}{l}{Puntos base: 450 · PDO $=20$}\\
+ & al día & 50 & \multicolumn{3}{l}{Se aprueba con 600 puntos o más}\\\bottomrule
+\end{tabular}
+\end{center}
+\noindent\textbf{Ana}: 30 años, 8 meses en su trabajo, atrasos previos. \textbf{Bruno}: 45 años, 4 años en su trabajo, sin historial.
+
+% ------------------------------------------------------------
+\section*{a) Puntaje de cada uno y aprobación}
+Se ubica a cada persona en su tramo de cada variable y se suma: puntaje $=$ base $+\sum$ puntos.
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}\toprule
+ & Ana & Bruno\\\midrule
+Base & 450 & 450\\
+Edad & 30 años $\to$ 25--39 $\to$ 52 & 45 años $\to$ 40 o más $\to$ 62\\
+Antigüedad & 8 meses $\to$ $<1$ año $\to$ 43 & 4 años $\to$ 3--7 $\to$ 65\\
+Historial & con atrasos $\to$ 20 & sin historial $\to$ 35\\\midrule
+\textbf{Total} & $\mathbf{565}$ & $\mathbf{612}$\\
+Decisión (corte 600) & $565<600$: \textbf{se rechaza} & $612\ge600$: \textbf{se aprueba}\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{ejemplar}
+Ana obtiene $450+52+43+20=565$ puntos y Bruno $450+62+65+35=612$. Con un corte de 600, \textbf{se aprueba solo a Bruno}; Ana queda 35 puntos bajo el corte.
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Ana tiene 8 \textbf{meses}: cae en $<1$ año, no en 1--3.
+\item No olvidar los \textbf{puntos base} (450).
+\end{itemize}
+\end{trampa}
+
+% ------------------------------------------------------------
+\section*{b) ¿Cuántas veces mayores son los odds bueno:malo de Bruno?}
+PDO $=20$ (\emph{points to double the odds}): cada 20 puntos más, los odds bueno:malo se \textbf{duplican}.
+\[
+\Delta=612-565=47
+\qquad\Longrightarrow\qquad
+\frac{\text{odds}_{\text{Bruno}}}{\text{odds}_{\text{Ana}}}=2^{\Delta/\text{PDO}}=2^{47/20}=2^{2{,}35}\approx\mathbf{5{,}1}
+\]
+\textbf{Otra forma (misma respuesta):} la \emph{scorecard} cumple puntaje $=\text{offset}+\text{factor}\cdot\ln(\text{odds})$, con $\text{factor}=\text{PDO}/\ln2=20/0{,}693=28{,}85$. Entonces $\ln(\text{OR})=47/28{,}85=1{,}629$ y $\text{OR}=e^{1{,}629}=5{,}1$.\\[2pt]
+\textbf{Chequeo de sentido:} 40 puntos $\to2^2=4$ veces; 60 puntos $\to2^3=8$ veces. Como 47 queda entre ambos, el resultado debe estar entre 4 y 8 \checkmark
+\begin{ejemplar}
+Bruno tiene 47 puntos más que Ana. Como PDO $=20$, sus odds bueno:malo son $2^{47/20}=2^{2{,}35}\approx$ \textbf{5,1 veces} los de Ana: por cada malo esperado, el perfil de Bruno tiene unas 5 veces más buenos que el de Ana.
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item $47/20=2{,}35$ es el \textbf{exponente}, no el resultado.
+\item No es $2\times2{,}35=4{,}7$: la relación es exponencial.
+\item Va en «\textbf{veces}» (o $+410$\,\%), nunca en pp. Son \textbf{odds}, no probabilidades: Bruno no tiene «5 veces más probabilidad» de pagar.
+\end{itemize}
+\end{trampa}
+
+% ------------------------------------------------------------
+\section*{c) ¿Por qué $<25$ años tiene menos puntos?}
+Los puntos de cada tramo se construyen a partir de su WOE: puntos del tramo $\propto \hat\beta\cdot\text{WOE}_{\text{tramo}}\cdot\text{factor}$ (más el reparto de la base). Con la convención del profe ($\text{WOE}=\ln(\%B/\%M)\cdot100$, buenos arriba), \textbf{a mayor WOE, más puntos}.
+\begin{ejemplar}
+El tramo $<25$ años tiene el \textbf{WOE más bajo} de la edad (probablemente negativo): concentra una proporción de los malos mayor que su proporción de los buenos ($\%M>\%B$). Es el tramo de \textbf{mayor riesgo}, así que recibe menos puntos (40 contra 52 y 62). Económicamente tiene sentido: los más jóvenes tienen ingresos menos estables, menos historial y menos patrimonio. La secuencia $40<52<62$ es \textbf{monótona}: más edad, menos riesgo.
+\end{ejemplar}
+
+% ------------------------------------------------------------
+\section*{d) ¿Qué tiene de raro la antigüedad (65 y luego 60)?}
+\begin{ejemplar}
+La secuencia de puntos $43\to53\to65\to60$ \textbf{no es monótona}: sube hasta 3--7 años y \textbf{baja} en 7 o más. Eso significa que el WOE de «7 o más» es menor que el de 3--7, lo que contradice la lógica económica (a más antigüedad, más estabilidad laboral y menos riesgo) y suele deberse a ruido muestral o a pocos casos en el último tramo.
+
+\textbf{Qué haría:} \textbf{fusionar} los tramos 3--7 y 7 o más en un solo tramo «3 años o más», recalcular su WOE (con los buenos y malos sumados) y reasignar los puntos. Así la secuencia queda monótona ($43<53<$ el nuevo puntaje). Luego verificaría que el IV no caiga mucho: fusionar siempre pierde algo de información, pero se gana una variable estable e interpretable.
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item No basta con decir «fusionar»: hay que decir \textbf{cuáles} tramos y \textbf{por qué} (monotonía y sentido económico).
+\item Se fusionan tramos \textbf{contiguos}: el que rompe la monotonía con su vecino.
+\item Es el mismo problema del 3A (allí 5--10 y 10+), visto desde los puntos en vez del WOE.
+\end{itemize}
+\end{trampa}
+
+% ------------------------------------------------------------
+\section*{Resumen para la hoja de memoria}
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{ll}\toprule
+Puntaje & base $+\sum$ puntos del tramo de cada variable\\
+Odds entre dos personas & $2^{\Delta\text{puntos}/\text{PDO}}$ \quad (PDO: puntos para duplicar los odds)\\
+Factor & $\text{PDO}/\ln 2$; \quad puntaje $=\text{offset}+\text{factor}\cdot\ln(\text{odds})$\\
+Puntos y WOE & más WOE $\Rightarrow$ más puntos $\Rightarrow$ menos riesgo\\
+Puntos no monótonos & fusionar tramos contiguos, recalcular WOE y revisar el IV\\\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

@@ -1,0 +1,68 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{booktabs,array,enumitem,amsmath}
+\pagestyle{empty}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries 3B. Leer una \emph{scorecard}}\\[2pt]
+Econometría II · PEP 1 · práctica en frío · \textbf{15 min} · calculadora, sin pauta
+\end{center}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{llr|llr}\toprule
+Variable & Tramo & Puntos & Variable & Tramo & Puntos\\\midrule
+Edad & $<25$ & 40 & Antigüedad & $<1$ año & 43\\
+ & 25--39 & 52 & & 1--3 & 53\\
+ & 40 o más & 62 & & 3--7 & 65\\
+Historial & con atrasos & 20 & & 7 o más & 60\\
+ & sin historial & 35 & \multicolumn{3}{l}{Puntos base: 450 · PDO $=20$}\\
+ & al día & 50 & \multicolumn{3}{l}{Se aprueba con 600 puntos o más}\\\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent\textbf{Ana} tiene 30 años, 8 meses en su trabajo y atrasos previos. \textbf{Bruno} tiene 45 años, 4 años en su trabajo y no tiene historial.
+
+\begin{enumerate}[label=\alph*),itemsep=2pt]
+\item Puntaje de cada uno. ¿A quién se aprueba?
+\item ¿Cuántas veces mayores son los odds bueno:malo de Bruno que los de Ana?
+\item ¿Por qué $<25$ años tiene menos puntos? (relaciónalo con el WOE).
+\item ¿Qué tiene de raro la antigüedad (65 y luego 60)? ¿Qué harías?
+\end{enumerate}
+
+\bigskip
+\noindent\textbf{a)}
+\begin{center}
+\renewcommand{\arraystretch}{1.8}
+\begin{tabular}{|l|p{3.2cm}|p{3.2cm}|}\hline
+ & \centering Ana & \centering\arraybackslash Bruno\\\hline
+Base & & \\\hline
+Edad & & \\\hline
+Antigüedad & & \\\hline
+Historial & & \\\hline
+\textbf{Total} & & \\\hline
+¿Aprueba? & & \\\hline
+\end{tabular}
+\end{center}
+
+\noindent\textbf{b)} Diferencia de puntos $=$ \rule{3cm}{0.4pt} \qquad Odds Bruno / odds Ana $=$ \rule{4cm}{0.4pt}\\[8pt]
+Fórmula usada: \rule{13.5cm}{0.4pt}\\[8pt]
+\rule{15.4cm}{0.4pt}
+
+\bigskip
+\noindent\textbf{c)} \rule{15cm}{0.4pt}\\[10pt]
+\rule{15.4cm}{0.4pt}\\[10pt]
+\rule{15.4cm}{0.4pt}
+
+\bigskip
+\noindent\textbf{d)} \rule{15cm}{0.4pt}\\[10pt]
+\rule{15.4cm}{0.4pt}\\[10pt]
+\rule{15.4cm}{0.4pt}
+
+\vfill
+\noindent\small Hora de inicio: \rule{2cm}{0.4pt} \quad Hora de término: \rule{2cm}{0.4pt}
+\end{document}

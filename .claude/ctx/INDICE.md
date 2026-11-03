@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 08:49. 293 archivos, ~128174.3k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 09:08. 294 archivos, ~128184.1k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -46,6 +46,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 08:49. 293 archivos, ~128
 | ⚠ 10.1k | 937 | `trabajo/overleaf-etapa1/guion-presentacion.log` |  |
 | ⚠ 9.8k | 1233 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Motor/items.json` |  |
 | ⚠ 9.7k | 681 | `trabajo/econometria-ii-estudio/2026-11-02-lectura-pep1-casos-reales.tex` |  |
+| ⚠ 9.7k | 681 | `trabajo/respaldo-lectura-pep1/2026-11-02-lectura-pep1-casos-reales.tex` |  |
 | ⚠ 9.5k | 340 | `trabajo/2026-10-24-plan-finde.md` | Plan del fin de semana 24-25 oct y ruta  L1; 0. Lo esencial en 6 líneas L13; 1. Estado de cada ramo L24; 2. Tabla de prioridades L135; 3. Horas disponibles y horas necesarias  L152; 4. Sábado 24 y domingo 25, hora por hora L208; 5. Esbozo del lun 26 al jue 5-11 L283; 6. Pendientes arrastrados sin marcar: qu L308; +1 |
 | ⚠ 9.0k | 799 | `trabajo/build-prediccion/2026-11-01-prediccion-final-control-2.log` |  |
 | ⚠ 8.9k | 805 | `trabajo/tex/2026-11-01-simulacro-control-2-droller.log` |  |

@@ -1,0 +1,681 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\setlist{itemsep=2pt,topsep=2pt}
+\definecolor{azul}{RGB}{31,78,121}
+\definecolor{rojo}{RGB}{170,40,40}
+\definecolor{verde}{RGB}{30,110,70}
+\newtcolorbox{frase}{colback=verde!6,colframe=verde!70!black,boxrule=0.5pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt,before upper={\textbf{Frase para la prueba.}\ },breakable}
+\newtcolorbox{trampa}{colback=rojo!5,colframe=rojo!80!black,boxrule=0.5pt,arc=2pt,left=6pt,right=6pt,top=4pt,bottom=4pt,before upper={\textbf{Trampa.}\ },breakable}
+\newcommand{\parte}[1]{\section*{\textcolor{azul}{#1}}}
+\newcommand{\tema}[1]{\subsection*{#1}}
+\newcommand{\Ph}{\hat{P}}
+\newcommand{\zh}{\hat{z}}
+
+\begin{document}
+\renewcommand{\%}{\ifmmode\mathchar"0025 \else\char37 \fi}
+
+{\LARGE\textbf{Econometría II · PEP 1 con casos reales}}\par
+\vspace{2pt}Lectura para entender, 2 de noviembre de 2026\par
+\vspace{2pt}\hrule\vspace{8pt}
+
+Esta lectura recorre lo que puede entrar en la PEP con tres casos reales del curso. Cada tema sigue el mismo orden: qué pregunta responde, el cálculo paso a paso y la frase que escribirías en la prueba.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+\textbf{Parte} & \textbf{Caso real} & \textbf{Qué enseña} \\
+\midrule
+1 & Spector y Mazzeo: 32 estudiantes & MPL, logit, efectos, odds, salida de R \\
+2 & Spector y Mazzeo: los mismos 32 & Matriz de confusión, corte, AUC, Gini, KS \\
+3 & German Credit: 700 clientes & WOE, IV, monotonía, exclusiones, ventanas, PDO \\
+4 & Card y Krueger: 410 locales & DiD, $\hat\beta$, $t$, tendencias paralelas, ATT, amenazas \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{De dónde salen los números.} Spector se estimó de nuevo con los 32 datos originales y da los mismos coeficientes de la clase 3. German Credit viene de la planilla \texttt{ejemplo-calculo-woe-iv} del curso, y Card y Krueger, de la lámina 40 de la clase 6. La fusión de tramos usa el Ejercicio 2, ficticio, porque en estas tablas de German Credit no hay ningún tramo que rompa la monotonía. Las aplicaciones de las amenazas y del caso SLEP son ejemplos míos, no del profesor.
+
+\textbf{Qué no está:} probit, panel, primeras diferencias en detalle, STAR, incinerador y el índice PSI de estabilidad, según el plan de estudio. Ojo: en la Parte 1, PSI significa otra cosa, instrucción personalizada.
+
+% ------------------------------------------------------------
+\parte{Parte 1. Logit: ¿la instrucción personalizada mejora las notas?}
+
+\textbf{El caso.} Spector y Mazzeo (1980) estudiaron a 32 estudiantes de economía. Querían saber si un método de enseñanza personalizada (PSI) ayudaba a mejorar la calificación.
+
+\begin{itemize}
+  \item $Y=1$ si el estudiante mejora su calificación; $Y=0$ si no. Mejoraron 11 de 32.
+  \item GPA: promedio de notas. TUCE: puntaje en un test de economía. PSI: 1 si recibió el método.
+\end{itemize}
+
+En la clase 3 se leyó $Y=1$ como «obtener una A»; la documentación de los datos dice «mejora su calificación», y aquí uso esa. Los números no cambian. En la prueba, usa la definición que te den.
+
+\tema{1.1. ¿Por qué no basta con el MPL?}
+
+El Modelo de Probabilidad Lineal es MCO con una $Y$ de ceros y unos. Con estos datos da:
+\[
+\Ph=-1{,}498+0{,}4639\,\text{GPA}+0{,}0105\,\text{TUCE}+0{,}3786\,\text{PSI}
+\]
+
+Tiene dos problemas, y los dos se ven aquí:
+
+\begin{enumerate}
+  \item \textbf{Da probabilidades imposibles.} Es una recta, así que no tiene por qué quedarse entre 0 y 1. En este caso, 5 de los 32 estudiantes reciben una probabilidad estimada negativa; la menor es $-0{,}068$. Una probabilidad de $-6{,}8\,\%$ no existe.
+  \item \textbf{Supone un efecto constante.} Dice que PSI suma 37,9 puntos porcentuales a cualquier estudiante, sea muy bueno o muy malo. No es creíble: quien ya tiene una probabilidad de 95 \% no puede subir 37,9 puntos.
+\end{enumerate}
+
+\begin{frase}
+«El MPL puede entregar probabilidades estimadas fuera de [0,1] y supone un efecto parcial constante; logit mantiene $\Ph$ entre 0 y 1 y deja que el efecto cambie según el perfil.»
+\end{frase}
+
+\tema{1.2. La idea de logit}
+
+Logit hace el cálculo en dos pisos. Primero, una recta entrega un puntaje $\zh$, que puede valer cualquier número. Después, la función logística lo transforma en una probabilidad entre 0 y 1:
+\[
+\zh=-13{,}0213+2{,}8261\,\text{GPA}+0{,}0952\,\text{TUCE}+2{,}3787\,\text{PSI},\qquad \Ph=\frac{e^{\zh}}{1+e^{\zh}}
+\]
+
+\begin{center}
+\begin{tikzpicture}[x=0.62cm,y=3.2cm,font=\small]
+  \draw[->] (-6.3,0) -- (6.5,0) node[right] {$\zh$};
+  \draw[->] (0,-0.03) -- (0,1.12) node[above] {$\Ph$};
+  \draw[gray,dashed] (-6,1) -- (6,1);
+  \node[left] at (0,1) {1};
+  \draw[very thick,azul,domain=-6:6,samples=70] plot (\x,{exp(\x)/(1+exp(\x))});
+  \filldraw[rojo] (-2.163,0.103) circle (2.2pt) node[above left] {PSI = 0: 10,3 \%};
+  \filldraw[verde] (0.2157,0.554) circle (2.2pt) node[below right] {PSI = 1: 55,4 \%};
+  \draw[gray,dotted] (-2.163,0)--(-2.163,0.103);
+  \draw[gray,dotted] (0.2157,0)--(0.2157,0.554);
+\end{tikzpicture}
+\end{center}
+
+La curva explica casi todo lo que sigue. En los extremos es plana, así que subir $\zh$ casi no mueve $\Ph$. En el centro es empinada, así que el mismo aumento de $\zh$ mueve mucho $\Ph$. Por eso el efecto de una variable depende del perfil.
+
+\tema{1.3. Probabilidad de un perfil}
+
+Toma un estudiante con GPA de 3,0 y TUCE de 25.
+
+\textbf{Sin PSI:}
+\begin{align*}
+\zh_0&=-13{,}0213+2{,}8261(3{,}0)+0{,}0952(25)+2{,}3787(0)=-2{,}1630\\
+e^{-2{,}1630}&=0{,}1150\quad\Rightarrow\quad \Ph_0=\frac{0{,}1150}{1{,}1150}=0{,}103
+\end{align*}
+
+\textbf{Con PSI}, se suma 2,3787 al puntaje:
+\begin{align*}
+\zh_1&=-2{,}1630+2{,}3787=0{,}2157\\
+e^{0{,}2157}&=1{,}2407\quad\Rightarrow\quad \Ph_1=\frac{1{,}2407}{2{,}2407}=0{,}554
+\end{align*}
+
+\begin{frase}
+«Para un estudiante con GPA de 3,0 y TUCE de 25, la probabilidad estimada de mejorar su calificación es de 10,3 \% sin instrucción personalizada y de 55,4 \% con ella.»
+\end{frase}
+
+\tema{1.4. Efecto de una dummy: se restan probabilidades}
+
+Como PSI solo pasa de 0 a 1, su efecto es la resta de las dos probabilidades: $0{,}554-0{,}103=0{,}451$.
+
+\begin{frase}
+«Para ese estudiante, y manteniendo constantes GPA y TUCE, la instrucción personalizada aumenta la probabilidad estimada en 45,1 puntos porcentuales.»
+\end{frase}
+
+En la clase 3 se hizo lo mismo con GPA de 3,12 y TUCE de 21,94: de 10,7 \% a 56,4 \%, un efecto de 45,7 puntos. Cambia un poco porque cambia el perfil.
+
+Se dice \emph{puntos porcentuales} porque es una resta de porcentajes. Pasar de 10,3 \% a 55,4 \% no es un aumento de 45,1 \%.
+
+\tema{1.5. Efecto de una variable continua: efecto marginal}
+
+GPA se mueve de a poco, así que se usa la pendiente de la curva en ese punto:
+\[
+\text{Efecto marginal}=g(\zh)\cdot\hat\beta,\qquad g(\zh)=\Ph(1-\Ph)
+\]
+
+Con el mismo perfil y PSI = 0: $g=0{,}1031\cdot0{,}8969=0{,}0925$. El efecto es $0{,}0925\cdot2{,}8261=0{,}261$.
+
+\begin{frase}
+«Para un estudiante con GPA de 3,0, TUCE de 25 y PSI = 0, y manteniendo lo demás constante, un aumento de un punto en GPA aumenta la probabilidad estimada en aproximadamente 26,1 puntos porcentuales.»
+\end{frase}
+
+\textbf{Por qué no es 2,8261.} $\hat\beta$ mide cuánto cambia $\zh$, el puntaje, y no $\Ph$. Además, una probabilidad no puede subir 282 puntos. Para pasar a $\Ph$ hay que multiplicar por la pendiente de la curva, que depende del perfil.
+
+\textbf{Para un aumento más chico,} se multiplica por el tamaño del cambio: con 0,1 de GPA, $0{,}261\cdot0{,}1=0{,}026$, es decir, aproximadamente 2,6 puntos porcentuales. Es «aproximadamente» porque usa la pendiente de un solo punto: recalculando con GPA = 3,1, $\Ph$ sube a 0,132, un aumento de 2,9.
+
+\tema{1.6. EPeP y EPP: dos formas de resumir a toda la muestra}
+
+El efecto cambia con cada persona, así que para dar un solo número hay dos caminos:
+
+\begin{center}
+\begin{tabular}{p{1.1cm}p{6.4cm}p{2.4cm}p{3.5cm}}
+\toprule
+& \textbf{Cómo se calcula} & \textbf{GPA} & \textbf{En palabras} \\
+\midrule
+EPeP & Efecto \emph{en} el promedio: pones todas las $X$ en su media y calculas $g\cdot\hat\beta$ una vez & 0,534 & La «persona promedio» \\
+EPP & Efecto parcial promedio: calculas $g\cdot\hat\beta$ para cada persona y promedias & 0,363 & El promedio de las personas \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Dan distinto porque el promedio de una curva no es lo mismo que la curva en el promedio. Aquí el estudiante promedio tiene $\Ph\approx0{,}25$ y $g\approx0{,}189$, mientras que la media de todos los $g$ es 0,128, porque muchos estudiantes están en las partes planas. Además, la «persona promedio» puede no existir: tendría PSI = 0,44.
+
+\begin{frase}
+«En promedio, y manteniendo lo demás constante, un aumento pequeño de GPA aumenta la probabilidad estimada de mejorar: por cada punto, aproximadamente 36,3 puntos porcentuales según el EPP.»
+\end{frase}
+
+\tema{1.7. Odds: aquí el efecto sí es constante}
+
+Los odds son una razón: $\Ph/(1-\Ph)$, cuántas veces más probable es mejorar que no mejorar. Para una dummy, el cambio porcentual es $100(e^{\hat\beta}-1)$:
+\[
+100(e^{2{,}3787}-1)=100(10{,}79-1)=979\,\%
+\]
+
+\textbf{Comprobación con el perfil anterior.} Sin PSI, los odds son $0{,}103/0{,}897=0{,}115$. Con PSI, $0{,}554/0{,}446=1{,}241$. La razón entre ambos es 10,79.
+
+\begin{frase}
+«Manteniendo constantes GPA y TUCE, recibir instrucción personalizada aumenta los odds de mejorar en 979 \%, es decir, los multiplica por 10,79.»
+\end{frase}
+
+Este número no depende del perfil, a diferencia de la probabilidad. Es la diferencia más importante entre ambos.
+
+\tema{1.8. Clase estimada con un corte}
+
+Con corte 0,5: si $\Ph\ge0{,}5$, entonces $\hat Y=1$; si no, $\hat Y=0$.
+
+\begin{frase}
+«Con PSI = 0, 10,3 \% < 50 \%, por lo que $\hat Y=0$; con PSI = 1, 55,4 \% $\ge$ 50 \%, por lo que $\hat Y=1$.»
+\end{frase}
+
+\tema{1.9. Leer la salida de R}
+
+Esta es la salida real del modelo, con el formato de \texttt{glm}:
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+& \textbf{Estimate} & \textbf{Std. Error} & \textbf{z value} & \textbf{Pr($>|z|$)} \\
+\midrule
+(Intercept) & $-13{,}0213$ & 4,9313 & $-2{,}64$ & 0,0083 \\
+GPA & 2,8261 & 1,2629 & 2,24 & 0,0252 \\
+TUCE & 0,0952 & 0,1416 & 0,67 & 0,5014 \\
+PSI & 2,3787 & 1,0646 & 2,23 & 0,0255 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Significancia:} $z=\hat\beta/\text{ee}$. Para PSI, $2{,}3787/1{,}0646=2{,}23$. Se compara con 1,96 al 5 \%.
+
+\begin{frase}
+«Como $|z|=2{,}23>1{,}96$, se rechaza $H_0:\beta_{\text{PSI}}=0$ al 5 \%: la instrucción personalizada tiene un efecto estadísticamente significativo. En cambio, TUCE no lo es, porque $|z|=0{,}67<1{,}96$.»
+\end{frase}
+
+\textbf{Razón de verosimilitud (RV):} compara el modelo con uno sin variables. Con $L_{nr}=-12{,}89$ y $L_r=-20{,}59$:
+\[
+RV=2(L_{nr}-L_r)=2(-12{,}89+20{,}59)=15{,}40
+\]
+Se compara con una $\chi^2$ con 3 grados de libertad, uno por cada variable (7,81 al 5 \%). Como $15{,}40>7{,}81$, las variables son conjuntamente significativas.
+
+\textbf{McFadden:} $1-L_{nr}/L_r=1-(-12{,}89)/(-20{,}59)=0{,}374$. El ayudante dio como criterio práctico que más de 0,20 indica un ajuste sólido. No se lee como el $R^2$ de MCO.
+
+% ------------------------------------------------------------
+\parte{Parte 2. Clasificación: ¿el modelo acierta?}
+
+Se clasificó a los 32 estudiantes del mismo modelo con corte 0,5.
+
+\tema{2.1. La matriz de confusión}
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+& $\hat Y=1$ & $\hat Y=0$ & \textbf{Total} \\
+\midrule
+$Y=1$ (mejoró) & VP = 8 & FN = 3 & 11 \\
+$Y=0$ (no mejoró) & FP = 3 & VN = 18 & 21 \\
+\midrule
+\textbf{Total} & 11 & 21 & 32 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Para leer las siglas: la segunda letra dice lo que predijo el modelo (P = positivo, N = negativo) y la primera, si acertó (V = verdadero, F = falso). Un FN es alguien que el modelo dijo que no mejoraría, y mejoró.
+
+\begin{center}
+\small\begin{tabular}{llrl}
+\toprule
+\textbf{Métrica} & \textbf{Cálculo} & \textbf{Valor} & \textbf{Pregunta que responde} \\
+\midrule
+Sensibilidad & VP/(VP+FN) = 8/11 & 72,7 \% & De los que mejoraron, ¿cuántos detecta? \\
+Especificidad & VN/(VN+FP) = 18/21 & 85,7 \% & De los que no mejoraron, ¿cuántos detecta? \\
+Precisión & VP/(VP+FP) = 8/11 & 72,7 \% & De los que predice que mejoran, ¿cuántos mejoran? \\
+Exactitud & (VP+VN)/Total = 26/32 & 81,3 \% & ¿Cuántos clasifica bien en total? \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{frase}
+«El modelo identifica correctamente a 72,7 \% de los estudiantes que mejoran su calificación y a 85,7 \% de los que no la mejoran; en total, clasifica bien a 81,3 \%.»
+\end{frase}
+
+\begin{trampa}
+Aquí sensibilidad y precisión dan igual solo porque FN = FP = 3, y es una coincidencia. La sensibilidad divide por la fila ($Y=1$ reales) y la precisión, por la columna ($\hat Y=1$ predichos). Además, la exactitud hay que compararla con la base: predecir que nadie mejora ya acierta $21/32=65{,}6\,\%$.
+\end{trampa}
+
+\tema{2.2. Qué pasa al mover el corte}
+
+\begin{center}
+\begin{tabular}{crrrrrrrr}
+\toprule
+\textbf{Corte} & VP & FN & FP & VN & \textbf{Sensib.} & \textbf{Especif.} & \textbf{Precisión} & \textbf{Exactitud} \\
+\midrule
+0,3 & 9 & 2 & 6 & 15 & 81,8 \% & 71,4 \% & 60,0 \% & 75,0 \% \\
+0,5 & 8 & 3 & 3 & 18 & 72,7 \% & 85,7 \% & 72,7 \% & 81,3 \% \\
+0,7 & 4 & 7 & 1 & 20 & 36,4 \% & 95,2 \% & 80,0 \% & 75,0 \% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+La lógica es esta: al \textbf{bajar el corte}, el modelo pone a más gente en $\hat Y=1$. Detecta más casos positivos, así que sube la sensibilidad, pero se equivoca más con los negativos, así que baja la especificidad. Al subir el corte ocurre lo contrario.
+
+\begin{frase}
+«Al bajar el corte de 0,5 a 0,3, la sensibilidad sube de 72,7 \% a 81,8 \% y la especificidad baja de 85,7 \% a 71,4 \%: se detectan más casos positivos a cambio de más falsos positivos.»
+\end{frase}
+
+\textbf{En un banco,} con $Y=1$ = cliente malo, dejar pasar a un malo suele costar más que rechazar a un bueno. Por eso conviene mirar el costo de cada error antes de elegir el corte.
+
+\tema{2.3. AUC, Gini y KS: medir sin elegir un corte}
+
+\begin{center}
+\begin{tabular}{p{1.2cm}p{1.6cm}p{12.7cm}}
+\toprule
+& \textbf{Spector} & \textbf{Qué significa} \\
+\midrule
+AUC & 0,883 & Área bajo la curva ROC, que grafica sensibilidad contra $1-$especificidad para todos los cortes. Si tomas un $Y=1$ y un $Y=0$ al azar, es la probabilidad de que el modelo le dé más $\Ph$ al $Y=1$. 0,5 es azar y 1 es perfecto. \\
+Gini & 0,766 & $2\cdot\text{AUC}-1=2(0{,}883)-1$. Es la misma información en otra escala: 0 es azar y 1 es perfecto. \\
+KS & 0,675 & Máxima distancia entre las distribuciones acumuladas de buenos y malos. Más alto es mejor: separa mejor a los grupos. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Estas medidas se calcularon en los mismos 32 datos con que se estimó el modelo, así que son optimistas. Para validarlas haría falta una muestra de \emph{test} (sección 3.5).
+
+% ------------------------------------------------------------
+\parte{Parte 3. Scoring: ¿a quién le presta el banco?}
+
+\textbf{El caso.} German Credit es una base real de clientes de un banco alemán, la que se usó en las ayudantías. La tabla toma 700 clientes: 481 buenos y 219 malos. Se analiza el saldo de la cuenta corriente.
+
+\tema{3.1. WOE e IV}
+
+Hay dos porcentajes, y son los que más se confunden:
+
+\begin{center}
+\begin{tabular}{lrrrrrrr}
+\toprule
+\textbf{Tramo} & \textbf{B} & \textbf{M} & \textbf{Tasa de malos} & \textbf{\%B} & \textbf{\%M} & \textbf{WOE} & \textbf{IV tramo} \\
+\midrule
+Saldo $<0$ & 99 & 94 & 48,7 \% & 20,58 & 42,92 & $-0{,}735$ & 0,1642 \\
+0 a 200 DM & 111 & 82 & 42,5 \% & 23,08 & 37,44 & $-0{,}484$ & 0,0695 \\
+200 DM o más & 34 & 13 & 27,7 \% & 7,07 & 5,94 & 0,175 & 0,0020 \\
+Sin cuenta & 237 & 30 & 11,2 \% & 49,27 & 13,70 & 1,280 & 0,4554 \\
+\midrule
+\textbf{Total} & 481 & 219 & 31,3 \% & 100 & 100 & & \textbf{0,6911} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Cálculo del primer tramo:}
+\begin{align*}
+\%B&=99/481=0{,}2058, \qquad \%M=94/219=0{,}4292\\
+\text{WOE}&=\ln(\%B/\%M)=\ln(0{,}2058/0{,}4292)=-0{,}735\\
+\text{IV del tramo}&=(\%B-\%M)\cdot\text{WOE}=(0{,}2058-0{,}4292)(-0{,}735)=0{,}1642
+\end{align*}
+
+\begin{trampa}
+\textbf{\%M (columna):} de todos los malos del banco, ¿cuántos están en este tramo? $94/219=42{,}9\,\%$.\quad
+\textbf{Tasa de malos (fila):} de los clientes de este tramo, ¿cuántos son malos? $94/193=48{,}7\,\%$.\quad
+El WOE y el IV usan \%B y \%M. La monotonía y el negocio se conversan con la tasa de malos.
+\end{trampa}
+
+\textbf{Cómo leer el signo.} WOE negativo significa que el tramo pesa más entre los malos que entre los buenos: riesgo mayor que el promedio. WOE positivo, lo contrario.
+
+\begin{frase}
+«El tramo Saldo $<0$ reúne 20,6 \% de los buenos y 42,9 \% de los malos; su WOE negativo indica que pesa más entre los malos, es decir, que tiene un riesgo mayor que el promedio.»
+\end{frase}
+
+\tema{3.2. Leer el IV con Siddiqi}
+
+\begin{center}
+\begin{tabular}{ll}
+\toprule
+\textbf{IV total} & \textbf{Lectura} \\
+\midrule
+Menos de 0,02 & No predice \\
+0,02 a 0,1 & Débil \\
+0,1 a 0,3 & Medio \\
+0,3 a 0,5 & Fuerte \\
+Más de 0,5 & Sospechoso: hay que revisar \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{frase}
+«El IV del saldo es 0,6911, mayor que 0,5: según Siddiqi predice mucho, tanto que resulta sospechoso, y hay que revisar la variable antes de usarla.»
+\end{frase}
+
+Para comparar, en la misma base el plazo tiene un IV de 0,1676 y la edad, de 0,1038; ambos, de poder medio.
+
+\begin{trampa}
+Los umbrales se aplican al \textbf{IV total} de la variable, nunca a cada tramo. Y «Siddiqi» es el autor de los umbrales, no el nombre del valor: se escribe «IV = 0,69», no «Siddiqi = 0,69».
+\end{trampa}
+
+\tema{3.3. Monotonía y fusión de tramos}
+
+Monótono significa que el WOE sube o baja siempre en la misma dirección. Se revisa porque el modelo debe tener sentido de negocio. Un ejemplo real, el plazo del crédito:
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+\textbf{Plazo} & Hasta 12 & 13 a 24 & 25 a 36 & Más de 36 \\
+\midrule
+WOE & 0,440 & 0,004 & $-0{,}364$ & $-0{,}957$ \\
+Tasa de malos & 22,7 \% & 31,2 \% & 39,6 \% & 54,2 \% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Es monótono y tiene sentido: a mayor plazo, más riesgo.
+
+\textbf{Cuando no es monótono} (Ejercicio 2, ficticio): el WOE por edad era $-0{,}88$; $0{,}26$; $-0{,}13$; $0{,}29$; $0{,}69$. El tramo 35-44 rompe la dirección. Los pasos son:
+
+\begin{enumerate}
+  \item \textbf{Fusiona tramos vecinos} y prueba las opciones. Con 35-44 y 45-54, el WOE queda $-0{,}88$; $0{,}26$; $0{,}07$; $0{,}69$, y sigue sin ser monótono. Con 25-34 y 35-44, sí lo es.
+  \item \textbf{Suma buenos y malos; nunca promedies los WOE.} 25-44 tiene $1.040+880=1.920$ buenos y $200+250=450$ malos.
+  \item \textbf{Recalcula:} tasa de malos $450/2.370=19{,}0\,\%$; WOE $=\ln(0{,}48/0{,}45)=0{,}0645$.
+  \item \textbf{Revisa:} cada tramo con más de 5 \% de los casos, ninguno con 0 buenos o 0 malos y una pérdida de IV pequeña (de 0,2423 a 0,2247).
+\end{enumerate}
+
+\tema{3.4. Con qué valor entra una persona y cuántos $\beta$ usa}
+
+Un cliente con saldo negativo no entra al modelo con su saldo en dinero. Entra con el WOE de su tramo: $-0{,}735$. Su aporte a $\zh$ es $\hat\beta\cdot(-0{,}735)$.
+
+\begin{center}
+\begin{tabular}{lcl}
+\toprule
+\textbf{Cómo entra la variable} & \textbf{Número de $\beta$} & \textbf{En el caso (4 tramos)} \\
+\midrule
+Numérica, tal cual & 1 & 1 \\
+Con \emph{dummies} & $k-1$ & 3, porque un tramo queda de base \\
+Con WOE & 1 & 1 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+La constante se agrega en todos los casos y no cuenta aquí. El WOE usa un solo $\beta$ y además maneja bien los perdidos y los atípicos, porque también quedan en un tramo.
+
+\tema{3.5. Antes y después del modelo}
+
+\textbf{Exclusiones.} Se saca a quienes no representan el riesgo que se quiere medir. A los funcionarios del banco se los excluye porque tienen tasas preferenciales, descuento por planilla y menos requisitos. Si se mezclan, distorsionan la tasa de malos y la aprobación. El objetivo es evitar sesgos en el modelo final.
+
+\textbf{Ventana de muestra.} Es el periodo de aperturas que se usa, por ejemplo, de 5 a 7 años. Debe incluir un \textbf{ciclo económico negativo}. Si no, el modelo supone que nunca habrá una crisis y se toman menos resguardos frente al riesgo.
+
+\textbf{Ventana de desempeño.} Desde cada apertura se mira, por ejemplo, 24 meses. Si el cliente cae en mora en ese plazo, se lo marca como malo. Por eso un modelo se desarrolla con datos que terminan al menos dos años antes de hoy: hay que esperar para saber quién resultó malo.
+
+\textbf{\emph{Train} y \emph{test}.} Se separa al azar un 20 a 30 \% como \emph{test} y con el resto se estima el modelo. Después se comparan las medidas: si el KS fue 50 \% en \emph{train}, se espera algo cercano en \emph{test}. Si cae mucho, hay sobreajuste.
+
+\textbf{VIF y \emph{stepwise} (solo si la prueba es de dos bloques).} Con variables muy correlacionadas se sobreestima la varianza. El VIF dice cuánto crece la varianza por cada $X$; en el laboratorio se corre un logit con todos los WOE y se eliminan las variables con VIF mayor que 2. El \emph{stepwise} elige las variables automáticamente; en el laboratorio se hizo por AIC, y fue uno de los tres modelos candidatos.
+
+\textbf{PDO (solo si la prueba es de dos bloques).} Convierte odds en puntos:
+\[
+S=\text{Offset}+\text{Factor}\cdot\ln(\text{odds}),\quad \text{Factor}=\frac{\text{PDO}}{\ln 2},\quad \text{Offset}=S_0-\text{Factor}\cdot\ln(o_0)
+\]
+El ejemplo de la clase: 600 puntos con odds de 50:1 y PDO = 20. $\text{Factor}=20/0{,}693=28{,}85$ y $\text{Offset}=600-28{,}85\cdot\ln 50=487{,}1$. Cada 20 puntos, los odds se duplican: 620 puntos equivale a 100:1 y 640, a 200:1.
+
+% ------------------------------------------------------------
+\parte{Parte 4. DiD: ¿subir el salario mínimo destruye empleo?}
+
+\textbf{El caso.} El 1 de abril de 1992, New Jersey (NJ) subió su salario mínimo de US\$ 4,25 a 5,05 la hora. Pennsylvania (PA), el estado vecino, no lo cambió. Card y Krueger (1994) encuestaron a 410 locales de comida rápida, 331 en NJ y 79 en PA, antes y después. La teoría competitiva predice que el empleo debería caer en NJ respecto de PA.
+
+$Y$ es el empleo equivalente a jornada completa (FTE) por local: jornada completa + gerentes + $0{,}5\times$ media jornada.
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+& \textbf{Antes} & \textbf{Después} & \textbf{Cambio} \\
+\midrule
+NJ (tratado) & 20,44 & 21,03 & 0,59 \\
+PA (control) & 23,33 & 21,17 & $-2{,}16$ \\
+\midrule
+NJ $-$ PA & $-2{,}89$ & $-0{,}14$ & \textbf{2,75} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\small La lámina imprime $-2{,}17$ para PA por redondeo. Si sale en la prueba, se usan los números dados.\normalsize
+
+\tema{4.1. La idea en una imagen}
+
+No podemos ver qué le habría pasado a NJ sin el alza. El DiD lo construye: parte de donde estaba NJ y le aplica el cambio de PA. Esa línea punteada es el \textbf{contrafactual}.
+
+\begin{center}
+\begin{tikzpicture}[x=6.4cm,y=0.95cm,font=\small]
+  \draw[->] (-0.22,17.6) -- (-0.22,24.2) node[above] {FTE};
+  \draw[->] (-0.22,17.6) -- (1.32,17.6);
+  \foreach \v in {18,20,22,24}{\draw (-0.23,\v) -- (-0.21,\v); \node[left] at (-0.23,\v) {\v};}
+  \node[below] at (0,17.6) {Antes};
+  \node[below] at (1,17.6) {Después};
+  \draw[very thick,gray] (0,23.33) node[left,xshift=-1pt] {23,33} -- (1,21.17);
+  \node[gray!70!black,above right] at (1,21.17) {PA 21,17};
+  \draw[very thick,azul] (0,20.44) node[left,xshift=-1pt] {20,44} -- (1,21.03);
+  \node[azul,below right] at (1,21.03) {NJ 21,03};
+  \draw[very thick,dashed,rojo] (0,20.44) -- (1,18.28);
+  \node[rojo,right] at (1,18.28) {sin el alza: 18,28};
+  \draw[<->,thick,verde] (0.97,18.32) -- (0.97,20.99) node[midway,left] {DiD = 2,75};
+\end{tikzpicture}
+\end{center}
+
+\tema{4.2. El DiD desde las medias}
+
+\[
+\text{DiD}=(21{,}03-20{,}44)-(21{,}17-23{,}33)=0{,}59-(-2{,}16)=2{,}75
+\]
+
+Fíjate en los signos: el empleo de NJ casi no cambió, pero el de PA cayó. El efecto no sale de que NJ haya crecido mucho, sino de que PA, el contrafactual, cayó.
+
+\begin{frase}
+«El alza del salario mínimo aumentó el empleo en NJ en aproximadamente 2,75 empleos equivalentes a jornada completa por local, respecto de lo que habría ocurrido sin ella, suponiendo tendencias paralelas.»
+\end{frase}
+
+\tema{4.3. Las dos comparaciones ingenuas}
+
+Cada una da un número distinto, porque al efecto se le pega otra cosa:
+
+\begin{center}
+\small\begin{tabular}{lrcl}
+\toprule
+\textbf{Comparación} & \textbf{Da} & \textbf{Descomposición} & \textbf{Qué se le pega} \\
+\midrule
+NJ, antes y después & 0,59 & $2{,}75+(-2{,}16)$ & La tendencia común: sin grupo de control \\
+NJ contra PA, solo después & $-0{,}14$ & $2{,}75+(-2{,}89)$ & La brecha previa: sin periodo anterior \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{frase}
+«La comparación entre NJ y PA en el periodo posterior da $-0{,}14$, pero no es solo el efecto del alza: mezcla el efecto de 2,75 con la diferencia de $-2{,}89$ que ya existía antes. Quien mire solo este número podría creer que el alza no cambió nada o que redujo el empleo.»
+\end{frase}
+
+\tema{4.4. Los cuatro $\hat\beta$}
+
+\[
+Y=\beta_0+\beta_1\,\text{NJ}+\beta_2\,\text{Post}+\beta_3\,(\text{NJ}\times\text{Post})+u
+\]
+
+Cada casilla es el modelo con ceros y unos reemplazados:
+
+\begin{center}
+\begin{tabular}{lcclr}
+\toprule
+\textbf{Casilla} & NJ & Post & \textbf{Lo que queda} & \textbf{Valor} \\
+\midrule
+PA, antes & 0 & 0 & $\beta_0$ & 23,33 \\
+NJ, antes & 1 & 0 & $\beta_0+\beta_1$ & 20,44 \\
+PA, después & 0 & 1 & $\beta_0+\beta_2$ & 21,17 \\
+NJ, después & 1 & 1 & $\beta_0+\beta_1+\beta_2+\beta_3$ & 21,03 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{lrl}
+\toprule
+& \textbf{Valor} & \textbf{Qué mide} \\
+\midrule
+$\hat\beta_0$ & 23,33 & Empleo promedio por local del control (PA) antes del alza \\
+$\hat\beta_1$ & $20{,}44-23{,}33=-2{,}89$ & Brecha entre NJ y PA antes del alza \\
+$\hat\beta_2$ & $21{,}17-23{,}33=-2{,}16$ & Cambio del control en el tiempo: la tendencia común \\
+$\hat\beta_3$ & $0{,}59-(-2{,}16)=2{,}75$ & Efecto estimado del alza: el DiD \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Comprobación:} $23{,}33-2{,}89-2{,}16+2{,}75=21{,}03$, la media de NJ después.
+
+\tema{4.5. La prueba $t$}
+
+La clase da un error estándar de 1,34 para $\hat\beta_3$. Entonces:
+\[
+H_0:\beta_3=0,\qquad t=\frac{2{,}75}{1{,}34}=2{,}05>1{,}96
+\]
+
+\begin{frase}
+«Como $t=2{,}05$ es mayor que 1,96, se rechaza $H_0$ al 5 \%: el efecto de 2,75 empleos es estadísticamente significativo. No hay evidencia de que el alza del salario mínimo haya reducido el empleo en NJ.»
+\end{frase}
+
+Es el resultado que hizo famoso a este estudio: va contra la predicción del modelo competitivo.
+
+\tema{4.6. Tendencias paralelas y contrafactual}
+
+\textbf{Supuesto:} sin tratamiento, el grupo tratado habría cambiado en el tiempo lo mismo que el control.
+
+\begin{frase}
+«Sin el alza, el empleo por local en NJ habría cambiado lo mismo que en PA, es decir, $-2{,}16$. El supuesto no exige que ambos estados partan del mismo nivel: la brecha inicial de $-2{,}89$ está permitida, siempre que no cambie por otra razón.»
+\end{frase}
+
+\textbf{Contrafactual:} $20{,}44+(-2{,}16)=18{,}28$. NJ tuvo 21,03, y $21{,}03-18{,}28=2{,}75$, el mismo DiD por otro camino.
+
+\textbf{¿Por qué no se puede verificar con dos periodos?} Porque se refiere a algo que no se observa: lo que le habría pasado a NJ sin el alza. Con solo un antes y un después, cada grupo tiene un único cambio, y en NJ ese cambio ya viene mezclado con el efecto.
+
+\textbf{¿Qué se hace con más periodos previos?} Se revisa si, antes del tratamiento, las tendencias eran paralelas. Eso da evidencia a favor, pero no prueba el supuesto, porque lo que importa es qué habría pasado \emph{después}.
+
+\tema{4.7. El ATT}
+
+El DiD estima el \textbf{ATT}: el efecto promedio del tratamiento \emph{en los tratados}, $E[Y(1)-Y(0)\mid D=1]$. Toma el cambio observado de los tratados y le resta su contrafactual. Nunca ve a los controles tratados, así que no sabe cuánto habrían cambiado.
+
+\begin{frase}
+«Los 2,75 empleos valen para los locales de comida rápida de NJ. No dicen necesariamente qué habría pasado en PA con la misma alza.»
+\end{frase}
+
+En cambio, en un experimento controlado aleatorio, la diferencia de medias estima el ATE, el efecto en toda la población, porque los grupos son comparables por sorteo.
+
+\tema{4.8. Errores agrupados}
+
+En formato \emph{long}, cada local aparece dos veces: una antes y otra después. Sus errores están correlacionados, porque es el mismo local, pero MCO supone que son observaciones independientes. Por eso sus errores estándar quedan mal. La solución es usar \textbf{errores agrupados (\emph{cluster}) por local}, que permiten cualquier correlación dentro de cada local.
+
+Esto cambia los errores estándar, no el coeficiente. En la simulación de la clase, el ee del DiD pasó de 5,82 con MCO a 0,20 agrupado. Agrupar puede subir o bajar el ee, así que no memorices una dirección. En Card y Krueger, con errores agrupados por local, se obtiene el mismo $\hat\beta_3=2{,}75$ (1,34).
+
+\tema{4.9. Amenazas a la validez}
+
+\textbf{Interna (5):} si la estimación es correcta para este caso.
+
+\begin{center}
+\begin{tabular}{p{3.6cm}p{11.2cm}}
+\toprule
+\textbf{Amenaza} & \textbf{Aplicada a Card y Krueger} \\
+\midrule
+No aleatorizar & NJ no se sorteó. Si el alza se aprobó porque NJ iba bien, el tratamiento se mezcla con otras causas. \\
+Incumplir el protocolo & Si un local de PA ya pagaba más, o subió salarios para competir, el control queda parcialmente tratado. \\
+Desgaste & De 410 locales, 384 tienen datos en ambas rondas. Si los que faltan cerraron por el alza, se esconde destrucción de empleo. \\
+Efectos experimentales (Hawthorne) & Quien se sabe observado cambia su conducta. Un gerente encuestado podría contestar distinto. \\
+Muestra pequeña & Hay solo 79 locales en PA, y el estimador pierde precisión. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Según el profesor, las que más se encuentran son la primera, la segunda y la quinta.
+
+\textbf{Externa (3):} si el resultado se puede llevar a otro lugar.
+
+\begin{center}
+\begin{tabular}{p{3.6cm}p{11.2cm}}
+\toprule
+\textbf{Amenaza} & \textbf{Aplicada a Card y Krueger} \\
+\midrule
+Muestra no representativa & Solo comida rápida de dos estados: puede no valer para otros rubros o países. \\
+Programa no representativo & Un alza de 80 centavos (19 \%) no dice qué pasaría con una mucho mayor. \\
+Equilibrio general & A gran escala cambian precios y salarios de otros sectores, algo que este diseño no capta. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\tema{4.10. Si te piden diseñar el DiD de los SLEP}
+
+Pfeng anunció este caso, así que conviene tener el diseño listo:
+
+\begin{itemize}
+  \item \textbf{Tratados:} escuelas ya traspasadas a un SLEP. \textbf{Control:} escuelas que siguen siendo municipales.
+  \item \textbf{$Y$:} SIMCE promedio, antes y después del traspaso.
+  \item \textbf{Supuesto:} sin traspaso, las escuelas traspasadas habrían cambiado lo mismo que las municipales.
+  \item \textbf{Riesgo principal:} los territorios no se traspasaron al azar. Si los primeros iban peor, o mejorando más lento, las tendencias podrían no ser paralelas.
+\end{itemize}
+
+Según el profesor, en el caso real la diferencia no es significativa. Los datos del Ejercicio 3 eran inventados y sí lo daban, así que no memorices esa conclusión.
+
+\newpage
+% ------------------------------------------------------------
+\parte{Resumen: todas las fórmulas en una página}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{p{4.3cm}p{6.1cm}p{4.5cm}}
+\toprule
+\textbf{Qué piden} & \textbf{Fórmula} & \textbf{La frase debe tener} \\
+\midrule
+$\Ph$ de un perfil & $\zh=\hat\beta_0+\sum\hat\beta X$; $\Ph=e^{\zh}/(1+e^{\zh})$ & Perfil y «probabilidad estimada» \\
+Efecto de una dummy & $\Ph_1-\Ph_0$ & Perfil, puntos porcentuales, \emph{ceteris paribus} \\
+Efecto marginal & $\Ph(1-\Ph)\cdot\hat\beta$ & Perfil, «aproximadamente», \emph{ceteris paribus} \\
+EPeP / EPP & En las medias / promedio de cada persona & Cuál de los dos es \\
+Odds de una dummy & $100(e^{\hat\beta}-1)$ & «Los multiplica por $e^{\hat\beta}$», \emph{ceteris paribus} \\
+Clase estimada & $\hat Y=1$ si $\Ph\ge$ corte & Comparación con el corte, para cada caso \\
+Significancia & $z=\hat\beta/\text{ee}$; 1,96 al 5 \% & Si se rechaza $H_0$, y nivel \\
+RV / McFadden & $2(L_{nr}-L_r)$ / $1-L_{nr}/L_r$ & Grados de libertad y $\chi^2$ \\
+\midrule
+Sensibilidad & VP/(VP+FN) & De los $Y=1$ reales, cuántos \\
+Especificidad & VN/(VN+FP) & De los $Y=0$ reales, cuántos \\
+Precisión & VP/(VP+FP) & De los $\hat Y=1$, cuántos \\
+Exactitud & (VP+VN)/Total & Compararla con la base \\
+Bajar el corte & Sube sensibilidad, baja especificidad & Con los números de ambos cortes \\
+Gini & $2\cdot\text{AUC}-1$ & Más alto discrimina mejor \\
+\midrule
+WOE & $\ln(\%B/\%M)$ & Signo: riesgo mayor o menor que el promedio \\
+IV & $\sum(\%B-\%M)\cdot\text{WOE}$ & Umbral de Siddiqi, sobre el total \\
+Fusionar tramos & Sumar B y M, recalcular & Por qué esa fusión; IV antes y después \\
+Número de $\beta$ & Numérica 1; \emph{dummies} $k-1$; WOE 1 & Un tramo queda de base \\
+\midrule
+DiD & $(\bar Y_{T,\text{post}}-\bar Y_{T,\text{pre}})-(\bar Y_{C,\text{post}}-\bar Y_{C,\text{pre}})$ & «Respecto de lo que habría ocurrido sin», «suponiendo tendencias paralelas» \\
+$\hat\beta_0,\hat\beta_1,\hat\beta_2,\hat\beta_3$ & Control antes; brecha inicial; tendencia común; DiD & Qué mide cada uno, los cuatro \\
+Contrafactual & $\bar Y_{T,\text{pre}}+\Delta\bar Y_{C}$ & Comprobar: real $-$ contrafactual = DiD \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}

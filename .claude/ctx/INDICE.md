@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 18:52. 313 archivos, ~131485.0k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 20:24. 314 archivos, ~131485.8k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -200,6 +200,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 18:52. 313 archivos, ~131
 | 849 | 26 | `trabajo/sociologia/ronda-repetidas.md` | Ronda «Lo que más repitió» (lun 26-10) — L1; Clave (no mirar antes) L25 |
 | 841 | 31 | `trabajo/revision-ppt-grupo-b.md` | Revisión de la presentación final del Gr L1; Cifras: todas coinciden con la fuente L6; Problemas que corregir antes de presenta L11; Correcciones aún pendientes en el Word e L27 |
 | 839 | 57 | `trabajo/micro/2026-10-21-control-probable-mundaca.tex` |  |
+| 831 | 72 | `trabajo/practica-pep1/4A-did-slep.tex` |  |
 | 819 | 84 | `trabajo/revision-05/07-base-consenso.R` |  |
 | 805 | 49 | `trabajo/overleaf-etapa1/guion-javier-3-9-10.md` | Guion de Javier: láminas 3, 9 y 10 L1; Lámina 3 · Fuentes de datos (40 s) L7; Lámina 9 · Descriptivas (25 s) L20; Lámina 10 · Conclusiones (40 s) L30; Si te preguntan L40 |
 | 802 | 90 | `trabajo/revision-05/05-base-final.R` | rutas relativas a la carpeta del proyect L5 |

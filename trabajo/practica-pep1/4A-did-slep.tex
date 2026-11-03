@@ -1,0 +1,72 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{booktabs,array,enumitem,amsmath}
+\pagestyle{empty}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries 4A. ¿Los SLEP mejoraron el SIMCE?}\\[2pt]
+Econometría II · PEP 1 · práctica en frío · \textbf{25 min} · calculadora, sin pauta
+\end{center}
+
+\noindent Un diario titula: «Los establecimientos traspasados a los SLEP subieron 8 puntos en el SIMCE». Los datos (puntajes promedio ficticios de 4.º básico) son:
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcc}\toprule
+ & 2017 (antes) & 2019 (después)\\\midrule
+Traspasados a un SLEP & 262 & 270\\
+Siguen municipales & 255 & 261\\\bottomrule
+\end{tabular}
+\end{center}
+Modelo: $SIMCE=\beta_0+\beta_1\,SLEP+\beta_2\,Post+\beta_3\,SLEP\cdot Post+u$, \quad con $ee(\hat\beta_3)=3{,}1$.
+
+\begin{enumerate}[label=\alph*),itemsep=1pt]
+\item Calcula las dos comparaciones ingenuas (antes y después de los SLEP; SLEP frente a municipales en 2019). ¿Por qué fallan?
+\item Calcula el DiD.
+\item Valor e interpretación de $\hat\beta_0$, $\hat\beta_1$, $\hat\beta_2$ y $\hat\beta_3$.
+\item Prueba si $\beta_3$ es significativo al 5\,\%. ¿Es correcta la conclusión del diario?
+\item ¿Qué supuesto necesitas para que $\hat\beta_3$ sea causal? ¿Se puede verificar con estos datos? ¿Qué datos pedirías?
+\item ¿El efecto es para todos los establecimientos o para cuáles? Nombra una amenaza a este diseño.
+\end{enumerate}
+
+\medskip
+\noindent\textbf{a)} Antes/después SLEP $=$ \rule{4cm}{0.4pt} \qquad SLEP vs.\ municipales 2019 $=$ \rule{3.5cm}{0.4pt}\\[8pt]
+¿Por qué fallan? \rule{13cm}{0.4pt}\\[8pt]
+\rule{15.4cm}{0.4pt}
+
+\medskip
+\noindent\textbf{b)} DiD $=$ (\rule{1.2cm}{0.4pt} $-$ \rule{1.2cm}{0.4pt}) $-$ (\rule{1.2cm}{0.4pt} $-$ \rule{1.2cm}{0.4pt}) $=$ \rule{2.5cm}{0.4pt}
+
+\medskip
+\noindent\textbf{c)}
+\begin{center}
+\renewcommand{\arraystretch}{1.9}
+\begin{tabular}{|c|c|p{4.2cm}|p{7.2cm}|}\hline
+Coef. & Valor & Cómo se calcula (qué celdas) & Interpretación\\\hline
+$\hat\beta_0$ & & & \\\hline
+$\hat\beta_1$ & & & \\\hline
+$\hat\beta_2$ & & & \\\hline
+$\hat\beta_3$ & & & \\\hline
+\end{tabular}
+\end{center}
+
+\noindent\textbf{d)} $H_0$: \rule{3cm}{0.4pt} \quad $t=$ \rule{3cm}{0.4pt} \quad valor crítico $=$ \rule{2cm}{0.4pt} \quad decisión: \rule{2.5cm}{0.4pt}\\[8pt]
+¿El diario tiene razón? \rule{12cm}{0.4pt}\\[8pt]
+\rule{15.4cm}{0.4pt}
+
+\medskip
+\noindent\textbf{e)} Supuesto: \rule{13.3cm}{0.4pt}\\[8pt]
+¿Se verifica con estos datos? \rule{11.2cm}{0.4pt}\\[8pt]
+Datos que pediría: \rule{12.6cm}{0.4pt}
+
+\medskip
+\noindent\textbf{f)} ¿Para quién es el efecto? \rule{11.6cm}{0.4pt}\\[8pt]
+Amenaza: \rule{13.7cm}{0.4pt}\\[8pt]
+\rule{15.4cm}{0.4pt}
+
+\vfill
+\noindent\small Hora de inicio: \rule{2cm}{0.4pt} \quad Hora de término: \rule{2cm}{0.4pt}
+\end{document}

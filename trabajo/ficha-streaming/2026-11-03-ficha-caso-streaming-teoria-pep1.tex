@@ -1,0 +1,330 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{booktabs,array,enumitem,amsmath,amssymb,xcolor,tcolorbox,icomma,multicol}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{plain}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\newtcolorbox{ejemplar}{colback=green!5,colframe=green!40!black,title=Respuesta ejemplar,fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newtcolorbox{trampa}{colback=red!5,colframe=red!50!black,title=Trampas,fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newtcolorbox{enun}[1]{colback=blue!4,colframe=blue!45!black,title={#1},fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newtcolorbox{gancho}{colback=yellow!8,colframe=orange!70!black,boxrule=0.6pt,left=5pt,right=5pt,top=3pt,bottom=3pt}
+\newcommand{\V}{\textsuperscript{\textcolor{green!45!black}{[V]}}}
+\newcommand{\Pre}{\textsuperscript{\textcolor{orange!80!black}{[P]}}}
+\newcommand{\inv}{\textsuperscript{\textcolor{red!60!black}{[inv]}}}
+\newcommand{\calc}{\textsuperscript{\textcolor{blue!60!black}{[cálc]}}}
+\newcommand{\acto}[1]{\vspace{6pt}{\large\bfseries #1}\par\vspace{2pt}\hrule\vspace{4pt}}
+\newcommand{\Ph}{\hat P}
+\begin{document}
+\renewcommand{\%}{\ifmmode\mbox{\char37}\else\char37\fi}
+
+\begin{center}
+{\LARGE\bfseries El laboratorio del streaming}\\[3pt]
+{\large Daft Punk, Fred again.. y la PEP 1 de Econometría II contada con datos reales}\\[3pt]
+\small Ficha de estudio de la parte teórica · los 22 ítems seleccionados (núcleo 12 + refuerzo 10) · mar 3-11-2026 · PEP: vie 6-11
+\end{center}
+
+\textbf{Cómo se usa.} Cada ítem del banco de teoría aparece \emph{reescrito sobre el caso} (recuadro azul), con su respuesta ejemplar (verde) y sus trampas (roja). Primera pasada: lee la historia de cada acto. Segunda pasada: tapa lo verde, contesta en voz alta (V/F + palabra clave) y compara. La última página es la tabla de recuerdo activo. En la prueba los enunciados hablarán de Spector, deserción, PAES o SLEP: \textbf{el razonamiento es idéntico}, solo cambian los nombres.
+
+\textbf{Marcas de las cifras.} \V\ leído en la fuente primaria · \Pre\ prensa o terceros (la fuente cita a Spotify, Billboard, etc.) · \calc\ cálculo propio desde cifras \V · \inv\ inventado para practicar, coherente con lo real. Nada inventado se presenta como real.
+
+\begin{gancho}
+\textbf{Lunes 22 de febrero de 2021.} Daft Punk sube a YouTube \emph{Epilogue}: los dos robots caminan por el desierto, uno explota, «1993–2021». En EE.\,UU. su catálogo pasa de \textbf{854.100} reproducciones a pedido el domingo a \textbf{5.025.000} el lunes (×5,9); \emph{Get Lucky}, de 153.000 a 429.800; \emph{One More Time}, de 89.000 a 414.000 (Alpha Data, en \emph{Rolling Stone})\Pre. Ese día, según Spotify, 459.000 personas escucharon a Daft Punk por primera vez\Pre. Ocho años antes, \emph{Get Lucky} con Pharrell había sido la canción más escuchada en 24 horas en la historia de Spotify en EE.\,UU. y Reino Unido\Pre.
+
+\textbf{La pregunta del economista:} ¿cuánto de ese salto \emph{causó} la separación? Para contestarla hacen falta las cuatro herramientas de la PEP: \textbf{logit} (¿quién se va de la plataforma?), \textbf{clasificación} (¿qué tema será hit?), \textbf{scoring} (¿a quién retengo?) y \textbf{DiD} (¿qué efecto tuvo un shock?). Vamos acto por acto.
+\end{gancho}
+
+% =====================================================================
+\acto{Acto 1. ¿Quién se va de la plataforma? Logit y MPL con la fuga de KKBox}
+
+\textbf{El caso.} KKBox es el «Spotify de Asia» (Taiwán). En 2018 abrió sus datos en la competencia WSDM Cup / Kaggle: \emph{churn} (fuga) $=$ no renovar la suscripción dentro de 30 días de su vencimiento\V. En un análisis público de esos datos (GitHub, no revisado por pares), con $N=825.367$ usuarios, la tasa de fuga es 6,5\%, y depende brutalmente de si el usuario tiene \textbf{renovación automática}\Pre:
+\begin{center}\small
+\begin{tabular}{lrr}\toprule
+Grupo & Usuarios & Tasa de fuga\\\midrule
+Renovación manual ($AUTO=0$) & 82.822 & 30,5\%\calc\\
+Renovación automática ($AUTO=1$) & 742.545 & 3,8\%\calc\\\bottomrule
+\end{tabular}
+\end{center}
+Con una sola dummy, el logit reproduce exactamente las dos tasas, así que sus coeficientes salen a mano\calc:
+\[
+\hat z=-0{,}824-2{,}408\,AUTO,\qquad \Ph=\frac{1}{1+e^{-\hat z}}\quad (y=1 \text{ si se fuga, es decir, «malo»}).
+\]
+Comprueba: $AUTO=0\Rightarrow \Ph=1/(1+e^{0,824})=0{,}305$; \ $AUTO=1\Rightarrow \hat z=-3{,}232$, $\Ph=0{,}038$.
+
+\begin{enun}{T14 (núcleo) · signo con $y=1$ malo}
+V/F. Como en este logit $y=1$ significa fugarse, $\hat\beta_{AUTO}=-2{,}41<0$ indica que la renovación automática \emph{aumenta} el riesgo de perder al cliente.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Con $y=1=$ malo (fuga), un $\hat\beta<0$ significa \textbf{menos} probabilidad del evento malo: la renovación automática \textbf{baja} el riesgo (de 30,5\% a 3,8\%). Si el $\hat\beta$ fuera positivo (como la razón deuda/ingreso en un banco), más de la variable sería \textbf{más} riesgo. En el puntaje (score) es al revés: más puntos, menos riesgo.
+\end{ejemplar}
+
+\begin{enun}{T6 (núcleo) · $\hat\beta$ no está en puntos porcentuales}
+V/F. $\hat\beta_{AUTO}=-2{,}408$ significa que la renovación automática baja la probabilidad de fuga en 2,41 puntos porcentuales.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Un coeficiente logit mueve el \emph{índice} $z$ (log-odds), no la probabilidad. Lo interpretable es $e^{-2,408}=0{,}090$: la renovación automática \textbf{multiplica los odds de fuga por 0,09} (los baja un 91\%). En probabilidad, como $AUTO$ es dummy, el efecto parcial es la resta de dos $\Ph$: $0{,}038-0{,}305=-0{,}267$, es decir, \textbf{$-26{,}7$ pp}, no $-2{,}4$.
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Para una dummy, el efecto es $\Ph(1)-\Ph(0)$; no uses $g(z)\hat\beta$ (con la derivada en la media daría $-11$ pp\calc, muy lejos de $-26{,}7$).
+\item «Odds $-91\%$» y «probabilidad $-87{,}5\%$» no son lo mismo: odds $=P/(1-P)$.
+\end{itemize}
+\end{trampa}
+
+\begin{enun}{T13 (refuerzo) · pp frente a \%}
+V/F. Como la probabilidad de fuga pasa de 30,5\% a 3,8\%, la renovación automática la reduce en un 26,7\%.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Cae \textbf{26,7 puntos porcentuales}. En términos relativos cae $\frac{0,038-0,305}{0,305}=-87{,}5\%$\calc. «pp» es resta de probabilidades; «\%» es cambio relativo. Mismo tipo de error que «de 0,04 a 0,06 sube 2\%» (son 2 pp, y +50\%).
+\end{ejemplar}
+
+\begin{enun}{T1 (refuerzo) · heterocedasticidad del MPL}
+V/F. Si KKBox estima un MPL, $\Ph=0{,}305-0{,}267\,AUTO$, como $\mathrm{Var}(u\mid x)=P(1-P)$ cambia entre grupos, los $\hat\beta$ de MCO quedan sesgados.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} La varianza sí cambia: $0{,}305\cdot0{,}695=0{,}212$ en los manuales y $0{,}038\cdot0{,}962=0{,}037$ en los automáticos, \textbf{5,8 veces} más\calc. Pero la heterocedasticidad \textbf{no sesga} a MCO: le quita \textbf{eficiencia} e invalida los errores estándar habituales. Se corrige con errores robustos (o MCP con $\hat y(1-\hat y)$). De hecho, aquí el MPL reproduce exactamente las dos tasas.
+\end{ejemplar}
+
+\textbf{Una variable continua\inv.} Para los dos ítems siguientes se agrega $D=$ días con escucha en el mes: $\hat z=1{,}2-2{,}6\,AUTO-0{,}08\,D$\inv. La densidad logística es $g(z)=P(1-P)$.
+
+\begin{enun}{T22 (núcleo) · mismo $\hat\beta$, distinto efecto}
+Comente. «Un día más de escucha reduce la fuga lo mismo en un usuario con $\Ph=0{,}10$ que en uno con $\Ph=0{,}50$, porque $\hat\beta_D=-0{,}08$ es uno solo».
+\end{enun}
+\begin{ejemplar}
+\textbf{Falso.} El efecto marginal es $g(z)\hat\beta_D=P(1-P)\hat\beta_D$: con $\Ph=0{,}10$ vale $0{,}09\cdot(-0{,}08)=-0{,}72$ pp por día; con $\Ph=0{,}50$, $0{,}25\cdot(-0{,}08)=\mathbf{-2{,}0}$ \textbf{pp}, casi tres veces más. El usuario «en el margen» ($P\approx0{,}5$), el que duda entre quedarse o irse, es el que más responde. Por eso a Spotify le conviene gastar sus campañas de retención en él, no en el fiel ni en el perdido.
+\end{ejemplar}
+
+\begin{enun}{T11 (núcleo) · EPeP frente a EPP}
+V/F. Con cuatro usuarios\inv\ ($AUTO,D$) $=(0,5),(0,25),(1,10),(1,28)$, el efecto parcial en el promedio y el efecto parcial promedio de $D$ coinciden, porque salen del mismo modelo.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} \textbf{EPeP:} se evalúa $g$ en el usuario promedio, $\bar z=1{,}2-2{,}6(0{,}5)-0{,}08(17)=-1{,}46$, $g(\bar z)=0{,}153$, y $0{,}153\cdot(-0{,}08)=\mathbf{-1{,}22}$ pp. \textbf{EPP:} se promedian los cuatro efectos individuales, con $\Ph_i=0{,}69;\ 0{,}31;\ 0{,}10;\ 0{,}026$, $\overline{g}=0{,}136$, y $0{,}136\cdot(-0{,}08)=\mathbf{-1{,}09}$ pp\calc. Como $g$ no es lineal, $g(\bar z)\neq\overline{g(z_i)}$. Además, nadie tiene $AUTO=0{,}5$: el «usuario promedio» no existe, que es el argumento a favor del EPP.
+\end{ejemplar}
+
+% =====================================================================
+\acto{Acto 2. ¿Este tema será un hit dance? Clasificación con un logit real}
+
+\textbf{El caso.} Herremans, Martens y Sörensen (2014, \emph{Journal of New Music Research}) intentan predecir si una canción dance será hit a partir de su audio: tempo, duración, loudness, timbre, etc. (139 variables, The Echo Nest, la empresa que compró Spotify)\V. Usan charts de dance de UK y Billboard, y en su tabla de ejemplos aparece \emph{The Game Has Changed} de Daft Punk\V. Hit $=$ top 10; no hit $=$ puestos 30--40. Muestra D1: \textbf{253 hits y 147 no hits} ($N=400$). El modelo ganador es una \textbf{regresión logística}, y el texto lo dice: «el punto de corte 0,5 determina si es hit»\V. Su matriz de confusión (Tabla 9)\V:
+\begin{center}\small
+\begin{tabular}{lcc|c}\toprule
+Real $\backslash$ Predicho & Hit & No hit & Total\\\midrule
+Hit & VP $=209$ & FN $=44$ & 253\\
+No hit & FP $=100$ & VN $=47$ & 147\\\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enun}{T33 (núcleo) · pareo de las 5 métricas, con estos números}
+Calcula las seis métricas de la matriz y di qué es la fórmula que sobra, FP/(FP + VP).
+\end{enun}
+\begin{ejemplar}
+Exactitud $=(VP+VN)/N=256/400=\mathbf{64{,}0\%}$ · Tasa de error $=(FP+FN)/N=144/400=36{,}0\%$ · Sensibilidad $=VP/(VP+FN)=209/253=\mathbf{82{,}6\%}$ · Especificidad $=VN/(VN+FP)=47/147=\mathbf{32{,}0\%}$ · Precisión $=VP/(VP+FP)=209/309=67{,}6\%$ · F1 $=2PS/(P+S)=74{,}4\%$\calc. La que sobra, $FP/(FP+VP)=32{,}4\%$, es $1-$ precisión (de los que el modelo llama hit, cuántos no lo son).
+\end{ejemplar}
+
+\begin{enun}{T34 (núcleo) · exactitud frente a tasa base}
+Comente. «El logit de Herremans acierta el 64\% de las canciones: es un buen predictor de hits».
+\end{enun}
+\begin{ejemplar}
+Un «modelo» que dijera \textbf{siempre hit} acertaría $253/400=\mathbf{63{,}25\%}$\calc: el logit le gana por \textbf{0,75 pp}. Con clases desbalanceadas la exactitud no prueba nada. El modelo detecta bien los hits (sensibilidad 82,6\%) porque dice «hit» a casi todo: reconoce solo el 32\% de los no hits (especificidad). Por eso los propios autores descartan la exactitud y comparan con el \textbf{AUC} (0,65 para el logit, el mejor; 0,5 sería tirar una moneda)\V.
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item En la vida real los hits son rarísimos: \textbf{menos del 4\%} de las canciones del Reino Unido entran al Top 100 cada año (Interiano et al., 2018)\V. «Nunca hit» acierta más del 96\%.
+\item Middlebrook y Sheik (2019) entrenan un logit con una muestra 50/50 de canciones de Spotify y logran precisión de 75\%\V; con la prevalencia real de los hits del Billboard ($\approx0{,}7\%$) esa precisión caería a $\approx2\%$\calc: 49 de cada 50 «hits» predichos serían fracasos.
+\item Contraste: en los datos de \emph{skips} de Spotify (160 millones de sesiones) la clase está casi pareja, 51\%\V. Ahí la exactitud sí informa.
+\end{itemize}
+\end{trampa}
+
+\begin{enun}{T23 (refuerzo) · el corte 0,5}
+V/F. Herremans clasifica como hit si $\Ph>0{,}5$; ese corte es indiscutiblemente el mejor.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} El 0,5 es el criterio elemental. El mejor corte depende de los \textbf{costos} de cada error: para un sello, un FP es promocionar un tema que fracasa; un FN es dejar pasar un hit. Con especificidad de 32\%, subir el corte cambiaría sensibilidad por especificidad. Se elige con la ROC (o con la tasa observada, $\bar y$, como corte), no por costumbre.
+\end{ejemplar}
+
+\begin{enun}{T27 (refuerzo) · ejes de la ROC}
+V/F. La ROC de Herremans (su figura 8) grafica la sensibilidad contra la especificidad para cada corte.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Grafica la sensibilidad (eje $y$) contra \textbf{$1-$especificidad} (eje $x$, tasa de falsos positivos) para cada corte. El corte 0,5 es un solo punto de esa curva: $(1-0{,}320;\ 0{,}826)=(0{,}68;\ 0{,}83)$\calc. El área bajo la curva (AUC $=0{,}65$) resume todos los cortes y sirve para comparar modelos: el logit le gana al árbol C4.5 (0,53--0,55)\V.
+\end{ejemplar}
+
+% =====================================================================
+\acto{Acto 3. La scorecard de fuga: WOE e IV con los datos de KKBox}
+
+\textbf{El caso.} Ahora KKBox quiere un \emph{score} de retención, igual que un banco hace uno de crédito: «bueno» $=$ se queda, «malo» $=$ se fuga. La variable tiene cuatro atributos (renovación × uso)\Pre. Convención de la clase: $WOE=\ln(\%B/\%M)\times100$, buenos arriba; el IV va sin $\times100$\calc:
+\begin{center}\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{lrrrrrr}\toprule
+Atributo & $N$ & Fuga & \%B & \%M & WOE & IV parcial\\\midrule
+Manual, activo & 82.700 & 30,4\% & 7,46 & 47,04 & $-184{,}2$ & 0,729\\
+Automática, activa & 675.774 & 3,5\% & 84,48 & 44,26 & $+64{,}7$ & 0,260\\
+Automática, sin uso & 66.771 & 6,8\% & 8,06 & 8,50 & $-5{,}2$ & 0,000\\
+Manual, sin uso & 122 & 90,2\% & 0,00 & 0,21 & $-489{,}0$ & 0,010\\\midrule
+Total & 825.367 & 6,5\% & 100 & 100 & & \textbf{1,00}\\\bottomrule
+\end{tabular}
+\end{center}
+Comprueba la fila 1: buenos $=82.700\cdot0{,}696=57.559$, que son el 7,46\% de los 771.924 buenos; malos $=25.141$, el 47,04\% de los 53.443 malos; $\ln(7{,}46/47{,}04)\cdot100=-184{,}2$.
+
+\begin{enun}{T37 (núcleo) · signo del WOE}
+V/F. El WOE de «manual, activo» es $-184{,}2$: en ese atributo hay proporcionalmente más clientes que se quedan que clientes que se van.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} WOE $<0\iff\%M>\%B$: ese atributo concentra el 47\% de los que se fugan y solo el 7,5\% de los que se quedan. Es el atributo de \textbf{más riesgo}. El único WOE positivo, $+64{,}7$ (automática y activa), es el de menos riesgo.
+\end{ejemplar}
+
+\begin{enun}{T52 (núcleo) · con qué valor entra un usuario}
+Selección múltiple. En la regresión woeizada, una usuaria con renovación automática que escucha todos los días entra con: a) 1 (dummy) \quad b) 3,5\% \quad c) 0,647 \quad d) 64,7
+\end{enun}
+\begin{ejemplar}
+\textbf{c) 0,647.} Se la ubica en su atributo y entra con el \textbf{WOE de ese atributo, sin $\times100$}. No entra con una dummy (eso es otra especificación) ni con la tasa de fuga.
+\end{ejemplar}
+
+\begin{enun}{T42 (refuerzo) · número de coeficientes}
+V/F. Esta variable de 4 atributos aporta 4 coeficientes si entra como dummies y 1 si entra woeizada.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Como dummies aporta $k-1=\mathbf{3}$ (un atributo queda de base, en el intercepto). Woeizada aporta \textbf{1}: una sola columna cuyo valor cambia según el atributo.
+\end{ejemplar}
+
+\begin{enun}{T43 (refuerzo) · signo esperado de los $\hat\beta$ woeizados}
+V/F. Con $y=1$ fuga y el WOE de la clase, se espera que todos los $\hat\beta$ de la regresión woeizada sean positivos.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Se esperan \textbf{negativos}: el WOE crece con la calidad del cliente (más WOE, más «buenos») y el logit modela $y=1=$ malo, así que más WOE implica menos probabilidad de fuga. Un $\hat\beta$ positivo es señal de multicolinealidad o de mala tramificación.
+\end{ejemplar}
+
+\begin{enun}{T59 (núcleo) · monotonía y fusión}
+Comente. Para la antigüedad de la suscripción\inv, \texttt{woebin} entrega 5 tramos con tasas de fuga de 18, 9, 11, 5 y 6\% (de menos a más antigüedad); $N_2=400$, $N_3=1.200$, $N_4=900$, $N_5=300$. Además, el atributo «manual, sin uso» de la tabla tiene solo 122 usuarios.
+\end{enun}
+\begin{ejemplar}
+La tasa \textbf{no es monótona}: sube de 9 a 11\% y de 5 a 6\%, cuando a más antigüedad se espera menos fuga. Se \textbf{retramifica fusionando tramos vecinos} y \textbf{ponderando por $N$}: tramo 2+3 $=\frac{400\cdot0,09+1.200\cdot0,11}{1.600}=10{,}5\%$; tramo 4+5 $=\frac{900\cdot0,05+300\cdot0,06}{1.200}=5{,}25\%$. Queda $18\to10{,}5\to5{,}25$, monótona. El atributo de 122 usuarios tiene solo 12 buenos: su WOE ($-489$) es inestable, así que se fusiona con «manual, activo» (tasa $\frac{25.141+110}{82.822}=30{,}5\%$\calc).
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Nunca promediar tasas o WOE sin ponderar: $(9+11)/2=10$ está mal.
+\item \textbf{IV $=1{,}00$}: según Siddiqi, sobre 0,3 es fuerte, y sobre 0,5 conviene sospechar (C). Aquí hay una razón: quien desactiva la renovación automática casi ya decidió irse, así que la variable \emph{anticipa} la fuga más que predecirla.
+\end{itemize}
+\end{trampa}
+
+\begin{enun}{T55 (refuerzo) · exclusiones}
+Comente. Para modelar la fuga, la plataforma excluye las cuentas de cortesía (artistas, prensa, empleados) y los usuarios en su mes de prueba gratis, que nunca han pagado. Un usuario la acusa de discriminar.
+\end{enun}
+\begin{ejemplar}
+Las exclusiones se justifican por \textbf{calidad o representatividad}, no por características personales. Las cuentas de cortesía son el «funcionario» del banco: tienen condiciones preferenciales (no pagan), y mezclarlas bajaría artificialmente la tasa de fuga. El usuario en prueba es el «extranjero sin historial»: no hay comportamiento de pago que observar. Cuando acumule historial vuelve a la muestra. Excluir por nacionalidad o país, en cambio, sí sería discriminación.
+\end{ejemplar}
+
+% =====================================================================
+\acto{Acto 4. Alemania sin YouTube: diferencias en diferencias}
+
+\textbf{El caso.} Por una disputa de derechos con la sociedad de autores GEMA, YouTube \textbf{bloqueó en Alemania} casi todos los videos con música desde el \textbf{1 de abril de 2009} (y por siete años). Kretschmer y Peukert (2020, \emph{Information Systems Research}) lo usan como experimento natural\V:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \textbf{Tratados:} 842 canciones del top 1.000 alemán que tenían video en YouTube (el YouTube de EE.\,UU. sirve de referencia). \textbf{Controles:} 700 canciones sin video.
+\item \textbf{Antes/después:} 4 semanas a cada lado del bloqueo. $Y=\ln(1+\text{ventas semanales})$.
+\item \textbf{Resultado:} $\hat\beta_3=-0{,}146$ (EE 0,050): perder YouTube bajó las ventas \textbf{cerca de 14\%}. Como confirmación, cuando entró Vevo a Alemania en 2013 las ventas subieron cerca de 10\%\V. Los videos promocionan; no sustituyen.
+\end{itemize}
+Cuatro medias para practicar\inv\ (coherentes con los niveles de la Tabla 2 del paper y con su $\hat\beta_3$):
+\begin{center}\small
+\begin{tabular}{lccc}\toprule
+ & Antes & Después & Cambio\\\midrule
+Con video (tratado) & 3,60 & 3,40 & $-0{,}20$\\
+Sin video (control) & 1,80 & 1,75 & $-0{,}05$\\\midrule
+DiD & & & $\mathbf{-0{,}15}\ \Rightarrow e^{-0,15}-1=-14\%$\\\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enun}{T69 (núcleo) · qué es cada $\beta$}
+V/F. En $y=\beta_0+\beta_1Treat+\beta_2Post+\beta_3(Treat\times Post)$, $\hat\beta_1=1{,}80$ es el efecto de perder YouTube.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} $\hat\beta_0=1{,}80$: control antes. $\hat\beta_1=3{,}60-1{,}80=1{,}80$: \textbf{brecha inicial} (las canciones con video ya vendían más). $\hat\beta_2=-0{,}05$: tendencia común. $\hat\beta_3=-0{,}15$: \textbf{el efecto} (unos $-14\%$, porque $Y$ está en logaritmos).
+\end{ejemplar}
+
+\begin{enun}{T62 (núcleo) · niveles distintos no sesgan}
+V/F. Las canciones con video venden unas 6 veces más que las sin video ($e^{3,575-1,783}\approx6$)\calc; por eso el DiD está sesgado.
+\end{enun}
+\begin{ejemplar}
+\textbf{F} (y T62, tal como está en el banco, es \textbf{V}). Tendencias paralelas pide que, \textbf{sin el bloqueo}, ambos grupos hubieran \textbf{cambiado} lo mismo, no que tengan el mismo nivel. La brecha permanente ($\beta_1$) se elimina al diferenciar. Lo que sesga son tendencias distintas.
+\end{ejemplar}
+
+\begin{enun}{T63 (refuerzo) · cómo se revisa el supuesto}
+V/F. Si el paper tuviera solo una semana antes y una después, verificaría tendencias paralelas comparando los niveles de ambos grupos antes del bloqueo.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Con dos periodos \textbf{no se puede verificar}: es un contrafactual. Kretschmer y Peukert tienen 4 semanas previas y miran las \textbf{tendencias previas}, no los niveles: los coeficientes semana × video antes del bloqueo son 0,113 (0,068), 0,091 (0,062), 0,036 y $-0{,}013$\V. Ojo crítico: el de $t-4$ tiene $t\approx1{,}66$\calc, en el límite del 10\%. Por eso agregan placebos de fecha y un control alternativo, Austria ($-7\%$ en ventas físicas)\V.
+\end{ejemplar}
+
+\begin{enun}{T61 (refuerzo) · ATT frente a ATE}
+V/F. El DiD de GEMA estima el efecto que tendría quitar YouTube a cualquier canción (ATE).
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} El DiD estima el \textbf{ATT}: el efecto sobre los tratados, canciones con video, más \emph{mainstream}. El ATE lo daría un experimento aleatorio. Otro caso: Datta, Knox y Bronnenberg (2018, \emph{Marketing Science}) comparan 448 usuarios que adoptan Spotify con 448 parecidos que no: las reproducciones suben 132\% al comienzo y 49\% a largo plazo, y los artistas distintos escuchados, 32\%\V. Ese es el efecto en \textbf{quienes eligieron} adoptar (más jóvenes: 22,4 contra 24,1 años)\V, no en toda la población.
+\end{ejemplar}
+
+\begin{enun}{T66 (refuerzo) · interna frente a externa}
+V/F. Que el estudio sea de Alemania en 2009, en la era de las descargas, y que use solo 8 semanas son amenazas a la validez externa.
+\end{enun}
+\begin{ejemplar}
+\textbf{F (a medias).} Alemania 2009 sin \emph{streaming} es una amenaza \textbf{externa} (muestra o programa no representativo hoy). También lo es el \textbf{equilibrio general}: si YouTube se apagara en todo el mundo, los sellos moverían su promoción a Spotify y TikTok, y el efecto no sería $-14\%$. La \textbf{muestra pequeña} (o una ventana corta) amenaza la validez \textbf{interna}, porque produce estimaciones imprecisas.
+\end{ejemplar}
+
+\textbf{Las amenazas, con música.} \textbf{Derrame a los controles:} la noticia de Daft Punk también sube a Justice o Air; y cuando Universal silenció su catálogo en TikTok (feb.\ 2024), Cheng, Ofek y Yoganarasimhan revisan si los usuarios migraron a Sony y Warner, sus controles\V. Si migran, el DiD se infla. \textbf{Selección o anticipación:} los curadores de Spotify agregan a \emph{Today's Top Hits} canciones que \emph{ya venían subiendo} (Aguiar y Waldfogel, 2018)\V. \textbf{Incumplimiento:} los alemanes con VPN seguían viendo YouTube, lo que diluye el tratamiento\V. \textbf{Composición:} artistas que entran o salen de GEMA; por eso la ventana es corta\V.
+
+\begin{enun}{T77 (núcleo) · la nota de prensa falla y se propone el DiD}
+Comente. Fred again.. tocó en Boiler Room Londres en julio de 2022. Una nota dice: sus streams venían creciendo 1--2\% al mes, subieron 50\% en julio y 89\% en agosto (Spotify, en \emph{Mixmag})\Pre; «Boiler Room multiplica los streams de un DJ». Otra compara los streams de los DJ que tocaron en Boiler Room con los de los que no, \emph{después}. Comente y proponga cómo evaluarlo.
+\end{enun}
+\begin{ejemplar}
+\textbf{La primera nota es un antes/después sin control}: atribuye al set todo lo que cambió (otras cosas pasaron ese mes; la prensa asocia el set al lanzamiento de un single\Pre). \textbf{La segunda es un después sin antes}: Boiler Room no invita al azar, sino a quien ya va en alza, así que la brecha refleja diferencias previas (\textbf{selección}). Lo correcto es un \textbf{DiD}: el cambio de los streams de los DJ que tocaron, menos el cambio de DJ comparables que no tocaron en las mismas fechas, en logaritmos. \textbf{Supuesto:} tendencias paralelas, que se revisa con varios meses previos. \textbf{Amenazas:} el single (shock simultáneo), la selección por tendencia y el derrame (no usar de control a sus colaboradores, Four Tet o Skrillex, que también suben). En la PEP, con el SLEP, el esqueleto es el mismo: «después sin antes» → DiD con colegios municipales de control, tendencias previas del SIMCE y amenazas.
+\end{ejemplar}
+
+\textbf{Mini ejercicio: cierre con los robots.} Con el catálogo real de Daft Punk (854.100 $\to$ 5.025.000)\Pre\ y un control \textbf{ficticio}, Justice, que sube 10\% de domingo a lunes por el día de la semana\inv: en logaritmos, $\ln(5.025.000/854.100)=1{,}772$; control $\ln(1{,}10)=0{,}095$; DiD $=1{,}677\Rightarrow e^{1,677}=\mathbf{5{,}3}$: la separación multiplicó los streams por unas 5,3 veces, más allá del efecto lunes\calc. Dos lecturas de examen. (1) En niveles, restar 4,17 millones menos 30 mil supone tendencias paralelas \emph{en niveles} entre artistas de tamaño muy distinto; en logaritmos es más creíble. (2) Si la noticia también subió a Justice (derrame), el control sube más que el «lunes puro» y el DiD \textbf{subestima} el efecto.
+
+% =====================================================================
+\newpage
+\acto{Tabla de recuerdo activo: tapa la columna derecha}
+\small
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}p{1.1cm}p{6.6cm}p{8.7cm}@{}}\toprule
+Ítem & En el caso & Respuesta en una línea (palabra clave en negrita)\\\midrule
+T14 & KKBox, $\hat\beta_{AUTO}<0$ con $y=1$ fuga & F · $\hat\beta<0$ con $y=1$ malo $=$ \textbf{menos riesgo}\\
+T6 & $\hat\beta=-2{,}41$ «son 2,41 pp» & F · \textbf{odds ×0,09}; efecto dummy $=\Ph(1)-\Ph(0)=-26{,}7$ pp\\
+T13 & 30,5 $\to$ 3,8\% «baja 26,7\%» & F · \textbf{26,7 pp}; relativo $-87{,}5\%$\\
+T1 & MPL, varianza 5,8 veces mayor & F · \textbf{insesgado}, pierde eficiencia; errores robustos\\
+T22 & $\hat\beta_D$ igual en $P=0{,}1$ y $0{,}5$ & F · $g=P(1-P)$: $-0{,}72$ contra $-2{,}0$ pp; \textbf{el del margen}\\
+T11 & 4 usuarios, EPeP $=$ EPP & F · $-1{,}22$ contra $-1{,}09$ pp; \textbf{$g$ no lineal}\\
+T33 & Matriz 209/44/100/47 & Exact.\ 64 · sens.\ 82,6 · espec.\ 32 · prec.\ 67,6 · F1 74,4; sobra $1-$prec.\\
+T34 & «Acierta el 64\%» & \textbf{Tasa base} 63,25\%; mirar sensibilidad, especificidad, AUC\\
+T23 & Corte 0,5 «el mejor» & F · depende de \textbf{costos}; ROC o $\bar y$\\
+T27 & ROC «S contra E» & F · S contra \textbf{1 $-$ E}; AUC 0,65 contra 0,5 de la moneda\\
+T37 & WOE $-184$ «más buenos» & F · WOE $<0$: \textbf{\%M $>$ \%B}, más riesgo\\
+T52 & Automática y activa entra con... & \textbf{0,647} (WOE sin ×100)\\
+T42 & 4 atributos: ¿4 y 1 $\beta$? & F · dummies $k-1=\mathbf{3}$; woeizada 1\\
+T43 & $\hat\beta$ woeizados positivos & F · se esperan \textbf{negativos}\\
+T59 & 18, 9, 11, 5, 6\% & No monótona: \textbf{fusionar ponderando por $N$}: 18, 10,5, 5,25\\
+T55 & Cortesía y prueba gratis & \textbf{Calidad o representatividad}, no discriminación\\
+T69 & $\hat\beta_1=1{,}80$ «es el efecto» & F · $\beta_1$ \textbf{brecha inicial}; efecto $=\beta_3=-0{,}15$\\
+T62 & Venden 6 veces más: «sesgado» & F (el T62 del banco es V) $\cdot$ niveles se van al diferenciar; sesgan las \textbf{tendencias}\\
+T63 & 2 periodos, comparar niveles & F · \textbf{no se puede verificar}; con más periodos, tendencias previas\\
+T61 & DiD de GEMA $=$ ATE & F · DiD $=$ \textbf{ATT}; el experimento aleatorio da el ATE\\
+T66 & Alemania 2009 y 8 semanas, externas & F a medias · muestra pequeña es \textbf{interna}; equilibrio general es externa\\
+T77 & Fred again.. y Boiler Room & Antes/después y después solo: \textbf{selección}; \textbf{DiD} + tendencias previas + amenazas\\\bottomrule
+\end{tabular}
+
+\normalsize
+\vspace{8pt}
+\textbf{Fuentes}
+\footnotesize\sloppy
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Herremans, D., Martens, D. y Sörensen, K. (2014). Dance Hit Song Prediction. \emph{Journal of New Music Research}, 43(3), 291--302 (preprint arXiv:1905.08076; tablas 1--3, 6--9).
+\item Interiano, M. et al.\ (2018). Musical trends and predictability of success in contemporary songs in and out of the top charts. \emph{Royal Society Open Science}, 5, 171274.
+\item Middlebrook, K. y Sheik, K. (2019). Song Hit Prediction: Predicting Billboard Hits Using Spotify Data. arXiv:1908.08609.
+\item Brost, B., Mehrotra, R. y Jehan, T. (2019). The Music Streaming Sessions Dataset. \emph{Proc.\ WWW '19} (arXiv:1901.09851).
+\item KKBox Churn Prediction Challenge (WSDM Cup 2018, Kaggle). Tabla por atributo: análisis público en GitHub, \texttt{ella-tudome/kkbox-churn-analysis-} (no revisado por pares).
+\item Kretschmer, T. y Peukert, C. (2020). Video Killed the Radio Star? Online Music Videos and Recorded Music Sales. \emph{Information Systems Research}, 31(3), 776--800 (tablas 2, 4--7, 9).
+\item Datta, H., Knox, G. y Bronnenberg, B. (2018). Changing Their Tune: How Consumers' Adoption of Online Streaming Affects Music Consumption and Discovery. \emph{Marketing Science}, 37(1), 5--21.
+\item Aguiar, L. y Waldfogel, J. (2018). Platforms, Promotion, and Product Discovery: Evidence from Spotify Playlists. NBER w24713 (publicado en \emph{Journal of Industrial Economics}, 2021).
+\item Cheng, Ofek y Yoganarasimhan. The Value of Silence: The Effect of UMG's Licensing Dispute with TikTok on Music Demand. \emph{Marketing Science} (working paper, oct.\ 2024).
+\item Prensa: Alpha Data en \emph{Rolling Stone} (feb.\ 2021, Daft Punk); RouteNote, citando a Spotify (459.000 oyentes nuevos); NME (abr.\ 2013, \emph{Get Lucky}); \emph{Mixmag} (6-3-2023, Fred again.., citando a Spotify).
+\end{itemize}
+\end{document}

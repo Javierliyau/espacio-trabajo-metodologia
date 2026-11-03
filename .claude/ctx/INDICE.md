@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 09:18. 298 archivos, ~128185.3k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 12:04. 299 archivos, ~128186.4k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -167,6 +167,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 09:18. 298 archivos, ~128
 | 1.1k | 40 | `trabajo/micro/2026-10-21-simulacro-PAUTA-no-abrir.md` | PAUTA del simulacro del Control 1 (21-10 L1; Comentes L3; Desarrollos L9; Matemático L17; Hitos de corrección del matemático (40) L38 |
 | 1.1k | 50 | `trabajo/econometria-ii-demre/LEEME.md` | Econometría II: trabajo práctico, etapa  L1; Carpetas L7; Archivos en `datos/crudos/` L20; Dos advertencias que salen de los libros L35; Cómo se conectan los archivos L40; Base final (2-10-2026) L45 |
 | 1.1k | 54 | `trabajo/overleaf-etapa1/guion-javier-3-9-10.tex` |  |
+| 1.1k | 80 | `trabajo/p1-logit-practica/p1-logit-practica.tex` |  |
 | 1.1k | 36 | `trabajo/micro/2026-10-21-control-probable-PAUTA-no-abrir.md` | PAUTA del control «lo más probable» (21- L1; Comentes L3; Desarrollos L9; Matemático L13; Hitos de corrección del matemático (40) L34 |
 | 1.1k | 80 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/05_bivariado.csv` |  |
 | 1.1k | 57 | `trabajo/macro/2026-10-25-solow-chile-terremoto.py` | -*- coding: utf-8 -*- L1; Diagrama de Solow L22; Zoom L34; ln y contra t L42 |

@@ -1,0 +1,214 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{booktabs,array,enumitem,amsmath,amssymb,xcolor,tcolorbox}
+\usepackage{lmodern}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\newtcolorbox{ejemplar}{colback=green!5,colframe=green!40!black,title=Respuesta ejemplar,fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newtcolorbox{trampa}{colback=red!5,colframe=red!50!black,title=Trampas,fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newcommand{\sub}[2]{\subsection*{#1\hfill{\normalsize\textbf{(#2)}}}}
+\begin{document}
+\renewcommand{\%}{\ifmmode\mbox{\char37}\else\char37\fi}
+
+\begin{center}
+{\Large\bfseries Econometría II · PEP 1 · Simulacro final · \textcolor{red!60!black}{PAUTA}}\\[3pt]
+No abrir antes de terminar los 80 minutos. Corregir con lápiz de otro color y anotar las fallas en la tabla final.
+\end{center}
+
+% ============================================================
+\section*{P1. Logit de incumplimiento y clasificación (35 pts)}
+
+\sub{a) Signos y significancia}{6}
+\begin{ejemplar}
+\textbf{CARGA} ($+$): más carga financiera, más probabilidad de ser malo. Es coherente, porque queda menos margen para pagar.
+\textbf{ANTIG} ($-$): más años en el empleo, menos probabilidad de ser malo. Es coherente, porque el ingreso es más estable.
+\textbf{MORAPREV} ($+$): un atraso previo anticipa el incumplimiento. Es coherente.\\
+Significancia de ANTIG: $z=-0{,}08/0{,}03=-2{,}67$, y $|z|>1{,}96$, así que es significativa al 5\,\%. Además $|z|>2{,}58$, así que también lo es al 1\,\%. Para las otras dos: $z_{\text{CARGA}}=5$ y $z_{\text{MORAPREV}}=4{,}4$.
+\end{ejemplar}
+\textbf{Puntaje:} 1 punto por cada signo bien leído (3), 1 punto por la coherencia económica y 2 puntos por el $z$ con su conclusión.
+\begin{trampa}
+$y=1$ es \textbf{malo}, así que un signo $+$ significa más riesgo. Si y = 1 fuera «paga», todos los signos se darían vuelta y la conclusión sería la misma.
+\end{trampa}
+
+\sub{b) Probabilidades y efecto parcial de la dummy}{8}
+Sin atraso: $\hat z_0=-4+0{,}05(30)-0{,}08(5)=-2{,}9$, entonces $\hat P_0=1/(1+e^{2{,}9})=1/19{,}174=\mathbf{0{,}0522}$.\\
+Con atraso: $\hat z_1=-2{,}9+1{,}1=-1{,}8$, entonces $\hat P_1=1/(1+e^{1{,}8})=1/7{,}050=\mathbf{0{,}1419}$.\\
+Efecto parcial: $\hat P_1-\hat P_0=0{,}1419-0{,}0522=\mathbf{0{,}0897}$.
+\begin{ejemplar}
+Para un cliente con carga y antigüedad promedio, tener un atraso en los últimos 12 meses sube la probabilidad estimada de incumplir de 5,2\,\% a 14,2\,\%: \textbf{unos 9 pp más}, \emph{ceteris paribus}.
+\end{ejemplar}
+\textbf{Puntaje:} 3 puntos por cada probabilidad y 2 por el efecto con su interpretación en pp.
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item El efecto de una \textbf{dummy} se calcula como \textbf{diferencia de probabilidades}, no como $g(z)\cdot\beta$.
+\item El signo de $e^{-z}$: con $\hat z=-2{,}9$ se usa $e^{+2{,}9}$.
+\end{itemize}
+\end{trampa}
+
+\sub{c) Efecto marginal de CARGA}{7}
+$\partial P/\partial\text{CARGA}=\hat P(1-\hat P)\,\hat\beta_{\text{CARGA}}$
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item Sin atraso: $0{,}0522\times0{,}9478\times0{,}05=0{,}0494\times0{,}05=\mathbf{0{,}0025}$, es decir, \textbf{0,25 pp} por cada punto de carga.
+\item Con atraso: $0{,}1419\times0{,}8581\times0{,}05=0{,}1217\times0{,}05=\mathbf{0{,}0061}$, es decir, \textbf{0,61 pp} por cada punto de carga.
+\end{itemize}
+\begin{ejemplar}
+El logit no es lineal: el efecto de $x$ sobre $P$ es $g(z)\beta$, y la densidad $g(z)=P(1-P)$ depende del punto en que se evalúa. Es máxima en $P=0{,}5$. El cliente con atraso está más cerca de 0,5, en la parte más empinada de la curva, así que el mismo $\hat\beta$ le produce un efecto mayor (0,61 pp frente a 0,25 pp).
+\end{ejemplar}
+\textbf{Puntaje:} 2 puntos por cada cálculo y 3 por la explicación.
+\begin{trampa}
+$\hat\beta=0{,}05$ \textbf{no} son 5 pp ni 0,05 pp. $\hat\beta$ está en log-odds; para llegar a pp hay que pasar por $g(z)$.
+\end{trampa}
+
+\sub{d) Odds}{4}
+\begin{ejemplar}
+$e^{1{,}1}=3{,}0$: los \textbf{odds} de incumplir de un cliente con atraso previo son 3 veces los de uno sin atraso (+200\,\%), \emph{ceteris paribus}.\\
+ANTIG: $100(e^{-0{,}08}-1)=-7{,}7\,\%$: cada año adicional en el empleo reduce los odds de incumplir en 7,7\,\%.
+\end{ejemplar}
+\begin{trampa}
+Son \textbf{odds}, no probabilidades: no es «3 veces más probable». Va en veces o en \%, nunca en pp.
+\end{trampa}
+
+\sub{e) Matriz de confusión}{10}
+\begin{center}\small
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{lll}\toprule
+Exactitud & $(VP+VN)/N=(150+1.440)/2.000$ & $=\mathbf{0{,}795}$\\
+Sensibilidad & $VP/(VP+FN)=150/200$ & $=\mathbf{0{,}75}$\\
+Especificidad & $VN/(VN+FP)=1.440/1.800$ & $=\mathbf{0{,}80}$\\
+Precisión & $VP/(VP+FP)=150/510$ & $=\mathbf{0{,}294}$\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{ejemplar}
+El modelo detecta el 75\,\% de los malos (sensibilidad) a costa de rechazar al 20\,\% de los buenos (especificidad de 0,80). De los clientes que marca como malos, el 29\,\% lo es: el triple de la tasa base del 10\,\%.\\
+\textbf{El gerente se equivoca.} Con un 10\,\% de malos, decir «todos pagan» acierta el 90\,\% sin detectar a \textbf{ningún} malo (sensibilidad 0). Con clases desbalanceadas la exactitud engaña. Además, un falso negativo (prestarle a un malo y perder el capital) cuesta mucho más que un falso positivo (rechazar a un bueno y perder el margen), así que lo que importa es la sensibilidad.\\
+\textbf{Corte a 0,5:} se clasifica como malo a menos clientes, así que \textbf{baja la sensibilidad} y \textbf{sube la especificidad}. Como el $\hat P$ típico es bajo (5-14\,\%), casi nadie superaría 0,5 y el modelo se acercaría a «todos pagan». Por eso el corte se pone cerca de la tasa observada, $\bar y=0{,}10$.
+\end{ejemplar}
+\textbf{Puntaje:} 1 punto por cada métrica (4), 3 por el comentario del gerente (tasa base y costo de los FN) y 3 por el efecto del corte.
+
+% ============================================================
+\section*{P2. Scoring: WOE e IV (30 pts)}
+
+\sub{a) Tabla}{10}
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{lrrrrrr}\toprule
+Utilización & B & M & \%B & \%M & WOE $=\ln(\%B/\%M)\cdot100$ & Tasa de malos\\\midrule
+$[0,30)$ & 3.200 & 200 & 40\,\% & 20\,\% & $\ln(2)\cdot100=\mathbf{69{,}3}$ & 5,9\,\%\\
+$[30,60)$ & 2.400 & 270 & 30\,\% & 27\,\% & $\ln(1{,}111)\cdot100=\mathbf{10{,}5}$ & 10,1\,\%\\
+$[60,90)$ & 960 & 300 & 12\,\% & 30\,\% & $\ln(0{,}4)\cdot100=\mathbf{-91{,}6}$ & 23,8\,\%\\
+$90+$ & 1.440 & 230 & 18\,\% & 23\,\% & $\ln(0{,}783)\cdot100=\mathbf{-24{,}5}$ & 13,8\,\%\\\bottomrule
+\end{tabular}
+\end{center}
+Tasa de malos $=M/(B+M)$; por ejemplo, $200/3.400=5{,}9\,\%$.\\
+\textbf{Puntaje:} 1 punto por la columna \%B y otro por la columna \%M, 1,5 puntos por cada WOE (6) y 2 por las tasas.
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \%B es la proporción de \textbf{todos los buenos} que cae en el tramo (columna), no la proporción de buenos \textbf{dentro} del tramo.
+\item Convención del profe: buenos arriba y $\times100$. Con R (\texttt{woebin}) los signos salen al revés.
+\end{itemize}
+\end{trampa}
+
+\sub{b) IV}{6}
+$\text{IV}=\sum(\%B-\%M)\ln(\%B/\%M)$, sin $\times100$:
+\[
+(0{,}20)(0{,}693)+(0{,}03)(0{,}105)+(-0{,}18)(-0{,}916)+(-0{,}05)(-0{,}245)=0{,}139+0{,}003+0{,}165+0{,}012=\mathbf{0{,}319}
+\]
+\begin{ejemplar}
+IV $=0{,}32$. Según Siddiqi (menos de 0,02 no predice; 0,02-0,1 débil; 0,1-0,3 medio; más de 0,3 fuerte; más de 0,5 sospechoso), la utilización tiene un poder predictivo \textbf{fuerte}: separa bien a buenos de malos.
+\end{ejemplar}
+\begin{trampa}
+Cada sumando es positivo, porque $(\%B-\%M)$ y el $\ln$ siempre tienen el mismo signo. Si te sale un sumando negativo, hay un error.
+\end{trampa}
+
+\sub{c) Monotonía y fusión}{8}
+\begin{ejemplar}
+\textbf{No es monótono:} $69{,}3\to10{,}5\to-91{,}6\to\mathbf{-24{,}5}$. El tramo $90+$ aparece \textbf{menos riesgoso} que $[60,90)$ (13,8\,\% frente a 23,8\,\% de malos). \textbf{No tiene sentido económico}: usar más del 90\,\% del cupo indica un estrés de liquidez igual o mayor. Probablemente es ruido o un efecto de composición.\\
+\textbf{Corrección:} fusionar los tramos contiguos $[60,90)$ y $90+$ en «60 o más»: $B=2.400$ (30\,\%) y $M=530$ (53\,\%), así que $\text{WOE}=\ln(0{,}30/0{,}53)\cdot100=\mathbf{-56{,}9}$ (tasa de malos 18,1\,\%). Ahora $69{,}3>10{,}5>-56{,}9$ es monótono.\\
+\textbf{Nuevo IV:} $0{,}139+0{,}003+(-0{,}23)(-0{,}569)=0{,}139+0{,}003+0{,}131=\mathbf{0{,}273}$, que pasa de fuerte a \textbf{medio}.\\
+\textbf{Por qué baja:} fusionar promedia dos tramos con WOE distinto y se pierde detalle para discriminar. El IV nunca sube al fusionar. \textbf{Conviene igual}, porque la variable queda monótona, interpretable y más estable fuera de la muestra (menos sobreajuste); un IV de 0,27 sigue siendo útil.
+\end{ejemplar}
+\textbf{Puntaje:} 2 puntos por detectar la falla con su argumento económico, 2 por la fusión correcta (tramos contiguos), 2 por el nuevo WOE e IV y 2 por el porqué.
+
+\sub{d) Valor con que entra, número de $\beta$ y signo}{6}
+\begin{ejemplar}
+El 75\,\% cae en «60 o más»: \textbf{entra con su WOE}, $-56{,}9$; en la regresión, sin el $\times100$, \textbf{$-0{,}569$}. No entra con el 75 ni con la tasa de malos.\\
+\textbf{Woeizada: 1 $\beta$} (una sola variable continua, el WOE). \textbf{Con dummies: $k-1=3-1=2$ $\beta$.}\\
+\textbf{Signo esperado: negativo.} Un WOE mayor indica un tramo con más buenos, y el modelo predice $P(y=1=\text{malo})$. Más WOE, menos probabilidad de ser malo. Un $\hat\beta>0$ sería una señal de multicolinealidad o de mala tramificación.
+\end{ejemplar}
+
+% ============================================================
+\section*{P3. Diferencias en diferencias (25 pts)}
+
+\sub{a) DiD e ingenuas}{6}
+\[
+\text{DiD}=(34{,}0-28{,}0)-(30{,}7-30{,}0)=6{,}0-0{,}7=\mathbf{5{,}3\text{ pp}}
+\]
+\begin{ejemplar}
+El borrado subió en \textbf{5,3 pp} la tasa de interés de los borrados respecto de lo que habría pasado sin la ley.\\
+\textbf{Ingenua 1} (solo después, entre grupos): $34{,}0-30{,}7=3{,}3$. Falla porque mezcla el efecto con la \textbf{diferencia previa} entre grupos: los borrados ya pagaban 2 pp \emph{menos} antes de la ley ($28{,}0-30{,}0=-2{,}0$), así que subestima.\\
+\textbf{Ingenua 2} (antes y después, solo los borrados): $6{,}0$. Falla porque mezcla el efecto con el \textbf{shock común} del periodo (ciclo, TPM): las tasas subieron 0,7 pp para todos, así que sobreestima.
+\end{ejemplar}
+
+\sub{b) Los $\beta$}{6}
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{llr}\toprule
+$\beta_0$ & Media de los no borrados antes & 30,0\\
+$\beta_1$ & Diferencia inicial, borrados menos no borrados (antes) & $-2{,}0$\\
+$\beta_2$ & Cambio en el tiempo del grupo de control (tendencia común) & 0,7\\
+$\beta_3$ & \textbf{Efecto de la ley} (DiD) & \textbf{5,3}\\\bottomrule
+\end{tabular}
+\end{center}
+\textbf{Puntaje:} 1,5 puntos por cada $\beta$ (valor y significado).
+
+\sub{c) Significancia}{4}
+\begin{ejemplar}
+$t=5{,}3/2{,}1=\mathbf{2{,}52}>1{,}96$: es significativo al 5\,\%, aunque no al 1\,\% (2,52 < 2,58). Hay evidencia de que el borrado encareció el crédito para los borrados en unos 5,3 pp.
+\end{ejemplar}
+
+\sub{d) Supuesto y parámetro}{5}
+\begin{ejemplar}
+\textbf{Tendencias paralelas:} sin la ley, la tasa de los borrados habría subido lo mismo que la de los no borrados (0,7 pp). \textbf{No exige niveles iguales}: la diferencia de 2 pp antes de la ley no es problema.\\
+\textbf{No se puede verificar} con dos periodos, porque es un contrafactual. Con varios periodos previos se comparan las \textbf{tendencias previas}, no los niveles.\\
+\textbf{Parámetro: ATT}, el efecto promedio sobre los \textbf{tratados}, es decir, sobre los borrados, y en particular los que están cerca del umbral de \$2,5 millones.
+\end{ejemplar}
+
+\sub{e) Bancos que suben la tasa a todo el segmento}{4}
+\begin{ejemplar}
+El grupo de control queda \textbf{contaminado}: también recibe parte del efecto de la ley (es un efecto de derrame o de equilibrio general, y el control deja de representar lo que habría pasado sin la ley). Su cambio de 0,7 pp incluye parte del efecto, así que se le resta de más a los borrados. El DiD \textbf{subestima} el efecto: el efecto verdadero sobre los borrados sería \textbf{mayor} que 5,3 pp. Es el mismo mecanismo del ejercicio 5A: si el control recibe tratamiento, la diferencia \textbf{se acerca a cero}.
+\end{ejemplar}
+
+% ============================================================
+\section*{P4. Teoría (10 pts)}
+\small
+\begin{enumerate}[label=\arabic*.,leftmargin=*,itemsep=3pt]
+\item \textbf{(T14) F.} Con $y=1$ malo, $\hat\beta>0$ significa que a mayor deuda/ingreso, \textbf{mayor} probabilidad de ser malo: más riesgo. Hay que mirar siempre qué es $y=1$.
+\item \textbf{(T34)} Un modelo que dijera «nadie deserta» también acertaría el 90\,\%. Con clases desbalanceadas, la exactitud no prueba nada. Hay que mirar la \textbf{sensibilidad}, $VP/(VP+FN)$, que dice cuántos desertores detecta, y la especificidad. Además se puede bajar el corte a $\bar y=0{,}10$ y comparar modelos con la ROC y el AUC.
+\item \textbf{(T43) F.} Se esperan $\hat\beta<0$: el WOE crece con la calidad del cliente y el modelo predice ser malo. En German Credit salieron todos cerca de $-1$. Un signo positivo indica multicolinealidad o mala tramificación.
+\item \textbf{(T63) F.} Con dos periodos \textbf{no se puede verificar}, porque es un contrafactual. Con más periodos previos se comparan las \textbf{tendencias}, no los niveles. Los niveles pueden ser distintos.
+\item \textbf{(T66) F.} El equilibrio general sí es una amenaza \textbf{externa}, pero la muestra pequeña es una amenaza \textbf{interna} (estimaciones imprecisas). Las internas son: no aleatorizar, incumplir el protocolo, atrición, efectos experimentales y muestra pequeña. Las externas: muestra no representativa, programa no representativo y equilibrio general.
+\item \textbf{(T77)} Comparar solo después confunde el efecto con las \textbf{diferencias previas} entre colegios. El traspaso no fue aleatorio, así que la diferencia simple queda sesgada. Lo correcto es un \textbf{DiD}: el cambio del SIMCE de los colegios SLEP menos el cambio de los municipales, bajo tendencias paralelas (revisando las tendencias previas con varios años) y con errores agrupados por colegio. Pfeng dijo que, hecho así, la diferencia \textbf{no es significativa}.
+\end{enumerate}
+\normalsize
+\textbf{Puntaje:} 0,5 puntos por V/F y el resto por la justificación. Si dice V/F sin justificar, la respuesta vale 0.
+
+% ============================================================
+\section*{Registro de la corrección}
+\begin{center}\small
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|l|c|c|c|p{7.2cm}|}\hline
+Pregunta & Puntaje máx. & Mi puntaje & Minutos usados & Qué fallé (y a qué paso o ítem vuelvo)\\\hline
+P1 & 35 & & & \\\hline
+P2 & 30 & & & \\\hline
+P3 & 25 & & & \\\hline
+P4 & 10 & & & \\\hline
+\textbf{Total} & \textbf{100} & & & \\\hline
+\end{tabular}
+\end{center}
+\textbf{Nota (escala al 60\,\%):} si el puntaje $p\ge60$, nota $=4+3(p-60)/40$; si $p<60$, nota $=1+3p/60$.\\
+\textbf{Regla del paso 8:} se vuelve \textbf{solo} a lo que falló. Una pregunta con menos del 60\,\% de su puntaje se rehace mañana en el simulacro corto (paso 9). Si se pasó del tiempo sugerido, el problema es el ritmo, no la materia.
+
+\end{document}

@@ -1,0 +1,104 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=2cm]{geometry}
+\usepackage{booktabs,array,enumitem,amsmath,amssymb,xcolor,tcolorbox}
+\usepackage{lmodern}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\newtcolorbox{preg}[2]{colback=blue!3,colframe=blue!45!black,title={\bfseries #1\hfill #2},fonttitle=\small,boxrule=0.6pt,left=5pt,right=5pt,top=3pt,bottom=3pt}
+\newcommand{\pts}[1]{\hfill\textbf{\small(#1)}}
+\begin{document}
+\renewcommand{\%}{\ifmmode\mbox{\char37}\else\char37\fi}
+
+\begin{center}
+{\Large\bfseries Econometría II · PEP 1 · Simulacro final}\\[3pt]
+Prof. Pfeng · Un bloque · \textbf{80 minutos · 100 puntos} · Con calculadora, sin apuntes
+\end{center}
+
+\begin{tcolorbox}[colback=gray!5,colframe=gray!60,boxrule=0.5pt,left=5pt,right=5pt,top=2pt,bottom=2pt]
+\small
+\textbf{Instrucciones.} Responda en hojas aparte. Muestre el planteamiento: sin él no hay puntaje completo. \textbf{Interprete cada número que calcule} (unidad y sentido económico). Redondee probabilidades a 4 decimales y el WOE a 1 decimal. Use $P=1/(1+e^{-z})$. Valores críticos: $|t|>1{,}96$ al 5\,\%; $|t|>2{,}58$ al 1\,\%. Los datos son ilustrativos.\\[3pt]
+\textbf{Tiempo sugerido:} P1 28 min · P2 22 min · P3 20 min · P4 7 min · revisión 3 min.
+\end{tcolorbox}
+
+% ============================================================
+\begin{preg}{P1. Logit de incumplimiento y clasificación}{35 pts · 28 min}
+Una cooperativa de ahorro y crédito estima un logit de incumplimiento para sus créditos de consumo. La variable dependiente es $y=1$ si el cliente cae en mora de 90 días o más en los 12 meses siguientes (\textbf{malo}) y $y=0$ si paga. Las variables son: CARGA, deuda mensual sobre ingreso (en \%); ANTIG, años en el empleo actual; y MORAPREV, que vale 1 si tuvo algún atraso en los últimos 12 meses. Los errores estándar van entre paréntesis.
+\[
+\hat z=\underset{(0{,}60)}{-4{,}0}+\underset{(0{,}01)}{0{,}05}\,\text{CARGA}\;\underset{(0{,}03)}{-\;0{,}08}\,\text{ANTIG}\;+\underset{(0{,}25)}{1{,}1}\,\text{MORAPREV}
+\]
+En la muestra, $\overline{\text{CARGA}}=30$ y $\overline{\text{ANTIG}}=5$.
+\begin{enumerate}[label=\alph*),leftmargin=*,itemsep=2pt]
+\item ¿Qué signo tiene cada coeficiente? ¿Es coherente con la lógica económica? ¿Es significativa ANTIG al 5\,\%? \pts{6}
+\item Calcule la probabilidad estimada de incumplir de un cliente con CARGA y ANTIG en la media, sin atraso previo y con atraso previo. Calcule el efecto parcial de MORAPREV e interprételo. \pts{8}
+\item Calcule el efecto marginal de CARGA para cada uno de esos dos clientes. ¿Por qué es distinto si el $\hat\beta$ es el mismo? \pts{7}
+\item Interprete $e^{1{,}1}$ y el coeficiente de ANTIG en términos de odds. \pts{4}
+\item En la muestra de validación ($N=2.000$, 200 malos), con un corte de 0,10, el modelo clasifica así:
+\begin{center}\small
+\begin{tabular}{lcc}\toprule
+ & Predice malo & Predice bueno\\\midrule
+Malo real & 150 & 50\\
+Bueno real & 360 & 1.440\\\bottomrule
+\end{tabular}
+\end{center}
+Calcule la exactitud, la sensibilidad, la especificidad y la precisión. Un gerente sostiene que el modelo «todos pagan» acierta el 90\,\% y por eso es mejor. Comente. ¿Qué pasaría con la sensibilidad y la especificidad si se subiera el corte a 0,5? \pts{10}
+\end{enumerate}
+\end{preg}
+
+% ============================================================
+\begin{preg}{P2. Scoring: WOE e IV}{30 pts · 22 min}
+El área de riesgo de un banco tramifica la \textbf{utilización de la tarjeta de crédito} (saldo sobre cupo, en \%) en una muestra de desarrollo de 9.000 clientes ($y=1$: malo).
+\begin{center}\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{lrr}\toprule
+Utilización & Buenos & Malos\\\midrule
+$[0, 30)$ & 3.200 & 200\\
+$[30, 60)$ & 2.400 & 270\\
+$[60, 90)$ & 960 & 300\\
+$90$ o más & 1.440 & 230\\\midrule
+Total & 8.000 & 1.000\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=*,itemsep=2pt]
+\item Calcule, para cada tramo, el \%B, el \%M, el WOE (convención del curso, $\text{WOE}=\ln(\%B/\%M)\cdot100$) y la tasa de malos. \pts{10}
+\item Calcule el IV de la variable e interprételo. \pts{6}
+\item ¿El WOE es monótono? ¿Tiene sentido económico? Proponga una corrección, recalcule el WOE y el IV, y explique por qué el IV cambia como cambia. \pts{8}
+\item Un cliente usa el 75\,\% de su cupo. Con la tramificación corregida, ¿con qué valor entra esta variable en la regresión logística woeizada? ¿Cuántos $\beta$ se estiman para esta variable si entra woeizada y cuántos si entra con dummies? ¿Qué signo espera del $\hat\beta$ woeizado y por qué? \pts{6}
+\end{enumerate}
+\end{preg}
+
+% ============================================================
+\begin{preg}{P3. Diferencias en diferencias: Ley 20.575}{25 pts · 20 min}
+En 2012, la Ley 20.575 borró de los registros de morosidad las deudas impagas de las personas cuya mora total era menor a \$2,5 millones. Para medir su efecto sobre el costo del crédito, un analista compara la tasa de interés anual promedio (\%) de los créditos de consumo nuevos de dos grupos: los \textbf{borrados} (mora apenas bajo el umbral) y los \textbf{no borrados} (mora apenas sobre el umbral).
+\begin{center}\small
+\begin{tabular}{lcc}\toprule
+ & Antes de la ley & Después de la ley\\\midrule
+Borrados & 28,0 & 34,0\\
+No borrados & 30,0 & 30,7\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=*,itemsep=2pt]
+\item Calcule el estimador DiD. Calcule también las dos comparaciones «ingenuas» y explique por qué cada una falla. \pts{6}
+\item En $Y=\beta_0+\beta_1\,\text{BORR}+\beta_2\,\text{POST}+\beta_3\,\text{BORR}\times\text{POST}+u$, entregue el valor y el significado de cada $\beta$. \pts{6}
+\item Si $\text{ee}(\hat\beta_3)=2{,}1$, ¿es significativo al 5\,\%? Interprete. \pts{4}
+\item ¿Cuál es el supuesto de identificación? ¿Se puede verificar con estos datos? ¿Qué parámetro estima el DiD y sobre quién? \pts{5}
+\item Un banco declara que, al perder información, subió las tasas a todo ese segmento de clientes, incluidos los no borrados. ¿Qué problema genera esto en la evaluación y hacia dónde sesga el DiD? \pts{4}
+\end{enumerate}
+\end{preg}
+
+% ============================================================
+\begin{preg}{P4. Teoría}{10 pts · 7 min}
+\small Responda V o F con una justificación de una o dos líneas, o comente brevemente.
+\begin{enumerate}[label=\arabic*.,leftmargin=*,itemsep=2pt]
+\item \textbf{(1,5)} V/F. En un modelo de riesgo de crédito con $y=1$ si el cliente es malo, un $\hat\beta$ positivo de la razón deuda/ingreso indica que, a mayor razón, menor riesgo.
+\item \textbf{(2)} Comente. Una universidad reporta que su modelo de deserción de primer año (10\,\% de desertores) tiene una exactitud del 90\,\% y lo declara «muy bueno».
+\item \textbf{(1,5)} V/F. En la regresión logística woeizada ($y=1$ malo, WOE de la clase), se espera que todos los $\hat\beta$ sean positivos.
+\item \textbf{(1,5)} V/F. Con solo dos periodos (antes y después), el supuesto de tendencias paralelas se verifica comparando los niveles de ambos grupos en el periodo previo.
+\item \textbf{(1,5)} V/F. Los efectos de equilibrio general y las muestras pequeñas son amenazas a la validez externa.
+\item \textbf{(2)} Comente. Un estudio de prensa compara el SIMCE de los colegios que pasaron a los SLEP con el de los que siguen municipales, después del traspaso, y concluye que «los SLEP mejoraron el SIMCE». Proponga cómo debería evaluarse.
+\end{enumerate}
+\end{preg}
+
+\end{document}

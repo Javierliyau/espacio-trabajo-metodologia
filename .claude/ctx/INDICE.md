@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 20:24. 314 archivos, ~131485.8k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 21:11. 319 archivos, ~131529.9k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -42,6 +42,8 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 20:24. 314 archivos, ~131
 | ⚠ 11.8k | 1086 | `trabajo/overleaf-etapa1/prueba.log` |  |
 | ⚠ 11.5k | 1032 | `trabajo/econometria-ii-estudio/2026-11-02-lectura-pep1-casos-reales.log` |  |
 | ⚠ 11.1k | 988 | `trabajo/tex/2026-11-01-caso-intel-asml-control-2.log` |  |
+| ⚠ 10.6k | 995 | `trabajo/ficha-streaming/2026-11-03-ficha-caso-streaming-teoria-pep1.log` |  |
+| ⚠ 10.5k | 984 | `trabajo/ficha-dicom/2026-11-03-ficha-caso-ley-dicom-teoria-pep1.log` |  |
 | ⚠ 10.5k | 976 | `trabajo/overleaf-etapa1/guion-javier-final.log` |  |
 | ⚠ 10.5k | 976 | `trabajo/overleaf-etapa1/ficha.log` |  |
 | ⚠ 10.5k | 972 | `trabajo/overleaf-etapa1/guion-javier-3-9-10.log` |  |
@@ -51,10 +53,12 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 20:24. 314 archivos, ~131
 | ⚠ 9.8k | 1233 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Motor/items.json` |  |
 | ⚠ 9.7k | 681 | `trabajo/econometria-ii-estudio/2026-11-02-lectura-pep1-casos-reales.tex` |  |
 | ⚠ 9.7k | 681 | `trabajo/respaldo-lectura-pep1/2026-11-02-lectura-pep1-casos-reales.tex` |  |
+| ⚠ 9.7k | 333 | `trabajo/ficha-dicom/2026-11-03-ficha-caso-ley-dicom-teoria-pep1.tex` |  |
 | ⚠ 9.5k | 340 | `trabajo/2026-10-24-plan-finde.md` | Plan del fin de semana 24-25 oct y ruta  L1; 0. Lo esencial en 6 líneas L13; 1. Estado de cada ramo L24; 2. Tabla de prioridades L135; 3. Horas disponibles y horas necesarias  L152; 4. Sábado 24 y domingo 25, hora por hora L208; 5. Esbozo del lun 26 al jue 5-11 L283; 6. Pendientes arrastrados sin marcar: qu L308; +1 |
 | ⚠ 9.0k | 799 | `trabajo/build-prediccion/2026-11-01-prediccion-final-control-2.log` |  |
 | ⚠ 8.9k | 805 | `trabajo/tex/2026-11-01-simulacro-control-2-droller.log` |  |
 | ⚠ 8.8k | 398 | `trabajo/moore-pdf/2026-10-31-lectura-control-2-caso-moore.tex` |  |
+| ⚠ 8.6k | 330 | `trabajo/ficha-streaming/2026-11-03-ficha-caso-streaming-teoria-pep1.tex` |  |
 | ⚠ 8.5k | 375 | `trabajo/guia-filtrada/2026-11-03-guia-filtrada-10-ejercicios-pep1.tex` |  |
 | ⚠ 7.5k | 475 | `trabajo/revision-etapa2/salida.txt` | A tibble: 3,318 × 3 L58; ℹ 3,308 more rows L71; A tibble: 317,700 × 10 L72; ℹ 317,690 more rows L85; ℹ 5 more variables: CODIGO_REGION <dbl>, L86; INGRESO_PERCAPITA_GRUPO_FA <dbl> L87; A tibble: 168,714 × 10 L88; ℹ 168,704 more rows L101; +13 |
 | ⚠ 7.5k | 446 | `trabajo/nota-r-david/v7_parche.R` | ======================================== L1; ECONOMETRIA II - USACH / ETAPA 2 - VERSI L2; Integrantes: David Cuevas, Javier Li-Yau L3; Referencia metodologica: GermanCredit_Sc L4; Objetivo: Y=1 si matricula REGULAR en pr L5; Alcance: descripcion, consistencia, WOE/ L6; NOTA: ejecutar sobre los archivos DEMRE  L7; de entregarlos. No se incluyen cifras in L8; +68 |
@@ -98,6 +102,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 20:24. 314 archivos, ~131
 | ⚠ 4.7k | 315 | `trabajo/econometria-ii-estudio/build.log` |  |
 | ⚠ 4.6k | 306 | `trabajo/econometria-ii-demre/trabajo-09.log` | A tibble: 3,318 × 3 L61; ℹ 3,308 more rows L74; A tibble: 3,220 × 2 L75; ℹ 3,210 more rows L88; A tibble: 3,318 × 4 L89; ℹ 3,308 more rows L102; A tibble: 317,700 × 15 L103; ℹ 317,690 more rows L116; +25 |
 | ⚠ 4.6k | 344 | `trabajo/econometria-ii-estudio/salidas-paes-estudio.txt` |  |
+| ⚠ 4.5k | 283 | `trabajo/ficha-streaming/log2.txt` |  |
 | ⚠ 4.3k | 570 | `trabajo/micro/respaldo-motor-2026-11-01/banco/indice.json` |  |
 | ⚠ 4.2k | 301 | `trabajo/nota-r-david/salida_entrega_ruta_pc.txt` |  |
 | ⚠ 4.0k | 293 | `trabajo/nota-r-david/salida_pc_profe.txt` |  |

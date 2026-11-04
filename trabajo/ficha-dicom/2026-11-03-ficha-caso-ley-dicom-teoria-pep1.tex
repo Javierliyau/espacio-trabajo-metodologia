@@ -1,0 +1,333 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish,es-noshorthands]{babel}
+\usepackage[margin=1.8cm]{geometry}
+\usepackage{booktabs,array,enumitem,amsmath,amssymb,xcolor,tcolorbox,icomma,multicol}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{plain}
+\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}
+\newtcolorbox{ejemplar}{colback=green!5,colframe=green!40!black,title=Respuesta ejemplar,fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newtcolorbox{trampa}{colback=red!5,colframe=red!50!black,title=Trampas,fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newtcolorbox{enun}[1]{colback=blue!4,colframe=blue!45!black,title={#1},fonttitle=\bfseries\small,boxrule=0.6pt,left=4pt,right=4pt,top=2pt,bottom=2pt}
+\newtcolorbox{gancho}{colback=yellow!8,colframe=orange!70!black,boxrule=0.6pt,left=5pt,right=5pt,top=3pt,bottom=3pt}
+\newcommand{\V}{\textsuperscript{\textcolor{green!45!black}{[V]}}}
+\newcommand{\Pre}{\textsuperscript{\textcolor{orange!80!black}{[P]}}}
+\newcommand{\inv}{\textsuperscript{\textcolor{red!60!black}{[inv]}}}
+\newcommand{\calc}{\textsuperscript{\textcolor{blue!60!black}{[cálc]}}}
+\newcommand{\acto}[1]{\vspace{6pt}{\large\bfseries #1}\par\vspace{2pt}\hrule\vspace{4pt}}
+\newcommand{\Ph}{\hat P}
+\begin{document}
+\renewcommand{\%}{\ifmmode\mbox{\char37}\else\char37\fi}
+
+\begin{center}
+{\LARGE\bfseries Borrón y cuenta nueva: la Ley Dicom de 2012}\\[3pt]
+{\large Logit, clasificación, \emph{scoring} y diferencias en diferencias sobre un caso real del crédito chileno}\\[3pt]
+\small Ficha de estudio de la parte teórica · los 22 ítems seleccionados (núcleo 12 + refuerzo 10) · mar 3-11-2026 · PEP 1: vie 6-11
+\end{center}
+
+\textbf{Cómo se usa.} Cada ítem del banco de teoría aparece \emph{reescrito sobre el caso} (recuadro azul), con su respuesta ejemplar (verde) y sus trampas (rojo). Primera pasada: lee el caso de cada acto. Segunda pasada: tapa lo verde, contesta en voz alta (V/F + palabra clave) y compara. La última página es la tabla de recuerdo activo. En la prueba los enunciados hablarán de Spector, deserción, PAES o SLEP: \textbf{el razonamiento es el mismo}, solo cambian los nombres.
+
+\textbf{Marcas de las cifras.} \V\ leída en la fuente primaria · \Pre\ prensa o terceros · \calc\ cálculo propio desde cifras \V · \inv\ inventada para practicar (la fuente no publica ese dato), coherente con lo real. Nada inventado se presenta como real.
+
+\begin{gancho}
+\textbf{Enero--febrero de 2012.} El Congreso aprueba la Ley 20.575, conocida como «Ley Dicom»: los burós de crédito dejan de informar las deudas impagas que se hicieron exigibles antes del 31-12-2011, si el total de la persona (sin intereses ni reajustes) es menor a \textbf{\$2,5 millones} (unos US\$5.000)\V\Pre. Además, la información comercial no puede usarse para seleccionar personal, admitir en colegios ni condicionar atenciones de salud\Pre. Se justificó como alivio tras el terremoto de 2010, y ya había existido un borrón parecido en 2002\V.
+
+\textbf{Lo que pasó.} Se borraron los registros de \textbf{2,8 millones de personas}, el \textbf{21\%} de los 13 millones de chilenos mayores de 15 años y el \textbf{84\%} de los deudores bancarios en mora\V. Los bancos siguieron viendo la mora \emph{bancaria} (el regulador, la SBIF, no borró nada), pero ya no la mora en el comercio\V. La tasa mediana de los créditos de consumo pequeños subió \textbf{5,3 pp} (desde 26\%)\V. Tres años después, el número de personas con mora informada casi había vuelto al nivel previo\V.
+
+\textbf{La pregunta del economista:} ¿la ley amplió el acceso al crédito? Liberman, Neilson, Opazo y Zimmerman (NBER w25097) responden con los datos de \emph{todos} los deudores bancarios de Chile (Sinacofi, 2009--2014; 23 millones de observaciones de 5,6 millones de personas)\V. Para eso usan las cuatro herramientas de la PEP: un modelo de \textbf{probabilidad de impago} (Acto 1), su \textbf{capacidad de clasificar} (Acto 2), la lógica del \textbf{score} (Acto 3) y un \textbf{DiD} (Acto 4). Respuesta corta: el crédito total \textbf{cayó 3,5\%}\V.
+\end{gancho}
+
+% =====================================================================
+\acto{Acto 1. ¿Quién no paga? Logit y MPL del impago bancario}
+
+\textbf{El caso.} Para cada deudor, los autores predicen el \textbf{impago bancario en los 6 meses siguientes} (mora de 90 días o más), con y sin el registro borrado\V. Antes del borrón, la tasa de impago era \textbf{0,029} en el mercado de «bajo costo» (casi todos sin registro en Dicom) y \textbf{0,069} en el de «alto costo» (casi todos con registro)\V. Con una sola dummy, $REG=1$ si la persona tenía mora informada, el logit reproduce exactamente las dos tasas, así que sus coeficientes salen a mano\calc:
+\[
+\hat z=-3{,}511+0{,}909\,REG,\qquad \Ph=\frac{1}{1+e^{-\hat z}}\quad (y=1 \text{ si no paga, es decir, «malo»}).
+\]
+Comprueba: $REG=0\Rightarrow \Ph=1/(1+e^{3,511})=0{,}029$; \ $REG=1\Rightarrow \hat z=-2{,}602$, $\Ph=0{,}069$.
+
+\begin{enun}{T14 (núcleo) · signo con $y=1$ malo}
+V/F. En el probit del Banco Central de Chile sobre impago de los hogares (EFH 2007), $y=1$ si el hogar no paga, y el coeficiente de la carga financiera (RCIM, hasta 42,8) es positivo. Eso indica que a mayor carga financiera, menor riesgo.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Con $y=1=$ malo, un $\hat\beta>0$ significa \textbf{más} probabilidad del evento malo: más carga financiera, \textbf{más riesgo}. Martínez, Cifuentes, Madeira y Poblete-Cazenave (2013) obtienen $\hat\beta>0$ para la carga financiera bajo 42,8 (sobre ese umbral la pendiente deja de ser significativa) y para la probabilidad de despido del jefe de hogar ($8{,}116$); el ingreso tiene $\hat\beta=-0{,}216$: más ingreso, menos riesgo\V. Lo mismo en nuestro logit: $\hat\beta_{REG}=+0{,}909$, tener mora informada sube el riesgo. En el puntaje (score) es al revés: más puntos, menos riesgo.
+\end{ejemplar}
+
+\begin{enun}{T6 (núcleo) · $\hat\beta$ no está en puntos porcentuales}
+V/F. $\hat\beta_{REG}=0{,}909$ significa que tener mora en Dicom aumenta la probabilidad de impago en 0,91 puntos porcentuales.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Un coeficiente logit mueve el \emph{índice} $z$ (log-odds), no la probabilidad. Lo interpretable es $e^{0,909}=2{,}48$: tener registro \textbf{multiplica los odds de impago por 2,48}\calc. En probabilidad, como $REG$ es dummy, el efecto es la resta de dos $\Ph$: $0{,}069-0{,}029=\mathbf{+4{,}0}$ \textbf{pp}, no 0,91.
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Para una dummy, el efecto es $\Ph(1)-\Ph(0)$, no $g(z)\hat\beta$.
+\item «Odds ×2,48» no es «probabilidad ×2,48»: la probabilidad se multiplica por $0{,}069/0{,}029=2{,}38$\calc. Se parecen solo porque $P$ es chica.
+\end{itemize}
+\end{trampa}
+
+\begin{enun}{T13 (refuerzo) · pp frente a \%}
+V/F. Tras el borrón, la tasa mediana de los créditos pequeños pasó de 26\% a 31,3\%: subió 5,3\%.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Subió \textbf{5,3 puntos porcentuales}; en términos relativos, $5{,}3/26=\mathbf{20\%}$, que es justo lo que dice el paper\V\calc. Lo mismo con el impago: de 2,9\% a 6,9\% son \textbf{4,0 pp}, o $+138\%$ relativo\calc. «pp» es resta; «\%» es cambio relativo. Es el error de «de 0,04 a 0,06 sube 2\%» (son 2 pp, y +50\%).
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Con logaritmos, una diferencia de $-0{,}29$ en $\ln \Ph$ es $e^{-0,29}-1=-25\%$\calc, aunque el paper lo redondee a «cae 29\%»\V. La aproximación $\Delta\ln\approx\%$ solo vale para cambios chicos.
+\end{itemize}
+\end{trampa}
+
+\begin{enun}{T1 (refuerzo) · heterocedasticidad del MPL}
+V/F. Si un banco estima un MPL, $\Ph=0{,}029+0{,}040\,REG$, como $\mathrm{Var}(u\mid x)=P(1-P)$ cambia entre grupos, los $\hat\beta$ de MCO quedan sesgados.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} La varianza sí cambia: $0{,}029\cdot0{,}971=0{,}028$ sin registro y $0{,}069\cdot0{,}931=0{,}064$ con registro, \textbf{2,3 veces} más\calc. Pero la heterocedasticidad \textbf{no sesga} a MCO: le quita \textbf{eficiencia} e invalida los errores estándar habituales. Se corrige con errores robustos (o MCP con $\hat y(1-\hat y)$). Con una sola dummy, el MPL reproduce exactamente las dos tasas.
+\end{ejemplar}
+
+\begin{enun}{T22 (núcleo) · mismo $\hat\beta$, distinto efecto}
+Comente. «En el probit del Banco Central, un punto porcentual más de probabilidad de despido tiene el mismo efecto en un hogar con $\Ph=0{,}10$ que en uno con $\Ph=0{,}50$, porque $\hat\beta=8{,}116$ es uno solo».
+\end{enun}
+\begin{ejemplar}
+\textbf{Falso.} El efecto marginal es $g(z)\hat\beta$, con $g$ la densidad (normal en el probit; $P(1-P)$ en el logit). Con $\Ph=0{,}10$: $z=-1{,}28$, $\phi(z)=0{,}175$, y $0{,}175\cdot8{,}116\cdot0{,}01=\mathbf{+1{,}4}$ \textbf{pp}. Con $\Ph=0{,}50$: $\phi(0)=0{,}399$, y $\mathbf{+3{,}2}$ \textbf{pp}, más del doble\calc. El hogar «en el margen» ($P\approx0{,}5$) es el que más responde a un shock laboral. Por eso el Banco Central mide el riesgo por estrato y no con un solo número: con la misma carga financiera, el estrato de menores ingresos tiene más probabilidad de impago\V.
+\end{ejemplar}
+
+\textbf{Una variable continua\inv.} Para el ítem siguiente se agrega $CF=$ carga financiera (\% del ingreso que va a cuotas): $\hat z=-4{,}0+0{,}91\,REG+0{,}025\,CF$\inv. En el logit, $g(z)=P(1-P)$.
+
+\begin{enun}{T11 (núcleo) · EPeP frente a EPP}
+V/F. Con cuatro deudores\inv\ ($REG,CF$) $=(0,10),(0,30),(1,20),(1,60)$, el efecto parcial en el promedio y el efecto parcial promedio de $CF$ coinciden, porque salen del mismo modelo.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} \textbf{EPeP:} se evalúa $g$ en el deudor promedio, $\bar z=-4{,}0+0{,}91(0{,}5)+0{,}025(30)=-2{,}795$, $\Ph=0{,}058$, $g(\bar z)=0{,}054$, y $0{,}054\cdot0{,}025=\mathbf{+0{,}136}$ pp por punto de carga. \textbf{EPP:} se promedian los cuatro efectos individuales, con $\Ph_i=0{,}023;\ 0{,}037;\ 0{,}070;\ 0{,}169$, $\overline{g}=0{,}066$, y $0{,}066\cdot0{,}025=\mathbf{+0{,}165}$ pp\calc. Como $g$ no es lineal, $g(\bar z)\neq\overline{g(z_i)}$. Además, nadie tiene $REG=0{,}5$: el «deudor promedio» no existe, que es el argumento a favor del EPP.
+\end{ejemplar}
+
+% =====================================================================
+\acto{Acto 2. ¿Sirve el modelo para separar? Clasificación con tasa base baja}
+
+\textbf{El caso.} En la muestra con crédito nuevo, la tasa de impago bancario a 6 meses es \textbf{5\%}\V: los «malos» son pocos. Los autores comparan tres predictores (bosque aleatorio, \textbf{LASSO logístico} y Bayes ingenuo) por su log-verosimilitud fuera de muestra; el bosque gana y, al sacarle el registro borrado, empeora de $-0{,}278$ a $-0{,}284$\V\ ($-2{,}2\%$)\calc. El paper no publica matriz de confusión ni AUC, así que la siguiente matriz es \textbf{inventada}, con la tasa base real\inv: $N=10.000$ deudores, 500 malos.
+\begin{center}\small
+\begin{tabular}{lcc|c}\toprule
+Corte 0,5: Real $\backslash$ Predicho & Malo & Bueno & Total\\\midrule
+Malo ($y=1$) & VP $=40$ & FN $=460$ & 500\\
+Bueno ($y=0$) & FP $=20$ & VN $=9.480$ & 9.500\\\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enun}{T33 (núcleo) · pareo de las métricas, con estos números}
+Calcula las métricas de la matriz y di qué es la fórmula que sobra, FP/(FP + VP).
+\end{enun}
+\begin{ejemplar}
+Exactitud $=(VP+VN)/N=9.520/10.000=\mathbf{95{,}2\%}$ · Tasa de error $=(FP+FN)/N=4{,}8\%$ · Sensibilidad $=VP/(VP+FN)=40/500=\mathbf{8\%}$ · Especificidad $=VN/(VN+FP)=9.480/9.500=\mathbf{99{,}8\%}$ · Precisión $=VP/(VP+FP)=40/60=66{,}7\%$ · F1 $=2PS/(P+S)=14{,}3\%$\calc. La que sobra, $FP/(FP+VP)=33{,}3\%$, es $1-$ precisión (de los que el modelo llama malos, cuántos pagan).
+\end{ejemplar}
+
+\begin{enun}{T34 (núcleo) · exactitud frente a tasa base}
+Comente. «El modelo de riesgo del banco acierta el 95,2\% de los casos: es muy bueno».
+\end{enun}
+\begin{ejemplar}
+Un «modelo» que dijera \textbf{nadie es malo} acertaría $9.500/10.000=\mathbf{95\%}$\calc: el modelo le gana por \textbf{0,2 pp}. Con clases desbalanceadas la exactitud no prueba nada. Lo que importa al banco es la \textbf{sensibilidad}: detecta solo 40 de los 500 malos (8\%); los otros 460 reciben el crédito y no pagan. Hay que mirar sensibilidad, especificidad y comparar modelos con la ROC y el AUC (o el KS).
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \textbf{Caso profesional real: recesiones.} La Fed de Nueva York publica cada mes $P(\text{recesión en 12 meses})=\Phi(-0{,}5333-0{,}6330\cdot spread)$, un probit sobre la diferencia de tasas a 10 años y 3 meses, estimado con datos de 1959--2009 (Estrella y Mishkin, 1998)\V\Pre. En esos años, EE.\,UU.\ estuvo en recesión 93 de 612 meses: \textbf{15\%}\calc. «Nunca habrá recesión» acierta el 85\%.
+\end{itemize}
+\end{trampa}
+
+\begin{enun}{T23 (refuerzo) · el corte 0,5}
+V/F. El banco clasifica como malo si $\Ph>0{,}5$; ese corte es indiscutiblemente el mejor.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} El 0,5 es el criterio elemental, y con 5\% de malos casi nadie lo supera. El mejor corte depende de los \textbf{costos}: un FN es un malo aprobado (pérdida del préstamo); un FP es un bueno rechazado (negocio perdido). Si se baja el corte a la tasa observada, $\bar y=0{,}05$, con la matriz\inv\ VP $=350$, FN $=150$, FP $=2.400$, VN $=7.100$: la sensibilidad sube a \textbf{70\%}, la especificidad baja a \textbf{74,7\%} y la exactitud cae a 74,5\%\calc. Peor exactitud, modelo más útil. En el modelo de la Fed, el corte 0,5 equivale a $spread<-0{,}84$; un corte de 0,3 equivale a $spread<0$, es decir, a la curva invertida\calc.
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \textbf{Un falso positivo real:} en julio de 2023 el modelo de la Fed daba \textbf{65--66\%} de probabilidad de recesión\V; el NBER no ha fechado ninguna recesión posterior a la de 2020\V. La curva invertida también dio falsas alarmas a fines de los 60 y de los 90\V.
+\item En los sistemas de alerta temprana de crisis (Kaminsky y Reinhart, 1999), el umbral de cada indicador se elige minimizando la razón ruido/señal $=\frac{FP/(FP+VN)}{VP/(VP+FN)}=\frac{1-\text{especificidad}}{\text{sensibilidad}}$: otra forma de elegir el corte por costos.
+\end{itemize}
+\end{trampa}
+
+\begin{enun}{T27 (refuerzo) · ejes de la ROC}
+V/F. La ROC del modelo de riesgo grafica la sensibilidad contra la especificidad para cada corte.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Grafica la sensibilidad (eje $y$) contra \textbf{$1-$especificidad} (eje $x$, tasa de falsos positivos) para cada corte. Corte 0,5: punto $(0{,}002;\ 0{,}08)$; corte 0,05: punto $(0{,}253;\ 0{,}70)$\calc. El AUC resume todos los cortes (0,5 sería tirar una moneda). Lectura del caso: la Ley Dicom no cambió el corte; \textbf{bajó la curva}, porque quitó una variable informativa. Eso es lo que miden los autores con la log-verosimilitud.
+\end{ejemplar}
+
+% =====================================================================
+\acto{Acto 3. El score con y sin Dicom: WOE e IV}
+
+\textbf{El caso.} La variable «monto en mora informado (dic.\ 2011)» tiene cuatro atributos. Las proporciones de deudores son reales: 63\% sin registro, 31\% con mora bajo \$2,5 millones (borrable) y 6\% sobre ese monto\V; el corte del 31\% en dos tramos y las tasas de impago son \textbf{inventados}\inv, coherentes con la tasa base de 5\%. Convención de la clase: $WOE=\ln(\%B/\%M)\times100$, buenos arriba; IV sin $\times100$\calc:
+\begin{center}\small
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{lrrrrrr}\toprule
+Atributo & $N$ & Impago & \%B & \%M & WOE & IV parcial\\\midrule
+Sin registro & 63.000 & 3,0\% & 64,29 & 38,18 & $+52{,}1$ & 0,136\\
+Mora hasta \$200 mil & 18.000 & 6,5\% & 17,71 & 23,64 & $-28{,}9$ & 0,017\\
+Mora \$200 mil a \$2,5 M & 13.000 & 9,0\% & 12,45 & 23,64 & $-64{,}1$ & 0,072\\
+Mora \$2,5 M o más & 6.000 & 12,0\% & 5,55 & 14,55 & $-96{,}3$ & 0,087\\\midrule
+Total & 100.000 & 4,95\% & 100 & 100 & & \textbf{0,31}\\\bottomrule
+\end{tabular}
+\end{center}
+Comprueba la fila 1: buenos $=63.000\cdot0{,}97=61.110$, el 64,29\% de los 95.050 buenos; malos $=1.890$, el 38,18\% de los 4.950 malos; $\ln(64{,}29/38{,}18)\cdot100=+52{,}1$.
+
+\textbf{La ley vista como fusión forzada.} Tras el borrón, los tres primeros atributos se ven iguales: quedan «sin registro visible» (94.000; impago 4,5\%; WOE $+10{,}0$) y «\$2,5 M o más» (WOE $-96{,}3$). El IV cae de \textbf{0,31 a 0,10}\calc: de fuerte a débil (Siddiqi: 0,02 / 0,1 / 0,3). Es exactamente lo que encuentra el paper: los morosos borrados se ven mejores (su riesgo predicho cae en promedio 32\%) y los que nunca debieron se ven peores (el 89\% sube, en promedio 29\%)\V.
+
+\begin{enun}{T37 (núcleo) · signo del WOE}
+V/F. El WOE de «mora de \$200 mil a \$2,5 M» es $-64{,}1$: en ese atributo hay proporcionalmente más buenos que malos.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} WOE $<0\iff\%M>\%B$: el atributo reúne el 23,6\% de los malos y solo el 12,5\% de los buenos. Es un atributo de \textbf{más riesgo}. El único WOE positivo, $+52{,}1$ (sin registro), es el de menos riesgo.
+\end{ejemplar}
+
+\begin{enun}{T52 (núcleo) · con qué valor entra una persona}
+Selección múltiple. En la regresión woeizada (antes de la ley), una persona con \$150 mil en mora entra con: a) 150.000 \quad b) dummy «hasta \$200 mil» $=1$ \quad c) $-0{,}289$ \quad d) $-28{,}9$
+\end{enun}
+\begin{ejemplar}
+\textbf{c) $-0{,}289$.} Se la ubica en su atributo y entra con el \textbf{WOE de ese atributo, sin $\times100$}. No entra con el monto (eso sería otra especificación), ni con una dummy (regresión con dummies), ni con el WOE de la tabla ($\times100$). Después de la ley, esa misma persona entraría con $+0{,}100$.
+\end{ejemplar}
+
+\begin{enun}{T42 (refuerzo) · número de coeficientes}
+V/F. Esta variable de 4 atributos aporta 4 coeficientes si entra como dummies y 1 si entra woeizada.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Como dummies aporta $k-1=\mathbf{3}$ (un atributo queda de base, en el intercepto). Woeizada aporta \textbf{1}: una sola columna cuyo valor cambia según el atributo.
+\end{ejemplar}
+
+\begin{enun}{T43 (refuerzo) · signo esperado de los $\hat\beta$ woeizados}
+V/F. Con $y=1$ impago y el WOE de la clase, se espera que todos los $\hat\beta$ de la regresión woeizada sean positivos.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Se esperan \textbf{negativos}: el WOE crece con la calidad del deudor (más WOE, más «buenos») y el logit modela $y=1=$ malo, así que más WOE implica menos probabilidad de impago. Un $\hat\beta$ positivo es señal de multicolinealidad o de mala tramificación.
+\end{ejemplar}
+
+\begin{enun}{T59 (núcleo) · monotonía y fusión}
+Comente. Para la carga financiera, \texttt{woebin} entrega 5 tramos (0--10, 10--20, 20--30, 30--43 y más de 43\% del ingreso) con tasas de impago de 2,5; 4,0; 3,5; 6,5 y 6,0\%\inv; $N_2=25.000$, $N_3=20.000$, $N_4=15.000$, $N_5=10.000$.
+\end{enun}
+\begin{ejemplar}
+La tasa \textbf{no es monótona}: baja de 4,0 a 3,5\% y de 6,5 a 6,0\%, cuando a más carga se espera más impago. Se \textbf{retramifica fusionando tramos vecinos} y \textbf{ponderando por $N$}: tramo 2+3 $=\frac{25.000\cdot0,040+20.000\cdot0,035}{45.000}=3{,}78\%$; tramo 4+5 $=\frac{15.000\cdot0,065+10.000\cdot0,060}{25.000}=6{,}30\%$\calc. Queda $2{,}5\to3{,}78\to6{,}30$, monótona. La fusión de arriba tiene respaldo real: en el probit del Banco Central, sobre una carga de 42,8 la pendiente deja de ser significativa\V.
+\end{ejemplar}
+\begin{trampa}
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Nunca promediar tasas o WOE sin ponderar: $(4{,}0+3{,}5)/2=3{,}75$ está mal.
+\item IV alto de una variable no es lo mismo que valor incremental: sin el registro, el predictor del paper pierde poco (log-verosimilitud $-2\%$) porque los bancos aún ven la mora bancaria y el historial de deuda\V.
+\end{itemize}
+\end{trampa}
+
+\begin{enun}{T55 (refuerzo) · exclusiones}
+Comente. Un banco excluye de su muestra de modelamiento a sus funcionarios y a quienes no tienen historial de crédito. Un diputado lo acusa de discriminar, «como hacía Dicom».
+\end{enun}
+\begin{ejemplar}
+Las exclusiones se justifican por \textbf{calidad o representatividad}, no por características personales. Los funcionarios tienen condiciones preferenciales y otro incentivo a pagar: mezclarlos sesga la tasa de malos. Quien no tiene historial no aporta comportamiento de pago que observar; vuelve a la muestra cuando lo acumule. El paper hace lo mismo por diseño: deja fuera a quienes deben más de \$2,5 millones (su información no cambió) y exige saldo positivo 6 meses antes para tener una muestra comparable en el tiempo\V. Lo que la Ley 20.575 prohíbe es otra cosa: \emph{usar} el registro para fines ajenos al crédito, como contratar personal\Pre.
+\end{ejemplar}
+
+% =====================================================================
+\acto{Acto 4. ¿Qué causó el borrón? Diferencias en diferencias}
+
+\textbf{El diseño del paper}\V.
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item \textbf{Exposición:} con un bosque aleatorio entrenado en dic.\ 2009 se predice el impago de cada persona con y sin el registro. $E_i=$ cambio porcentual de su riesgo predicho por el borrón.
+\item \textbf{Tratados:} exposición positiva ($E_i\geq+15\%$; 2,1 millones, casi todos sin mora) y negativa ($E_i\leq-15\%$; 608 mil, casi todos morosos). \textbf{Control:} el grupo cero ($|E_i|<15\%$), a quienes el borrón no cambia la predicción.
+\item \textbf{Antes/después:} cohortes de jun.\ 2010, dic.\ 2010 y jun.\ 2011 (placebos) y dic.\ 2011 (la tratada). $Y=$ crédito de consumo nuevo en los 6 meses siguientes (miles de \$). Errores agrupados en 330 «mercados».
+\item \textbf{Resultado} (Tabla 4): exposición positiva, $\hat\beta_3=-13{,}72$ (EE 3,83), \textbf{$-6{,}4\%$} sobre una media de \$215 mil; exposición negativa, $+16{,}60$ (EE 3,72), \textbf{$+11{,}8\%$} sobre \$141 mil. Neto: $-\$30$ mil millones $+\ \$10$ mil millones $=-\$20$ mil millones en un semestre, \textbf{$-3{,}5\%$}\V.
+\end{itemize}
+Cuatro medias para practicar\inv, coherentes con la Tabla 4 (media previa del tratado y $\hat\beta_3$ reales) y con la Tabla 3 (grupo cero: \$175 mil en jul.\ 2011)\V:
+\begin{center}\small
+\begin{tabular}{lccc}\toprule
+Crédito nuevo (miles de \$) & Antes (jun.\ 2011) & Después (dic.\ 2011) & Cambio\\\midrule
+Exposición positiva (tratado) & 215,28 & 205,28 & $-10{,}00$\\
+Grupo cero (control) & 175,00 & 178,72 & $+3{,}72$\\\midrule
+DiD & & & $\mathbf{-13{,}72}\ \Rightarrow -13{,}72/215{,}28=-6{,}4\%$\\\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enun}{T69 (núcleo) · qué es cada $\beta$}
+V/F. En $y=\beta_0+\beta_1Treat+\beta_2Post+\beta_3(Treat\times Post)$, $\hat\beta_1=40{,}28$ es el efecto de la Ley Dicom en los que no tenían mora.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} $\hat\beta_0=175{,}00$: control antes. $\hat\beta_1=215{,}28-175{,}00=40{,}28$: \textbf{brecha inicial} (los expuestos ya pedían más crédito). $\hat\beta_2=+3{,}72$: tendencia común. $\hat\beta_3=-13{,}72$: \textbf{el efecto} (\$13.720 menos por persona, $-6{,}4\%$). Elasticidad del crédito al riesgo predicho: $-0{,}064/0{,}22=-0{,}29$\V\calc.
+\end{ejemplar}
+
+\begin{enun}{T62 (núcleo) · niveles distintos no sesgan}
+V/F. Los expuestos negativos piden \$141 mil y los positivos \$215 mil antes de la ley; como los niveles son tan distintos del grupo cero, el DiD está sesgado.
+\end{enun}
+\begin{ejemplar}
+\textbf{F} (y T62, tal como está en el banco, es \textbf{V}). Tendencias paralelas pide que, \textbf{sin la ley}, ambos grupos hubieran \textbf{cambiado} lo mismo, no que tengan el mismo nivel. La brecha permanente ($\beta_1$) se elimina al diferenciar. Lo que sesga son tendencias distintas.
+\end{ejemplar}
+
+\begin{enun}{T63 (refuerzo) · cómo se revisa el supuesto}
+V/F. Si el paper tuviera solo jun.\ 2011 y dic.\ 2011, verificaría tendencias paralelas comparando el crédito de ambos grupos en jun.\ 2011.
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Con dos periodos \textbf{no se puede verificar}: es un contrafactual, y comparar niveles no dice nada de tendencias. El paper tiene dos cohortes previas más y mira las \textbf{tendencias previas}: con jun.\ 2011 $=0$, los coeficientes de jun.\ y dic.\ 2010 son $-4{,}67$ (2,81) y $-0{,}25$ (3,25) en exposición positiva, y $-4{,}74$ (2,30) y $0{,}75$ (2,59) en la negativa\V. Ojo crítico: $-4{,}74/2{,}30$ da $t=-2{,}06$\calc, significativo al 5\%; los autores los describen como planos. Por eso agregan dos pruebas: un DiD alrededor del corte de \$2,5 millones y una comparación con los mismos meses de años anteriores\V.
+\end{ejemplar}
+
+\begin{enun}{T61 (refuerzo) · ATT frente a ATE}
+V/F. En un experimento aleatorio la diferencia de medias estima el ATT, y el DiD de la Ley Dicom estima el efecto promedio en toda la población (ATE).
+\end{enun}
+\begin{ejemplar}
+\textbf{F.} Es al revés. El experimento aleatorio da el \textbf{ATE}; el DiD estima el \textbf{ATT}: el efecto en los \textbf{tratados} (los 2,1 millones con exposición positiva y los 608 mil con exposición negativa), no en un deudor cualquiera. Los expuestos negativos, por ejemplo, son más pobres que el promedio (71\% de nivel socioeconómico bajo contra 55\%)\V: su $+11{,}8\%$ no se traslada a toda la población.
+\end{ejemplar}
+
+\begin{enun}{T66 (refuerzo) · interna frente a externa}
+V/F. Los efectos de equilibrio general y las muestras pequeñas (p.\,ej., usar solo a quienes deben entre \$2,25 y \$2,75 millones) son amenazas a la validez externa.
+\end{enun}
+\begin{ejemplar}
+\textbf{F (a medias).} El \textbf{equilibrio general} es amenaza \textbf{externa}: un borrón chico, para unos pocos, no movería los precios; uno para el 21\% de los adultos hace que los bancos re-predigan el riesgo de todos y suban las tasas (el corazón del paper). También es externa la especificidad del caso: Chile 2012, donde los bancos aún veían la mora bancaria. La \textbf{muestra pequeña} amenaza la validez \textbf{interna}: con ventanas muy estrechas alrededor del corte «los errores estándar crecen», reconocen los autores\V.
+\end{ejemplar}
+
+\textbf{Las amenazas, con el caso.} \textbf{Derrame a los controles:} el borrón afectó también a quienes no tenían mora (su riesgo predicho subió); por eso el control no puede ser «los no borrados», sino el grupo cero, y se revisa con el corte de \$2,5 M\V. \textbf{Shock simultáneo:} si algo más hubiera cambiado en 2012, también habrían subido las tasas de los créditos grandes, y no subieron\V; el terremoto de 2010 no elevó la mora agregada\V. \textbf{Composición:} se exige saldo positivo 6 meses antes, para que no entren solo quienes después pidieron crédito\V. \textbf{Anticipación:} la ley se discutió en 2011 con fecha de corte conocida; habría que revisar si alguien dejó de pagar para caer bajo el borrón (amenaza por revisar, no un hallazgo del paper).
+
+\begin{enun}{T77 (núcleo) · la nota de prensa falla y se propone el DiD}
+Comente. Una nota dice: «Tras la Ley Dicom, los beneficiados volvieron a endeudarse: un año después, piden más créditos que antes». Otra compara, \emph{después} de la ley, el crédito de los beneficiados con el de quienes nunca estuvieron en Dicom. Ambas concluyen que «la ley amplió el acceso al crédito». Comente y proponga cómo evaluarlo.
+\end{enun}
+\begin{ejemplar}
+\textbf{La primera es un antes/después sin control}: atribuye a la ley todo lo que cambió en un año (ciclo, tasas, estacionalidad). \textbf{La segunda es un después sin antes}: los beneficiados ya eran distintos (más pobres, con menos historial), así que la brecha mezcla el efecto con diferencias previas (\textbf{selección}). Y ninguna mira a los perjudicados. Lo correcto es un \textbf{DiD}: el cambio del crédito de los expuestos, menos el cambio de un grupo comparable \emph{no afectado} (el grupo cero), con varias cohortes previas. \textbf{Supuesto:} tendencias paralelas, que se revisa con las tendencias previas. \textbf{Amenazas:} derrame (los «no beneficiados» también fueron afectados), shock simultáneo y anticipación. El resultado contradice a la prensa: los beneficiados ganan $+11{,}8\%$, pero los perjudicados son más y el total cae $-3{,}5\%$\V. \textbf{En la PEP, con el SLEP, el esqueleto es el mismo:} «después sin antes» → DiD con colegios que siguen municipales como control, cambio del SIMCE antes y después del traspaso, tendencias previas del SIMCE y amenazas (selección de qué comunas se traspasan primero, shocks simultáneos).
+\end{ejemplar}
+
+\textbf{Mini ejercicio: el DiD ingenuo de la Figura 4.} El paper parte comparando morosos (borrados) con no morosos: el crédito de los morosos sube \textbf{\$41 mil} más que el de los no morosos, un 46\% de su media previa de \$88 mil\V\calc. Con medias inventadas para los no morosos\inv: morosos $88\to119$ ($+31$); no morosos $200\to190$ ($-10$); DiD $=31-(-10)=\mathbf{+41}$. Dos lecturas de examen. (1) El control \emph{también fue tratado}: sus $-10$ son en parte efecto de la ley (su riesgo predicho subió). Si sin la ley se hubieran quedado en 200, el efecto real en los morosos sería $+31$: el DiD ingenuo \textbf{sobrestima} la ganancia. (2) Este DiD compara dos grupos afectados en direcciones opuestas, así que no dice nada del efecto total. Por eso los autores pasan al grupo cero y llegan a $-3{,}5\%$; en su modelo de selección adversa, la pérdida de excedente sube un 66\% respecto de la situación previa\V.
+
+% =====================================================================
+\newpage
+\acto{Tabla de recuerdo activo: tapa la columna derecha}
+\small
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}p{1.1cm}p{6.6cm}p{8.7cm}@{}}\toprule
+Ítem & En el caso & Respuesta en una línea (palabra clave en negrita)\\\midrule
+T14 & Probit BCCh: carga financiera con $\hat\beta>0$ & F · $\hat\beta>0$ con $y=1$ malo $=$ \textbf{más riesgo}\\
+T6 & $\hat\beta_{REG}=0{,}909$ «son 0,91 pp» & F · \textbf{odds ×2,48}; efecto dummy $=\Ph(1)-\Ph(0)=+4{,}0$ pp\\
+T13 & Tasa 26 $\to$ 31,3\% «sube 5,3\%» & F · \textbf{5,3 pp}; relativo $+20\%$\\
+T1 & MPL, varianza 2,3 veces mayor & F · \textbf{insesgado}, pierde eficiencia; errores robustos\\
+T22 & Despido: $\hat\beta$ igual en $P=0{,}1$ y $0{,}5$ & F · $g(z)\hat\beta$: $+1{,}4$ contra $+3{,}2$ pp; \textbf{el del margen}\\
+T11 & 4 deudores, EPeP $=$ EPP & F · $+0{,}136$ contra $+0{,}165$ pp; \textbf{$g$ no lineal}\\
+T33 & Matriz 40/460/20/9.480 & Exact.\ 95,2 · sens.\ 8 · espec.\ 99,8 · prec.\ 66,7 · F1 14,3; sobra $1-$prec.\\
+T34 & «Acierta el 95,2\%» & \textbf{Tasa base} 95\% (Fed: 85\%); mirar sensibilidad, ROC, AUC\\
+T23 & Corte 0,5 «el mejor» & F · depende de \textbf{costos}; con $\bar y=0{,}05$: sens.\ 70\%\\
+T27 & ROC «S contra E» & F · S contra \textbf{1 $-$ E}; la ley \textbf{baja la curva}\\
+T37 & WOE $-64$ «más buenos» & F · WOE $<0$: \textbf{\%M $>$ \%B}, más riesgo\\
+T52 & \$150 mil en mora entra con... & \textbf{$-0{,}289$} (WOE sin ×100)\\
+T42 & 4 atributos: ¿4 y 1 $\beta$? & F · dummies $k-1=\mathbf{3}$; woeizada 1\\
+T43 & $\hat\beta$ woeizados positivos & F · se esperan \textbf{negativos}\\
+T59 & 2,5; 4,0; 3,5; 6,5; 6,0\% & No monótona: \textbf{fusionar ponderando por $N$}: 2,5; 3,78; 6,30\\
+T55 & Funcionarios y sin historial & \textbf{Calidad o representatividad}, no discriminación\\
+T69 & $\hat\beta_1=40{,}28$ «es el efecto» & F · $\beta_1$ \textbf{brecha inicial}; efecto $=\beta_3=-13{,}72$ ($-6{,}4\%$)\\
+T62 & 141 y 215 frente a 175: «sesgado» & F (el T62 del banco es V) · niveles se van al diferenciar; sesgan las \textbf{tendencias}\\
+T63 & 2 periodos, comparar niveles & F · \textbf{no se puede verificar}; con más cohortes, tendencias previas\\
+T61 & ECA $=$ ATT, DiD $=$ ATE & F · al revés: ECA $=$ ATE, DiD $=$ \textbf{ATT}\\
+T66 & Equilibrio general y muestra chica, externas & F a medias · muestra pequeña es \textbf{interna}; equilibrio general es externa\\
+T77 & «La ley amplió el crédito» & Antes/después y después solo: \textbf{selección}; \textbf{DiD} + tendencias previas + amenazas; SLEP igual\\\bottomrule
+\end{tabular}
+
+\normalsize
+\vspace{8pt}
+\textbf{Fuentes}
+\footnotesize\sloppy
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+\item Liberman, A., Neilson, C., Opazo, L. y Zimmerman, S. (2018, rev.\ 2019). The Equilibrium Effects of Information Deletion: Evidence from Consumer Credit Markets. NBER Working Paper 25097 (secciones 2--4; tablas 1--4, 6 y 7; versión de octubre de 2019 en la web de Neilson, mismas cifras). No publicado en revista: la web del autor lo lista como \emph{revise and resubmit} en el \emph{Journal of Finance} y resume una versión más nueva con otras cifras (crédito agregado $-9\%$, elasticidad $-0{,}14$, 67\% de los morosos), cuyo texto no se pudo revisar. La ficha usa la versión de 2019.
+\item Martínez, F., Cifuentes, R., Madeira, C. y Poblete-Cazenave, R. (2013). Measurement of Household Financial Risk with the Survey of Household Finances. Documento de Trabajo 682, Banco Central de Chile (tabla 5).
+\item Ley 20.575 (2012), que establece el principio de finalidad en el tratamiento de datos personales. Detalle de la ley: Cooperativa.cl, 24-1-2012.
+\item Estrella, A. y Mishkin, F. (1998). Predicting U.S. Recessions: Financial Variables as Leading Indicators. \emph{Review of Economics and Statistics}, 80(1), 45--61. Coeficientes del modelo de la Fed de Nueva York tomados de fuentes secundarias\Pre; muestra 1959--2009 y probabilidad de julio de 2023 en Neely, C.\ (2023), «What Is the Probability of a Recession?», \emph{On the Economy}, Fed de St.\ Louis, 7-9-2023.
+\item NBER, US Business Cycle Expansions and Contractions (fechas de recesiones; base del cálculo de 93 de 612 meses).
+\item Kaminsky, G. y Reinhart, C. (1999). The Twin Crises: The Causes of Banking and Balance-of-Payments Problems. \emph{American Economic Review}, 89(3), 473--500.
+\item Siddiqi, N. (2006). \emph{Credit Risk Scorecards}. Wiley (umbrales del IV).
+\end{itemize}
+\end{document}

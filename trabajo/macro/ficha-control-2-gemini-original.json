@@ -1,0 +1,105 @@
+{
+ "ramo": "Macroeconomía II",
+ "profesor": "Droller",
+ "universidad": null,
+ "tipo": "Control",
+ "numero": 2,
+ "anio": 2026,
+ "semestre": 2,
+ "fecha": "2026-11-02",
+ "resumen": "Control sobre el Modelo de Romer. Evalúa la derivación de la ecuación de cambio tecnológico con externalidades, conceptos de parámetros en opción múltiple y el planteamiento de maximización de beneficios y CPO en tiempo discreto.",
+ "preguntas": [
+  {
+   "n": "1a",
+   "puntaje": "5",
+   "obtenido": null,
+   "temas": [
+    "Modelo de Romer",
+    "Cambio tecnológico"
+   ],
+   "tipo_pregunta": "desarrollo",
+   "dificultad": "baja",
+   "enunciado": "Considere el modelo de Romer. Sea $A$ el stock de tecnología (ideas) en un momento dado; entonces la tecnología crece según\n$$\\dot A = \\bar\\theta L_A \\quad (1)$$\ndonde $L_A$ es el número de trabajadores (investigadores) que hacen I+D, y $\\bar\\theta$ es la tasa a la que cada investigador encuentra una idea nueva. Donde $\\bar\\theta$ depende de\n$$\\bar\\theta = \\theta L_A^{\\lambda-1} A^{\\phi} \\quad (2)$$\n\n(a) Escriba la ecuación de $\\dot A$ que represente el cambio tecnológico de la economía, considerando las externalidades provenientes de otros investigadores y del nivel tecnológico vigente.",
+   "pauta": null
+  },
+  {
+   "n": "1b",
+   "puntaje": "5",
+   "obtenido": null,
+   "temas": [
+    "Modelo de Romer",
+    "Tasa de crecimiento tecnológico"
+   ],
+   "tipo_pregunta": "desarrollo",
+   "dificultad": "baja",
+   "enunciado": "(b) Escriba una ecuación que muestre la tasa de crecimiento de la tecnología $\\dot A / A$.",
+   "pauta": null
+  },
+  {
+   "n": "2",
+   "puntaje": "10",
+   "obtenido": null,
+   "temas": [
+    "Modelo de Romer",
+    "Destrucción de capital"
+   ],
+   "tipo_pregunta": "alternativas",
+   "dificultad": "media",
+   "enunciado": "Opción múltiple: $\\lambda = 0$ implica que:\n(a) Los investigadores tienen un efecto negativo sobre el crecimiento tecnológico, por competir y duplicar esfuerzos en I+D.\n(b) El número de investigadores no cambia la tasa de crecimiento tecnológico.\n(c) La tecnología existente tiene un efecto positivo, facilita, el descubrimiento de ideas.\n(d) Se neutralizan los efectos *fishing out* y *standing on shoulders* entre sí.",
+   "pauta": null
+  },
+  {
+   "n": "3",
+   "puntaje": "10",
+   "obtenido": null,
+   "temas": [
+    "Modelo de Romer",
+    "Estado estacionario"
+   ],
+   "tipo_pregunta": "alternativas",
+   "dificultad": "media",
+   "enunciado": "Opción múltiple: $\\phi > 0$ implica que:\n(a) La tecnología existente tiene un efecto positivo, las ideas se acumulan y favorecen nuevos descubrimientos.\n(b) El número de investigadores impacta positivamente en la tasa de crecimiento tecnológico.\n(c) La tecnología existente tiene un efecto positivo, las ideas se acumulan, pero se neutralizan y no favorecen nuevos descubrimientos.\n(d) Se neutralizan los efectos *fishing out* y *standing on shoulders* entre sí.",
+   "pauta": null
+  },
+  {
+   "n": "4a",
+   "puntaje": null,
+   "obtenido": null,
+   "temas": [
+    "Modelo de Romer",
+    "Senda de crecimiento balanceado"
+   ],
+   "tipo_pregunta": "desarrollo",
+   "dificultad": "media",
+   "enunciado": "Considere la función de producción de Romer con $A = 2$, escrita en tiempo discreto:\n$$Y = L_Y^{1-\\alpha}\\sum_{0}^{2} x_j^{\\alpha} \\quad (3)$$\n\n(a) Plantee la maximización de beneficios. Es decir, plantee el problema\n$$\\max_{L_Y, x_1, x_2} \\Pi = \\max_{L_Y, x_1, x_2} L_Y \\ldots \\quad (4)$$",
+   "pauta": null
+  },
+  {
+   "n": "4b",
+   "puntaje": null,
+   "obtenido": null,
+   "temas": [
+    "Modelo de Romer",
+    "Dinámica de k"
+   ],
+   "tipo_pregunta": "calculo",
+   "dificultad": "media",
+   "enunciado": "(b) Encuentre las condiciones de primer orden para $L_Y$, $x_1$, $x_2$.",
+   "pauta": null
+  }
+ ],
+ "fuentes": [
+  {
+   "archivo": "Macroeconomía II/Originales/2026-2 Control 2 - Droller [enunciado]",
+   "sha1": "7925f13e4d9377f69c6c91169c35c2caa1baccdb",
+   "contenido": "enunciado",
+   "original": "2026-2 Control 2 - Droller"
+  }
+ ],
+ "dudas": [],
+ "rendida": true,
+ "ingresado": "2026-11-04",
+ "parcial": false,
+ "revisar": false,
+ "id": "macroeconomia-ii/2026-2-control-2-droller"
+}

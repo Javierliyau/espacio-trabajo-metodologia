@@ -1,0 +1,160 @@
+{
+  "ramo": "Macroeconomía II",
+  "fuente": "C:/Proyecto Metodologia de estudio/datos/programas/macroeconomia-ii-programa-oficial.md (13 temas, sin pesos ni semanas; profesor Federico Droller, 2026-2)",
+  "nota": "peso = 1 por unidad porque el programa no trae horas ni semanas. Ninguna unidad es opcional en el programa. 'desde': U1 = clase 1 (21-09-2026); U2 = clase 2 (23-09-2026, slides de Solow subidos ese día); U3 = clase 3 (28-09-2026: población, dilución del capital, regla de oro). El resto, null hasta que se vean. Bloom provisional: el programa no tiene objetivos por tema, solo un párrafo general; se asigna por el tipo de contenido (hechos y herramientas -> B1, modelos que se resuelven -> B2, temas de síntesis o de evaluación de teorías -> B3). 'biblio' = null: no se ha verificado qué capítulo obligatorio cubre cada unidad. Ojo: la clase 2 ya mostró contabilidad del crecimiento y residuo de Solow (U5) como herramienta. Actualizado 2026-10-29: U4 y U5 desde clase 4 (07-10); U6 desde clase 6 (16-10), biblio = Jones y Vollrath cap. 4-5 (Control 2: 5.1, 5.2.1, 5.2.2).",
+  "unidades": [
+    {
+      "id": "U1",
+      "nombre": "Hechos estilizados y herramientas matemáticas",
+      "peso": 1,
+      "objetivo": "Introducción a la literatura de crecimiento; un marco de análisis (hechos estilizados, tasas de crecimiento, efectos nivel/crecimiento/transición)",
+      "bloom": "B1",
+      "desde": "2026-09-21",
+      "biblio": null
+    },
+    {
+      "id": "U2",
+      "nombre": "Modelo de Swan-Solow",
+      "peso": 1,
+      "objetivo": "Modelos con tasa de ahorro constante; el rol del capital (Cobb-Douglas, acumulación, estado estacionario, estática comparativa, progreso técnico exógeno)",
+      "bloom": "B2",
+      "desde": "2026-09-23",
+      "biblio": null
+    },
+    {
+      "id": "U3",
+      "nombre": "Swan-Solow: población y crecimiento económico",
+      "peso": 1,
+      "objetivo": "El crecimiento poblacional en el modelo de Solow (dilución del capital) y la regla de oro de acumulación (Phelps 1961)",
+      "bloom": "B2",
+      "desde": "2026-09-28",
+      "biblio": null
+    },
+    {
+      "id": "U4",
+      "nombre": "Capital humano",
+      "peso": 1,
+      "objetivo": "Capital humano, salud y educación; límites del capital humano para explicar el crecimiento",
+      "bloom": "B2",
+      "desde": "2026-10-07",
+      "biblio": null
+    },
+    {
+      "id": "U5",
+      "nombre": "Contabilidad del crecimiento, productividad y convergencia",
+      "peso": 1,
+      "objetivo": "Contabilidad del crecimiento, productividad total de factores y convergencia",
+      "bloom": "B2",
+      "desde": "2026-10-07",
+      "biblio": null
+    },
+    {
+      "id": "U6",
+      "nombre": "Ideas y crecimiento económico (Romer)",
+      "peso": 1,
+      "objetivo": "El modelo de Romer",
+      "bloom": "B2",
+      "desde": "2026-10-16",
+      "biblio": true
+    },
+    {
+      "id": "U7",
+      "nombre": "Destrucción creadora (Schumpeter)",
+      "peso": 1,
+      "objetivo": "Modelo de Schumpeter",
+      "bloom": "B2",
+      "desde": null,
+      "biblio": null
+    },
+    {
+      "id": "U8",
+      "nombre": "Comercio internacional, desarrollo y crecimiento",
+      "peso": 1,
+      "objetivo": "Comercio internacional, desarrollo y crecimiento",
+      "bloom": "B2",
+      "desde": null,
+      "biblio": null
+    },
+    {
+      "id": "U9",
+      "nombre": "Modelo de Ramsey",
+      "peso": 1,
+      "objetivo": "Modelo neoclásico de optimización: familias productoras",
+      "bloom": "B2",
+      "desde": null,
+      "biblio": null
+    },
+    {
+      "id": "U10",
+      "nombre": "Generaciones traslapadas y modelo malthusiano",
+      "peso": 1,
+      "objetivo": "Modelos de generaciones traslapadas; modelo malthusiano de crecimiento poblacional",
+      "bloom": "B2",
+      "desde": null,
+      "biblio": null
+    },
+    {
+      "id": "U11",
+      "nombre": "Crecimiento endógeno (AK)",
+      "peso": 1,
+      "objetivo": "El modelo AK",
+      "bloom": "B2",
+      "desde": null,
+      "biblio": null
+    },
+    {
+      "id": "U12",
+      "nombre": "Recursos naturales y su maldición",
+      "peso": 1,
+      "objetivo": "Recursos naturales, crecimiento y su maldición",
+      "bloom": "B3",
+      "desde": null,
+      "biblio": null
+    },
+    {
+      "id": "U13",
+      "nombre": "¿Por qué hay crecimiento económico?",
+      "peso": 1,
+      "objetivo": "Síntesis: por qué hay crecimiento económico",
+      "bloom": "B3",
+      "desde": null,
+      "biblio": null
+    }
+  ],
+  "transversal_por_defecto": "U1",
+  "temas": {
+    "hechos estilizados": "U1",
+    "tasas de crecimiento": "U1",
+    "efecto nivel": "U1",
+    "efecto crecimiento": "U1",
+    "modelo de Solow": "U2",
+    "función de producción Cobb-Douglas": "U2",
+    "retornos constantes a escala": "U2",
+    "productividad marginal": "U2",
+    "acumulación de capital": "U2",
+    "estado estacionario": "U2",
+    "dinámica de transición": "U2",
+    "estática comparativa": "U2",
+    "progreso técnico exógeno": "U2",
+    "senda de crecimiento balanceado": "U2",
+    "crecimiento poblacional": "U3",
+    "dilución del capital": "U3",
+    "regla de oro": "U3",
+    "capital humano": "U4",
+    "contabilidad del crecimiento": "U5",
+    "residuo de Solow": "U5",
+    "convergencia": "U5",
+    "modelo de Romer": "U6",
+    "destrucción creadora": "U7",
+    "modelo de Ramsey": "U9",
+    "generaciones traslapadas": "U10",
+    "modelo malthusiano": "U10",
+    "modelo AK": "U11",
+    "maldición de los recursos naturales": "U12",
+    "Dinámica de k": "U2",
+    "Destrucción de capital": "U2",
+    "Transición/convergencia": "U2",
+    "Cambio en n": "U3"
+  },
+  "temas_por_revisar": []
+}

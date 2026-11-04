@@ -1,0 +1,16 @@
+{"fecha_declarada": "2026-11-01",
+ "fuente": "C:/Proyecto Metodologia de estudio/datos/material/macroeconomia-ii/2026-11-01-prediccion-final-control-2.tex",
+ "nota": "Registrada después de la prueba desde la tabla «Por qué esta predicción» del documento del 1-11 (columna Prob. base, sin cambios). 1(b) lambda y phi no tenía probabilidad y queda fuera, aunque salió (20 pts).",
+ "candidatos": [
+  {"id": "I1", "bloque": "ideas", "texto": "derivar g_A = lambda n/(1-phi)", "p": 0.34},
+  {"id": "I2", "bloque": "ideas", "texto": "alza permanente de s_R (gráfico, tasa vs nivel)", "p": 0.48},
+  {"id": "I3", "bloque": "ideas", "texto": "y*(t) en función de L(t)", "p": 0.40},
+  {"id": "I4", "bloque": "ideas", "texto": "s_R = 1/2 maximiza y*", "p": 0.25},
+  {"id": "R1", "bloque": "romer", "texto": "CPO de bienes finales: w y p_j", "p": 0.26},
+  {"id": "R2", "bloque": "romer", "texto": "monopolista: p = r/alpha", "p": 0.34},
+  {"id": "R3", "bloque": "romer", "texto": "x = K/A", "p": 0.26},
+  {"id": "R4", "bloque": "romer", "texto": "pi = alpha(1-alpha)Y/A", "p": 0.25},
+  {"id": "R5", "bloque": "romer", "texto": "recuperar Y = K^a (A L_Y)^(1-a)", "p": 0.28},
+  {"id": "N1", "bloque": "numericos", "texto": "numérico de ideas con s_R", "p": 0.05},
+  {"id": "N2", "bloque": "numericos", "texto": "numérico de Romer (x, Y, w, p, r, pi)", "p": 0.05}
+ ]}

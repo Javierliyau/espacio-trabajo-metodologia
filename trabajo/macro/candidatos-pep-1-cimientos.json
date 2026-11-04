@@ -1,0 +1,103 @@
+{
+ "fecha_declarada": "2026-11-09",
+ "fuente": "C:/Proyecto Metodologia de estudio/datos/material/macroeconomia-ii/2026-11-04-cimientos-prediccion-pep-1.md",
+ "nota": "Versión 0 (cimientos), registrada el 4-11 antes de la ayudantía del 6-11. Temario U1-U6 y formato V/F + demostraciones, ambos dichos por Droller en clase. Los V/F de §4 quedan fuera: son frases tipo y no candidatos medibles.",
+ "candidatos": [
+  {
+   "id": "F1",
+   "bloque": "formato",
+   "texto": "Hay sección de verdaderos y falsos",
+   "p": 0.9
+  },
+  {
+   "id": "F2",
+   "bloque": "formato",
+   "texto": "Hay opción múltiple",
+   "p": 0.35
+  },
+  {
+   "id": "F3",
+   "bloque": "formato",
+   "texto": "Hay un matemático de Solow con incisos encadenados",
+   "p": 0.85
+  },
+  {
+   "id": "F4",
+   "bloque": "formato",
+   "texto": "Hay un matemático de Romer",
+   "p": 0.8
+  },
+  {
+   "id": "F5",
+   "bloque": "formato",
+   "texto": "Hay pregunta o inciso de extensiones (contabilidad o MRW)",
+   "p": 0.45
+  },
+  {
+   "id": "S1",
+   "bloque": "solow",
+   "texto": "Derivar k* e y* desde k-punto = s k^a - (n+d)k",
+   "p": 0.55
+  },
+  {
+   "id": "S2",
+   "bloque": "solow",
+   "texto": "Solow con tecnología: k~-punto, y*(t) y tasas en la SCB",
+   "p": 0.5
+  },
+  {
+   "id": "S3",
+   "bloque": "solow",
+   "texto": "Shock a s, n o d: diagrama, g_y y ln y en el tiempo",
+   "p": 0.45
+  },
+  {
+   "id": "S4",
+   "bloque": "solow",
+   "texto": "k-punto/k decreciente en k: dinámica de transición y convergencia condicional",
+   "p": 0.35
+  },
+  {
+   "id": "S5",
+   "bloque": "solow",
+   "texto": "Regla de oro: s = alpha",
+   "p": 0.25
+  },
+  {
+   "id": "E1",
+   "bloque": "extensiones",
+   "texto": "Contabilidad del crecimiento: log-diferenciar y despejar el residuo",
+   "p": 0.45
+  },
+  {
+   "id": "E2",
+   "bloque": "extensiones",
+   "texto": "MRW: y*(t) con h = e^(psi u) y razón de ingresos",
+   "p": 0.35
+  },
+  {
+   "id": "R1",
+   "bloque": "romer",
+   "texto": "Derivar g_A = lambda n/(1-phi)",
+   "p": 0.4
+  },
+  {
+   "id": "R2",
+   "bloque": "romer",
+   "texto": "CPO de bienes finales, p = r/alpha, x = K/A, pi, Y agregado",
+   "p": 0.4
+  },
+  {
+   "id": "R3",
+   "bloque": "romer",
+   "texto": "P_A = pi/(r-n) y s_R de equilibrio con w_R = w_Y",
+   "p": 0.35
+  },
+  {
+   "id": "R4",
+   "bloque": "romer",
+   "texto": "y*(t) con s_R y por qué el mercado no da el s_R óptimo",
+   "p": 0.25
+  }
+ ]
+}

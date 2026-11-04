@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:06. 323 archivos, ~131535.5k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:27. 328 archivos, ~131539.7k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -155,6 +155,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:06. 323 archivos, ~131
 | 1.8k | 71 | `trabajo/semana-2026-10-26.bak.md` | Semana 26-10 al 1-11-2026 L1 |
 | 1.8k | 179 | `trabajo/econometria-ii-demre/scripts/04-base-grupo.R` | Base de datos de matriculados, proceso d L2; Fuente: DEMRE, https://demre.cl/portales L3; Integrantes: L4; abrir econometria-ii-demre.Rproj para qu L10; df1: datos del estudiante y de su colegi L20; RBD es el codigo del colegio y SITUACION L21; RAMA_EDUCACIONAL, FECHA_NACIMIENTO, ANYO L22; df2: notas de enseñanza media y puntajes L29; +23 |
 | 1.8k | 97 | `trabajo/2026-09-26-macro2-guia-sesion-1.md` | Macro II — Guía de la sesión 1 (sábado 2 L1; Materiales (dejar abiertos antes de empe L7; Paso 0 · Intención (09:00, 2 min) L14; Paso 1 · Reconocimiento Perry + caso (09 L19; Paso 2 · Preguntas predichas (09:10, 5 m L27; Paso 3 · Lectura con propósito (09:15, 2 L35; Paso 4 · Tus 3 respuestas (09:39, 6 min) L47; Paso 5 · ConcepTest solo (09:50, 15 min) L53; +7 |
+| 1.6k | 160 | `trabajo/macro/temario-antes-2026-11-04.json` |  |
 | 1.5k | 123 | `trabajo/econometria-ii-demre/scripts/03-base-seleccion.R` | los archivos del DEMRE vienen con ; y co L9; lo que elegimos de cada archivo, mas lo  L15; RBD, SITUACION_EGRESO, RAMA_EDUCACIONAL, L16; PREFERENCIA es para la Y, TIPO_MATRICULA L27; SITUACION_EGRESO: 1 es promocion del año L30; TIPO_PREF: la misma carrera se repite si L35; postulaciones trae una fila por preferen L39; left_join deja a todos los postulantes,  L44; +14 |
 | 1.5k | 42 | `trabajo/sociologia/fallos-pep1.md` | Fallos y apuestas para el repaso del mié L1; Marx (sáb 24-10 · bloque 1: 5/5 · ronda  L6; Weber (dom 25-10 · Ronda Weber: 10/10 ·  L13; Durkheim (dom 25-10 · Ronda Durkheim: 8/ L18; Tocqueville (lun 26-10 · Ronda Tocquevil L23; Repaso de reincidentes (lun 26-10 · 5/5  L31; Simulacro de la Prueba 1 (mar 27-10 · 38 L35 |
 | 1.5k | 93 | `trabajo/p1b-logit/1B-pauta.tex` |  |
@@ -176,6 +177,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:06. 323 archivos, ~131
 | 1.2k | 87 | `trabajo/macro-control2-prob-pauta.py` | id, lineas, ec/fig, laminas, clase, ayud L11; numero de ejercicios matematicos: 1 larg L40 |
 | 1.2k | 87 | `trabajo/macro-control2-prob-mate.py` | id, lineas, ec/fig, laminas, clase, ayud L11; numero de ejercicios matematicos: 1 larg L40 |
 | 1.2k | 47 | `trabajo/solow_svg.py` |  |
+| 1.2k | 105 | `trabajo/macro/ficha-control-2-gemini-original.json` |  |
 | 1.2k | 105 | `trabajo/econometria-ii-demre/scripts/09-corregido-local.R` | El 99 es "prefiero no responder": se pas L10; antes de cualquier group_by(RBD) L11; Se sacan los alumnos sin RBD para que no L19; al pegar las variables quedan con NA. L20; Mediana y no promedio: los tramos de ing L21; Y (segun el profesor): 1 si se matriculo L79; 0 si quedo en la 4a o mas abajo L80; Sin RBD no se conoce la rama: queda NA y L84; +1 |
 | 1.1k | 97 | `trabajo/econometria-ii-etapa2/salida-exportar.txt` |  |
 | 1.1k | 175 | `trabajo/micro/respaldo-motor-2026-11-01/scripts/campeon.json` |  |
@@ -194,6 +196,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:06. 323 archivos, ~131
 | 1.0k | 37 | `trabajo/micro/2026-11-04-manual-pep-1.json` |  |
 | 1.0k | 35 | `trabajo/2026-10-25-simulacro-macro-control-1-PAUTA-no-abrir.md` | PAUTA · Simulacro Control 1 Macro II (do L1; P1 (30) L5; P2 (10) L18; P3 (10) · **Falso** L23; P4 (10) · **Verdadero** (convergencia co L27; Después de corregir L31 |
 | 1.0k | 42 | `trabajo/etapa2-final/verificar-informe.R` | guardar las bases crudas antes de que el L10 |
+| 994 | 39 | `trabajo/macro/editar_pep1.py` |  |
 | 956 | 76 | `trabajo/p3a-woe-practica/3A-woe-iv.tex` |  |
 | 951 | 56 | `trabajo/overleaf-etapa1/guion-javier-final.md` | Guion final de Javier · láminas 3, 9 y 1 L1; Lámina 3 · Fuentes de datos · 40 s L9; Lámina 9 · Descriptivas · 25 s (solo si  L21; Lámina 10 · Conclusiones · 40 s L29; Lámina 11 · Cierre · 5 s L38; Si te preguntan L44 |
 | 949 | 91 | `trabajo/revision-05/prueba.R` | rutas relativas a la carpeta del proyect L5 |
@@ -259,6 +262,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:06. 323 archivos, ~131
 | 415 | 17 | `trabajo/etapa2-final/correr-david.R` |  |
 | 412 | 17 | `trabajo/econometria-ii-etapa2/etapa3-prueba.R` |  |
 | 410 | 15 | `trabajo/buzon_moore.py` | 2026-10-31 · Macro II, lectura JV 5.1 pa L6 |
+| 387 | 16 | `trabajo/macro/candidatos-control-2.json` |  |
 | 375 | 19 | `trabajo/econometria-ii-etapa2/replica.py` | variante: solo REG_ANTERIOR, INV_ACTUAL, L19 |
 | 356 | 15 | `trabajo/revision-etapa2/chequeo.R` |  |
 | 327 | 13 | `trabajo/revision-etapa2/loop2.R` |  |
@@ -317,6 +321,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:06. 323 archivos, ~131
 | 72 | 8 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/10_variables_finales.csv` |  |
 | 57 | 9 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/00_resumen_controles.csv` |  |
 | 57 | 7 | `trabajo/econometria-ii-etapa2/informe-salidas/embudo.csv` |  |
+| 57 | 1 | `trabajo/macro/resolver-control-2.json` |  |
 | 53 | 9 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/03_atipicos.csv` |  |
 | 53 | 9 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/03_atipicos.csv` |  |
 | 53 | 5 | `trabajo/econometria-ii-etapa2/informe-salidas/composicion-I.csv` |  |

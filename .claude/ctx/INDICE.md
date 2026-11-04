@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 21:11. 319 archivos, ~131529.9k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:06. 323 archivos, ~131535.5k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -43,7 +43,6 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 21:11. 319 archivos, ~131
 | ⚠ 11.5k | 1032 | `trabajo/econometria-ii-estudio/2026-11-02-lectura-pep1-casos-reales.log` |  |
 | ⚠ 11.1k | 988 | `trabajo/tex/2026-11-01-caso-intel-asml-control-2.log` |  |
 | ⚠ 10.6k | 995 | `trabajo/ficha-streaming/2026-11-03-ficha-caso-streaming-teoria-pep1.log` |  |
-| ⚠ 10.5k | 984 | `trabajo/ficha-dicom/2026-11-03-ficha-caso-ley-dicom-teoria-pep1.log` |  |
 | ⚠ 10.5k | 976 | `trabajo/overleaf-etapa1/guion-javier-final.log` |  |
 | ⚠ 10.5k | 976 | `trabajo/overleaf-etapa1/ficha.log` |  |
 | ⚠ 10.5k | 972 | `trabajo/overleaf-etapa1/guion-javier-3-9-10.log` |  |
@@ -53,6 +52,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 21:11. 319 archivos, ~131
 | ⚠ 9.8k | 1233 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Motor/items.json` |  |
 | ⚠ 9.7k | 681 | `trabajo/econometria-ii-estudio/2026-11-02-lectura-pep1-casos-reales.tex` |  |
 | ⚠ 9.7k | 681 | `trabajo/respaldo-lectura-pep1/2026-11-02-lectura-pep1-casos-reales.tex` |  |
+| ⚠ 9.7k | 918 | `trabajo/build-micro-pep1/2026-11-04-prediccion-pep-1-mundaca.log` |  |
 | ⚠ 9.7k | 333 | `trabajo/ficha-dicom/2026-11-03-ficha-caso-ley-dicom-teoria-pep1.tex` |  |
 | ⚠ 9.5k | 340 | `trabajo/2026-10-24-plan-finde.md` | Plan del fin de semana 24-25 oct y ruta  L1; 0. Lo esencial en 6 líneas L13; 1. Estado de cada ramo L24; 2. Tabla de prioridades L135; 3. Horas disponibles y horas necesarias  L152; 4. Sábado 24 y domingo 25, hora por hora L208; 5. Esbozo del lun 26 al jue 5-11 L283; 6. Pendientes arrastrados sin marcar: qu L308; +1 |
 | ⚠ 9.0k | 799 | `trabajo/build-prediccion/2026-11-01-prediccion-final-control-2.log` |  |
@@ -112,6 +112,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 21:11. 319 archivos, ~131
 | 4.0k | 250 | `trabajo/overleaf-etapa1/ficha.tex` |  |
 | 3.9k | 327 | `trabajo/nota-r-david/entrega_prueba.R` | Nombres: David Cuevas, Javier Li-Yau, Be L3; Análisis univariado y bivariado (IV, WOE L4; para dejar las X definitivas del logit d L5; Variable objetivo: PREF_TOP3_DUMMY L6; (1 = quedó matriculado en una de sus 3 p L7; Para correrlo basta cambiar `ruta` (carp L9; read.csv2: separador ";" y decimales con L21; 99 = "prefiero no responder" -> NA L29; +58 |
 | 3.6k | 103 | `trabajo/macro/ficha-viaje-solow.html` |  |
+| 3.5k | 328 | `trabajo/build-micro-pep1/2026-11-04-simulacro-pep-1-mundaca.log` |  |
 | 3.5k | 303 | `trabajo/nota-r-david/final_final.R` | Nombres: David Cuevas, Javier Li-Yau, Be L3; Modelo logit con WOE. Variable objetivo: L4; (1 = quedó matriculado en una de sus 3 p L5; read.csv2: separador ";" y decimales con L17; 99 = "prefiero no responder" -> NA L24; N_MATRICULADOS no se incluye: se conoce  L29; Solo rinden la regular actual: todas las L42; anterior vacías (read.csv2 deja "" en la L43; +43 |
 | 3.5k | 254 | `trabajo/econometria-ii-demre/trabajo-10.log` | A tibble: 3,318 × 3 L63; ℹ 3,308 more rows L76; A tibble: 3,220 × 2 L77; ℹ 3,210 more rows L90; A tibble: 3,318 × 4 L91; ℹ 3,308 more rows L104; A tibble: 317,700 × 15 L105; ℹ 317,690 more rows L118; +25 |
 | 3.5k | 242 | `trabajo/econometria-ii-etapa2/salida-david.txt` | A tibble: 3,318 × 3 L51; ℹ 3,308 more rows L64 |
@@ -182,6 +183,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 21:11. 319 archivos, ~131
 | 1.1k | 40 | `trabajo/micro/2026-10-21-simulacro-PAUTA-no-abrir.md` | PAUTA del simulacro del Control 1 (21-10 L1; Comentes L3; Desarrollos L9; Matemático L17; Hitos de corrección del matemático (40) L38 |
 | 1.1k | 50 | `trabajo/econometria-ii-demre/LEEME.md` | Econometría II: trabajo práctico, etapa  L1; Carpetas L7; Archivos en `datos/crudos/` L20; Dos advertencias que salen de los libros L35; Cómo se conectan los archivos L40; Base final (2-10-2026) L45 |
 | 1.1k | 54 | `trabajo/overleaf-etapa1/guion-javier-3-9-10.tex` |  |
+| 1.1k | 44 | `trabajo/micro/2026-11-04-agenda-pep1.py` | Inserta las filas del INDICE, actualiza  L1 |
 | 1.1k | 80 | `trabajo/p1-logit-practica/p1-logit-practica.tex` |  |
 | 1.1k | 36 | `trabajo/micro/2026-10-21-control-probable-PAUTA-no-abrir.md` | PAUTA del control «lo más probable» (21- L1; Comentes L3; Desarrollos L9; Matemático L13; Hitos de corrección del matemático (40) L34 |
 | 1.1k | 80 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/05_bivariado.csv` |  |
@@ -189,6 +191,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 21:11. 319 archivos, ~131
 | 1.1k | 27 | `trabajo/revision-etapa2/stats.R` | orden VIF, restringido a VIF>2 L16 |
 | 1.0k | 76 | `trabajo/econometria-ii-etapa2/exportar-informe.R` | Corre prueba-david.R y exporta tablas (C L1; Uso: Rscript exportar-informe.R L2; Embudo de filtros L8; Composición de I L14; Univariado L23; IV y monotonía L44; Tramos de todas las variables (para anex L52; VIF L59; +1 |
 | 1.0k | 77 | `trabajo/econometria-ii-logit/crear_excel.py` | Parámetros L24 |
+| 1.0k | 37 | `trabajo/micro/2026-11-04-manual-pep-1.json` |  |
 | 1.0k | 35 | `trabajo/2026-10-25-simulacro-macro-control-1-PAUTA-no-abrir.md` | PAUTA · Simulacro Control 1 Macro II (do L1; P1 (30) L5; P2 (10) L18; P3 (10) · **Falso** L23; P4 (10) · **Verdadero** (convergencia co L27; Después de corregir L31 |
 | 1.0k | 42 | `trabajo/etapa2-final/verificar-informe.R` | guardar las bases crudas antes de que el L10 |
 | 956 | 76 | `trabajo/p3a-woe-practica/3A-woe-iv.tex` |  |
@@ -214,6 +217,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-03 21:11. 319 archivos, ~131
 | 781 | 48 | `trabajo/micro/respaldo-motor-2026-11-01/banco/DESEMPENO_MOTOR.md` | Desempeño del motor de predicción L1; Macroeconomía II — predicciones prospect L7; Microeconomía II — predicciones prospect L15; Todos los ramos L23; Calibración de P(entra) (pronósticos pro L27; Walk-forward del campeón (historia sin s L34; Versiones L38 |
 | 770 | 30 | `trabajo/2026-10-25-simulacro-macro-control-1.md` | Simulacro · Control 1 · Macroeconomía II L1; Pregunta 1 (30 puntos) L8; Pregunta 2 (10 puntos) · Gráficos L19; Pregunta 3 (10 puntos) · Verdadero, fals L24; Pregunta 4 (10 puntos) · Verdadero, fals L28 |
 | 753 | 84 | `trabajo/revision-05/06-base-david-corregido.R` |  |
+| 752 | 35 | `trabajo/macro/2026-2 Control 2 - Droller/01-transcripcion.md` | Control 2 · Macroeconomía II · Droller · L1; Pregunta 1 (10 puntos) L5; Pregunta 2 (10 puntos) · Opción múltiple L15; Pregunta 3 (10 puntos) · Opción múltiple L21; Pregunta 4 (30 puntos) L27 |
 | 734 | 35 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Fichas/2026-2 Control 1 - Mundaca.md` | Control 1 · Microeconomía II · 2026-2 ·  L9; PIII.a · 20 pts · equilibrio de monopoli L15; PIII.b · 20 pts · pérdida irrecuperable  L27 |
 | 726 | 40 | `trabajo/etapa2-final/correr.R` | camino del codigo (automatico) ya corrid L17; camino del grupo: NEM, RANKING, luego IN L19; consistencia L34 |
 | 725 | 145 | `trabajo/micro/2026-11-01-manual-control-1.json` |  |

@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:27. 328 archivos, ~131539.7k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 21:24. 333 archivos, ~131565.4k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -55,6 +55,8 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:27. 328 archivos, ~131
 | ⚠ 9.7k | 918 | `trabajo/build-micro-pep1/2026-11-04-prediccion-pep-1-mundaca.log` |  |
 | ⚠ 9.7k | 333 | `trabajo/ficha-dicom/2026-11-03-ficha-caso-ley-dicom-teoria-pep1.tex` |  |
 | ⚠ 9.5k | 340 | `trabajo/2026-10-24-plan-finde.md` | Plan del fin de semana 24-25 oct y ruta  L1; 0. Lo esencial en 6 líneas L13; 1. Estado de cada ramo L24; 2. Tabla de prioridades L135; 3. Horas disponibles y horas necesarias  L152; 4. Sábado 24 y domingo 25, hora por hora L208; 5. Esbozo del lun 26 al jue 5-11 L283; 6. Pendientes arrastrados sin marcar: qu L308; +1 |
+| ⚠ 9.3k | 839 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1-pauta.log` |  |
+| ⚠ 9.1k | 825 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1.log` |  |
 | ⚠ 9.0k | 799 | `trabajo/build-prediccion/2026-11-01-prediccion-final-control-2.log` |  |
 | ⚠ 8.9k | 805 | `trabajo/tex/2026-11-01-simulacro-control-2-droller.log` |  |
 | ⚠ 8.8k | 398 | `trabajo/moore-pdf/2026-10-31-lectura-control-2-caso-moore.tex` |  |
@@ -103,6 +105,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:27. 328 archivos, ~131
 | ⚠ 4.6k | 306 | `trabajo/econometria-ii-demre/trabajo-09.log` | A tibble: 3,318 × 3 L61; ℹ 3,308 more rows L74; A tibble: 3,220 × 2 L75; ℹ 3,210 more rows L88; A tibble: 3,318 × 4 L89; ℹ 3,308 more rows L102; A tibble: 317,700 × 15 L103; ℹ 317,690 more rows L116; +25 |
 | ⚠ 4.6k | 344 | `trabajo/econometria-ii-estudio/salidas-paes-estudio.txt` |  |
 | ⚠ 4.5k | 283 | `trabajo/ficha-streaming/log2.txt` |  |
+| ⚠ 4.4k | 214 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1-pauta.tex` |  |
 | ⚠ 4.3k | 570 | `trabajo/micro/respaldo-motor-2026-11-01/banco/indice.json` |  |
 | ⚠ 4.2k | 301 | `trabajo/nota-r-david/salida_entrega_ruta_pc.txt` |  |
 | ⚠ 4.0k | 293 | `trabajo/nota-r-david/salida_pc_profe.txt` |  |
@@ -144,6 +147,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:27. 328 archivos, ~131
 | 2.3k | 152 | `trabajo/overleaf-etapa1/lo-que-digo-javier.md` | Lo que digo yo (Javier) L1; Lámina 3 · Fuentes de datos L3; Lámina 9 · Descriptivas (solo si sigue e L13; Lámina 10 · Conclusiones L19; Lámina 11 · Cierre L26; Todas las preguntas que podría hacer el  L33; A. Población y N L37; B. Variable de respuesta L63; +4 |
 | 2.3k | 115 | `trabajo/overleaf-etapa1/guion-presentacion.md` | Guion: Econometría II, Etapa 1 (jue 15-1 L1; Bloque A · Láminas 1 a 4 · 2:30 L17; Bloque B · Láminas 5 y 6 · 2:00 L42; Bloque C · Láminas 7 y 8 · 3:00 L58; Bloque D · Láminas 9 a 11 · 1:00 L75; Preguntas probables L89; Antes de entrar L111 |
 | 2.3k | 184 | `trabajo/econometria-ii-demre/scripts/Trabajo etapa 2 econometria.II.R` | rutas relativas: abrir econometria-ii-de L11; Etapa 2: se saca N_MATRICULADOS, porque  L32; Etapa 2: la base maestra es df2 (los que L41; Etapa 2: de las postulaciones solo se ma L52; Etapa 2: el filtro de via y tipo se hace L58; FECHA_NACIMIENTO viene como mmaaaa (0820 L92; las categoricas como texto para que woeb L97; mas de 5 % de NA -> la variable no se us L116; +8 |
+| 2.2k | 104 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1.tex` |  |
 | 2.1k | 120 | `trabajo/econometria-ii-etapa2/salida-verificacion.txt` | A tibble: 19 × 4 L58; A tibble: 19 × 3 L80 |
 | 2.0k | 161 | `trabajo/etapa2-final/salida.txt` |  |
 | 2.0k | 170 | `trabajo/revR/salida3.txt` |  |
@@ -227,6 +231,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 17:27. 328 archivos, ~131
 | 702 | 59 | `trabajo/nota-r-david/salida2.txt` | A tibble: 2 × 3 L19; A tibble: 2 × 3 L24 |
 | 698 | 78 | `trabajo/econometria-ii-demre/scripts/05-base-david.R` |  |
 | 691 | 53 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/01b_frecuencias.csv` |  |
+| 679 | 103 | `trabajo/macro/candidatos-pep-1-cimientos.json` |  |
 | 677 | 102 | `trabajo/econometria-ii-demre/datos/crudos/8-percentiles/20260102_Percentiles_Pruebas_REG2026.csv` |  |
 | 676 | 102 | `trabajo/econometria-ii-demre/datos/crudos/8-percentiles/Percentiles_ADM2026-INV.csv` |  |
 | 669 | 61 | `trabajo/micro/2026-10-21-ejemplo-2do-grado-paquetes.tex` |  |

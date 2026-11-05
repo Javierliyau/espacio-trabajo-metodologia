@@ -1,7 +1,7 @@
 This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.5) (preloaded format=pdflatex.fmt)
  restricted \write18 enabled.
 entering extended mode
-(2026-11-05-ejercicios-calcados-ayudantias.tex
+(2026-11-05-ayudantia-5-ejercicios-pauta.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -184,8 +184,8 @@ ty))
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd)
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def)
-(C:/Espacio de trabajo Metodologia de estudio\trabajo\tex\2026-11-05-ejercicios
--calcados-ayudantias.aux)
+(C:/Espacio de trabajo Metodologia de estudio\trabajo\tex\2026-11-05-ayudantia-
+5-ejercicios-pauta.aux)
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 
@@ -197,42 +197,36 @@ ii
 ase.sty
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
 fg)) (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd)
+(C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd)
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd)
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd)
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd)
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd)
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd)
 (C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd)
-Underfull \hbox (badness 10000) in paragraph at lines 54--54
-[]\T1/lmr/bx/n/10 C2. Par-ti-ci-pa-ción la-bo-ral fe-me-ni-na, ba-se mroz ($\OM
-L/lmm/m/it/10 n \OT1/lmr/m/n/10 = 753$\T1/lmr/bx/n/10 , ayu-dan-tías 1-2)
 [1{C:/Users/javie/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}{C:/Users/ja
 vie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/javie/
 AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/javie/App
+Data/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/javie/App
 Data/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/javie/App
-Data/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/javie/AppData
-/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}]
-(C:\Users\javie\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmtt.fd) [2{C:/Use
-rs/javie/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}]
-[3] [4]
-(C:/Espacio de trabajo Metodologia de estudio\trabajo\tex\2026-11-05-ejercicios
--calcados-ayudantias.aux) )
-(see the transcript file for additional information)<C:/Users/javie/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/javie/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/javie/AppData/Loc
-al/Programs/MiKTeX/fonts/type1/public/lm/lmbx9.pfb><C:/Users/javie/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users/javie/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users/javie/AppData/Loca
-l/Programs/MiKTeX/fonts/type1/public/lm/lmmi8.pfb><C:/Users/javie/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/lm/lmmi9.pfb><C:/Users/javie/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/javie/AppData/Local/P
-rograms/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/javie/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/javie/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/javie/AppData/Local/Progr
-ams/MiKTeX/fonts/type1/public/lm/lmsy8.pfb><C:/Users/javie/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/lm/lmtt10.pfb><C:/Users/javie/AppData/Local/Progra
-ms/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Data/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}] [2{C:/Users/javie/App
+Data/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}] [3] [4]
+(C:/Espacio de trabajo Metodologia de estudio\trabajo\tex\2026-11-05-ayudantia-
+5-ejercicios-pauta.aux) )<C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/lm/lmbx10.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/lm/lmbx12.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/lm/lmex10.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/lm/lmmi10.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/ty
+pe1/public/lm/lmmi7.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/lm/lmmi8.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/type
+1/public/lm/lmr10.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/lm/lmr8.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/lm/lmsy10.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/lm/lmsy8.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/lm/lmtk10.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/lm/lmtt10.pfb><C:/Users/javie/AppData/Local/Programs/MiKTeX/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb>
 Output written on "C:/Espacio de trabajo Metodologia de estudio\trabajo\tex\202
-6-11-05-ejercicios-calcados-ayudantias.pdf" (4 pages, 264120 bytes).
+6-11-05-ayudantia-5-ejercicios-pauta.pdf" (4 pages, 229376 bytes).
 Transcript written on "C:/Espacio de trabajo Metodologia de estudio\trabajo\tex
-\2026-11-05-ejercicios-calcados-ayudantias.log".
+\2026-11-05-ayudantia-5-ejercicios-pauta.log".

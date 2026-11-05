@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 10:18. 335 archivos, ~131567.0k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 11:21. 337 archivos, ~131569.1k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -155,6 +155,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 10:18. 335 archivos, ~131
 | 1.9k | 112 | `trabajo/p3a-woe-practica/3B-pauta.tex` |  |
 | 1.9k | 1 | `trabajo/macro/datos-chile/crec.json` |  |
 | 1.9k | 1 | `trabajo/macro/datos-chile/pib_pc.json` |  |
+| 1.9k | 111 | `trabajo/libro/estilo_libro.py` | Genera versiones "pagina de libro" del s L1; El cuerpo (enunciados, numeros, puntajes L2; la portada del capitulo y la caja de ins L3 |
 | 1.9k | 156 | `trabajo/revR/salida.txt` |  |
 | 1.8k | 71 | `trabajo/semana-2026-10-26.bak.md` | Semana 26-10 al 1-11-2026 L1 |
 | 1.8k | 179 | `trabajo/econometria-ii-demre/scripts/04-base-grupo.R` | Base de datos de matriculados, proceso d L2; Fuente: DEMRE, https://demre.cl/portales L3; Integrantes: L4; abrir econometria-ii-demre.Rproj para qu L10; df1: datos del estudiante y de su colegi L20; RBD es el codigo del colegio y SITUACION L21; RAMA_EDUCACIONAL, FECHA_NACIMIENTO, ANYO L22; df2: notas de enseñanza media y puntajes L29; +23 |
@@ -311,6 +312,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 10:18. 335 archivos, ~131
 | 125 | 5 | `trabajo/revision-05/dic.R` |  |
 | 123 | 7 | `trabajo/econometria-ii-m1/inspeccion.R` |  |
 | 119 | 3 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/06c_edad_bins_19anios_alternativa.csv` |  |
+| 119 | 7 | `trabajo/libro/arreglar.py` |  |
 | 107 | 7 | `trabajo/lectura-pep1/verif2.py` |  |
 | 98 | 18 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/06_monotonia_inicial.csv` |  |
 | 98 | 18 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/07_monotonia_final.csv` |  |

@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 21:24. 333 archivos, ~131565.4k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 10:18. 335 archivos, ~131567.0k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -186,6 +186,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 21:24. 333 archivos, ~131
 | 1.1k | 97 | `trabajo/econometria-ii-etapa2/salida-exportar.txt` |  |
 | 1.1k | 175 | `trabajo/micro/respaldo-motor-2026-11-01/scripts/campeon.json` |  |
 | 1.1k | 114 | `trabajo/md2tex_moore.py` |  |
+| 1.1k | 69 | `trabajo/tiempo_por_ramo.py` |  |
 | 1.1k | 40 | `trabajo/micro/2026-10-21-simulacro-PAUTA-no-abrir.md` | PAUTA del simulacro del Control 1 (21-10 L1; Comentes L3; Desarrollos L9; Matemático L17; Hitos de corrección del matemático (40) L38 |
 | 1.1k | 50 | `trabajo/econometria-ii-demre/LEEME.md` | Econometría II: trabajo práctico, etapa  L1; Carpetas L7; Archivos en `datos/crudos/` L20; Dos advertencias que salen de los libros L35; Cómo se conectan los archivos L40; Base final (2-10-2026) L45 |
 | 1.1k | 54 | `trabajo/overleaf-etapa1/guion-javier-3-9-10.tex` |  |
@@ -243,6 +244,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-04 21:24. 333 archivos, ~131
 | 627 | 27 | `trabajo/revR/runner2.R` |  |
 | 603 | 60 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-2-woe-iv.tex` |  |
 | 589 | 46 | `trabajo/micro/2026-11-01-verificar.py` | Compara campeon.json con el respaldo y r L1 |
+| 578 | 39 | `trabajo/tiempo_estudio.py` | tiempo activo: tramos entre mensajes del L24 |
 | 563 | 74 | `trabajo/macro/datos-chile/y.csv` |  |
 | 559 | 36 | `trabajo/guia-filtrada/calc.py` |  |
 | 557 | 33 | `trabajo/lectura-pep1/verif3.py` | calculator path with rounded means L8; German credit cuenta L13; Siddiqi L18; scorecard lamina 7 L26; DiD CK L28; SLEP invented L30 |

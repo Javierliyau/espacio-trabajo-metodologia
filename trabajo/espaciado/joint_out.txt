@@ -1,0 +1,66 @@
+actual (sin topes)
+
+ACTUAL: 683 min (E 307, M 376)  Econ MC media/p10/p90/P≥5 [5.24, 4.94, 5.57, 0.82]  Micro [4.84, 4.53, 5.15, 0.25]  prom 5.04
+  carga diaria {'vie': 84, 'sab': 26, 'dom': 32, 'lun': 175, 'mar': 144, 'mie': 146, 'jue': 76}
+  A   vie 11:10  54 min: T6, T4
+  B   vie 16:00  20 min: T7, T14, T1
+  Ma  vie 17:00   0 min: 
+  C   vie 22:30  10 min: T2, T3
+  D   sab 13:00  26 min: T8, T12, T7, T11
+  Mb  sab 16:00   0 min: 
+  E   dom 13:00  32 min: T2, T8, T3, T7, T5
+  Mc  dom 16:00   0 min: 
+  F   lun 12:00  36 min: T7, T11, T4, T6, T2
+  Md  lun 20:00 139 min: M1, M2, M3, M4, M5, M6, M7
+  G   mar 13:00  47 min: T11, T14, T9, T13, T1, T2, T12, T8
+  Me  mar 15:00  97 min: M1, M2, M7, M8
+  H   mie 12:45  37 min: T6, T10, T8, T4, T3
+  Mf  mie 18:30  94 min: M1, M5, M6, M7, M2, M4, M3
+  I   mie 22:30  15 min: T1, T5, T9
+  J   jue 06:45  30 min: T14, T7, T2, T12, T11
+  Mh  jue 10:05   0 min: 
+  Mi  jue 13:15  46 min: M1, M4, M3
+reinicios [10.43, 10.43, 10.41, 10.4]
+
+B=820: 820 min (E 347, M 473)  Econ MC media/p10/p90/P≥5 [5.29, 4.97, 5.62, 0.86]  Micro [5.14, 4.81, 5.48, 0.69]  prom 5.21
+  carga diaria {'vie': 127, 'sab': 125, 'dom': 100, 'lun': 125, 'mar': 160, 'mie': 100, 'jue': 83}
+  A   vie 11:10  59 min: T1, T4, T7, T2, T14, T12
+  B   vie 16:00  30 min: T14, T12, T2, T7, T11
+  Ma  vie 17:00  24 min: M3, M9
+  C   vie 22:30  14 min: T2, T7
+  D   sab 13:00  40 min: T12, T9, T11, T6
+  Mb  sab 16:00  85 min: M2, M7, M5
+  E   dom 13:00  40 min: T7, T14, T4, T1, T9, T8
+  Mc  dom 16:00  60 min: M2, M7, M1
+  F   lun 12:00  40 min: T2, T4, T11, T13, T12, T10
+  Md  lun 20:00  85 min: M6, M7, M5, M8, M2
+  G   mar 13:00  48 min: T2, T12, T6, T11, T8, T14, T4
+  Me  mar 15:00 112 min: M6, M3, M4, M8, M5, M1, M7, M2, M9
+  H   mie 12:45  32 min: T4, T6, T7, T5
+  Mf  mie 18:30  54 min: M3, M2, M5, M9, M7
+  I   mie 22:30  14 min: T3, T10, T9
+  J   jue 06:45  30 min: T2, T14, T1, T11, T8
+  Mh  jue 10:05  33 min: M5, M3, M2
+  Mi  jue 13:15  20 min: M6, M8
+reinicios [10.28, 10.28, 10.3, 10.27]
+
+B=720: 720 min (E 328, M 392)  Econ MC media/p10/p90/P≥5 [5.25, 4.93, 5.59, 0.83]  Micro [5.02, 4.69, 5.35, 0.51]  prom 5.13
+  carga diaria {'vie': 121, 'sab': 120, 'dom': 99, 'lun': 127, 'mar': 70, 'mie': 105, 'jue': 78}
+  A   vie 11:10  57 min: T14, T2, T7, T3, T12, T6
+  B   vie 16:00  29 min: T14, T12, T10, T1, T11
+  Ma  vie 17:00  23 min: M3, M2
+  C   vie 22:30  12 min: T1, T2
+  D   sab 13:00  37 min: T8, T7, T2, T12, T6
+  Mb  sab 16:00  83 min: M3, M2, M7
+  E   dom 13:00  39 min: T2, T5, T4
+  Mc  dom 16:00  60 min: M8, M3, M7
+  F   lun 12:00  40 min: T12, T6, T11, T10, T14, T7
+  Md  lun 20:00  87 min: M1, M9, M6, M5, M7, M3
+  G   mar 13:00  37 min: T4, T7, T2, T13, T1
+  Me  mar 15:00  33 min: M2, M6, M5
+  H   mie 12:45  34 min: T12, T1, T8, T3, T11, T5
+  Mf  mie 18:30  57 min: M2, M1, M8
+  I   mie 22:30  14 min: T9, T11, T10
+  J   jue 06:45  29 min: T7, T4, T2, T14
+  Mh  jue 10:05  31 min: M3, M7, M4
+  Mi  jue 13:15  18 min: M6, M5

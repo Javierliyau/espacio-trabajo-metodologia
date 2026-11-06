@@ -1,0 +1,41 @@
+econ v2 sola: minutos 307
+
+reinicios [4.64, 4.6, 4.58, 4.65]
+BM=330: Micro 327 min  Econ [5.14, 4.79, 5.5, 0.66]  Micro [4.65, 4.31, 5.01, 0.11]  prom 4.89  carga {'vie': 107, 'sab': 109, 'dom': 50, 'lun': 115, 'mar': 93, 'mie': 105, 'jue': 55}
+  Ma  vie 17:00  23 min: M6, M2
+  Mb  sab 16:00  83 min: M7, M3, M2
+  Mc  dom 16:00  18 min: M5, M3
+  Md  lun 20:00  79 min: M8, M3, M5, M4, M9
+  Me  mar 15:00  46 min: M2, M3, M7, M6
+  Mf  mie 18:30  53 min: M2, M1, M3
+  Mi  jue 13:10  25 min: M5, M7
+
+reinicios [4.79, 4.8, 4.78, 4.78]
+BM=390: Micro 388 min  Econ [5.13, 4.8, 5.49, 0.65]  Micro [4.8, 4.47, 5.13, 0.23]  prom 4.96  carga {'vie': 108, 'sab': 109, 'dom': 88, 'lun': 121, 'mar': 117, 'mie': 97, 'jue': 55}
+  Ma  vie 17:00  24 min: M6, M9
+  Mb  sab 16:00  83 min: M7, M2, M3
+  Mc  dom 16:00  56 min: M5, M2, M7, M3, M6
+  Md  lun 20:00  85 min: M8, M1, M5, M3
+  Me  mar 15:00  70 min: M2, M1, M5, M7
+  Mf  mie 18:30  45 min: M2, M9, M4, M6, M3
+  Mi  jue 13:10  25 min: M7, M5
+
+reinicios [4.9, 4.9, 4.9, 4.9]
+BM=450: Micro 443 min  Econ [5.15, 4.79, 5.51, 0.68]  Micro [4.9, 4.56, 5.24, 0.34]  prom 5.03  carga {'vie': 109, 'sab': 110, 'dom': 92, 'lun': 122, 'mar': 159, 'mie': 105, 'jue': 53}
+  Ma  vie 17:00  25 min: M2, M5
+  Mb  sab 16:00  84 min: M7, M6, M9
+  Mc  dom 16:00  60 min: M8, M3, M2
+  Md  lun 20:00  86 min: M7, M3, M6, M5, M2, M1
+  Me  mar 15:00 112 min: M5, M7, M9, M6, M8, M2, M4, M1, M3
+  Mf  mie 18:30  53 min: M5, M2, M3, M6, M8
+  Mi  jue 13:10  23 min: M3, M7
+
+reinicios [4.9, 4.9, 4.9, 4.9]
+BM=510: Micro 443 min  Econ [5.15, 4.79, 5.51, 0.68]  Micro [4.9, 4.56, 5.24, 0.34]  prom 5.03  carga {'vie': 109, 'sab': 110, 'dom': 92, 'lun': 122, 'mar': 159, 'mie': 105, 'jue': 53}
+  Ma  vie 17:00  25 min: M2, M5
+  Mb  sab 16:00  84 min: M7, M6, M9
+  Mc  dom 16:00  60 min: M8, M3, M2
+  Md  lun 20:00  86 min: M7, M3, M6, M5, M2, M1
+  Me  mar 15:00 112 min: M5, M7, M9, M6, M8, M2, M4, M1, M3
+  Mf  mie 18:30  53 min: M5, M2, M3, M6, M8
+  Mi  jue 13:10  23 min: M3, M7

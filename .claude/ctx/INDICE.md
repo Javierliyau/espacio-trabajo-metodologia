@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 07:36. 357 archivos, ~131606.0k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 07:51. 364 archivos, ~131612.6k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -144,6 +144,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 07:36. 357 archivos, ~131
 | 2.7k | 159 | `trabajo/macro-control2-prob.py` | id, enunciado, rangos de lineas, ec/fig, L30; iso (parecido al Control 1 segun el luga L31; control de lectura: pesan mas los rasgos L77; formatos: (prob, lugares D, A, C) L81 |
 | 2.6k | 225 | `trabajo/econometria-ii-etapa2/etapa2-david.R` | cambiar a la carpeta donde estan los 4 c L7; ahora no se hace full_join: se parte de  L20; primera vez: sin puntaje de invierno act L24; ojo: >= 100, con > 100 da 168.678 L33; de df3 no se pega nada, solo se marca si L48; matricula regular por via 1, despues se  L59; los que no postularon o no se matricular L67; FECHA_NACIMIENTO viene como mmaaaa (0820 L92; +10 |
 | 2.5k | 136 | `trabajo/micro/2026-11-01-datos-control-1.py` | Reemplaza la ficha del Control 1 de Micr L1; Uso: python este.py ficha / dominio / ma L2 |
+| 2.5k | 151 | `trabajo/espaciado/joint.py` | Optimizador conjunto Econometria II + Mi L1; Extiende opt.py/opt2.py: FSRS-6 con gana L2; ---------- temas ---------- L10; id: (materia, peso, S hoy [0=nuevo], dia L11; Micro: peso = puntos esperados de 60 (pr L16; ---------- franjas: (id, materia, etique L29; plan actual: econ v2 (opt2) + Micro 8,5  L128 |
 | 2.4k | 86 | `trabajo/semana-2026-10-26.bak2.md` | Semana 26-10 al 1-11-2026 L1 |
 | 2.4k | 204 | `trabajo/micro/2026-10-21-pauta-matematico-control-2026-1.tex` |  |
 | 2.4k | 69 | `trabajo/econometria-ii-etapa2/informe-salidas/tramos-woebin.csv` |  |
@@ -216,6 +217,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 07:36. 357 archivos, ~131
 | 1.0k | 35 | `trabajo/2026-10-25-simulacro-macro-control-1-PAUTA-no-abrir.md` | PAUTA · Simulacro Control 1 Macro II (do L1; P1 (30) L5; P2 (10) L18; P3 (10) · **Falso** L23; P4 (10) · **Verdadero** (convergencia co L27; Después de corregir L31 |
 | 1.0k | 42 | `trabajo/etapa2-final/verificar-informe.R` | guardar las bases crudas antes de que el L10 |
 | 994 | 39 | `trabajo/macro/editar_pep1.py` |  |
+| 975 | 26 | `trabajo/espaciado/edit_agenda.py` |  |
 | 956 | 76 | `trabajo/p3a-woe-practica/3A-woe-iv.tex` |  |
 | 951 | 56 | `trabajo/overleaf-etapa1/guion-javier-final.md` | Guion final de Javier · láminas 3, 9 y 1 L1; Lámina 3 · Fuentes de datos · 40 s L9; Lámina 9 · Descriptivas · 25 s (solo si  L21; Lámina 10 · Conclusiones · 40 s L29; Lámina 11 · Cierre · 5 s L38; Si te preguntan L44 |
 | 949 | 91 | `trabajo/revision-05/prueba.R` | rutas relativas a la carpeta del proyect L5 |
@@ -228,6 +230,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 07:36. 357 archivos, ~131
 | 883 | 90 | `trabajo/econometria-ii-demre/scripts/08-revision-finalfinal.R` |  |
 | 866 | 61 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Fichas/2026-2 Control 1 - Mundaca.json` |  |
 | 849 | 26 | `trabajo/sociologia/ronda-repetidas.md` | Ronda «Lo que más repitió» (lun 26-10) — L1; Clave (no mirar antes) L25 |
+| 848 | 66 | `trabajo/espaciado/joint_out.txt` |  |
 | 841 | 31 | `trabajo/revision-ppt-grupo-b.md` | Revisión de la presentación final del Gr L1; Cifras: todas coinciden con la fuente L6; Problemas que corregir antes de presenta L11; Correcciones aún pendientes en el Word e L27 |
 | 839 | 57 | `trabajo/micro/2026-10-21-control-probable-mundaca.tex` |  |
 | 831 | 72 | `trabajo/practica-pep1/4A-did-slep.tex` |  |
@@ -241,6 +244,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 07:36. 357 archivos, ~131
 | 753 | 84 | `trabajo/revision-05/06-base-david-corregido.R` |  |
 | 752 | 35 | `trabajo/macro/2026-2 Control 2 - Droller/01-transcripcion.md` | Control 2 · Macroeconomía II · Droller · L1; Pregunta 1 (10 puntos) L5; Pregunta 2 (10 puntos) · Opción múltiple L15; Pregunta 3 (10 puntos) · Opción múltiple L21; Pregunta 4 (30 puntos) L27 |
 | 734 | 35 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Fichas/2026-2 Control 1 - Mundaca.md` | Control 1 · Microeconomía II · 2026-2 ·  L9; PIII.a · 20 pts · equilibrio de monopoli L15; PIII.b · 20 pts · pérdida irrecuperable  L27 |
+| 730 | 54 | `trabajo/espaciado/joint2.py` | Econometria fija (plan v2, sesiones A-J) L1 |
 | 726 | 40 | `trabajo/etapa2-final/correr.R` | camino del codigo (automatico) ya corrid L17; camino del grupo: NEM, RANKING, luego IN L19; consistencia L34 |
 | 725 | 145 | `trabajo/micro/2026-11-01-manual-control-1.json` |  |
 | 702 | 59 | `trabajo/nota-r-david/salida2.txt` | A tibble: 2 × 3 L19; A tibble: 2 × 3 L24 |
@@ -255,9 +259,11 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 07:36. 357 archivos, ~131
 | 656 | 50 | `trabajo/micro/2026-10-21-gimnasio-1er-grado-dos-partes.tex` |  |
 | 651 | 36 | `trabajo/2026-10-14-plan-dia.md` | Borrador · plan del mié 14-10 (v2, 13:08 L1; Hecho hoy L7; Lo que queda L11; Próximos días L28; Pendiente de confirmar L33 |
 | 645 | 68 | `trabajo/p3a-woe-practica/3B-scorecard.tex` |  |
+| 643 | 1 | `trabajo/espaciado/joint2_res.json` |  |
 | 627 | 27 | `trabajo/revR/runner2.R` |  |
 | 621 | 33 | `trabajo/libro/pauta_p1.py` | Pauta completa de la P1 (formato libro)  L1 |
 | 603 | 60 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-2-woe-iv.tex` |  |
+| 598 | 45 | `trabajo/espaciado/joint2_out.txt` |  |
 | 589 | 46 | `trabajo/micro/2026-11-01-verificar.py` | Compara campeon.json con el respaldo y r L1 |
 | 578 | 39 | `trabajo/tiempo_estudio.py` | tiempo activo: tramos entre mensajes del L24 |
 | 563 | 74 | `trabajo/macro/datos-chile/y.csv` |  |
@@ -288,6 +294,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 07:36. 357 archivos, ~131
 | 375 | 19 | `trabajo/econometria-ii-etapa2/replica.py` | variante: solo REG_ANTERIOR, INV_ACTUAL, L19 |
 | 374 | 28 | `trabajo/espaciado/opt2.py` |  |
 | 356 | 15 | `trabajo/revision-etapa2/chequeo.R` |  |
+| 349 | 1 | `trabajo/espaciado/joint_res.json` |  |
 | 349 | 1 | `trabajo/espaciado/opt_res.json` |  |
 | 342 | 1 | `trabajo/espaciado/opt2_res.json` |  |
 | 327 | 13 | `trabajo/revision-etapa2/loop2.R` |  |

@@ -1,0 +1,133 @@
+{
+ "fecha_declarada": "2026-11-09",
+ "fuente": "C:/Proyecto Metodologia de estudio/datos/material/macroeconomia-ii/2026-11-06-prediccion-final-pep-1.md",
+ "nota": "v2 final (6-11): cimientos v0 + mini repaso de Droller 6-11 + guia del ayudante (Puntarelli, 'contiene toda la materia'; 4c-e poco probable). Mismos id que el v0 mas F6, F7, S6, E3, R5.",
+ "candidatos": [
+  {
+   "id": "F1",
+   "bloque": "formato",
+   "texto": "Hay comentes o V/F",
+   "p": 0.95
+  },
+  {
+   "id": "F2",
+   "bloque": "formato",
+   "texto": "Hay opcion multiple",
+   "p": 0.2
+  },
+  {
+   "id": "F3",
+   "bloque": "formato",
+   "texto": "Hay un matematico de Solow con incisos encadenados",
+   "p": 0.92
+  },
+  {
+   "id": "F4",
+   "bloque": "formato",
+   "texto": "Hay un matematico de Romer",
+   "p": 0.8
+  },
+  {
+   "id": "F5",
+   "bloque": "formato",
+   "texto": "Hay inciso o pregunta de extensiones (capital humano, residuo, contabilidad)",
+   "p": 0.55
+  },
+  {
+   "id": "F6",
+   "bloque": "formato",
+   "texto": "Hay preguntas de desarrollo breve",
+   "p": 0.45
+  },
+  {
+   "id": "F7",
+   "bloque": "formato",
+   "texto": "Hay calculos numericos (no solo algebra)",
+   "p": 0.75
+  },
+  {
+   "id": "S1",
+   "bloque": "solow",
+   "texto": "Derivar k-punto/k desde K-punto, k* e y*",
+   "p": 0.75
+  },
+  {
+   "id": "S2",
+   "bloque": "solow",
+   "texto": "Solow con tecnologia: k/A, y(t) y tasas en la SCB",
+   "p": 0.7
+  },
+  {
+   "id": "S3",
+   "bloque": "solow",
+   "texto": "Shock (s, n, delta, g o catastrofe): g_y y ln y en el tiempo, nivel vs tasa",
+   "p": 0.6
+  },
+  {
+   "id": "S4",
+   "bloque": "solow",
+   "texto": "Grafico de tasas s y/k vs n+delta y dinamica de transicion",
+   "p": 0.65
+  },
+  {
+   "id": "S5",
+   "bloque": "solow",
+   "texto": "Regla de oro",
+   "p": 0.5
+  },
+  {
+   "id": "S6",
+   "bloque": "solow",
+   "texto": "Convergencia con k/A (k-punto/k > g bajo el EE) y absoluta vs condicional",
+   "p": 0.4
+  },
+  {
+   "id": "E1",
+   "bloque": "extensiones",
+   "texto": "Contabilidad del crecimiento: log-diferenciar y despejar el residuo",
+   "p": 0.2
+  },
+  {
+   "id": "E2",
+   "bloque": "extensiones",
+   "texto": "MRW: y(t) con e^(psi u), dlny/du = psi, efecto nivel",
+   "p": 0.4
+  },
+  {
+   "id": "E3",
+   "bloque": "extensiones",
+   "texto": "Ingresos relativos entre paises y residuo A relativo",
+   "p": 0.15
+  },
+  {
+   "id": "R1",
+   "bloque": "romer",
+   "texto": "Derivar g_A = lambda n/(1-phi)",
+   "p": 0.55
+  },
+  {
+   "id": "R2",
+   "bloque": "romer",
+   "texto": "CPO de bien final, monopolista p = r/alpha, K, Y, w",
+   "p": 0.5
+  },
+  {
+   "id": "R3",
+   "bloque": "romer",
+   "texto": "P_A = pi/(r-n) y s_R de equilibrio con w_R = w_Y",
+   "p": 0.45
+  },
+  {
+   "id": "R4",
+   "bloque": "romer",
+   "texto": "y proporcional a s_R(1-s_R) y por que el mercado no da el s_R optimo",
+   "p": 0.35
+  },
+  {
+   "id": "R5",
+   "bloque": "romer",
+   "texto": "Efecto escala con lambda = phi = 1 y datos de EE.UU.",
+   "p": 0.3
+  }
+ ]
+}

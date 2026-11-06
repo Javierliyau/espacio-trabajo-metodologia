@@ -1,0 +1,14 @@
+
+todo BM=800: Micro 733 min  Micro [5.37, 5.07, 5.68, 0.96]  Econ 5.02  carga {'vie': 154, 'sab': 200, 'dom': 199, 'lun': 160, 'mar': 194, 'mie': 131, 'jue': 55}
+  Ma  vie 17:00  15: M2
+  Mz  vie 20:30  23: M3, M2
+  Mx  sab 10:30  49: M3, M2, M5, M4, M6
+  Mb  sab 16:00 116: M7, M5, M1, M3, M6
+  My  dom 10:30  53: M7, M1, M6
+  Mc  dom 16:00 108: M8, M1, M5, M3, M6, M7
+  Mv  lun 16:00  40: M2, M7, M5
+  Md  lun 20:00  84: M7, M5, M9, M8, M2, M4, M6
+  Me  mar 15:00 112: M2, M5, M8, M6, M4, M3, M1, M9, M7
+  Mw  mar 21:30  29: M7, M3, M9
+  Mf  mie 18:30  79: M1, M2, M9, M6, M3, M8
+  Mi  jue 13:10  25: M7, M5

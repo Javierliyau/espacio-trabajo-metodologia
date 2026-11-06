@@ -1,0 +1,11 @@
+
+topes + franjas sab/dom manana BM=700: Micro 663 min  Micro [5.31, 5.01, 5.61, 0.91]  Econ 5.02  carga {'vie': 139, 'sab': 197, 'dom': 200, 'lun': 136, 'mar': 165, 'mie': 131, 'jue': 55}
+  Ma  vie 17:00  23: M2, M6
+  Mx  sab 10:30  49: M2, M5, M3, M6, M4
+  Mb  sab 16:00 113: M2, M1, M3, M7
+  My  dom 10:30  60: M8, M7, M3
+  Mc  dom 16:00 102: M7, M2, M9, M1, M6, M5, M3
+  Md  lun 20:00 100: M3, M1, M5, M7, M2, M6, M4, M9
+  Me  mar 15:00 112: M3, M5, M7, M8, M6, M4, M1, M2, M9
+  Mf  mie 18:30  79: M8, M3, M6, M1, M2, M9
+  Mi  jue 13:10  25: M5, M7

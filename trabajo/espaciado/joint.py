@@ -1,6 +1,6 @@
 # Optimizador conjunto Econometria II + Microeconomia II (ambas PEP el jue 12-11)
 # Extiende opt.py/opt2.py: FSRS-6 con ganancia x g, q por Beta, recocido simulado, Monte Carlo.
-import math, random, sys, json, statistics as st
+import os, math, random, sys, json, statistics as st
 sys.stdout.reconfigure(encoding='utf-8')
 DEC=0.1542; F=0.9**(-1/DEC)-1
 R=lambda t,S:(1+F*max(t,0)/S)**-DEC
@@ -13,6 +13,12 @@ E={'T1':(.85,3,0,.80,35,6),'T2':(.75,2,0,.65,6,6),'T3':(.30,2,0,.80,6,4),'T4':(.
 'T5':(.50,2.5,0,.85,7,6),'T6':(.30,0,0,.30,2,9),'T7':(.80,1.5,0,.65,6,8),'T8':(.25,1,0,.60,4,8),
 'T9':(.25,3,0,.85,6,3),'T10':(.80,3,0,.88,8,7),'T11':(.50,1.5,0,.70,4,4),'T12':(.35,2,0,.55,4,6),
 'T13':(.20,5,0,.70,5,8),'T14':(.60,2,0,.70,12,6)}
+
+# PEP de DOS bloques (08:15-11:10): pesos de la columna «Dos bloques» y temas nuevos T15/T16
+W2={'T1': 0.9, 'T2': 0.85, 'T3': 0.5, 'T4': 0.7, 'T5': 0.75, 'T6': 0.6, 'T7': 0.9, 'T8': 0.35, 'T9': 0.5, 'T10': 0.9, 'T11': 0.75, 'T12': 0.65, 'T13': 0.3, 'T14': 0.8}
+for k,w in W2.items(): E[k]=(w,)+E[k][1:]
+E['T15']=(.25,0,0,.50,2,6)   # probit a mano con tabla Phi (nuevo)
+E['T16']=(.15,0,0,.45,2,4)   # primeras diferencias (Fatalities), conceptual (nuevo)
 # Micro: peso = puntos esperados de 60 (prediccion 04-11 §2-§4 normalizada); S/dias/q desde el Control 1 (22-10) y ayudantias
 M={'M1':(12.8,3,17,.55,4,30),   # 3.er grado vs precio unico, demanda quebrada, excluir grupo (matematico)
 'M2':(8.1,1,15,.30,5,15),       # dos partes y 2.o grado (C2 1/5 en el Control 1)
@@ -23,23 +29,24 @@ M={'M1':(12.8,3,17,.55,4,30),   # 3.er grado vs precio unico, demanda quebrada, 
 'M7':(13.8,0,0,.45,2,15),       # juegos estaticos: matriz 3x3, dominancia iterada, EN, dilema, puras
 'M8':(2.2,0,0,.35,2,12),        # secuenciales: arbol, induccion hacia atras (peso x0,7: no se sabe si entra)
 'M9':(1.1,0,0,.40,2,6)}         # paquetes
-LEARN={'T4':18,'T6':18,'M7':45,'M8':25,'M9':10}
+LEARN={'T4':18,'T6':18,'T15':18,'T16':18,'M7':45,'M8':25,'M9':10}
 TOP={**{k:('E',)+v for k,v in E.items()},**{k:('M',)+v for k,v in M.items()}}
 K=list(TOP)
 # ---------- franjas: (id, materia, etiqueta, t en dias desde vie 10:00, cupo, dia, sueño despues) ----------
-SL=[('A','E','vie 11:10',0.049,60,'vie',0),('Ma','M','vie 17:00',0.292,25,'vie',0),('B','E','vie 16:00',0.25,30,'vie',0),
+SL=[('A','E','vie 11:10',0.049,60,'vie',0),('Ma','M','vie 17:00',0.292,25,'vie',0),('B','E','vie 16:00',0.25,90,'vie',0),
 ('C','E','vie 22:30',0.521,15,'vie',1),
-('D','E','sab 13:00',1.125,40,'sab',0),('Mb','M','sab 16:00',1.25,90,'sab',0),
+('D','E','sab 13:00',1.125,45,'sab',0),('Mb','M','sab 16:00',1.25,90,'sab',0),
 ('E','E','dom 13:00',2.125,40,'dom',0),('Mc','M','dom 16:00',2.25,60,'dom',0),
-('F','E','lun 12:00',3.083,40,'lun',0),('Md','M','lun 20:00',3.417,90,'lun',0),
-('G','E','mar 13:00',4.125,50,'mar',0),('Me','M','mar 15:00',4.208,120,'mar',0),
+('F','E','lun 12:00',3.083,45,'lun',0),('Md','M','lun 20:00',3.417,90,'lun',0),
+('G','E','mar 13:00',4.125,65,'mar',0),('Me','M','mar 15:00',4.208,120,'mar',0),
 ('H','E','mie 12:45',5.115,40,'mie',0),('Mf','M','mie 18:30',5.354,60,'mie',0),
 ('I','E','mie 22:30',5.521,15,'mie',1),
 ('J','E','jue 06:45',5.865,30,'jue',0),('Mi','M','jue 13:10',6.132,25,'jue',0)]
 SL.sort(key=lambda s:s[3]); ORD=[s[0] for s in SL]
 DAYCAP={'vie':150,'sab':140,'dom':120,'lun':130,'mar':170,'mie':105,'jue':115}
-EXAM={'E':5.927,'M':6.156}
-NEWBY={'T4':'E','T6':'E','M7':'Mb','M8':'Md','M9':'Md'}   # nuevo: aprendido a mas tardar en esa franja (Cepeda 2008: 1.a pasada el fin de semana)
+if os.environ.get('V3')=='420': DAYCAP['vie']=190   # opcionales del viernes: excede el tope (se avisa)
+EXAM={'E':5.96,'M':6.156}
+NEWBY={'T4':'E','T6':'E','T15':'E','T16':'E','M7':'Mb','M8':'Md','M9':'Md'}   # nuevo: aprendido a mas tardar en esa franja (Cepeda 2008: 1.a pasada el fin de semana)
 def nota_E(p): return 1+3*p/.6 if p<.6 else min(7,4+3*(p-.6)/.4)   # 60 %
 def nota_M(p): return 1+3*p/.5 if p<.5 else min(7,4+3*(p-.5)/.5)   # 50 % (42/60 = 5,2)
 def evaluar(plan,par,estoc=False,rng=random):
@@ -125,12 +132,15 @@ def montecarlo(plan,n=2000):
         x,y=evaluar(plan,par,True,rng); a.append(x); b.append(y)
     def res(v): v=sorted(v); return [round(st.mean(v),2),round(v[int(.1*n)],2),round(v[int(.9*n)],2),round(sum(x>=5 for x in v)/n,2)]
     return res(a),res(b)
+import os
+V3=json.load(open('v3_'+os.environ.get('V3','360')+'.json'))
 # plan actual: econ v2 (opt2) + Micro 8,5 h aproximado en las franjas
 CUR={'A':['T6','T4'],'B':['T7','T14','T1'],'C':['T2','T3'],'D':['T8','T12','T7','T11'],'E':['T2','T8','T3','T7','T5'],
 'F':['T7','T11','T4','T6','T2'],'G':['T11','T14','T9','T13','T1','T2','T12','T8'],'H':['T6','T10','T8','T4','T3'],
 'I':['T1','T5','T9'],'J':['T14','T7','T2','T12','T11'],
 'Ma':[],'Mb':[],'Mc':[],'Md':['M1','M2','M3','M4','M5','M6','M7'],'Me':['M1','M2','M7','M8'],'Mf':['M1','M5','M6','M7','M2','M4','M3'],
 'Mi':['M1','M4','M3']}
+CUR.update(V3)
 if __name__=='__main__':
     def show(P,tag):
         c=costo(P); mc=montecarlo(P); tE=sum(c[s[0]] for s in SL if s[1]=='E'); tM=sum(c[s[0]] for s in SL if s[1]=='M')

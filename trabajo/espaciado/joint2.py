@@ -51,4 +51,4 @@ if __name__=='__main__':
         print(f'BM={BM}: Micro {tM} min  Econ {mc[0]}  Micro {mc[1]}  prom {round((mc[0][0]+mc[1][0])/2,2)}  carga {dd}')
         for (s,ms,lab,*_) in MS: print(f'  {s:3s} {lab} {c[s]:3d} min: {", ".join(P[s])}')
         out[BM]=P
-    json.dump(out,open('joint2_res.json','w'))
+    import os; json.dump(out,open('joint2_res_'+os.environ.get('V3','360')+'.json','w'))

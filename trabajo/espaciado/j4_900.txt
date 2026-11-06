@@ -1,0 +1,16 @@
+reinicio 0 5.3
+reinicio 1 5.35
+reinicio 2 5.31
+BM=900: Micro 704 min  Micro [5.34, 5.04, 5.65, 0.94]  Econ [5.03, 4.68, 5.38, 0.52]  carga {'vie': 175, 'sab': 180, 'dom': 165, 'lun': 163, 'mar': 195, 'mie': 131, 'jue': 55}
+  Ma  vie 17:00  25: M5, M2
+  Mz  vie 20:30  34: M9, M5, M3
+  Mb  sab 15:30  97: M7, M2, M3, M9, M6
+  Mx  sab 18:30  48: M5, M6, M7, M2
+  Mc  dom 16:00  89: M8, M1, M4, M9, M6
+  My  dom 18:30  38: M3, M1
+  Mv  lun 16:00  39: M3, M7, M5, M9
+  Md  lun 20:00  88: M1, M6, M2, M8, M3, M7
+  Me  mar 15:00 112: M1, M8, M4, M2, M7, M5, M6, M3, M9
+  Mw  mar 21:30  30: M2, M7
+  Mf  mie 18:30  79: M8, M6, M2, M1, M9, M3
+  Mi  jue 13:10  25: M7, M5

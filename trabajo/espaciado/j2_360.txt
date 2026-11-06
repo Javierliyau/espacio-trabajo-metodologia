@@ -1,0 +1,41 @@
+econ v2 sola: minutos 360
+
+reinicios [4.63, 4.62, 4.59, 4.64]
+BM=330: Micro 327 min  Econ [5.02, 4.69, 5.36, 0.52]  Micro [4.65, 4.31, 5.01, 0.1]  prom 4.83  carga {'vie': 139, 'sab': 118, 'dom': 56, 'lun': 115, 'mar': 99, 'mie': 105, 'jue': 55}
+  Ma  vie 17:00  23 min: M6, M2
+  Mb  sab 16:00  83 min: M7, M3, M2
+  Mc  dom 16:00  18 min: M5, M3
+  Md  lun 20:00  79 min: M8, M3, M5, M4, M9
+  Me  mar 15:00  46 min: M2, M3, M7, M6
+  Mf  mie 18:30  53 min: M2, M1, M3
+  Mi  jue 13:10  25 min: M5, M7
+
+reinicios [4.81, 4.81, 4.79, 4.79]
+BM=390: Micro 390 min  Econ [5.03, 4.69, 5.37, 0.53]  Micro [4.8, 4.47, 5.14, 0.24]  prom 4.92  carga {'vie': 139, 'sab': 119, 'dom': 93, 'lun': 96, 'mar': 143, 'mie': 105, 'jue': 55}
+  Ma  vie 17:00  23 min: M2, M3
+  Mb  sab 16:00  84 min: M7, M9, M6
+  Mc  dom 16:00  55 min: M2, M1, M5
+  Md  lun 20:00  60 min: M8, M3, M7
+  Me  mar 15:00  90 min: M1, M2, M9, M7, M6, M4, M3
+  Mf  mie 18:30  53 min: M5, M3, M2, M6, M8
+  Mi  jue 13:10  25 min: M7, M5
+
+reinicios [4.91, 4.91, 4.92, 4.91]
+BM=450: Micro 448 min  Econ [5.02, 4.68, 5.35, 0.53]  Micro [4.91, 4.58, 5.24, 0.36]  prom 4.96  carga {'vie': 139, 'sab': 125, 'dom': 98, 'lun': 122, 'mar': 165, 'mie': 104, 'jue': 55}
+  Ma  vie 17:00  23 min: M2, M3
+  Mb  sab 16:00  90 min: M7, M1
+  Mc  dom 16:00  60 min: M2, M7, M1
+  Md  lun 20:00  86 min: M6, M5, M8, M9, M2
+  Me  mar 15:00 112 min: M6, M7, M8, M1, M2, M9, M5, M3, M4
+  Mf  mie 18:30  52 min: M7, M2, M9, M3, M6
+  Mi  jue 13:10  25 min: M7, M5
+
+reinicios [4.91, 4.91, 4.92, 4.91]
+BM=510: Micro 448 min  Econ [5.02, 4.68, 5.35, 0.53]  Micro [4.91, 4.58, 5.24, 0.36]  prom 4.96  carga {'vie': 139, 'sab': 125, 'dom': 98, 'lun': 122, 'mar': 165, 'mie': 104, 'jue': 55}
+  Ma  vie 17:00  23 min: M2, M3
+  Mb  sab 16:00  90 min: M7, M1
+  Mc  dom 16:00  60 min: M2, M7, M1
+  Md  lun 20:00  86 min: M6, M5, M8, M9, M2
+  Me  mar 15:00 112 min: M6, M7, M8, M1, M2, M9, M5, M3, M4
+  Mf  mie 18:30  52 min: M7, M2, M9, M3, M6
+  Mi  jue 13:10  25 min: M7, M5

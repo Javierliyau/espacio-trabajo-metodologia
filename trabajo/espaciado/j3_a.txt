@@ -1,0 +1,9 @@
+
+topes 160-200, sin franjas nuevas BM=700: Micro 571 min  Micro [5.16, 4.85, 5.47, 0.71]  Econ 5.02  carga {'vie': 139, 'sab': 152, 'dom': 153, 'lun': 136, 'mar': 165, 'mie': 131, 'jue': 55}
+  Ma  vie 17:00  23: M2, M4
+  Mb  sab 16:00 117: M3, M2, M7, M5, M9, M6
+  Mc  dom 16:00 115: M2, M5, M1, M7, M8, M3
+  Md  lun 20:00 100: M5, M6, M2, M4, M3, M7, M1, M9
+  Me  mar 15:00 112: M2, M3, M7, M4, M6, M1, M8, M5, M9
+  Mf  mie 18:30  79: M7, M9, M1, M8, M6, M3
+  Mi  jue 13:10  25: M5, M2

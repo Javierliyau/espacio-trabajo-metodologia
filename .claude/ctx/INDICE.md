@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 08:53. 400 archivos, ~131655.4k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 10:03. 410 archivos, ~131684.4k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -95,6 +95,8 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 08:53. 400 archivos, ~131
 | ⚠ 5.7k | 510 | `trabajo/overleaf-etapa1/main.tex` |  |
 | ⚠ 5.7k | 443 | `trabajo/overleaf-etapa1/presentacion-grupo.tex` |  |
 | ⚠ 5.7k | 452 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-finalfinal.tex` |  |
+| ⚠ 5.6k | 140 | `trabajo/espaciado/plan-conjunto.antes-meta6-0942.md` | Plan conjunto · PEP 1 de Econometría II  L1; 1. Resultado L11; 2. Las reglas de la literatura que se ap L40; 3. Inventario de Micro L62; 4. Las sesiones, día a día L78; 5. Jueves 12, minuto a minuto L94; 6. Reglas de ajuste L108; 7. Cómo se calculó L117 |
+| ⚠ 5.5k | 140 | `trabajo/espaciado/plan-conjunto.antes-macro-0927.md` | Plan conjunto · PEP 1 de Econometría II  L1; 1. Resultado L11; 2. Las reglas de la literatura que se ap L40; 3. Inventario de Micro L62; 4. Las sesiones, día a día L78; 5. Jueves 12, minuto a minuto L94; 6. Reglas de ajuste L108; 7. Cómo se calculó L117 |
 | ⚠ 5.1k | 463 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-david-limpio.tex` |  |
 | ⚠ 5.0k | 644 | `trabajo/hem-slides.txt` |  |
 | ⚠ 5.0k | 461 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-david-entrega.tex` |  |
@@ -107,6 +109,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 08:53. 400 archivos, ~131
 | ⚠ 4.8k | 297 | `trabajo/nota-r-david/David_Econometria_Etapa2_Mejorado.R` | ======================================== L1; ECONOMETRIA II - USACH / ETAPA 2 - VERSI L2; Integrantes: David Cuevas, Javier Li-Yau L3; Referencia metodologica: GermanCredit_Sc L4; Objetivo: Y=1 si matricula REGULAR en pr L5; Alcance: descripcion, consistencia, WOE/ L6; NOTA: ejecutar sobre los archivos DEMRE  L7; de entregarlos. No se incluyen cifras in L8; +32 |
 | ⚠ 4.7k | 298 | `trabajo/nota-r-david/parche.R` | ======================================== L1; ECONOMETRIA II - USACH / ETAPA 2 - VERSI L2; Integrantes: David Cuevas, Javier Li-Yau L3; Referencia metodologica: GermanCredit_Sc L4; Objetivo: Y=1 si matricula REGULAR en pr L5; Alcance: descripcion, consistencia, WOE/ L6; NOTA: ejecutar sobre los archivos DEMRE  L7; de entregarlos. No se incluyen cifras in L8; +32 |
 | ⚠ 4.7k | 315 | `trabajo/econometria-ii-estudio/build.log` |  |
+| ⚠ 4.6k | 389 | `trabajo/macro/tex/2026-11-08-simulacro-pep-1-droller.log` |  |
 | ⚠ 4.6k | 306 | `trabajo/econometria-ii-demre/trabajo-09.log` | A tibble: 3,318 × 3 L61; ℹ 3,308 more rows L74; A tibble: 3,220 × 2 L75; ℹ 3,210 more rows L88; A tibble: 3,318 × 4 L89; ℹ 3,308 more rows L102; A tibble: 317,700 × 15 L103; ℹ 317,690 more rows L116; +25 |
 | ⚠ 4.6k | 344 | `trabajo/econometria-ii-estudio/salidas-paes-estudio.txt` |  |
 | ⚠ 4.5k | 283 | `trabajo/ficha-streaming/log2.txt` |  |
@@ -122,10 +125,12 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 08:53. 400 archivos, ~131
 | 3.9k | 327 | `trabajo/nota-r-david/entrega_prueba.R` | Nombres: David Cuevas, Javier Li-Yau, Be L3; Análisis univariado y bivariado (IV, WOE L4; para dejar las X definitivas del logit d L5; Variable objetivo: PREF_TOP3_DUMMY L6; (1 = quedó matriculado en una de sus 3 p L7; Para correrlo basta cambiar `ruta` (carp L9; read.csv2: separador ";" y decimales con L21; 99 = "prefiero no responder" -> NA L29; +58 |
 | 3.6k | 232 | `trabajo/tex/log.txt` |  |
 | 3.6k | 103 | `trabajo/macro/ficha-viaje-solow.html` |  |
+| 3.6k | 98 | `trabajo/espaciado/2026-11-02.antes-meta6-0942.md` | Semana 2-11 al 8-11-2026 L1 |
 | 3.5k | 328 | `trabajo/build-micro-pep1/2026-11-04-simulacro-pep-1-mundaca.log` |  |
 | 3.5k | 303 | `trabajo/nota-r-david/final_final.R` | Nombres: David Cuevas, Javier Li-Yau, Be L3; Modelo logit con WOE. Variable objetivo: L4; (1 = quedó matriculado en una de sus 3 p L5; read.csv2: separador ";" y decimales con L17; 99 = "prefiero no responder" -> NA L24; N_MATRICULADOS no se incluye: se conoce  L29; Solo rinden la regular actual: todas las L42; anterior vacías (read.csv2 deja "" en la L43; +43 |
 | 3.5k | 254 | `trabajo/econometria-ii-demre/trabajo-10.log` | A tibble: 3,318 × 3 L63; ℹ 3,308 more rows L76; A tibble: 3,220 × 2 L77; ℹ 3,210 more rows L90; A tibble: 3,318 × 4 L91; ℹ 3,308 more rows L104; A tibble: 317,700 × 15 L105; ℹ 317,690 more rows L118; +25 |
 | 3.5k | 242 | `trabajo/econometria-ii-etapa2/salida-david.txt` | A tibble: 3,318 × 3 L51; ℹ 3,308 more rows L64 |
+| 3.4k | 96 | `trabajo/espaciado/2026-11-02.antes-macro-0927.md` | Semana 2-11 al 8-11-2026 L1 |
 | 3.1k | 93 | `trabajo/espaciado/sem02_bak.md` | Semana 2-11 al 8-11-2026 L1 |
 | 3.1k | 148 | `trabajo/guia-ejercicios-libro/txt/sw13.txt` |  |
 | 3.1k | 289 | `trabajo/econometria-ii-logit/ej1-logit-hoja-domingo.log` |  |
@@ -161,6 +166,8 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 08:53. 400 archivos, ~131
 | 2.3k | 184 | `trabajo/econometria-ii-demre/scripts/Trabajo etapa 2 econometria.II.R` | rutas relativas: abrir econometria-ii-de L11; Etapa 2: se saca N_MATRICULADOS, porque  L32; Etapa 2: la base maestra es df2 (los que L41; Etapa 2: de las postulaciones solo se ma L52; Etapa 2: el filtro de via y tipo se hace L58; FECHA_NACIMIENTO viene como mmaaaa (0820 L92; las categoricas como texto para que woeb L97; mas de 5 % de NA -> la variable no se us L116; +8 |
 | 2.2k | 104 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1.tex` |  |
 | 2.1k | 120 | `trabajo/econometria-ii-etapa2/salida-verificacion.txt` | A tibble: 19 × 4 L58; A tibble: 19 × 3 L80 |
+| 2.1k | 71 | `trabajo/espaciado/2026-11-09.antes-meta6-0942.md` | Semana 9-11 al 15-11-2026 L1 |
+| 2.1k | 71 | `trabajo/espaciado/2026-11-09.antes-macro-0927.md` | Semana 9-11 al 15-11-2026 L1 |
 | 2.0k | 161 | `trabajo/etapa2-final/salida.txt` |  |
 | 2.0k | 170 | `trabajo/revR/salida3.txt` |  |
 | 2.0k | 143 | `trabajo/micro/2026-11-01-prueba-parche.py` | Prueba el parche sobre una copia del ban L1; 1. parcial: la ficha de memoria queda ma L42; 2. ficha real L63; 3. dominio: la migracion y el retorno te L72; 4. corregir: original intacta, vigente c L85; 5. dominio de practica L100; 6. manual L107; 7. tablero en la copia L122; +1 |
@@ -203,6 +210,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 08:53. 400 archivos, ~131
 | 1.2k | 105 | `trabajo/macro/ficha-control-2-gemini-original.json` |  |
 | 1.2k | 105 | `trabajo/econometria-ii-demre/scripts/09-corregido-local.R` | El 99 es "prefiero no responder": se pas L10; antes de cualquier group_by(RBD) L11; Se sacan los alumnos sin RBD para que no L19; al pegar las variables quedan con NA. L20; Mediana y no promedio: los tramos de ing L21; Y (segun el profesor): 1 si se matriculo L79; 0 si quedo en la 4a o mas abajo L80; Sin RBD no se conoce la rama: queda NA y L84; +1 |
 | 1.1k | 97 | `trabajo/econometria-ii-etapa2/salida-exportar.txt` |  |
+| 1.1k | 78 | `trabajo/macro/M1-comentes-en-frio.md` | M1 · Los 20 comentes en frío · Macro II, L1; Reglas L5; Parte I (del ayudante B. Puntarelli) L13; Hoja de respuestas L45; Corrección (10 min, recién al terminar l L74 |
 | 1.1k | 175 | `trabajo/micro/respaldo-motor-2026-11-01/scripts/campeon.json` |  |
 | 1.1k | 52 | `trabajo/ayud_numeros.R` | ---- germancredit L30; ---- Fatalities L49 |
 | 1.1k | 114 | `trabajo/md2tex_moore.py` |  |
@@ -243,6 +251,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 08:53. 400 archivos, ~131
 | 850 | 38 | `trabajo/espaciado/top.md` | Plan conjunto · PEP 1 de Econometría II  L1; 1. Resultado L11 |
 | 849 | 26 | `trabajo/sociologia/ronda-repetidas.md` | Ronda «Lo que más repitió» (lun 26-10) — L1; Clave (no mirar antes) L25 |
 | 848 | 66 | `trabajo/espaciado/joint_out.txt` |  |
+| 845 | 133 | `trabajo/macro/candidatos-pep-1-final.json` |  |
 | 841 | 31 | `trabajo/revision-ppt-grupo-b.md` | Revisión de la presentación final del Gr L1; Cifras: todas coinciden con la fuente L6; Problemas que corregir antes de presenta L11; Correcciones aún pendientes en el Word e L27 |
 | 839 | 57 | `trabajo/micro/2026-10-21-control-probable-mundaca.tex` |  |
 | 831 | 72 | `trabajo/practica-pep1/4A-did-slep.tex` |  |
@@ -404,4 +413,5 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 08:53. 400 archivos, ~131
 | 39 | 12 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Motor/dominio.json` |  |
 | 38 | 2 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/06d_decisiones_retramificacion.csv` |  |
 | 38 | 10 | `trabajo/micro/2026-11-01-manual-control-1-aciertos.json` |  |
+| 33 | 3 | `trabajo/macro/errores-pep1.md` | Lista de errores · PEP 1 Macro II L1 |
 | 6 | 1 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/04b_exclusiones_previas.csv` |  |

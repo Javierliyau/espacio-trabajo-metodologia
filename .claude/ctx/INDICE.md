@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 17:31. 344 archivos, ~131593.7k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 07:36. 357 archivos, ~131606.0k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -167,10 +167,13 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 17:31. 344 archivos, ~131
 | 1.5k | 123 | `trabajo/econometria-ii-demre/scripts/03-base-seleccion.R` | los archivos del DEMRE vienen con ; y co L9; lo que elegimos de cada archivo, mas lo  L15; RBD, SITUACION_EGRESO, RAMA_EDUCACIONAL, L16; PREFERENCIA es para la Y, TIPO_MATRICULA L27; SITUACION_EGRESO: 1 es promocion del año L30; TIPO_PREF: la misma carrera se repite si L35; postulaciones trae una fila por preferen L39; left_join deja a todos los postulantes,  L44; +14 |
 | 1.5k | 42 | `trabajo/sociologia/fallos-pep1.md` | Fallos y apuestas para el repaso del mié L1; Marx (sáb 24-10 · bloque 1: 5/5 · ronda  L6; Weber (dom 25-10 · Ronda Weber: 10/10 ·  L13; Durkheim (dom 25-10 · Ronda Durkheim: 8/ L18; Tocqueville (lun 26-10 · Ronda Tocquevil L23; Repaso de reincidentes (lun 26-10 · 5/5  L31; Simulacro de la Prueba 1 (mar 27-10 · 38 L35 |
 | 1.5k | 93 | `trabajo/p1b-logit/1B-pauta.tex` |  |
+| 1.5k | 105 | `trabajo/espaciado/opt.py` | ---------- datos ---------- L3; tema: (peso P(sale), S hoy [0=nuevo], q  L4; franjas (dias desde vie 10:00), cupo max L10 |
 | 1.5k | 74 | `trabajo/econometria-ii-etapa2/etapa2-verificacion.R` | Verificación del instructivo Etapa 2 (Ec L1; Reproduce la base del profesor (clase 5, L2; ---------- Paso 0: leer ---------- L7; ---------- Paso 1: filtros en A -------- L14; ---------- Paso 2: B' y flag_postula --- L24; ---------- Paso 3: C' y left_join; I --- L29; ---------- Paso 4: X candidatas -------- L37; ---------- Etapa 2a: univariado -------- L57; +1 |
 | 1.5k | 80 | `trabajo/macro/2026-10-25-guia-tecnologia-tipo-control.tex` |  |
+| 1.4k | 56 | `trabajo/ajuste_pep_econo.py` | 1) calendario L3; 2) protocolo L15; 3) semana actual L21; 4) semana siguiente L40 |
 | 1.4k | 90 | `trabajo/build-repaso/2026-11-01-repaso-matematico-control-2.tex` |  |
 | 1.4k | 33 | `trabajo/econometria-ii-m2/2026-10-24-m2-paes-PAUTA-no-abrir.md` | PAUTA · M2 con la salida PAES · 24-10 (n L1; Hito 1 · ficha L5; Hito 2 L12; Hito 3 · E7 (ítems 1, 2 y 4; el 3 ya es  L26; Puntaje sugerido (por hito, sobre 5) L32 |
+| 1.4k | 44 | `trabajo/espaciado/sec3.md` | 3. Las 10 sesiones, optimizadas (≈ 5 h 1 L1 |
 | 1.4k | 106 | `trabajo/nota-r-david/salida_v7_parche.txt` | A tibble: 2 × 3 L16; A tibble: 2 × 3 L21 |
 | 1.4k | 105 | `trabajo/nota-r-david/salida_auditado.txt` | A tibble: 2 × 3 L10; A tibble: 2 × 3 L15 |
 | 1.4k | 60 | `trabajo/econometria-ii-m2/2026-10-24-m2-paes.md` | Econometría II · M2 con la salida PAES · L1; Caso real · «Las tres notas y el colegio L5; Hito 1 · Ficha de 5 líneas, de memoria ( L19; Hito 2 · Pregunta tipo PEP con la salida L29; Hito 3 · E7, para comentar (criterio) (1 L54 |
@@ -191,7 +194,11 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 17:31. 344 archivos, ~131
 | 1.1k | 175 | `trabajo/micro/respaldo-motor-2026-11-01/scripts/campeon.json` |  |
 | 1.1k | 52 | `trabajo/ayud_numeros.R` | ---- germancredit L30; ---- Fatalities L49 |
 | 1.1k | 114 | `trabajo/md2tex_moore.py` |  |
+| 1.1k | 74 | `trabajo/tiempo_dia.py` |  |
 | 1.1k | 69 | `trabajo/tiempo_por_ramo.py` |  |
+| 1.1k | 68 | `trabajo/espaciado/plan2.py` | Calendario de repasos con el modelo FSRS L1; id: (nombre, S días, D 1-10, último repa L11; sesiones disponibles (inicio, minutos, e L28 |
+| 1.1k | 67 | `trabajo/espaciado/plan.py` | Calendario de repasos con el modelo FSRS L1; id: (nombre, S días, D 1-10, último repa L10; sesiones disponibles (inicio, minutos, e L27 |
+| 1.1k | 68 | `trabajo/espaciado/plan6.py` | Calendario de repasos con el modelo FSRS L1; id: (nombre, S días, D 1-10, último repa L11; sesiones disponibles (inicio, minutos, e L28 |
 | 1.1k | 40 | `trabajo/micro/2026-10-21-simulacro-PAUTA-no-abrir.md` | PAUTA del simulacro del Control 1 (21-10 L1; Comentes L3; Desarrollos L9; Matemático L17; Hitos de corrección del matemático (40) L38 |
 | 1.1k | 50 | `trabajo/econometria-ii-demre/LEEME.md` | Econometría II: trabajo práctico, etapa  L1; Carpetas L7; Archivos en `datos/crudos/` L20; Dos advertencias que salen de los libros L35; Cómo se conectan los archivos L40; Base final (2-10-2026) L45 |
 | 1.1k | 54 | `trabajo/overleaf-etapa1/guion-javier-3-9-10.tex` |  |
@@ -200,10 +207,12 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 17:31. 344 archivos, ~131
 | 1.1k | 36 | `trabajo/micro/2026-10-21-control-probable-PAUTA-no-abrir.md` | PAUTA del control «lo más probable» (21- L1; Comentes L3; Desarrollos L9; Matemático L13; Hitos de corrección del matemático (40) L34 |
 | 1.1k | 80 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/05_bivariado.csv` |  |
 | 1.1k | 57 | `trabajo/macro/2026-10-25-solow-chile-terremoto.py` | -*- coding: utf-8 -*- L1; Diagrama de Solow L22; Zoom L34; ln y contra t L42 |
+| 1.1k | 68 | `trabajo/t_pep.py` |  |
 | 1.1k | 27 | `trabajo/revision-etapa2/stats.R` | orden VIF, restringido a VIF>2 L16 |
 | 1.0k | 76 | `trabajo/econometria-ii-etapa2/exportar-informe.R` | Corre prueba-david.R y exporta tablas (C L1; Uso: Rscript exportar-informe.R L2; Embudo de filtros L8; Composición de I L14; Univariado L23; IV y monotonía L44; Tramos de todas las variables (para anex L52; VIF L59; +1 |
 | 1.0k | 77 | `trabajo/econometria-ii-logit/crear_excel.py` | Parámetros L24 |
 | 1.0k | 37 | `trabajo/micro/2026-11-04-manual-pep-1.json` |  |
+| 1.0k | 31 | `trabajo/espaciado/agenda_sesiones.py` |  |
 | 1.0k | 35 | `trabajo/2026-10-25-simulacro-macro-control-1-PAUTA-no-abrir.md` | PAUTA · Simulacro Control 1 Macro II (do L1; P1 (30) L5; P2 (10) L18; P3 (10) · **Falso** L23; P4 (10) · **Verdadero** (convergencia co L27; Después de corregir L31 |
 | 1.0k | 42 | `trabajo/etapa2-final/verificar-informe.R` | guardar las bases crudas antes de que el L10 |
 | 994 | 39 | `trabajo/macro/editar_pep1.py` |  |
@@ -277,7 +286,10 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 17:31. 344 archivos, ~131
 | 410 | 15 | `trabajo/buzon_moore.py` | 2026-10-31 · Macro II, lectura JV 5.1 pa L6 |
 | 387 | 16 | `trabajo/macro/candidatos-control-2.json` |  |
 | 375 | 19 | `trabajo/econometria-ii-etapa2/replica.py` | variante: solo REG_ANTERIOR, INV_ACTUAL, L19 |
+| 374 | 28 | `trabajo/espaciado/opt2.py` |  |
 | 356 | 15 | `trabajo/revision-etapa2/chequeo.R` |  |
+| 349 | 1 | `trabajo/espaciado/opt_res.json` |  |
+| 342 | 1 | `trabajo/espaciado/opt2_res.json` |  |
 | 327 | 13 | `trabajo/revision-etapa2/loop2.R` |  |
 | 325 | 27 | `trabajo/nota-r-david/salida.txt` |  |
 | 324 | 15 | `trabajo/ayud5.R` | 2x2: estados que subieron vs no subieron L9 |
@@ -285,6 +297,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-05 17:31. 344 archivos, ~131
 | 319 | 17 | `trabajo/econometria-ii-m1/m1-sesgo.R` | mismo n para comparar L12; muestra chica: precision vs sesgo L15 |
 | 316 | 13 | `trabajo/econometria-ii-m1/m1-regresion-postulantes.R` | M1 · MCO simple con la base vigente del  L1; Chequeo: puntajes 0 (¿no rindió?) y regr L10 |
 | 312 | 7 | `trabajo/econometria-ii-m1/pauta-dummy-log-2026-10-19.md` | Pauta (no mostrar antes de que responda) L1 |
+| 310 | 15 | `trabajo/espaciado/nota.py` | peso, S_hoy, calidad_al_recordar (q), q_ L1 |
 | 291 | 17 | `trabajo/pistas.py` |  |
 | 281 | 14 | `trabajo/econometria-ii-etapa2/informe-salidas/vif-12.csv` |  |
 | 280 | 21 | `trabajo/econometria-ii-etapa2/informe-salidas/univariado.csv` |  |

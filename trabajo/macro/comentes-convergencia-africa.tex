@@ -1,0 +1,175 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\setlength{\parindent}{0pt}
+\newcommand{\kt}{\tilde{k}}
+
+\begin{document}
+
+\begin{center}
+  {\Large\bfseries Comentes de convergencia -- PEP 1}\\[2pt]
+  {\large\bfseries Macroeconomía II}\\[6pt]
+  \rule{\textwidth}{0.4pt}\\[2pt]
+  Casos reales de África (datos del Banco Mundial) · Repaso del 6-11 y clase 4
+\end{center}
+
+\begin{itemize}
+  \item En los \textbf{comentes}, indique si la afirmación es Verdadera, Falsa o Incierta, y justifique con ecuaciones,
+  gráficos y conceptos (convergencia absoluta versus condicional, dinámica de transición, efecto nivel versus
+  efecto crecimiento). Una respuesta sin justificación no es una respuesta.
+  \item Use los datos de la tabla y el gráfico. La pauta está al final: no la mire hasta terminar.
+\end{itemize}
+
+\section*{Lo que dijo el profesor en el repaso}
+Fuera del estado estacionario la economía crece (o decrece), y \emph{mientras más lejos esté, más rápido}:
+\[
+\frac{\dot{k}}{k} = s\,\frac{y}{k} - (n+\delta)
+\qquad\text{(con tecnología: }\ \frac{\dot{\kt}}{\kt} = s\,\kt^{\,\alpha-1} - (n+g+\delta),\ \ \kt = k/A\text{)}.
+\]
+\textbf{Convergencia absoluta:} todos tienen la misma función de producción y el mismo estado estacionario, así que
+los pobres crecen más rápido y la desigualdad desaparece sola.
+\textbf{Convergencia condicional:} cada país converge a \emph{su propio} estado estacionario,
+\[
+y_i^*(t) = A_i(t)\,h_i\left(\frac{s_i}{n_i+g+\delta}\right)^{\frac{\alpha}{1-\alpha}},
+\]
+y crece más rápido cuanto más lejos está \emph{de ese}.
+
+\section*{Datos}
+PIB por persona en dólares constantes de 2015 (Banco Mundial, \texttt{NY.GDP.PCAP.KD}). $s$ se aproxima con la
+formación bruta de capital (\% del PIB) y $n$ con el crecimiento de la población.
+
+\begin{center}
+\footnotesize
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrlrl}
+\toprule
+País & $y$ 1960 & $y$ 2024 & Crec. anual de $y$ & $n$ 2000-23 & Dato clave \\
+\midrule
+Botsuana & 394 & 6.952 & 9,0\% (66-90); 1,3\% (00-24) & 1,7\% & $s \approx 35\%$ (66-90) \\
+RD del Congo & 1.303 & 554 & $-1{,}3\%$ (60-24) & 3,2\% & $s \approx 12\%$ (90-10) \\
+Ruanda & 333 & 1.043 & 8,3\% (94-04) & 2,2\% & PIB: $-50\%$ (1994), $+35\%$ (1995) \\
+Níger & 742 & 589 & $-0{,}4\%$ (60-24) & 3,6\% & $n$ de los más altos \\
+EE.\,UU. & 18.992 & 66.857 & 2,0\% (60-24); 1,3\% (00-24) & 0,8\% & la frontera \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+  width=\textwidth, height=6.5cm,
+  ymode=log, log basis y=10,
+  xmin=1960, xmax=2024, ymin=150, ymax=90000,
+  xlabel={Año}, ylabel={$y$ (USD de 2015, log)},
+  legend style={at={(0.5,-0.22)}, anchor=north, legend columns=5, font=\small, /tikz/every even column/.append style={column sep=6pt}},
+  xticklabel style={/pgf/number format/1000 sep=},
+  tick label style={font=\small}, label style={font=\small},
+  unbounded coords=jump,
+]
+\addplot[thick, blue] table[x=anio,y=BWA]{datos-africa/ypc.dat};
+\addlegendentry{Botsuana}
+\addplot[thick, red] table[x=anio,y=COD]{datos-africa/ypc.dat};
+\addlegendentry{RD del Congo}
+\addplot[thick, orange, dashed] table[x=anio,y=RWA]{datos-africa/ypc.dat};
+\addlegendentry{Ruanda}
+\addplot[thick, gray, dotted] table[x=anio,y=NER]{datos-africa/ypc.dat};
+\addlegendentry{Níger}
+\addplot[thick, black] table[x=anio,y=USA]{datos-africa/ypc.dat};
+\addlegendentry{EE.\,UU.}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+\section*{Comentes}
+\textit{Verdadero, Falso o Incierto. Justifique su respuesta.}
+
+\begin{enumerate}
+  \item En 1960, Botsuana y la RD del Congo eran mucho más pobres que EE.\,UU. Por lo tanto, según el modelo de Solow,
+  ambos debieron crecer más rápido que EE.\,UU. desde entonces.
+  \item Entre 1960 y 2024, la brecha entre EE.\,UU. y la RD del Congo pasó de 15 a 121 veces, y la de EE.\,UU. con Níger,
+  de 26 a 114 veces. Esta evidencia refuta el modelo de Solow.
+  \item Botsuana creció 9\% anual por persona entre 1966 y 1990, pero solo 1,3\% entre 2000 y 2024. Esa
+  desaceleración muestra que su modelo de desarrollo fracasó.
+  \item Desde el año 2000, Botsuana y EE.\,UU. crecen a la misma tasa por persona (1,3\%). Entonces, según Solow,
+  ambos ya tienen el mismo producto por trabajador de estado estacionario.
+  \item En 1994, tras el genocidio, el PIB de Ruanda cayó 50\%, y en 1995 creció 35\%. El modelo de Solow no puede
+  explicar un crecimiento de 35\%, porque la tecnología no crece a esa tasa.
+  \item Níger tiene uno de los crecimientos de población más altos del mundo ($n \approx 3{,}6\%$). Según el modelo
+  de Solow con progreso tecnológico, eso explica que su PIB por persona crezca menos que el de EE.\,UU. en el largo
+  plazo.
+  \item Si la RD del Congo subiera su tasa de inversión del 12\% al 35\% (la de Botsuana durante su despegue),
+  alcanzaría el producto por trabajador de estado estacionario de Botsuana. (Use $\alpha = 1/3$, $\delta = 0{,}05$
+  y $g = 0{,}02$.)
+\end{enumerate}
+
+\vfill
+\begin{center}\itshape --- La pauta empieza en la página siguiente ---\end{center}
+
+\newpage
+\section*{Pauta}
+
+\textbf{1. Falso.} Eso es la \emph{convergencia absoluta}, que supone que todos tienen la misma función de producción
+($A$, $h$) y los mismos $s$ y $n$, y por lo tanto el mismo estado estacionario. Solow predice convergencia
+\emph{condicional}: cada país crece según su distancia a su propio $y_i^*$. Los datos lo muestran: Botsuana creció
+9\% anual en 1966-90, y la RD del Congo, más rica que Botsuana en 1960 (3,3 veces), cayó 1,3\% anual. Ambos eran pobres, pero tenían
+estados estacionarios muy distintos. El de Botsuana subió con $s \approx 35\%$ e instituciones que protegieron
+la renta de los diamantes. El del Congo bajó con la guerra, una inversión baja y una $A$ en caída. Un país puede
+ser pobre y crecer poco si ya está cerca de su propio $y^*$, que es bajo.
+
+\textbf{2. Falso.} Refuta la convergencia \emph{absoluta}, no el modelo. Como en la clase 4 (el cociente
+P90/P10 subió de $\sim$20 a $\sim$45), a nivel mundial la relación entre ser pobre y crecer rápido se rompe. Con
+convergencia condicional, $\dfrac{y_{EEUU}^*}{y_{COD}^*} = \dfrac{A_{EEUU}h_{EEUU}}{A_{COD}h_{COD}}
+\left(\dfrac{s_{EEUU}/(n_{EEUU}+g+\delta)}{s_{COD}/(n_{COD}+g+\delta)}\right)^{\frac{\alpha}{1-\alpha}}$ puede ser
+enorme, y la brecha puede crecer si $A_{COD}$ cae (lo que ocurrió con el conflicto) o si $s_{COD}$ baja. Lo que Solow
+\emph{sí} predice es que se crece más rápido cuanto más lejos se está del propio estado estacionario. Esto se ve
+en clubes con $A$ y $h$ parecidos (la OCDE) y en casos como Corea o Botsuana.
+
+\textbf{3. Falso.} Es exactamente lo que predice la dinámica de transición. Con $\dot{\kt}/\kt = s\,\kt^{\,\alpha-1}-(n+g+\delta)$,
+cuando $\kt$ está lejos bajo $\kt^*$, la curva $s\kt^{\alpha-1}$ queda muy por encima de $n+g+\delta$, y $k$ e $y$ crecen
+mucho más que $g$. A medida que $\kt \to \kt^*$, la brecha se cierra y $\dot{y}/y \to g$. Que Botsuana hoy crezca 1,3\%,
+lo mismo que EE.\,UU., es la señal de que llegó cerca de su sendero de crecimiento balanceado: \emph{convergió}
+a su $y^*$. No es un fracaso. \textit{Gráfico:} curva $s\kt^{\alpha-1}$ decreciente, recta $n+g+\delta$; la distancia
+vertical es la tasa de crecimiento, y se achica al acercarse a $\kt^*$.
+
+\textbf{4. Falso.} En el sendero de crecimiento balanceado, \emph{todos} crecen a $g$ (por persona), sin importar su nivel:
+$\dot{y}/y = \dot{A}/A = g$. Crecer igual es un resultado de \emph{tasa}. El \emph{nivel} depende de
+$A_i h_i\,(s_i/(n_i+g+\delta))^{\alpha/(1-\alpha)}$. Botsuana redujo la brecha de 47 veces (1966) a 9,6 veces (2024),
+pero la brecha que queda es de nivel, por $A$, $h$, $s$ y $n$ distintos, y no se cierra sola. Es la diferencia entre
+efecto nivel y efecto crecimiento.
+
+\textbf{5. Falso.} Es dinámica de transición, no tecnología. El shock dejó a la economía muy por debajo de su estado
+estacionario: capital destruido, producción interrumpida. Con $\dot{k}/k = s\,y/k - (n+\delta)$, si $k$ cae mucho,
+$y/k$ sube (por rendimientos decrecientes, $PMg_K = \alpha y/k$ es alta) y la tasa de crecimiento se dispara por sobre $g$.
+Ruanda recuperó su PIB por persona de 1993 en el año 2000 y creció 8,3\% anual en 1994-2004. Es el mismo argumento del
+terremoto de Chile en 2010. \textit{Matiz que suma puntos:} el genocidio también destruyó población e instituciones
+($L$ y $A$), así que parte del rebote es la recuperación de $A$, no solo de $k$.
+
+\textbf{6. Falso (en Solow).} En Solow, $n$ tiene un \emph{efecto nivel}, no un efecto crecimiento: un $n$ mayor desplaza
+la recta $n+g+\delta$ hacia arriba y \emph{baja} $\kt^*$ e $y^*$ (más trabajadores que equipar con el mismo ahorro). En el largo plazo,
+$\dot{y}/y = g$ igual para Níger y para EE.\,UU. El bajo crecimiento observado de Níger ($-0{,}4\%$) se explica por un
+$y^*$ bajo y por caídas de $A$, no por $n$ en sí. \textit{Para ir al 7:} en Romer semiendógeno es al revés,
+$g_A = \lambda n/(1-\phi)$, y un $n$ mayor \emph{aumenta} el crecimiento de largo plazo (más gente que piensa, más ideas).
+El profesor dijo que esto es «súper controversial», y mencionó India y países africanos: Níger es un contraejemplo.
+
+\textbf{7. Falso (o Incierto).} En estado estacionario, con $\alpha/(1-\alpha) = 1/2$:
+\[
+\frac{y^*_{COD,\ s=35\%}}{y^*_{COD,\ s=12\%}} = \left(\frac{0{,}35}{0{,}12}\right)^{1/2} \approx 1{,}71 .
+\]
+Aun corrigiendo por $n$ (3,2\% en el Congo versus 1,7\% en Botsuana):
+$\left(\dfrac{0{,}032+0{,}07}{0{,}017+0{,}07}\right)^{1/2} \approx 1{,}08$, $s$ y $n$ juntos explican un factor de $\approx 1{,}85$.
+La brecha real es $6.952/554 \approx 12{,}5$. Queda un factor de $\approx 12{,}5/1{,}85 \approx 6{,}8$ que es $A\cdot h$: el
+\emph{residuo de Solow}. Calza con la clase 4: la productividad explica entre la mitad y dos tercios de las diferencias de
+ingreso. Subir $s$ tiene un efecto nivel acotado por los rendimientos decrecientes; sin subir $A$ y $h$, el Congo no
+alcanza a Botsuana. (Incierto si se argumenta que una inversión mayor podría venir con mejores instituciones y subir $A$.)
+
+\vfill
+{\raggedright\small\textit{Fuente:} Banco Mundial, World Development Indicators (consultados el 6-11-2026): \texttt{NY.GDP.PCAP.KD},
+\texttt{NY.GDP.MKTP.KD.ZG}, \texttt{SP.POP.GROW}, \texttt{NE.GDI.TOTL.ZS}. Las tasas son crecimientos compuestos calculados de esas series.\par}
+\end{document}

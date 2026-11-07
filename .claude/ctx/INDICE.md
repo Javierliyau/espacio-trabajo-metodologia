@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 08:14. 416 archivos, ~131787.7k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 08:39. 419 archivos, ~131794.6k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -129,6 +129,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 08:14. 416 archivos, ~131
 | 3.9k | 327 | `trabajo/nota-r-david/entrega_prueba.R` | Nombres: David Cuevas, Javier Li-Yau, Be L3; Análisis univariado y bivariado (IV, WOE L4; para dejar las X definitivas del logit d L5; Variable objetivo: PREF_TOP3_DUMMY L6; (1 = quedó matriculado en una de sus 3 p L7; Para correrlo basta cambiar `ruta` (carp L9; read.csv2: separador ";" y decimales con L21; 99 = "prefiero no responder" -> NA L29; +58 |
 | 3.6k | 232 | `trabajo/tex/log.txt` |  |
 | 3.6k | 103 | `trabajo/macro/ficha-viaje-solow.html` |  |
+| 3.6k | 52 | `trabajo/calendario.bak.md` | Calendario del semestre (fuente única de L1; Sin fecha todavía L43 |
 | 3.6k | 98 | `trabajo/espaciado/2026-11-02.antes-meta6-0942.md` | Semana 2-11 al 8-11-2026 L1 |
 | 3.5k | 328 | `trabajo/build-micro-pep1/2026-11-04-simulacro-pep-1-mundaca.log` |  |
 | 3.5k | 303 | `trabajo/nota-r-david/final_final.R` | Nombres: David Cuevas, Javier Li-Yau, Be L3; Modelo logit con WOE. Variable objetivo: L4; (1 = quedó matriculado en una de sus 3 p L5; read.csv2: separador ";" y decimales con L17; 99 = "prefiero no responder" -> NA L24; N_MATRICULADOS no se incluye: se conoce  L29; Solo rinden la regular actual: todas las L42; anterior vacías (read.csv2 deja "" en la L43; +43 |
@@ -149,6 +150,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 08:14. 416 archivos, ~131
 | 2.9k | 146 | `trabajo/micro/2026-10-21-prediccion-control-1-mundaca.tex` |  |
 | 2.9k | 281 | `trabajo/econometria-ii-demre/informe/informe-etapa-1.log` |  |
 | 2.9k | 220 | `trabajo/econometria-ii-demre/scripts/Trabajo etapa 2 econometria.II v2.R` | rutas relativas: abrir econometria-ii-de L11; Etapa 2: se saca N_MATRICULADOS, porque  L32; se cruzan por RBD con datos de 2025, el  L37; antes de cada cruce la tabla tiene que t L38; matricula total del colegio (Resumen de  L40; experiencia docente: anios de servicio p L45; viene una fila por docente, se agrega po L46; IVE-SINAE de media 2025 (JUNAEB): solo e L55; +18 |
+| 2.9k | 188 | `trabajo/control1-ficha-fusionada.bak.json` |  |
 | 2.8k | 227 | `trabajo/econometria-ii-etapa2/prueba-david.R` | cambiar a la carpeta donde estan los 4 c L7; ahora no se hace full_join: se parte de  L20; primera vez: sin puntaje de invierno act L24; ojo: >= 100, con > 100 da 168.678 L33; de df3 no se pega nada, solo se marca si L48; matricula regular por via 1, despues se  L59; los que no postularon o no se matricular L67; FECHA_NACIMIENTO viene como mmaaaa (0820 L92; +10 |
 | 2.8k | 107 | `trabajo/overleaf-etapa1/guion-presentacion.tex` |  |
 | 2.8k | 287 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-esqueleto.tex` | codigo del grupo L284 |
@@ -309,6 +311,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 08:14. 416 archivos, ~131
 | 504 | 10 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/12_diagnostico_coeficientes.csv` |  |
 | 472 | 37 | `trabajo/etapa2-final/salida2.txt` |  |
 | 466 | 17 | `trabajo/micro/2026-2 Control 1 Mundaca - matematico reconstruido.md` | Control 1 · Microeconomía II · 2026-2 ·  L1; III. Matemático (40 pts) L5; Pauta (resolución propuesta, no oficial) L13 |
+| 464 | 30 | `trabajo/scripts/limpiar_c1.py` |  |
 | 463 | 22 | `trabajo/macro/2026-10-26 Control 1 - Droller (reconstruido).md` | Control 1 · Macroeconomía II · Droller · L1; Ejercicio 1 (desarrollo) L7; Pregunta 2 (analice) L12; Comente 1 (verdadero o falso) L15; Comente 2 L18; Comente 3 L21 |
 | 459 | 29 | `trabajo/vif_block.tex` |  |
 | 454 | 24 | `trabajo/espaciado/joint4.py` | Micro al maximo, respetando Macro (sab 2 L1; tope Econ+Micro = ~300 min - Macro - His L10 |

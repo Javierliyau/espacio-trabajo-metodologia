@@ -1,0 +1,188 @@
+{
+ "ramo": "Macroeconomía II",
+ "profesor": "Droller",
+ "universidad": null,
+ "tipo": "Control",
+ "numero": 1,
+ "anio": 2026,
+ "semestre": 2,
+ "fecha": "2026-10-26",
+ "resumen": "Control de Macroeconomía II reconstruido de memoria, enfocado en el modelo de Solow-Swan. Evalúa la dinámica del capital por trabajador, el sendero de crecimiento balanceado y análisis cualitativos de choques (destrucción de capital, diferencias en tasas de inversión y cambios en el crecimiento poblacional).",
+ "preguntas": [
+  {
+   "n": "1a",
+   "puntaje": null,
+   "obtenido": null,
+   "temas": [
+    "Modelo de Solow",
+    "Dinámica de k"
+   ],
+   "tipo_pregunta": "demostracion",
+   "dificultad": "media",
+   "enunciado": "Demuestre la ecuación de $\\dot k / k$ en el modelo de Solow (a partir de $\\dot K = sY - \\delta K$ y $\\dot L / L = n$).",
+   "pauta": null
+  },
+  {
+   "n": "1b",
+   "puntaje": null,
+   "obtenido": null,
+   "temas": [
+    "Modelo de Solow",
+    "Dinámica de k"
+   ],
+   "tipo_pregunta": "grafico",
+   "dificultad": "baja",
+   "enunciado": "Grafique.",
+   "pauta": null
+  },
+  {
+   "n": "1c",
+   "puntaje": null,
+   "obtenido": null,
+   "temas": [
+    "Modelo de Solow",
+    "Estado estacionario"
+   ],
+   "tipo_pregunta": "desarrollo",
+   "dificultad": "media",
+   "enunciado": "Comente por qué, fuera del estado estacionario, la economía crece, y por qué en el estado estacionario la tasa de crecimiento del capital y del producto por trabajador es cero.",
+   "pauta": null
+  },
+  {
+   "n": "2",
+   "puntaje": "12 puntos",
+   "obtenido": null,
+   "temas": [
+    "Senda de crecimiento balanceado",
+    "Modelo de Solow"
+   ],
+   "tipo_pregunta": "desarrollo",
+   "dificultad": "baja",
+   "enunciado": "¿Qué es el sendero de crecimiento balanceado?",
+   "pauta": "**Respuesta.** Una situación en la que el capital, el producto, el consumo y la población crecen a tasas constantes. En el modelo de Solow, a lo largo de este sendero $y$ y $k$ crecen a la misma tasa, $g_y = g_k = g$, la del progreso tecnológico (que es cero si no hay progreso tecnológico).",
+   "pauta_origen": "oficial"
+  },
+  {
+   "n": "Comente 1",
+   "puntaje": null,
+   "obtenido": null,
+   "temas": [
+    "Modelo de Solow",
+    "Destrucción de capital",
+    "Transición/convergencia"
+   ],
+   "tipo_pregunta": "verdadero-falso",
+   "dificultad": "media",
+   "enunciado": "Una economía en su estado estacionario sufre un terremoto que destruye la mitad de su stock de capital. Comente qué ocurre con el crecimiento y con el nivel del producto por trabajador (formulación aproximada).",
+   "pauta": null
+  },
+  {
+   "n": "Comente 2",
+   "puntaje": null,
+   "obtenido": null,
+   "temas": [
+    "Modelo de Solow",
+    "Transición/convergencia"
+   ],
+   "tipo_pregunta": "verdadero-falso",
+   "dificultad": "media",
+   "enunciado": "Dos países son iguales en todo: misma tasa de progreso tecnológico, misma tasa de crecimiento de la población, misma depreciación; sin embargo, uno crece más rápido que el otro. El comente afirmaba algo sobre lo que ocurre si se cambia la tasa de inversión (formulación aproximada; el estudiante no recuerda la afirmación exacta).",
+   "pauta": null
+  },
+  {
+   "n": "Comente 3",
+   "puntaje": null,
+   "obtenido": null,
+   "temas": [
+    "Modelo de Solow",
+    "Cambio en n"
+   ],
+   "tipo_pregunta": "verdadero-falso",
+   "dificultad": "media",
+   "enunciado": "¿Qué ocurre si disminuye la tasa de crecimiento de la población $n$? Efectos en el corto y en el largo plazo (formulación aproximada).",
+   "pauta": null
+  },
+  {
+   "n": "1",
+   "puntaje": "12 puntos",
+   "obtenido": null,
+   "temas": [
+    "Modelo de Solow",
+    "Dinámica de k",
+    "Estado estacionario"
+   ],
+   "tipo_pregunta": "desarrollo",
+   "dificultad": "media",
+   "enunciado": "1. (12 puntos) Considere el modelo de Solow sin progreso tecnológico ($\\dot{A}/A = 0$). La función de producción es $y = k^{\\alpha}$.\n\n(a) Escriba una ecuación que defina $\\dot{k}/k$ en función de $s, y, \\delta, n$.\n(b) Muestre en un gráfico, utilizando la función de (a) que el crecimiento es distinto de cero fuera del estado estacionario. Explique brevemente.",
+   "pauta": "(a) Con $\\dot{K} = sY - \\delta K$, $k = K/L$ y $\\dot{L}/L = n$, la ley de movimiento del capital por trabajador es $\\dot{k} = sy - (\\delta + n)k$.\nDividiendo por $k$:\n$$\\frac{\\dot{k}}{k} = s\\frac{y}{k} - (\\delta + n) = s k^{\\alpha-1} - (\\delta + n).$$\n\n(b) Graficamos las dos funciones del lado derecho de la ecuación: la curva $s y/k = s k^{\\alpha-1}$, que es decreciente en $k$ (productividad marginal del capital decreciente, $\\alpha < 1$), y la recta horizontal $n + \\delta$, que es constante. El crecimiento $\\dot{k}/k$ es la distancia vertical entre ambas.\n\n[Gráfico de $\\frac{\\dot{k}}{k}$ versus $k$ que muestra la curva decreciente $s y/k = s k^{\\alpha-1}$ cruzándose con la constante $n + \\delta$ en $k^*$. Para $k_0 < k^*$, la distancia da $\\dot{k}/k > 0$. Para $k_1 > k^*$, la distancia da $\\dot{k}/k < 0$.]\n\n**Explicación.**\n- Si $k < k^*$ (por ejemplo $k_0$): la curva está *sobre* la recta, $s y/k > n + \\delta$, luego $\\dot{k}/k > 0$ y el capital crece.\n- Si $k > k^*$ (por ejemplo $k_1$): la curva está *bajo* la recta, $s y/k < n + \\delta$, luego $\\dot{k}/k < 0$ y el capital decrece.\n- Sólo en $k^*$, donde ambas se cruzan, la distancia es cero: $\\dot{k}/k = 0$. Es el estado estacionario.\n- El crecimiento (o decrecimiento) es mayor mientras más lejos esté $k$ de $k^*$, porque la distancia entre las dos funciones es mayor. A medida que $k$ se acerca a $k^*$ la distancia se achica, y la economía converge a $\\dot{k}/k = 0$.",
+   "pauta_origen": "oficial"
+  },
+  {
+   "n": "3",
+   "puntaje": "12 puntos",
+   "obtenido": null,
+   "temas": [
+    "Destrucción de capital",
+    "Modelo de Solow",
+    "Transición/convergencia"
+   ],
+   "tipo_pregunta": "verdadero-falso",
+   "dificultad": "media",
+   "enunciado": "Verdadero o Falso. Justifique su respuesta.\n\n3. (12 puntos) Suponga que una economía que se encontraba en su estado estacionario sufre un importante terremoto que destruye (únicamente) la mitad de su stock de capital. Entonces esta economía empezará a crecer y alcanzará nuevamente su estado estacionario en el largo plazo. El crecimiento al comienzo será lento y luego a medida que se recupere crecerá con más fuerza hasta alcanzar el equilibrio de largo plazo.",
+   "pauta": "**Falso.** Es correcto que la economía vuelve a su estado estacionario, pero no que el crecimiento sea lento al comienzo. Tras el terremoto $k < k^*$, y como la productividad marginal del capital es decreciente, la curva $s y/k = s k^{\\alpha-1}$ está muy por encima de la recta $n + \\delta$: la brecha, y por lo tanto $\\dot{k}/k$, es máxima al comienzo. El crecimiento es rápido al inicio y se va desacelerando, con aumentos de $k$ e $y$ cada vez menores, a medida que $k$ se acerca a $k^*$ y la brecha se cierra.",
+   "pauta_origen": "oficial"
+  },
+  {
+   "n": "4",
+   "puntaje": "12 puntos",
+   "obtenido": null,
+   "temas": [
+    "Modelo de Solow",
+    "Transición/convergencia"
+   ],
+   "tipo_pregunta": "verdadero-falso",
+   "dificultad": "media",
+   "enunciado": "4. (12 puntos) Suponga que los países X e Y tienen el mismo nivel de PIB per-cápita. También tienen la misma función de producción, crecimiento poblacional, crecimiento tecnológico y tasa de depreciación. En el país X el PIB per-cápita está creciendo, mientras que en el país Y el PIB per-cápita está cayendo. Entonces la tasa de inversión debe ser menor en el país X que en Y.",
+   "pauta": "**Falso.** El crecimiento del capital es $\\dot{k}/k = s \\frac{y}{k} - (\\delta + n + g)$. Como ambos países tienen la misma función de producción, el mismo PIB per cápita y los mismos $n$, $\\delta$ y $g$, la única diferencia posible es la tasa de inversión $s$. En X el capital crece, así que $s_X y/k > \\delta + n + g$; en Y decrece, así que $s_Y y/k < \\delta + n + g$. Luego $s_X > s_Y$: la tasa de inversión debe ser *mayor* en X, no menor.",
+   "pauta_origen": "oficial"
+  },
+  {
+   "n": "5",
+   "puntaje": "12 puntos",
+   "obtenido": null,
+   "temas": [
+    "Cambio en n",
+    "Modelo de Solow",
+    "Senda de crecimiento balanceado"
+   ],
+   "tipo_pregunta": "verdadero-falso",
+   "dificultad": "media",
+   "enunciado": "5. (12 puntos) En el modelo de Solow visto en clase, si la población disminuye su crecimiento poblacional (piense en familias que solo tienen dos hijos, en vez de 7 hijos cómo se observaba antes), entonces vamos a observar un aceleramiento del crecimiento en el corto plazo, pero a la vez el mismo crecimiento de largo plazo en el sendero de crecimiento balanceado.",
+   "pauta": "**Verdadero.** Una caída de $n$ desplaza la recta $n + \\delta$ hacia abajo, mientras la curva $s y/k$ no cambia. En el $k$ inicial, la curva queda sobre la nueva recta, luego $\\dot{k}/k > 0$: el crecimiento se acelera en el corto plazo, mientras $k$ sube hacia un nuevo estado estacionario $k^*$ mayor. En el largo plazo, en el sendero de crecimiento balanceado $y$ y $k$ crecen a $g$, la tasa de progreso tecnológico, que no depende de $n$. Por lo tanto, $n$ tiene un efecto sobre el nivel, pero no sobre el crecimiento de largo plazo.",
+   "pauta_origen": "oficial"
+  }
+ ],
+ "fuentes": [
+  {
+   "archivo": "Macroeconomía II/Originales/2026-2 Control 1 - Droller [enunciado].md",
+   "sha1": "8984719675ab9abe432f3b96975afc8f7e89d00f",
+   "contenido": "enunciado",
+   "original": "2026-10-26 Control 1 - Droller (reconstruido).md"
+  },
+  {
+   "archivo": "Macroeconomía II/Originales/2026-2 Control 1 - Droller [ambos].pdf",
+   "sha1": "ad0c46c26d468d4494d76d5576366f4c48c82669",
+   "contenido": "ambos",
+   "original": "Pauta_control1.pdf"
+  }
+ ],
+ "dudas": [
+  "Enunciados reconstruidos de memoria por un estudiante; no corresponden al texto oficial exacto.",
+  "Comente 2 está incompleto según la propia nota del estudiante."
+ ],
+ "rendida": true,
+ "ingresado": "2026-10-29",
+ "revisar": false,
+ "id": "macroeconomia-ii/2026-2-control-1-droller",
+ "parcial": false
+}

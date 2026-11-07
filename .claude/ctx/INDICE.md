@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 11:08. 430 archivos, ~131871.4k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 12:29. 433 archivos, ~131874.7k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -212,6 +212,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 11:08. 430 archivos, ~131
 | 1.4k | 105 | `trabajo/nota-r-david/salida_auditado.txt` | A tibble: 2 × 3 L10; A tibble: 2 × 3 L15 |
 | 1.4k | 60 | `trabajo/econometria-ii-m2/2026-10-24-m2-paes.md` | Econometría II · M2 con la salida PAES · L1; Caso real · «Las tres notas y el colegio L5; Hito 1 · Ficha de 5 líneas, de memoria ( L19; Hito 2 · Pregunta tipo PEP con la salida L29; Hito 3 · E7, para comentar (criterio) (1 L54 |
 | 1.3k | 98 | `trabajo/revision-05/david.R` |  |
+| 1.3k | 79 | `trabajo/reajuste_sem.py` | reconstruir viernes L42; M2: dejar texto limpio L73 |
 | 1.3k | 87 | `trabajo/econometria-ii-logit/agregar_cd.py` | ---------- (c) ---------- L27; ---------- (d) ---------- L61 |
 | 1.3k | 95 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/05_bivariado.csv` |  |
 | 1.3k | 109 | `trabajo/econometria-ii-demre/scripts/02-construir-base.R` | los archivos del DEMRE vienen con ; y co L9; VIA: 1 regular, 2 BEA, 3 PACE, 4 +MC L15; TIPO_MATRICULA: 1 postulacion regular, 2 L17; SITUACION_EGRESO: 1 es promocion del año L21; los de preferencia 0 no vienen de postul L24; postulaciones trae una fila por preferen L27; left_join deja a todos los postulantes,  L34; puntajes repite columnas del colegio que L39; +12 |
@@ -245,6 +246,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 11:08. 430 archivos, ~131
 | 1.1k | 57 | `trabajo/macro/2026-10-25-solow-chile-terremoto.py` | -*- coding: utf-8 -*- L1; Diagrama de Solow L22; Zoom L34; ln y contra t L42 |
 | 1.1k | 68 | `trabajo/t_pep.py` |  |
 | 1.1k | 27 | `trabajo/revision-etapa2/stats.R` | orden VIF, restringido a VIF>2 L16 |
+| 1.1k | 37 | `trabajo/reajuste_sem2.py` | --- lunes L10; --- martes L24; --- miércoles L30 |
 | 1.0k | 76 | `trabajo/econometria-ii-etapa2/exportar-informe.R` | Corre prueba-david.R y exporta tablas (C L1; Uso: Rscript exportar-informe.R L2; Embudo de filtros L8; Composición de I L14; Univariado L23; IV y monotonía L44; Tramos de todas las variables (para anex L52; VIF L59; +1 |
 | 1.0k | 77 | `trabajo/econometria-ii-logit/crear_excel.py` | Parámetros L24 |
 | 1.0k | 37 | `trabajo/micro/2026-11-04-manual-pep-1.json` |  |
@@ -261,6 +263,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 11:08. 430 archivos, ~131
 | 934 | 61 | `trabajo/macro/2026-10-25-mini-control-tecnologia.tex` |  |
 | 914 | 57 | `trabajo/micro/2026-10-21-simulacro-control-1.tex` |  |
 | 914 | 66 | `trabajo/overleaf-etapa1/laminas-faltantes.tex` |  |
+| 905 | 29 | `trabajo/reajuste_cal.py` |  |
 | 892 | 34 | `trabajo/cierre_moore.py` | 1. nota en la prediccion L2; 2. indice L12; 3. buzon del informe L22 |
 | 883 | 90 | `trabajo/econometria-ii-demre/scripts/08-revision-finalfinal.R` |  |
 | 873 | 54 | `trabajo/macro/pb/reordenar.py` | índice 0 = comente 14 del orden anterior L13; macros y nota inicial L46 |

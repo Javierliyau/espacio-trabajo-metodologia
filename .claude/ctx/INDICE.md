@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 10:33. 425 archivos, ~131840.7k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 11:08. 430 archivos, ~131871.4k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -48,6 +48,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 10:33. 425 archivos, ~131
 | ⚠ 11.8k | 1086 | `trabajo/overleaf-etapa1/prueba.log` |  |
 | ⚠ 11.5k | 1032 | `trabajo/econometria-ii-estudio/2026-11-02-lectura-pep1-casos-reales.log` |  |
 | ⚠ 11.1k | 988 | `trabajo/tex/2026-11-01-caso-intel-asml-control-2.log` |  |
+| ⚠ 10.9k | 385 | `trabajo/macro/pb/final.tex` |  |
 | ⚠ 10.6k | 995 | `trabajo/ficha-streaming/2026-11-03-ficha-caso-streaming-teoria-pep1.log` |  |
 | ⚠ 10.5k | 976 | `trabajo/overleaf-etapa1/guion-javier-final.log` |  |
 | ⚠ 10.5k | 976 | `trabajo/overleaf-etapa1/ficha.log` |  |
@@ -60,7 +61,9 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 10:33. 425 archivos, ~131
 | ⚠ 9.7k | 681 | `trabajo/respaldo-lectura-pep1/2026-11-02-lectura-pep1-casos-reales.tex` |  |
 | ⚠ 9.7k | 918 | `trabajo/build-micro-pep1/2026-11-04-prediccion-pep-1-mundaca.log` |  |
 | ⚠ 9.7k | 333 | `trabajo/ficha-dicom/2026-11-03-ficha-caso-ley-dicom-teoria-pep1.tex` |  |
+| ⚠ 9.7k | 892 | `trabajo/macro/pb/final-pauta.log` |  |
 | ⚠ 9.5k | 888 | `trabajo/macro/pb/pauta.log` |  |
+| ⚠ 9.5k | 886 | `trabajo/macro/pb/final-enun.log` |  |
 | ⚠ 9.5k | 340 | `trabajo/2026-10-24-plan-finde.md` | Plan del fin de semana 24-25 oct y ruta  L1; 0. Lo esencial en 6 líneas L13; 1. Estado de cada ramo L24; 2. Tabla de prioridades L135; 3. Horas disponibles y horas necesarias  L152; 4. Sábado 24 y domingo 25, hora por hora L208; 5. Esbozo del lun 26 al jue 5-11 L283; 6. Pendientes arrastrados sin marcar: qu L308; +1 |
 | ⚠ 9.4k | 853 | `trabajo/tex/2026-11-05-ejercicios-calcados-ayudantias.log` |  |
 | ⚠ 9.4k | 883 | `trabajo/macro/pb/enun.log` |  |
@@ -198,12 +201,12 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 10:33. 425 archivos, ~131
 | 1.5k | 105 | `trabajo/espaciado/opt.py` | ---------- datos ---------- L3; tema: (peso P(sale), S hoy [0=nuevo], q  L4; franjas (dias desde vie 10:00), cupo max L10 |
 | 1.5k | 74 | `trabajo/econometria-ii-etapa2/etapa2-verificacion.R` | Verificación del instructivo Etapa 2 (Ec L1; Reproduce la base del profesor (clase 5, L2; ---------- Paso 0: leer ---------- L7; ---------- Paso 1: filtros en A -------- L14; ---------- Paso 2: B' y flag_postula --- L24; ---------- Paso 3: C' y left_join; I --- L29; ---------- Paso 4: X candidatas -------- L37; ---------- Etapa 2a: univariado -------- L57; +1 |
 | 1.5k | 80 | `trabajo/macro/2026-10-25-guia-tecnologia-tipo-control.tex` |  |
+| 1.5k | 84 | `trabajo/macro/pb/final.py` | --- encabezado y nota L10; --- matemáticos sin el 7 L21; --- definiciones: las 4 primeras L25; --- comentes L36; --- fichas L59 |
 | 1.5k | 68 | `trabajo/espaciado/sem09_bak.md` | Semana 9-11 al 15-11-2026 L1 |
 | 1.4k | 56 | `trabajo/ajuste_pep_econo.py` | 1) calendario L3; 2) protocolo L15; 3) semana actual L21; 4) semana siguiente L40 |
 | 1.4k | 90 | `trabajo/build-repaso/2026-11-01-repaso-matematico-control-2.tex` |  |
 | 1.4k | 33 | `trabajo/econometria-ii-m2/2026-10-24-m2-paes-PAUTA-no-abrir.md` | PAUTA · M2 con la salida PAES · 24-10 (n L1; Hito 1 · ficha L5; Hito 2 L12; Hito 3 · E7 (ítems 1, 2 y 4; el 3 ya es  L26; Puntaje sugerido (por hito, sobre 5) L32 |
 | 1.4k | 39 | `trabajo/espaciado/sec3v3.md` | 3. Las 10 sesiones · versión 3: PEP de d L1 |
-| 1.4k | 82 | `trabajo/macro/pb/final.py` | --- encabezado y nota L10; --- matemáticos sin el 7 L21; --- definiciones: las 4 primeras L25; --- comentes L36; --- fichas L59 |
 | 1.4k | 44 | `trabajo/espaciado/sec3.md` | 3. Las 10 sesiones, optimizadas (≈ 5 h 1 L1 |
 | 1.4k | 106 | `trabajo/nota-r-david/salida_v7_parche.txt` | A tibble: 2 × 3 L16; A tibble: 2 × 3 L21 |
 | 1.4k | 105 | `trabajo/nota-r-david/salida_auditado.txt` | A tibble: 2 × 3 L10; A tibble: 2 × 3 L15 |
@@ -314,6 +317,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 10:33. 425 archivos, ~131
 | 553 | 57 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-3-did-slep.tex` |  |
 | 549 | 24 | `trabajo/econometria-ii-estudio/calc-lectura.py` |  |
 | 524 | 24 | `trabajo/econometria-ii-etapa2/cruces.py` | matriculados sin postular? L21; matriculados en C pero otra via, dentro  L23 |
+| 518 | 26 | `trabajo/macro/pb/prio.py` | macros L4; matemáticos L6; definiciones L17 |
 | 504 | 10 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/12_diagnostico_coeficientes.csv` |  |
 | 472 | 37 | `trabajo/etapa2-final/salida2.txt` |  |
 | 466 | 17 | `trabajo/micro/2026-2 Control 1 Mundaca - matematico reconstruido.md` | Control 1 · Microeconomía II · 2026-2 ·  L1; III. Matemático (40 pts) L5; Pauta (resolución propuesta, no oficial) L13 |
@@ -403,6 +407,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 10:33. 425 archivos, ~131
 | 98 | 18 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/06_monotonia_inicial.csv` |  |
 | 98 | 18 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/07_monotonia_final.csv` |  |
 | 97 | 4 | `trabajo/econometria-ii-demre/scripts/01-leer-datos.R` |  |
+| 95 | 9 | `trabajo/macro/pb/ver.py` |  |
 | 91 | 5 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/09_eliminaciones_vif.csv` |  |
 | 91 | 9 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/11_vif_final.csv` |  |
 | 91 | 5 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/09_eliminaciones_vif.csv` |  |

@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 08:39. 419 archivos, ~131794.6k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 09:59. 422 archivos, ~131825.5k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -41,6 +41,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 08:39. 419 archivos, ~131
 | ⚠ 14.2k | 1019 | `trabajo/micro/respaldo-motor-2026-11-01/scripts/banco.py` | Nivel gratis: ~20 peticiones/dia POR MOD L54; ---------------------------------------- L59; ---------------------------------------- L127; ---------------------------------------- L240; ---------------------------------------- L284; ---------------------------------------- L539; ---------------------------------------- L596; ---------------------------------------- L707; +9 |
 | ⚠ 13.1k | 781 | `trabajo/jv5-traduccion.txt` |  |
 | ⚠ 12.2k | 1098 | `trabajo/econometria-ii-etapa2/informe/informe-etapa-2.log` |  |
+| ⚠ 12.2k | 430 | `trabajo/macro/pb/pb.tex` |  |
 | ⚠ 12.1k | 966 | `trabajo/moore-pdf/2026-10-31-lectura-control-2-caso-moore.log` |  |
 | ⚠ 12.0k | 995 | `trabajo/build-repaso/2026-11-01-repaso-matematico-control-2.log` |  |
 | ⚠ 11.8k | 1086 | `trabajo/overleaf-etapa1/prueba.log` |  |
@@ -60,8 +61,10 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 08:39. 419 archivos, ~131
 | ⚠ 9.7k | 333 | `trabajo/ficha-dicom/2026-11-03-ficha-caso-ley-dicom-teoria-pep1.tex` |  |
 | ⚠ 9.5k | 340 | `trabajo/2026-10-24-plan-finde.md` | Plan del fin de semana 24-25 oct y ruta  L1; 0. Lo esencial en 6 líneas L13; 1. Estado de cada ramo L24; 2. Tabla de prioridades L135; 3. Horas disponibles y horas necesarias  L152; 4. Sábado 24 y domingo 25, hora por hora L208; 5. Esbozo del lun 26 al jue 5-11 L283; 6. Pendientes arrastrados sin marcar: qu L308; +1 |
 | ⚠ 9.4k | 853 | `trabajo/tex/2026-11-05-ejercicios-calcados-ayudantias.log` |  |
+| ⚠ 9.4k | 880 | `trabajo/macro/pb/pauta.log` |  |
 | ⚠ 9.4k | 846 | `trabajo/tex/2026-11-05-ayudantia-5-ejercicios-pauta.log` |  |
 | ⚠ 9.3k | 839 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1-pauta.log` |  |
+| ⚠ 9.3k | 873 | `trabajo/macro/pb/enun.log` |  |
 | ⚠ 9.1k | 825 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1.log` |  |
 | ⚠ 9.0k | 799 | `trabajo/build-prediccion/2026-11-01-prediccion-final-control-2.log` |  |
 | ⚠ 8.9k | 805 | `trabajo/tex/2026-11-01-simulacro-control-2-droller.log` |  |

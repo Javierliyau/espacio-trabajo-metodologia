@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 10:03. 410 archivos, ~131684.4k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 08:14. 416 archivos, ~131787.7k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -30,6 +30,10 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 10:03. 410 archivos, ~131
 | ⚠ 88.2k | 2151 | `trabajo/econometria-ii-demre/datos/crudos/7-estadisticas-seleccion/ADM2026_INDICADORES_POR_CARRERA_PROMEDIO_OBLIGATORIAS_20260116.csv` |  |
 | ⚠ 86.8k | 2151 | `trabajo/econometria-ii-demre/datos/crudos/6-oferta-academica/OfertaAcadémica_Admisión2026.csv` |  |
 | ⚠ 28.8k | 2004 | `trabajo/micro/respaldo-motor-2026-11-01/scripts/motor.py` | hiperparametros versionados (la Fase 5 l L25; versiones/vX.Y.json no se editan nunca;  L26; ---------------------------------------- L68; ---------------------------------------- L114; ---------------------------------------- L234; ---------------------------------------- L398; ---------------------------------------- L519; ---------------------------------------- L573; +31 |
+| ⚠ 25.2k | 1 | `trabajo/macro/datos-africa/NY.GDP.PCAP.KD.json` |  |
+| ⚠ 25.1k | 1 | `trabajo/macro/datos-africa/NE.GDI.TOTL.ZS.json` |  |
+| ⚠ 24.2k | 1 | `trabajo/macro/datos-africa/SP.POP.GROW.json` |  |
+| ⚠ 24.1k | 1 | `trabajo/macro/datos-africa/NY.GDP.MKTP.KD.ZG.json` |  |
 | ⚠ 21.3k | 1915 | `trabajo/overleaf-etapa1/main.log` |  |
 | ⚠ 21.0k | 135 | `trabajo/pistas-crudas.txt` |  |
 | ⚠ 17.5k | 1221 | `trabajo/overleaf-etapa1/log.txt` |  |
@@ -138,6 +142,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 10:03. 410 archivos, ~131
 | 3.1k | 179 | `trabajo/econometria-ii-estudio/salidas-paes-estudio.R` | Salidas de estudio con la base PAES del  L1; Base armada igual que etapa-2-script-dav L2; Deja en salidas-paes-estudio.txt una sal L3; interpretar en las sesiones, y guarda la L4; efecto discreto de TP (0 -> 1) en el pro L129; scorecard: 600 puntos con odds 50:1, PDO L172 |
 | 3.1k | 202 | `trabajo/econometria-ii-demre/informe/informe-etapa-1.tex` |  |
 | 3.0k | 63 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/08a_todos_los_bins.csv` |  |
+| 3.0k | 175 | `trabajo/macro/comentes-convergencia-africa.tex` |  |
 | 3.0k | 197 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-grupo.tex` |  |
 | 3.0k | 155 | `trabajo/overleaf-etapa1/lo-que-digo-javier-oscuro.tex` |  |
 | 2.9k | 153 | `trabajo/overleaf-etapa1/lo-que-digo-javier.tex` |  |
@@ -179,6 +184,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-06 10:03. 410 archivos, ~131
 | 1.8k | 71 | `trabajo/semana-2026-10-26.bak.md` | Semana 26-10 al 1-11-2026 L1 |
 | 1.8k | 179 | `trabajo/econometria-ii-demre/scripts/04-base-grupo.R` | Base de datos de matriculados, proceso d L2; Fuente: DEMRE, https://demre.cl/portales L3; Integrantes: L4; abrir econometria-ii-demre.Rproj para qu L10; df1: datos del estudiante y de su colegi L20; RBD es el codigo del colegio y SITUACION L21; RAMA_EDUCACIONAL, FECHA_NACIMIENTO, ANYO L22; df2: notas de enseñanza media y puntajes L29; +23 |
 | 1.8k | 97 | `trabajo/2026-09-26-macro2-guia-sesion-1.md` | Macro II — Guía de la sesión 1 (sábado 2 L1; Materiales (dejar abiertos antes de empe L7; Paso 0 · Intención (09:00, 2 min) L14; Paso 1 · Reconocimiento Perry + caso (09 L19; Paso 2 · Preguntas predichas (09:10, 5 m L27; Paso 3 · Lectura con propósito (09:15, 2 L35; Paso 4 · Tus 3 respuestas (09:39, 6 min) L47; Paso 5 · ConcepTest solo (09:50, 15 min) L53; +7 |
+| 1.7k | 118 | `trabajo/macro/M1-comentes-en-frio.tex` |  |
 | 1.6k | 160 | `trabajo/macro/temario-antes-2026-11-04.json` |  |
 | 1.5k | 123 | `trabajo/econometria-ii-demre/scripts/03-base-seleccion.R` | los archivos del DEMRE vienen con ; y co L9; lo que elegimos de cada archivo, mas lo  L15; RBD, SITUACION_EGRESO, RAMA_EDUCACIONAL, L16; PREFERENCIA es para la Y, TIPO_MATRICULA L27; SITUACION_EGRESO: 1 es promocion del año L30; TIPO_PREF: la misma carrera se repite si L35; postulaciones trae una fila por preferen L39; left_join deja a todos los postulantes,  L44; +14 |
 | 1.5k | 42 | `trabajo/sociologia/fallos-pep1.md` | Fallos y apuestas para el repaso del mié L1; Marx (sáb 24-10 · bloque 1: 5/5 · ronda  L6; Weber (dom 25-10 · Ronda Weber: 10/10 ·  L13; Durkheim (dom 25-10 · Ronda Durkheim: 8/ L18; Tocqueville (lun 26-10 · Ronda Tocquevil L23; Repaso de reincidentes (lun 26-10 · 5/5  L31; Simulacro de la Prueba 1 (mar 27-10 · 38 L35 |

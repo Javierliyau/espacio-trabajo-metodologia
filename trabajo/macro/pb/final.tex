@@ -1,0 +1,385 @@
+% VERSIÓN FINAL FILTRADA (ruta corta, §8.1 de 2026-11-06-prediccion-final-pep-1.md). Generada desde 2026-11-07-prueba-banco-pep-1.tex.
+% Prueba-banco PEP 1 de Macroeconomía II (Droller), sáb 7-11-2026.
+% Formato calcado de la pauta oficial del Control 1 (12pt, Computer Modern, «Nombre y RUT», (12 puntos), recuadro de respuesta).
+% Contenido: modelo de optimización del 7-11 (unos 430 min de práctica, ~33 ítems):
+%   6 matemáticos (moldes S1+S4, S5, S2+S3+S6, R1, R2, R3) + 1 de reserva (E1-E2),
+%   6 definiciones, 22 comentes (los 20 de la guía + 2 extras: n agregado/per cápita y k/A sobre el EE).
+% Los matemáticos usan números NUEVOS (distintos de la guía y del simulacro del dom 8). Ningún ítem repite el simulacro.
+% Compilar:
+%   enunciado: pdflatex 2026-11-07-prueba-banco-pep-1-final.tex
+%   pauta:     pdflatex -jobname=2026-11-07-prueba-banco-pep-1-final-PAUTA "\def\PAUTA{}\input{2026-11-07-prueba-banco-pep-1-final.tex}"
+\documentclass[12pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\let\pctorig\%
+\usepackage[spanish,es-noshorthands,es-nodecimaldot]{babel}
+\addto\extrasspanish{\let\%\pctorig}% \% sin el espaciado de babel (choca en modo matemático)
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{environ}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.35em}
+
+\newif\ifpauta
+\ifdefined\PAUTA \pautatrue \fi
+
+\ifpauta
+  \newtcolorbox{resp}{breakable,enhanced,colback=white,colframe=black,boxrule=0.5pt,sharp corners,
+    left=5pt,right=5pt,top=4pt,bottom=4pt,before skip=6pt,after skip=10pt}
+\else
+  \NewEnviron{resp}{}
+\fi
+\newcommand{\hitos}[1]{\par\smallskip{\footnotesize\textit{Hitos (12):} #1}}
+\newcommand{\ficha}[1]{\ifpauta\par{\small$\Rightarrow$\ #1}\fi}
+\newcommand{\oblig}[1]{\fbox{\footnotesize\textbf{OBLIGATORIO} · $p\approx #1$}\,}
+\newcommand{\opc}[1]{\fbox{\footnotesize opcional · $p\approx #1$}\,}
+\newcommand{\estrella}{$^\bigstar$\,}
+\newcommand{\base}{\textsc{[base]}\,}
+\newcommand{\familia}[3]{\par\medskip\noindent\textbf{Familia #1 · #2.}\\{\small\textit{Herramienta común:} #3}\par\smallskip}
+\newcommand{\dd}{\delta}
+
+% ---------- Gráficos ----------
+% Gráfico de tasas: s y/k (curva) contra n+delta (recta)
+\newcommand{\graftasas}[1][]{%
+\begin{center}
+\begin{tikzpicture}[scale=0.95,>=Stealth]
+  \draw[->] (0,0) -- (6.6,0) node[right] {$k$};
+  \draw[->] (0,0) -- (0,4.3) node[above] {$s\,y/k,\ n+\delta$};
+  \draw[thick,domain=0.55:6.3,samples=60] plot (\x,{2.2*pow(\x,-0.7)});
+  \node[right] at (0.75,3.6) {\small $s\,y/k=s\,k^{\alpha-1}$};
+  \draw[thick] (0,1) -- (6.3,1) node[right] {\small $n+\delta$};
+  \draw[dashed] (3.08,1) -- (3.08,0) node[below] {$k^*$};
+  \draw[dashed] (1.2,1.94) -- (1.2,0) node[below] {$k_0$};
+  \draw[<->] (1.2,1.03) -- (1.2,1.9) node[midway,left] {\small $\dot k/k>0$};
+  \draw[dashed] (5.2,1) -- (5.2,0) node[below] {$k_1$};
+  \draw[<->] (5.2,0.71) -- (5.2,0.97);
+  \node[right] at (5.25,0.35) {\small $\dot k/k<0$};
+  #1
+\end{tikzpicture}
+\end{center}}
+
+% Gráfico de niveles para la regla de oro
+\newcommand{\grafoniveles}{%
+\begin{center}
+\begin{tikzpicture}[scale=0.85,>=Stealth]
+  \draw[->] (0,0) -- (8.6,0) node[right] {$k$};
+  \draw[->] (0,0) -- (0,6.2) node[above] {$y$};
+  \draw[thick,domain=0:8.2,samples=60] plot (\x,{2*sqrt(\x)}) node[right] {\small $f(k)$};
+  \draw[thick] (0,0) -- (8.2,4.1) node[right] {\small $(n+\delta)k$};
+  \draw[dashed,domain=0:8.2,samples=60] plot (\x,{1.2*sqrt(\x)}) node[right] {\small $s f(k)$};
+  \draw[dotted] (4,4) -- (4,0) node[below] {$k_{oro}$};
+  \draw[<->] (4,2.05) -- (4,3.95) node[midway,right] {\small $c_{oro}$};
+  \draw (2.2,3.1) -- (6.2,5.1);
+  \node[right] at (0.3,5.6) {\small tangente en $k_{oro}$: pendiente $=n+\delta$};
+\end{tikzpicture}
+\end{center}}
+
+% Trayectorias en el tiempo: efecto nivel
+\newcommand{\grafnivel}{%
+\begin{center}
+\begin{tikzpicture}[scale=0.8,>=Stealth]
+  \draw[->] (0,0) -- (6.2,0) node[right] {$t$};
+  \draw[->] (0,0) -- (0,4) node[above] {$\ln y$};
+  \draw[thick] (0,0.8) -- (2,1.6);
+  \draw[thick] (2,1.6) .. controls (2.8,2.2) and (3.5,2.5) .. (4.2,2.75) -- (6,3.47);
+  \draw[dashed] (2,1.6) -- (6,3.2);
+  \draw[dotted] (2,1.6) -- (2,0) node[below] {$t_0$};
+  \node at (4.3,0.45) {\footnotesize pendiente $g$ antes y después};
+  \begin{scope}[xshift=7.6cm]
+  \draw[->] (0,0) -- (6.2,0) node[right] {$t$};
+  \draw[->] (0,0) -- (0,4) node[above] {$g_y$};
+  \draw[thick] (0,1.2) -- (2,1.2) -- (2,2.8);
+  \draw[thick] (2,2.8) .. controls (2.6,1.6) and (3.5,1.25) .. (6,1.2);
+  \draw[dotted] (2,1.2) -- (2,0) node[below] {$t_0$};
+  \node[left] at (0,1.2) {$g$};
+  \end{scope}
+\end{tikzpicture}
+\end{center}}
+
+\begin{document}
+
+\textbf{Nombre y RUT:}\\[0.3em]
+\framebox[\linewidth]{\rule{0pt}{1.4cm}}
+
+\begin{center}
+{\Large\textbf{Macroeconomía II -- Prueba-banco PEP 1 · Final}}\ifpauta\\[0.2em]{\large\textbf{Pauta}}\fi
+\end{center}
+
+{\small\textit{Versión final filtrada para la máxima nota esperada. Trae 6 matemáticos y 4 definiciones \textbf{ordenados por probabilidad} (\oblig{} = obligatorio, \opc{} = opcional; $p$ = probabilidad de que salga ese tipo de pregunta), 10 comentes para \textbf{mecanizar}, agrupados por familia (el \base\ va primero y da la herramienta de los siguientes), y 12 \textbf{fichas} de una línea. \estrella = más probable. Sáb: 1.ª pasada escrita y tapada. Dom (tarde): 2.ª pasada oral con croquis. Lun (M5): 3.ª pasada oral y lectura de las fichas.}}
+
+% =====================================================================
+\section*{Ejercicios matemáticos}
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0.8em]
+
+% ---------- 1. S1 + S4 ----------
+\item (24 puntos) \oblig{0{,}95} Considere el modelo de Solow sin progreso tecnológico ($\dot A/A=0$), con $y=k^{1/2}$, $s=0{,}20$, $n=0{,}01$ y $\delta=0{,}04$.
+\begin{enumerate}[label=(\alph*)]
+\item A partir de $\dot K=sY-\delta K$, demuestre paso a paso que $\dfrac{\dot k}{k}=s\,\dfrac{y}{k}-(\delta+n)$.
+\item Calcule $k^*$, $y^*$ y $c^*$.
+\item Muestre en un gráfico, utilizando la función de (a), que el crecimiento es distinto de cero fuera del estado estacionario. Explique por qué es mayor (en valor absoluto) mientras más lejos esté $k$ de $k^*$.
+\item Calcule $\dot k/k$ cuando $k_0=4$ y cuando $k_0=64$. Interprete los signos.
+\item Partiendo del estado estacionario, la tasa de ahorro sube a $s=0{,}25$. Calcule $\dot k/k$ e $\dot y/y$ en el instante del cambio y los nuevos $k^*$ e $y^*$. ¿Es un efecto nivel o un efecto crecimiento?
+\end{enumerate}
+\begin{resp}
+\textbf{(a)} $k=K/L\Rightarrow \ln k=\ln K-\ln L$. Derivando respecto al tiempo: $\dfrac{\dot k}{k}=\dfrac{\dot K}{K}-\dfrac{\dot L}{L}=\dfrac{sY-\delta K}{K}-n=s\,\dfrac{Y}{K}-\delta-n$. Como $Y/K=(Y/L)/(K/L)=y/k$:
+\[\frac{\dot k}{k}=s\,\frac{y}{k}-(\delta+n)=s\,k^{\alpha-1}-(\delta+n).\]
+\textbf{(b)} En el EE $\dot k/k=0$: $s\,k^{-1/2}=\delta+n\Rightarrow \sqrt{k^*}=\dfrac{s}{\delta+n}=\dfrac{0{,}20}{0{,}05}=4$. Luego $k^*=16$, $y^*=4$, $c^*=(1-s)y^*=0{,}8\cdot4=3{,}2$.
+
+\textbf{(c)} El crecimiento $\dot k/k$ es la \emph{distancia vertical} entre la curva $s\,y/k$, decreciente en $k$ (productividad marginal del capital decreciente, $\alpha<1$), y la recta horizontal $n+\delta$.
+\graftasas
+Si $k<k^*$ (por ejemplo $k_0$), la curva está sobre la recta: $\dot k/k>0$. Si $k>k^*$ ($k_1$), está bajo la recta: $\dot k/k<0$. Solo en $k^*$ se cruzan y $\dot k/k=0$. La distancia es mayor mientras más lejos está $k$ de $k^*$: con poco capital, cada unidad rinde mucho ($PMgK$ alta) y la inversión supera por mucho a la de reposición.
+
+\textbf{(d)} $\dot k/k=0{,}20/\sqrt k-0{,}05$. Con $k_0=4$: $0{,}10-0{,}05=+5\,\%$ ($k_0<k^*$: el capital crece). Con $k_0=64$: $0{,}025-0{,}05=-2{,}5\,\%$ ($k_0>k^*$: la inversión no alcanza para reponer la depreciación y diluir el capital entre la nueva población).
+
+\textbf{(e)} La curva sube a $0{,}25\,k^{-1/2}$ y la recta no cambia. En el $k$ inicial ($k=16$): $\dot k/k=0{,}25/4-0{,}05=1{,}25\,\%>0$ e $\dot y/y=\alpha\,\dot k/k=0{,}625\,\%$. Nuevo EE: $\sqrt{k^*}=0{,}25/0{,}05=5$, $k^*=25$, $y^*=5$. En el largo plazo $g_y=0$ otra vez: es un efecto \textbf{nivel}, no \textbf{crecimiento}. La economía crece solo durante la transición.
+\hitos{(a) log y derivada, y el signo $-(\delta+n)$: 3 · (b) 3 · (c) gráfico rotulado y el porqué ($PMgK$): 6 · (d) 4 · (e) cálculo en el $k$ inicial, nuevo EE y «nivel»: 8.}
+\end{resp}
+
+% ---------- 3. S2 + S3 + S6 ----------
+\item (30 puntos) \oblig{0{,}90} Considere $Y=K^{\alpha}(AL)^{1-\alpha}$ con $\alpha=1/3$, $s=0{,}28$, $\delta=0{,}03$, $n=0{,}01$, $\dot A/A=g=0{,}03$ y $A(0)=1$. Sea $\tilde k=k/A$.
+\begin{enumerate}[label=(\alph*)]
+\item Escriba la función de producción por trabajador, tome logaritmos y derive para obtener $\dot y/y$. Explique por qué en el sendero de crecimiento balanceado $\dot y/y=\dot k/k=g$.
+\item Paso a paso, llegue a $\dfrac{\dot{\tilde k}}{\tilde k}=s\,\tilde k^{\alpha-1}-(\delta+n+g)$, a $\tilde k^*=\left(\dfrac{s}{\delta+n+g}\right)^{\frac{1}{1-\alpha}}$ y a $y^*(t)=A(t)\left(\dfrac{s}{\delta+n+g}\right)^{\frac{\alpha}{1-\alpha}}$. Calcule $\tilde k^*$ e $y(0)$.
+\item ¿A qué tasa crecen $y$, $k$, $Y$ y $K$ en el sendero de crecimiento balanceado?
+\item La tasa de ahorro sube a $s=0{,}35$. Calcule la variación porcentual del nivel de $y$ de largo plazo y su tasa de crecimiento de largo plazo. Dibuje $\ln y$ y $g_y$ en el tiempo.
+\item En vez de (d), $g$ baja a $0{,}02$. Calcule la variación porcentual de $\tilde k^*$ y de $\tilde y^*$. Luego calcule $y(50)$ con $g=0{,}03$ y con $g=0{,}02$ (ambos en su EE, con $A(0)=1$). ¿Qué efecto domina?
+\item Un país con estos parámetros tiene $\tilde k$ igual a la mitad de $\tilde k^*$. Calcule $\dot k/k$ e $\dot y/y$ y compárelos con $g$. Ayuda: $\dot k/k=(\delta+n+g)\left(\tilde k^*/\tilde k\right)^{1-\alpha}-(\delta+n)$.
+\end{enumerate}
+\begin{resp}
+\textbf{(a)} $y=k^{\alpha}A^{1-\alpha}\Rightarrow \ln y=\alpha\ln k+(1-\alpha)\ln A\Rightarrow \dfrac{\dot y}{y}=\alpha\dfrac{\dot k}{k}+(1-\alpha)g$. En el SCB $\tilde k=k/A$ es constante, así que $\dot k/k=g$, y entonces $\dot y/y=\alpha g+(1-\alpha)g=g$.
+
+\textbf{(b)} $\ln\tilde k=\ln K-\ln A-\ln L\Rightarrow \dfrac{\dot{\tilde k}}{\tilde k}=\dfrac{sY-\delta K}{K}-g-n=s\dfrac{Y}{K}-(\delta+n+g)$, y $Y/K=\tilde y/\tilde k=\tilde k^{\alpha-1}$. En el EE: $s\tilde k^{\alpha-1}=\delta+n+g\Rightarrow \tilde k^*=\left(\frac{s}{\delta+n+g}\right)^{\frac1{1-\alpha}}$, $\tilde y^*=(\tilde k^*)^{\alpha}$ e $y^*(t)=A(t)\tilde y^*$. Números: $\frac{0{,}28}{0{,}07}=4$, $\tilde k^*=4^{3/2}=8$, $\tilde y^*=4^{1/2}=2$, $y(0)=2$.
+
+\textbf{(c)} $y$ y $k$ crecen a $g=3\,\%$. $Y=yL$ y $K=kL$ crecen a $n+g=4\,\%$ (log y derivada: $g_Y=g_y+n$).
+
+\textbf{(d)} $\frac{0{,}35}{0{,}07}=5$, $\tilde y^*=\sqrt5=2{,}236$: el nivel sube $11{,}8\,\%$. La tasa de largo plazo sigue siendo $g=3\,\%$. En la transición $g_y>g$ (en el $\tilde k$ inicial, $s\tilde k^{\alpha-1}>\delta+n+g$) y va bajando hasta $g$. Es un efecto \textbf{nivel}.
+\grafnivel
+\textbf{(e)} $\frac{0{,}28}{0{,}06}=4{,}667$: $\tilde k^*=10{,}08$ ($+26{,}0\,\%$) e $\tilde y^*=2{,}160$ ($+8{,}0\,\%$). Con menos $g$ hay que «repartir» el capital entre menos trabajadores efectivos, y el nivel efectivo sube. Pero $y(50)=2e^{0{,}03\cdot50}=8{,}96$ con $g=0{,}03$, contra $2{,}160\,e^{0{,}02\cdot50}=5{,}87$ con $g=0{,}02$. Domina el \textbf{efecto crecimiento}, porque se acumula cada año y el nivel cambia una sola vez.
+
+\textbf{(f)} $\dot k/k=0{,}07\cdot2^{2/3}-0{,}04=0{,}111-0{,}04=7{,}1\,\%$ e $\dot y/y=\frac13(7{,}1\,\%)+\frac23(3\,\%)=4{,}4\,\%$. Ambos son mayores que $g=3\,\%$: bajo su EE, el país crece más rápido que en el SCB (convergencia \emph{condicional}: hacia su propio EE).
+\hitos{(a) 4 · (b) derivación con el signo $-(\delta+n+g)$ y números: 8 · (c) 3 · (d) +11,8\,\%, «$g$ no cambia» y los dos gráficos: 6 · (e) números y «domina el crecimiento»: 5 · (f) 4.}
+\end{resp}
+
+% ---------- 4. R1 ----------
+\item (20 puntos) \oblig{0{,}55} En el modelo de Romer la tecnología se acumula según $\dot A=\theta L_A^{\lambda}A^{\phi}$, con $L_A=s_RL$ y $\dot L/L=n$. Use $\lambda=0{,}6$, $\phi=0{,}4$ y $n=0{,}01$.
+\begin{enumerate}[label=(\alph*)]
+\item Tome logaritmos de $\dot A/A$, derive respecto al tiempo e imponga que $\dot A/A$ es constante para llegar a $g_A=\dfrac{\lambda n}{1-\phi}$. ¿Por qué $\dot L_A/L_A=n$ en el SCB? Calcule $g_A$.
+\item ¿Qué ocurre con $g_A$ si $\phi$ sube a $0{,}7$? ¿Y si $\lambda=1$ y $\phi=0$? Interprete $\lambda$ y $\phi$.
+\item $s_R$ sube de una vez de $0{,}05$ a $0{,}10$. ¿Qué pasa con $\dot A/A$ en el instante, durante la transición y en el largo plazo? ¿Y con el nivel de $A$?
+\item ¿Qué pasaría con $g_A$ si $n=0$ (es decir, si $L_A$ fuera constante)?
+\end{enumerate}
+\begin{resp}
+\textbf{(a)} $\dfrac{\dot A}{A}=\theta\dfrac{L_A^{\lambda}}{A^{1-\phi}}\Rightarrow \ln\dfrac{\dot A}{A}=\ln\theta+\lambda\ln L_A-(1-\phi)\ln A$. Si $\dot A/A$ es constante, su derivada es cero: $0=\lambda\dfrac{\dot L_A}{L_A}-(1-\phi)\dfrac{\dot A}{A}$. En el SCB $s_R$ es constante, así que $L_A=s_RL$ crece a $n$. Luego $g_A=\dfrac{\lambda n}{1-\phi}=\dfrac{0{,}6\cdot0{,}01}{0{,}6}=1\,\%$.
+
+\textbf{(b)} Con $\phi=0{,}7$: $g_A=0{,}006/0{,}3=2\,\%$. Con $\lambda=1$, $\phi=0$: $g_A=n=1\,\%$. $\lambda<1$ es la \emph{duplicación} de esfuerzos («pisarse los pies»): el doble de investigadores no da el doble de ideas. $\phi>0$ es «a hombros de gigantes» (las ideas viejas ayudan a encontrar nuevas); $\phi<0$ sería agotamiento de ideas (la pesca se vuelve más difícil).
+
+\textbf{(c)} En el instante, $L_A$ se duplica y $A$ no cambia, así que $\dot A/A=\theta L_A^{\lambda}/A^{1-\phi}$ salta (por $2^{0{,}6}\approx1{,}52$). Después, como $A$ crece más rápido que antes, el denominador sube y la tasa vuelve gradualmente a $g_A=1\,\%$, que no depende de $s_R$. El \textbf{nivel} de $A$ queda permanentemente más alto: en el SCB, $A\propto L_A^{\lambda/(1-\phi)}$, y con estos números se duplica respecto de la trayectoria original. Es un efecto nivel, no un efecto crecimiento.
+
+\textbf{(d)} $g_A=\lambda\cdot0/(1-\phi)=0$. Con $L_A$ fijo y $A$ creciendo, $\theta L_A^{\lambda}/A^{1-\phi}$ cae hacia cero ($1-\phi>0$): las ideas se vuelven más difíciles de encontrar y el crecimiento necesita que crezca el número de investigadores.
+\hitos{(a) derivación y «$s_R$ constante $\Rightarrow L_A$ crece a $n$»: 8 · (b) números e interpretación de $\lambda$ y $\phi$: 4 · (c) salto, transición y nivel: 5 · (d) 3.}
+\end{resp}
+
+% ---------- 5. R2 ----------
+\item (24 puntos) \opc{0{,}50} En el modelo de Romer el bien final se produce con $Y=L_Y^{1-\alpha}\int_0^A x_j^{\alpha}\,dj$ en un mercado competitivo. Use $\alpha=1/2$, $r=0{,}05$, $L_Y=100$ y $A=20$.
+\begin{enumerate}[label=(\alph*)]
+\item Escriba el problema de la firma del bien final (qué elige y qué toma como dado). Encuentre las CPO para $L_Y$ y para cada $x_j$ e interprételas.
+\item El productor del intermedio $j$ es un monopolista con $\pi=p_j(x_j)\,x_j-r\,x_j$. Encuentre el precio y la cantidad. ¿El precio es mayor, igual o menor que el costo marginal? ¿Por qué? Calcule.
+\item ¿Se usan todos los $x_j$, o podría usarse solo $x_1$? Justifique con la productividad marginal.
+\item Calcule $K=\int_0^A x_j\,dj$, $Y$ y el salario $w$. Muestre que $Y=K^{\alpha}(AL_Y)^{1-\alpha}$.
+\item Calcule $wL_Y$, $rK$ y los beneficios totales. Muestre que suman $Y$. ¿Por qué hay beneficios y para qué sirven?
+\item Si el sector intermedio fuera competitivo ($p=r$), calcule $x$, $Y$ y los beneficios. ¿Por qué esto no puede ser un equilibrio con innovación?
+\end{enumerate}
+\begin{resp}
+\textbf{(a)} $\max_{L_Y,\{x_j\}}\ L_Y^{1-\alpha}\int_0^A x_j^{\alpha}dj-wL_Y-\int_0^A p_jx_j\,dj$, tomando como dados $w$, $p_j$ y $A$. CPO: $w=(1-\alpha)\dfrac{Y}{L_Y}$ y $p_j=\alpha L_Y^{1-\alpha}x_j^{\alpha-1}$. Cada factor se paga según su productividad marginal; la segunda CPO es la demanda por el intermedio $j$.
+
+\textbf{(b)} Demanda: $p(x)=0{,}5\cdot10\cdot x^{-1/2}=5/\sqrt x$, con elasticidad constante. $\pi'=0\Rightarrow p'(x)x+p=r\Rightarrow p(\alpha-1)+p=r\Rightarrow p=\dfrac{r}{\alpha}=0{,}10$. Entonces $\sqrt x=50$ y $x=2.500$. El precio es \textbf{mayor} que el costo marginal $r=0{,}05$ (margen $1/\alpha=2$), porque el monopolista tiene la patente y enfrenta una demanda con pendiente negativa.
+
+\textbf{(c)} Se usan todos, y en la misma cantidad. $\partial Y/\partial x_j=\alpha L_Y^{1-\alpha}x_j^{\alpha-1}\to\infty$ cuando $x_j\to0$: la primera unidad de cualquier intermedio rinde muchísimo. Usar solo $x_1$ no puede ser óptimo, por la productividad marginal decreciente de cada $x_j$. Como todos tienen el mismo precio, $x_j=x$ para todo $j$.
+
+\textbf{(d)} $K=Ax=50.000$; $Y=L_Y^{1/2}A\sqrt x=10\cdot20\cdot50=10.000$; comprobación: $\sqrt{50.000}\cdot\sqrt{20\cdot100}=\sqrt{10^8}=10.000$. $w=0{,}5\cdot10.000/100=50$.
+
+\textbf{(e)} $wL_Y=5.000$, $rK=2.500$ y $\Pi=A(p-r)x=20\cdot0{,}05\cdot2.500=2.500$. Suman $10.000=Y$. En Solow, $rK+wL=Y$ sin beneficios. Aquí hay rendimientos crecientes en $(K,L_Y,A)$: si cada factor recibiera su producto marginal, no alcanzaría para pagar las ideas. Los beneficios son lo que financia la compra de la patente (I+D).
+
+\textbf{(f)} $p=0{,}05\Rightarrow \sqrt x=100$, $x=10.000$, $Y=10\cdot20\cdot100=20.000$ y $\Pi=0$. Se produce más hoy, pero si $\Pi=0$ entonces $P_A=0$ y nadie investiga: no hay ideas nuevas. La competencia imperfecta es necesaria para que haya crecimiento.
+\hitos{(a) 4 · (b) $p=r/\alpha$, números y «mayor que el CMg»: 5 · (c) 3 · (d) 4 · (e) suma $=Y$ y para qué sirve $\Pi$: 4 · (f) 4.}
+\end{resp}
+
+% ---------- 2. S5 ----------
+\item (20 puntos) \opc{0{,}50} Continúe con los datos del ejercicio 1 ($y=\sqrt k$, $n+\delta=0{,}05$).
+\begin{enumerate}[label=(\alph*)]
+\item Muestre que en el estado estacionario $c(k)=f(k)-(n+\delta)k$. Encuentre la condición de primer orden y calcule $k_{oro}$, $s_{oro}$, $y_{oro}$ y $c_{oro}$.
+\item Calcule $k^*$, $y^*$ y $c^*$ con $s=0{,}80$. Compare con el $c^*$ de $s=0{,}20$. ¿Qué observa?
+\item Una economía en su estado estacionario con $s=0{,}80$ baja su ahorro a $s_{oro}$. Calcule su consumo inmediatamente después del cambio y en el nuevo estado estacionario. ¿Por qué ahorrar de más no conviene? Use $f'(k)$ y $n+\delta$.
+\item Una economía en su estado estacionario con $s=0{,}20$ sube su ahorro a $s_{oro}$. Calcule su consumo inmediatamente después y en el nuevo estado estacionario. ¿Es el mismo problema que en (c)?
+\end{enumerate}
+\begin{resp}
+\textbf{(a)} En el EE $sf(k^*)=(n+\delta)k^*$, y $c=(1-s)f(k)=f(k)-sf(k)=f(k)-(n+\delta)k$. CPO: $f'(k_{oro})=n+\delta\Rightarrow \dfrac{1}{2\sqrt k}=0{,}05\Rightarrow \sqrt{k_{oro}}=10$. Entonces $k_{oro}=100$, $y_{oro}=10$, $s_{oro}=\dfrac{(n+\delta)k}{y}=\dfrac{0{,}05\cdot100}{10}=0{,}5=\alpha$, y $c_{oro}=10-5=5$.
+\grafoniveles
+\textbf{(b)} $\sqrt{k^*}=0{,}80/0{,}05=16$: $k^*=256$, $y^*=16$, $c^*=0{,}2\cdot16=3{,}2$. Es \emph{el mismo} consumo que con $s=0{,}20$: la economía produce cuatro veces más, pero se le va en mantener un capital enorme.
+
+\textbf{(c)} En el instante, $k=256$ e $y=16$ no cambian: $c=0{,}5\cdot16=8$. En el nuevo EE $c=c_{oro}=5$. Ambos superan 3,2: gana \textbf{hoy y mañana}. En $k^*=256$, $f'(k)=1/32\approx0{,}031<n+\delta=0{,}05$: la última unidad de capital produce menos de lo que cuesta mantenerla. Es \textbf{ineficiencia dinámica}.
+
+\textbf{(d)} En el instante, $c=0{,}5\cdot4=2<3{,}2$. En el nuevo EE, $c=5>3{,}2$. Hay un \textbf{sacrificio} hoy a cambio de más consumo futuro. No es el mismo problema: aquí $f'(16)=0{,}125>0{,}05$, y que convenga depende de cómo se pondere el presente frente al futuro. En (c), en cambio, se gana en todos los períodos.
+\hitos{(a) CPO $f'(k)=n+\delta$ y $s_{oro}=\alpha$: 6 · (b) «mismo $c$»: 4 · (c) números e ineficiencia dinámica: 5 · (d) sacrificio y «no es el mismo»: 5.}
+\end{resp}
+
+% ---------- 6. R3 ----------
+\item (20 puntos) \opc{0{,}45} Los investigadores obtienen una patente al descubrir una idea nueva, y la venden a un monopolista. Use $\alpha=0{,}4$, $r=0{,}05$, $n=0{,}01$ y $g=0{,}02$.
+\begin{enumerate}[label=(\alph*)]
+\item Con la ecuación de arbitraje $rP_A=\pi+\dot P_A$, muestre que en el SCB $\dot P_A/P_A=n$ y que $P_A=\pi/(r-n)$. Interprete. Ayuda: $\pi=\alpha(1-\alpha)Y/A$ crece a la tasa $n$.
+\item Con $w_R=\bar\theta P_A$ y $w_Y=(1-\alpha)Y/L_Y$, imponga $w_R=w_Y$ y use $\bar\theta/A=g/L_A$ para llegar a $s_R=\dfrac{1}{1+\frac{r-n}{\alpha g}}$.
+\item Calcule $s_R$. ¿Qué ocurre si $r$ sube a $0{,}07$? ¿Y si, con $r=0{,}05$, $g$ sube a $0{,}04$? Interprete.
+\item Con $\lambda=1$ y $\phi=0$ se tiene $y\propto s_R(1-s_R)$. ¿Qué $s_R$ maximiza $y$? ¿Cuánto mayor sería $y$ con ese $s_R$ que con el de mercado de (c)? ¿El mercado investiga demasiado o demasiado poco en este caso?
+\end{enumerate}
+\begin{resp}
+\textbf{(a)} $\pi=\alpha(1-\alpha)Y/A$: $Y$ crece a $n+g$ y $A$ a $g$, así que $\pi$ crece a $n$. Si $r$ es constante, $P_A$ debe crecer igual que $\pi$: $\dot P_A/P_A=n$. Dividiendo el arbitraje por $P_A$: $r=\pi/P_A+n\Rightarrow P_A=\dfrac{\pi}{r-n}$. Comprar la patente rinde lo mismo que poner el dinero a la tasa $r$: dividendo $\pi/P_A$ más ganancia de capital $n$.
+
+\textbf{(b)} $\bar\theta\dfrac{\pi}{r-n}=(1-\alpha)\dfrac{Y}{L_Y}$, con $\pi=\alpha(1-\alpha)\dfrac{Y}{A}$: $\dfrac{\bar\theta}{A}\cdot\dfrac{\alpha}{r-n}=\dfrac{1}{L_Y}$. Con $\bar\theta/A=g/L_A$: $\dfrac{L_Y}{L_A}=\dfrac{r-n}{\alpha g}$. Como $L_Y/L_A=(1-s_R)/s_R$, se llega a $s_R=\dfrac{1}{1+\frac{r-n}{\alpha g}}$.
+
+\textbf{(c)} $\frac{r-n}{\alpha g}=\frac{0{,}04}{0{,}008}=5\Rightarrow s_R=1/6\approx16{,}7\,\%$. Con $r=0{,}07$: $\frac{0{,}06}{0{,}008}=7{,}5$ y $s_R\approx11{,}8\,\%$; los beneficios futuros se descuentan más y la patente vale menos. Con $g=0{,}04$: $\frac{0{,}04}{0{,}016}=2{,}5$ y $s_R\approx28{,}6\,\%$; la patente rinde más.
+
+\textbf{(d)} $\frac{d}{ds_R}[s_R(1-s_R)]=1-2s_R=0\Rightarrow s_R=0{,}5$. Entonces $\dfrac{0{,}5\cdot0{,}5}{(1/6)(5/6)}=1{,}8$: $y$ sería 80\,\% mayor. El mercado investiga \textbf{demasiado poco}: el investigador no se apropia de todo el valor social de su idea.
+\hitos{(a) $\dot P_A/P_A=n$ e interpretación del arbitraje: 5 · (b) álgebra: 5 · (c) números e interpretación: 6 · (d) 4.}
+\end{resp}
+
+\end{enumerate}
+
+\section*{Definiciones}
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0.6em,start=7]
+\item (12 puntos) \oblig{0{,}35} Defina qué es un \emph{efecto nivel} y un \emph{efecto crecimiento}. Dé un ejemplo de cada uno en el modelo de Solow.
+\begin{resp}
+\textbf{Respuesta.} Un efecto nivel desplaza la trayectoria de $\ln y$ en paralelo: cambia el nivel y la tasa de largo plazo queda igual. Un efecto crecimiento cambia la \emph{pendiente} de $\ln y$, es decir, la tasa de largo plazo. En Solow, subir $s$ (o bajar $n$) es un efecto nivel, porque $g_y$ vuelve a $g$. Subir $g$ es un efecto crecimiento. El primero cambia el nivel una sola vez; el segundo se acumula cada año.
+\end{resp}
+
+\item (12 puntos) \oblig{0{,}35} Defina \emph{convergencia absoluta} y \emph{convergencia condicional}. ¿Cuál predice el modelo de Solow?
+\begin{resp}
+\textbf{Respuesta.} Hay convergencia absoluta si los países pobres crecen más rápido que los ricos, sin importar sus parámetros. Hay convergencia condicional si cada país crece más rápido mientras más lejos está de \emph{su propio} estado estacionario. Solow predice la condicional: $\dot k/k=(\delta+n+g)(\tilde k^*/\tilde k)^{1-\alpha}-(\delta+n)$ depende de la distancia a su $\tilde k^*$, que depende de $s$, $n$ y $\delta$. La absoluta solo vale entre países con los mismos parámetros.
+\end{resp}
+
+\item (12 puntos) \opc{0{,}30} Defina \emph{no rivalidad} y \emph{excluibilidad}. ¿Qué son las ideas?
+\begin{resp}
+\textbf{Respuesta.} Un bien es no rival si su uso por una persona no reduce lo que queda para otra: copiarlo tiene un costo marginal $\approx0$. Es excluible si se puede impedir que otros lo usen (patentes, secretos, derechos de autor). Las ideas son no rivales y \emph{parcialmente} excluibles. La no rivalidad genera rendimientos crecientes a escala: un costo fijo de crear la idea y un costo marginal bajo de usarla.
+\end{resp}
+
+\item (12 puntos) \opc{0{,}25} Defina qué es un \emph{estado estacionario} y en qué se diferencia de un \emph{sendero de crecimiento balanceado}.
+\begin{resp}
+\textbf{Respuesta.} Un estado estacionario es la situación en que las variables por trabajador (sin $A$) o por trabajador efectivo ($\tilde k$, $\tilde y$) no cambian: $\dot k/k=0$, donde $s\,y/k=n+\delta$. Un sendero de crecimiento balanceado es la situación en que todas las variables crecen a \emph{tasas constantes}. En Solow con progreso tecnológico, el EE de $\tilde k$ es un SCB en que $y$ y $k$ crecen a $g$, e $Y$ y $K$ a $n+g$.
+\end{resp}
+
+\end{enumerate}
+
+\section*{Verdadero o Falso. Justifique su respuesta.}
+{\small Formato de respuesta: veredicto $\to$ qué parte es correcta y cuál no $\to$ ecuación $\to$ gráfico $\to$ mecanismo $\to$ corto y largo plazo $\to$ cierre.}
+\familia{1}{Transición y convergencia}{gráfico de tasas: $\dfrac{\dot k}{k}=s\dfrac{y}{k}-(\delta+n)$ como distancia vertical (la $PMgK$ decreciente hace que la curva baje); con $A$: $\dfrac{\dot k}{k}=(\delta+n+g)\left(\dfrac{\tilde k^*}{\tilde k}\right)^{1-\alpha}-(\delta+n)$.}
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0.6em,start=11]
+\item (12 puntos) \base \estrella El modelo de Solow predice que la tasa de crecimiento del capital por trabajador es mayor mientras más lejos esté la economía de su estado estacionario.
+\begin{resp}
+\textbf{Verdadero} (en valor absoluto). $\dfrac{\dot k}{k}=s\dfrac{y}{k}-(\delta+n)$ es la distancia vertical entre la curva $s\,y/k$ (decreciente, por $PMgK$ decreciente) y la recta $n+\delta$. Mientras más a la izquierda de $k^*$, mayor es la brecha y mayor el crecimiento. Matiz: si $k>k^*$, la tasa es \emph{negativa}, y es más negativa mientras más lejos está. A medida que $k$ se acerca a $k^*$, la brecha se cierra y $\dot k/k\to0$. (Gráfico de tasas con $k_0$ y $k_1$.)
+\hitos{C0 · C1 matiz «en valor absoluto» 2 · C2 2 · C3 2 · C4 3 · C5 2 · C6 1.}
+\end{resp}
+
+\item (12 puntos) \estrella Si $k/(Ah)$ de un país está por debajo de su valor de estado estacionario, entonces su capital por trabajador crece a una tasa mayor que $g$.
+\begin{resp}
+\textbf{Verdadero.} $\dfrac{\dot k}{k}=s\left(\dfrac{Ah}{k}\right)^{1-\alpha}-(\delta+n)$, y como en el EE $s(Ah/k^*)^{1-\alpha}=\delta+n+g$, se tiene $\dfrac{\dot k}{k}=(\delta+n+g)\left(\dfrac{\tilde k^*}{\tilde k}\right)^{1-\alpha}-(\delta+n)$. Si $\tilde k<\tilde k^*$, el paréntesis es mayor que 1 y queda $\dot k/k>g$. Mecanismo: con poco capital por trabajador efectivo, la $PMgK$ es alta. Al converger, $\dot k/k$ baja hasta $g$ (SCB).
+\hitos{C0 · C2 ecuación con $\tilde k^*/\tilde k$ 4 · C3 2 · C4 3 · C5 converge a $g$ 2 · C6 1.}
+\end{resp}
+
+\item (12 puntos) \estrella El modelo de Solow predice que los países pobres siempre crecen más rápido que los países ricos.
+\begin{resp}
+\textbf{Falso.} Solow predice convergencia \textbf{condicional}, no absoluta. $\dfrac{\dot k}{k}=(\delta+n+g)\left(\dfrac{\tilde k^*}{\tilde k}\right)^{1-\alpha}-(\delta+n)$: cada país crece más rápido mientras más lejos está de \emph{su propio} estado estacionario. Un país pobre con un $\tilde k^*$ bajo (poco $s$, mucho $n$) puede estar cerca de su EE y crecer más lento que un país rico que está lejos del suyo. Solo entre países con los mismos parámetros el más pobre crece más rápido.
+\hitos{C0 · C1 «solo si tienen los mismos parámetros» 2 · C2 2 · C3 dos curvas con distinto $k^*$ 2 · C4 su propio EE 3 · C5 2 · C6 «condicional, no absoluta» 1.}
+\end{resp}
+
+\end{enumerate}
+
+\familia{2}{Sendero de crecimiento balanceado y nivel vs.\ crecimiento}{logaritmo y derivada; $y^*(t)=A(t)\left(\frac{s}{\delta+n+g}\right)^{\frac{\alpha}{1-\alpha}}$; en el SCB, $g_y=g$ (nada más mueve la tasa de largo plazo). Frase de cierre: «efecto nivel, no crecimiento».}
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0.6em,resume]
+\item (12 puntos) \base En el sendero de crecimiento balanceado, el capital y el producto por trabajador crecen a la tasa $g$, mientras que el capital y el producto agregados crecen a la tasa $n+g$.
+\begin{resp}
+\textbf{Verdadero.} En el SCB $\tilde k=k/A$ es constante, así que $g_k=g$. De $\ln y=\alpha\ln k+(1-\alpha)\ln A$: $g_y=\alpha g+(1-\alpha)g=g$. Como $K=kL$ e $Y=yL$, con logaritmos y derivadas queda $g_K=g_k+n=n+g$ y $g_Y=n+g$.
+\hitos{C0 · C2 log y derivada para cada variable 6 · C4 «$\tilde k$ constante» 4 · C6 2.}
+\end{resp}
+
+\item (12 puntos) \estrella Un aumento permanente de la tasa de ahorro aumenta permanentemente la tasa de crecimiento del producto por trabajador.
+\begin{resp}
+\textbf{Falso.} Es correcto que la tasa de crecimiento sube, pero no que lo haga de forma permanente. Con progreso tecnológico, $\dfrac{\dot{\tilde k}}{\tilde k}=s\tilde k^{\alpha-1}-(\delta+n+g)$: un $s$ mayor sube la curva y en el $\tilde k$ inicial la brecha es positiva, así que $g_y>g$ durante la transición. Luego la brecha se cierra por la $PMgK$ decreciente y $g_y$ vuelve a $g$, que no depende de $s$. En el largo plazo $y^*(t)=A(t)\left(\frac{s}{\delta+n+g}\right)^{\frac{\alpha}{1-\alpha}}$ es mayor. (Gráficos: $\ln y$ con un quiebre y luego paralela; $g_y$ salta y vuelve a $g$.) Es un efecto \textbf{nivel}, no un efecto \textbf{crecimiento}.
+\hitos{C0 · C1 «sube, pero no permanentemente» 2 · C2 2 · C3 $\ln y$ y $g_y$ 2 · C4 $PMgK$ decreciente 3 · C5 transición vs. SCB 2 · C6 nivel vs. crecimiento 1.}
+\end{resp}
+
+\end{enumerate}
+
+\familia{3}{Romer}{ideas no rivales $\Rightarrow$ rendimientos crecientes $\Rightarrow$ hace falta $\pi>0$ ($p=r/\alpha$, $P_A=\pi/(r-n)$); $\dfrac{\dot A}{A}=\theta\dfrac{L_A^{\lambda}}{A^{1-\phi}}$ y $g_A=\dfrac{\lambda n}{1-\phi}$.}
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0.6em,resume]
+\item (12 puntos) \base \estrella En el modelo de Romer, la competencia imperfecta en el sector de bienes intermedios es necesaria para que haya crecimiento: si el precio fuera igual al costo marginal, no habría incentivo a innovar.
+\begin{resp}
+\textbf{Verdadero.} Crear una idea tiene un costo fijo y usarla, un costo marginal $\approx0$ (no rival): hay rendimientos crecientes. Si $p=CMg=r$, el monopolista tiene $\pi=0$, la patente vale $P_A=\pi/(r-n)=0$ y nadie investiga ($w_R=\bar\theta P_A=0$). Con poder de mercado, $p=r/\alpha>r$, y el margen genera $\pi>0$, que paga la patente y financia la I+D. Con rendimientos crecientes, pagarle a cada factor su producto marginal agotaría más que $Y$.
+\hitos{C0 · C2 $p=r/\alpha$ y $P_A=\pi/(r-n)$ 3 · C4 costo fijo y rendimientos crecientes 4 · C1/C5 sin $\pi$ no hay $w_R$ 3 · C6 2.}
+\end{resp}
+
+\item (12 puntos) Si $\phi<1$ y el número de investigadores $L_A$ fuera constante, la tasa de crecimiento de la tecnología, $\dot A/A$, tendería a cero.
+\begin{resp}
+\textbf{Verdadero.} $\dfrac{\dot A}{A}=\theta\dfrac{L_A^{\lambda}}{A^{1-\phi}}$. Con $L_A$ fijo y $A$ creciendo, el denominador sube (porque $1-\phi>0$) y la tasa tiende a 0: las ideas nuevas son cada vez más difíciles de encontrar respecto del stock. Por eso el crecimiento de la tecnología necesita que $L_A$ crezca a $n$: $g_A=\lambda n/(1-\phi)$.
+\hitos{C0 · C2 4 · C4 $1-\phi>0$ 4 · C5 2 · C6 2.}
+\end{resp}
+
+\item (12 puntos) \estrella En el modelo de Romer con $\phi<1$, un aumento permanente de la fracción de trabajadores dedicados a investigar, $s_R$, aumenta permanentemente la tasa de crecimiento de largo plazo de la economía.
+\begin{resp}
+\textbf{Falso.} Es correcto que $\dot A/A$ sube, pero solo durante la transición. $\dfrac{\dot A}{A}=\theta\dfrac{L_A^{\lambda}}{A^{1-\phi}}$: al subir $s_R$, sube $L_A$ y la tasa salta. Luego $A$ crece más rápido, el denominador sube ($1-\phi>0$) y la tasa vuelve a $g_A=\dfrac{\lambda n}{1-\phi}$, que no depende de $s_R$. Lo permanente es un mayor \textbf{nivel} de $A$ (y de $y$, si $s_R$ no es demasiado alto). (Gráfico: $\ln A$ con un quiebre y luego paralela.) Efecto nivel, no efecto crecimiento.
+\hitos{C0 · C1 2 · C2 $g_A=\lambda n/(1-\phi)$ 2 · C3 $\ln A$ 2 · C4 denominador $A^{1-\phi}$ 3 · C5 2 · C6 1.}
+\end{resp}
+
+\end{enumerate}
+
+\familia{4}{Regla de oro}{$c^*=f(k^*)-(n+\delta)k^*$; $f^\prime(k_{oro})=n+\delta$; con Cobb-Douglas, $s_{oro}=\alpha$; gráfico de niveles.}
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0.6em,resume]
+\item (12 puntos) \base Una economía que ahorra más siempre tendrá un mayor consumo por trabajador en el estado estacionario.
+\begin{resp}
+\textbf{Falso.} Es correcto que más ahorro da más $y^*$, pero no siempre más consumo: $c^*=(1-s)\,y^*$. Al subir $s$, $y^*$ sube pero $(1-s)$ baja. $c^*$ crece con $s$ solo hasta la regla de oro, $f'(k_{oro})=n+\delta$ (con Cobb-Douglas, $s_{oro}=\alpha$). Pasado ese punto, el capital adicional rinde menos de lo que cuesta mantenerlo y $c^*$ cae. (Gráfico de niveles: $f(k)$, $(n+\delta)k$ y $c$ como distancia.) Ejemplo: con $s=0{,}20$ y $s=0{,}80$, $c^*=3{,}2$ en ambos casos (ej. 2).
+\hitos{C0 · C1 2 · C2 $c^*=(1-s)y^*$ y $f'=n+\delta$ 3 · C3 niveles 2 · C4 3 · C6 «solo hasta $s_{oro}$» 2.}
+\end{resp}
+
+\end{enumerate}
+
+\familia{5}{Capital humano y residuo}{$y^*(t)=A(t)\,e^{\psi u}\left(\frac{s}{\delta+n+g}\right)^{\frac{\alpha}{1-\alpha}}$: $u$ mueve el nivel ($e^{\psi\Delta u}$, exacto), no la tasa.}
+\begin{enumerate}[label=\arabic*.,leftmargin=1.6em,itemsep=0.6em,resume]
+\item (12 puntos) \base Un aumento permanente de los años de escolaridad $u$ aumenta permanentemente la tasa de crecimiento del producto por trabajador.
+\begin{resp}
+\textbf{Falso.} $y(t)=A(t)\,e^{\psi u}\left(\frac{s}{\delta+n+g}\right)^{\frac{\alpha}{1-\alpha}}$, así que $\partial\ln y/\partial u=\psi$ y $g_y=g$, que no depende de $u$. Más escolaridad es un efecto \textbf{nivel}. Durante la transición sí hay más crecimiento (el capital se ajusta al nuevo $h$), pero en el largo plazo la tasa vuelve a $g$.
+\hitos{C0 · C2 3 · C3 $\ln y$ 2 · C4 3 · C5 2 · C6 nivel 2.}
+\end{resp}
+
+\end{enumerate}
+
+\section*{Fichas de una línea}
+{\small Di el veredicto y cuál comente te sirve de base, en 30 segundos. No se escriben.}
+\begin{enumerate}[label=F\arabic*.,leftmargin=2.2em,itemsep=0.4em]
+\item \estrella Dos economías son idénticas en $s$, $n$, $\delta$ y $\alpha$, pero una de ellas parte con la mitad del capital por trabajador de la otra. Ambas tendrán el mismo producto por trabajador en el largo plazo, pero la más pobre crecerá más rápido mientras converge.
+\ficha{\textbf{V} · base 11: mismo $k^*$; la pobre tiene más brecha en el gráfico de tasas. Es convergencia entre economías con los mismos parámetros.}
+\item En el modelo de Solow con progreso tecnológico, si $k/A$ está por encima de su valor de estado estacionario, el producto por trabajador $y$ decrece.
+\ficha{\textbf{I} · base 12: $\dot y/y=g+\alpha\,\dot{\tilde k}/\tilde k<g$; solo decrece si $\alpha|\dot{\tilde k}/\tilde k|>g$ (muy lejos del EE).}
+\item En el modelo de Solow sin progreso tecnológico, el producto por trabajador no crece en el largo plazo. Por lo tanto, el modelo no puede explicar el crecimiento sostenido del ingreso per cápita.
+\ficha{\textbf{V} · base 14: en el EE, $g_y=\alpha g_k=0$ por la $PMgK$ decreciente; $g$ es exógeno, y eso motiva el modelo de Romer.}
+\item \estrella Dos países tienen la misma función de producción, $\delta$ y $g$, y solo difieren en su tasa de crecimiento poblacional $n$. El país con mayor $n$ tendrá menor PIB per cápita y también menor tasa de crecimiento del PIB per cápita en el largo plazo.
+\ficha{\textbf{F} · base 15: la 1.ª parte es V ($\tilde y^*$ menor, recta $\delta+n+g$ más alta), pero $g_y=g$ en ambos: nivel, no tasa.}
+\item Un aumento permanente de la tasa de crecimiento de la población $n$ reduce el PIB per cápita de largo plazo, pero aumenta la tasa de crecimiento de largo plazo del PIB agregado.
+\ficha{\textbf{V} · bases 14 y 15: $\tilde y^*$ baja, pero $g_Y=n+g$ sube.}
+\item Un aumento de la tasa de crecimiento tecnológico $g$ reduce el valor de estado estacionario de $k/A$. Sin embargo, en el largo plazo el producto por trabajador termina siendo mayor.
+\ficha{\textbf{V} · base 14: $\tilde k^*$ baja (nivel), pero $y(t)=A(0)e^{gt}\tilde y^*$ y domina el crecimiento.}
+\item Que las ideas sean no rivales implica que es imposible excluir a otros de su uso.
+\ficha{\textbf{F} · base 16: no rival $\neq$ no excluible. Las patentes hacen las ideas parcialmente excluibles, y eso permite $p>CMg$.}
+\item En el modelo de Romer, el producto agregado se escribe $Y=K^{\alpha}(AL_Y)^{1-\alpha}$, igual que en el modelo de Solow con progreso tecnológico. Por lo tanto, el modelo de Romer no agrega nada nuevo.
+\ficha{\textbf{F} · base 17: misma forma reducida, pero $A$ es endógena ($\dot A=\theta L_A^{\lambda}A^{\phi}$), con $s_R$ y monopolio.}
+\item Mientras mayor sea la fracción de trabajadores dedicados a investigar, $s_R$, mayor será siempre el producto por trabajador.
+\ficha{\textbf{F} · base 18: $y\propto s_R(1-s_R)$, que tiene el máximo en $s_R=0{,}5$.}
+\item Si una economía ahorra más que lo que indica la regla de oro, puede aumentar su consumo por trabajador tanto hoy como en el largo plazo reduciendo su tasa de ahorro.
+\ficha{\textbf{V} · base 19: $f^\prime(k^*)<n+\delta$ (ineficiencia dinámica); bajar $s$ sube $c$ hoy y en el largo plazo.}
+\item Con $\psi=0{,}10$, dos años adicionales de escolaridad aumentan el producto por trabajador de estado estacionario exactamente en 20\,\%.
+\ficha{\textbf{F} · base 20: $e^{0{,}2}=1{,}221$, o sea $+22{,}1\%$; el 20\% es la aproximación logarítmica.}
+\item El residuo de Solow mide la parte de las diferencias de producto por trabajador entre países que no se explica por diferencias de capital físico ni de capital humano, y se interpreta como diferencias de productividad.
+\ficha{\textbf{V} (con matiz) · base 20: es lo que no explican $K$ ni $H$; «una medida de nuestra ignorancia».}
+\end{enumerate}
+
+\end{document}

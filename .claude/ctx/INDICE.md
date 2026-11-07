@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 09:59. 422 archivos, ~131825.5k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 10:33. 425 archivos, ~131840.7k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -40,8 +40,9 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 09:59. 422 archivos, ~131
 | ⚠ 14.6k | 1367 | `trabajo/overleaf-etapa1/presentacion-grupo.log` |  |
 | ⚠ 14.2k | 1019 | `trabajo/micro/respaldo-motor-2026-11-01/scripts/banco.py` | Nivel gratis: ~20 peticiones/dia POR MOD L54; ---------------------------------------- L59; ---------------------------------------- L127; ---------------------------------------- L240; ---------------------------------------- L284; ---------------------------------------- L539; ---------------------------------------- L596; ---------------------------------------- L707; +9 |
 | ⚠ 13.1k | 781 | `trabajo/jv5-traduccion.txt` |  |
+| ⚠ 12.7k | 446 | `trabajo/macro/pb/pb.tex` |  |
 | ⚠ 12.2k | 1098 | `trabajo/econometria-ii-etapa2/informe/informe-etapa-2.log` |  |
-| ⚠ 12.2k | 430 | `trabajo/macro/pb/pb.tex` |  |
+| ⚠ 12.2k | 430 | `trabajo/macro/pb/pb-antes.tex` |  |
 | ⚠ 12.1k | 966 | `trabajo/moore-pdf/2026-10-31-lectura-control-2-caso-moore.log` |  |
 | ⚠ 12.0k | 995 | `trabajo/build-repaso/2026-11-01-repaso-matematico-control-2.log` |  |
 | ⚠ 11.8k | 1086 | `trabajo/overleaf-etapa1/prueba.log` |  |
@@ -59,12 +60,12 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 09:59. 422 archivos, ~131
 | ⚠ 9.7k | 681 | `trabajo/respaldo-lectura-pep1/2026-11-02-lectura-pep1-casos-reales.tex` |  |
 | ⚠ 9.7k | 918 | `trabajo/build-micro-pep1/2026-11-04-prediccion-pep-1-mundaca.log` |  |
 | ⚠ 9.7k | 333 | `trabajo/ficha-dicom/2026-11-03-ficha-caso-ley-dicom-teoria-pep1.tex` |  |
+| ⚠ 9.5k | 888 | `trabajo/macro/pb/pauta.log` |  |
 | ⚠ 9.5k | 340 | `trabajo/2026-10-24-plan-finde.md` | Plan del fin de semana 24-25 oct y ruta  L1; 0. Lo esencial en 6 líneas L13; 1. Estado de cada ramo L24; 2. Tabla de prioridades L135; 3. Horas disponibles y horas necesarias  L152; 4. Sábado 24 y domingo 25, hora por hora L208; 5. Esbozo del lun 26 al jue 5-11 L283; 6. Pendientes arrastrados sin marcar: qu L308; +1 |
 | ⚠ 9.4k | 853 | `trabajo/tex/2026-11-05-ejercicios-calcados-ayudantias.log` |  |
-| ⚠ 9.4k | 880 | `trabajo/macro/pb/pauta.log` |  |
+| ⚠ 9.4k | 883 | `trabajo/macro/pb/enun.log` |  |
 | ⚠ 9.4k | 846 | `trabajo/tex/2026-11-05-ayudantia-5-ejercicios-pauta.log` |  |
 | ⚠ 9.3k | 839 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1-pauta.log` |  |
-| ⚠ 9.3k | 873 | `trabajo/macro/pb/enun.log` |  |
 | ⚠ 9.1k | 825 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1.log` |  |
 | ⚠ 9.0k | 799 | `trabajo/build-prediccion/2026-11-01-prediccion-final-control-2.log` |  |
 | ⚠ 8.9k | 805 | `trabajo/tex/2026-11-01-simulacro-control-2-droller.log` |  |
@@ -202,6 +203,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 09:59. 422 archivos, ~131
 | 1.4k | 90 | `trabajo/build-repaso/2026-11-01-repaso-matematico-control-2.tex` |  |
 | 1.4k | 33 | `trabajo/econometria-ii-m2/2026-10-24-m2-paes-PAUTA-no-abrir.md` | PAUTA · M2 con la salida PAES · 24-10 (n L1; Hito 1 · ficha L5; Hito 2 L12; Hito 3 · E7 (ítems 1, 2 y 4; el 3 ya es  L26; Puntaje sugerido (por hito, sobre 5) L32 |
 | 1.4k | 39 | `trabajo/espaciado/sec3v3.md` | 3. Las 10 sesiones · versión 3: PEP de d L1 |
+| 1.4k | 82 | `trabajo/macro/pb/final.py` | --- encabezado y nota L10; --- matemáticos sin el 7 L21; --- definiciones: las 4 primeras L25; --- comentes L36; --- fichas L59 |
 | 1.4k | 44 | `trabajo/espaciado/sec3.md` | 3. Las 10 sesiones, optimizadas (≈ 5 h 1 L1 |
 | 1.4k | 106 | `trabajo/nota-r-david/salida_v7_parche.txt` | A tibble: 2 × 3 L16; A tibble: 2 × 3 L21 |
 | 1.4k | 105 | `trabajo/nota-r-david/salida_auditado.txt` | A tibble: 2 × 3 L10; A tibble: 2 × 3 L15 |
@@ -258,6 +260,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 09:59. 422 archivos, ~131
 | 914 | 66 | `trabajo/overleaf-etapa1/laminas-faltantes.tex` |  |
 | 892 | 34 | `trabajo/cierre_moore.py` | 1. nota en la prediccion L2; 2. indice L12; 3. buzon del informe L22 |
 | 883 | 90 | `trabajo/econometria-ii-demre/scripts/08-revision-finalfinal.R` |  |
+| 873 | 54 | `trabajo/macro/pb/reordenar.py` | índice 0 = comente 14 del orden anterior L13; macros y nota inicial L46 |
 | 866 | 61 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Fichas/2026-2 Control 1 - Mundaca.json` |  |
 | 850 | 38 | `trabajo/espaciado/top.md` | Plan conjunto · PEP 1 de Econometría II  L1; 1. Resultado L11 |
 | 849 | 26 | `trabajo/sociologia/ronda-repetidas.md` | Ronda «Lo que más repitió» (lun 26-10) — L1; Clave (no mirar antes) L25 |

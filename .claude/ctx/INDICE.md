@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 12:29. 433 archivos, ~131874.7k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 15:31. 433 archivos, ~131874.4k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -48,7 +48,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 12:29. 433 archivos, ~131
 | ⚠ 11.8k | 1086 | `trabajo/overleaf-etapa1/prueba.log` |  |
 | ⚠ 11.5k | 1032 | `trabajo/econometria-ii-estudio/2026-11-02-lectura-pep1-casos-reales.log` |  |
 | ⚠ 11.1k | 988 | `trabajo/tex/2026-11-01-caso-intel-asml-control-2.log` |  |
-| ⚠ 10.9k | 385 | `trabajo/macro/pb/final.tex` |  |
+| ⚠ 10.7k | 384 | `trabajo/macro/pb/final.tex` |  |
 | ⚠ 10.6k | 995 | `trabajo/ficha-streaming/2026-11-03-ficha-caso-streaming-teoria-pep1.log` |  |
 | ⚠ 10.5k | 976 | `trabajo/overleaf-etapa1/guion-javier-final.log` |  |
 | ⚠ 10.5k | 976 | `trabajo/overleaf-etapa1/ficha.log` |  |
@@ -61,12 +61,12 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 12:29. 433 archivos, ~131
 | ⚠ 9.7k | 681 | `trabajo/respaldo-lectura-pep1/2026-11-02-lectura-pep1-casos-reales.tex` |  |
 | ⚠ 9.7k | 918 | `trabajo/build-micro-pep1/2026-11-04-prediccion-pep-1-mundaca.log` |  |
 | ⚠ 9.7k | 333 | `trabajo/ficha-dicom/2026-11-03-ficha-caso-ley-dicom-teoria-pep1.tex` |  |
-| ⚠ 9.7k | 892 | `trabajo/macro/pb/final-pauta.log` |  |
 | ⚠ 9.5k | 888 | `trabajo/macro/pb/pauta.log` |  |
-| ⚠ 9.5k | 886 | `trabajo/macro/pb/final-enun.log` |  |
+| ⚠ 9.5k | 884 | `trabajo/macro/pb/final-pauta.log` |  |
 | ⚠ 9.5k | 340 | `trabajo/2026-10-24-plan-finde.md` | Plan del fin de semana 24-25 oct y ruta  L1; 0. Lo esencial en 6 líneas L13; 1. Estado de cada ramo L24; 2. Tabla de prioridades L135; 3. Horas disponibles y horas necesarias  L152; 4. Sábado 24 y domingo 25, hora por hora L208; 5. Esbozo del lun 26 al jue 5-11 L283; 6. Pendientes arrastrados sin marcar: qu L308; +1 |
 | ⚠ 9.4k | 853 | `trabajo/tex/2026-11-05-ejercicios-calcados-ayudantias.log` |  |
 | ⚠ 9.4k | 883 | `trabajo/macro/pb/enun.log` |  |
+| ⚠ 9.4k | 879 | `trabajo/macro/pb/final-enun.log` |  |
 | ⚠ 9.4k | 846 | `trabajo/tex/2026-11-05-ayudantia-5-ejercicios-pauta.log` |  |
 | ⚠ 9.3k | 839 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1-pauta.log` |  |
 | ⚠ 9.1k | 825 | `trabajo/simulacro-final/2026-11-04-simulacro-final-pep1.log` |  |

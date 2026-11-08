@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 15:31. 433 archivos, ~131874.4k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-08 09:02. 434 archivos, ~131875.2k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -279,6 +279,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-07 15:31. 433 archivos, ~131
 | 805 | 49 | `trabajo/overleaf-etapa1/guion-javier-3-9-10.md` | Guion de Javier: láminas 3, 9 y 10 L1; Lámina 3 · Fuentes de datos (40 s) L7; Lámina 9 · Descriptivas (25 s) L20; Lámina 10 · Conclusiones (40 s) L30; Si te preguntan L40 |
 | 802 | 90 | `trabajo/revision-05/05-base-final.R` | rutas relativas a la carpeta del proyect L5 |
 | 801 | 25 | `trabajo/espaciado/build_plan.py` |  |
+| 792 | 54 | `trabajo/micro/grafico_cm_lp.py` |  |
 | 789 | 47 | `trabajo/macro/2025-06-11-control-iii-droller.tex` |  |
 | 787 | 40 | `CLAUDE.md` | Espacio de trabajo: Metodología de estud L1; Fuente única: `C:/Proyecto Metodologia d L5; Reglas L22; Agenda (fechas, plan del día y bitácora) L28; Informe de Politica Economica (Tema 43) L38 |
 | 781 | 48 | `trabajo/micro/respaldo-motor-2026-11-01/banco/DESEMPENO_MOTOR.md` | Desempeño del motor de predicción L1; Macroeconomía II — predicciones prospect L7; Microeconomía II — predicciones prospect L15; Todos los ramos L23; Calibración de P(entra) (pronósticos pro L27; Walk-forward del campeón (historia sin s L34; Versiones L38 |

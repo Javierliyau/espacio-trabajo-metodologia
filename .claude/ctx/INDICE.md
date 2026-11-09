@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-08 09:02. 434 archivos, ~131875.2k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-08 22:57. 435 archivos, ~131875.6k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -342,6 +342,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-08 09:02. 434 archivos, ~131
 | 412 | 17 | `trabajo/econometria-ii-etapa2/etapa3-prueba.R` |  |
 | 410 | 15 | `trabajo/buzon_moore.py` | 2026-10-31 · Macro II, lectura JV 5.1 pa L6 |
 | 406 | 24 | `trabajo/espaciado/opt3.py` | pesos para DOS bloques (prediccion 31-10 L5 |
+| 397 | 31 | `trabajo/macro/2026-11-08-nota-probabilidad-pep1.md` | Nota 8-11 · recalibración de la probabil L1; Escala (60 % de exigencia, 60 pts) L4; Modelo L7; Evidencia nueva desde el 6-11 (no estaba L12; Probabilidad actualizada (antes del simu L17; Traducción simulacro → prueba (media sim L22 |
 | 391 | 16 | `trabajo/macro/pistas-pep1-2026-11-06.md` | Pistas para la PEP 1 · desde el mini rep L1 |
 | 387 | 16 | `trabajo/macro/candidatos-control-2.json` |  |
 | 375 | 19 | `trabajo/econometria-ii-etapa2/replica.py` | variante: solo REG_ANTERIOR, INV_ACTUAL, L19 |

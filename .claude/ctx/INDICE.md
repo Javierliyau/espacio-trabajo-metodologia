@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 15:59. 441 archivos, ~131903.0k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 17:07. 444 archivos, ~131931.8k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -63,8 +63,11 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 15:59. 441 archivos, ~131
 | ⚠ 9.7k | 681 | `trabajo/respaldo-lectura-pep1/2026-11-02-lectura-pep1-casos-reales.tex` |  |
 | ⚠ 9.7k | 918 | `trabajo/build-micro-pep1/2026-11-04-prediccion-pep-1-mundaca.log` |  |
 | ⚠ 9.7k | 333 | `trabajo/ficha-dicom/2026-11-03-ficha-caso-ley-dicom-teoria-pep1.tex` |  |
+| ⚠ 9.7k | 917 | `trabajo/build-micro-pep1/2026-11-09-prediccion-final-pep-1-mundaca.log` |  |
+| ⚠ 9.6k | 898 | `trabajo/build-micro-pep1/2026-11-09-simulacro-final-pep-1-PAUTA.log` |  |
 | ⚠ 9.5k | 888 | `trabajo/macro/pb/pauta.log` |  |
 | ⚠ 9.5k | 884 | `trabajo/macro/pb/final-pauta.log` |  |
+| ⚠ 9.5k | 901 | `trabajo/build-micro-pep1/2026-11-09-simulacro-final-pep-1-mundaca.log` |  |
 | ⚠ 9.5k | 340 | `trabajo/2026-10-24-plan-finde.md` | Plan del fin de semana 24-25 oct y ruta  L1; 0. Lo esencial en 6 líneas L13; 1. Estado de cada ramo L24; 2. Tabla de prioridades L135; 3. Horas disponibles y horas necesarias  L152; 4. Sábado 24 y domingo 25, hora por hora L208; 5. Esbozo del lun 26 al jue 5-11 L283; 6. Pendientes arrastrados sin marcar: qu L308; +1 |
 | ⚠ 9.4k | 853 | `trabajo/tex/2026-11-05-ejercicios-calcados-ayudantias.log` |  |
 | ⚠ 9.4k | 883 | `trabajo/macro/pb/enun.log` |  |

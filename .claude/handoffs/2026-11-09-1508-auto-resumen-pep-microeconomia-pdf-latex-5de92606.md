@@ -1,9 +1,9 @@
 ---
 tema: resumen-pep-microeconomia-pdf-latex
-fecha: 2026-11-09 15:08
-resumen: (auto, antes de compactar) ultimo pedido: ahora hace una nueva version no tan como triptivco usando la hoja en vertical para hacerlo bien ordenado y no 
+fecha: 2026-11-09 17:55
+resumen: (auto, fin de sesion) ultimo pedido: ahora hace una nueva version no tan como triptivco usando la hoja en vertical para hacerlo bien ordenado y no 
 ---
-Handoff automatico de la sesion `5de92606-0429-4387-a41a-27e211105361` («Resumen PEP microeconomía PDF LaTeX»), 43 llamadas, contexto final 155.6k. Es mecanico: no interpreta decisiones. Si existe un handoff manual del mismo tema, manda ese.
+Handoff automatico de la sesion `5de92606-0429-4387-a41a-27e211105361` («Resumen PEP microeconomía PDF LaTeX»), 53 llamadas, contexto final 87.5k. Es mecanico: no interpreta decisiones. Si existe un handoff manual del mismo tema, manda ese.
 
 ## Ultimos pedidos del usuario
 - dame el resumen completo para la pep de micro en pdf latex
@@ -16,25 +16,22 @@ Handoff automatico de la sesion `5de92606-0429-4387-a41a-27e211105361` («Resume
 
 ## Ultima respuesta de Claude (recortada)
 
-Te dejé el resumen en PDF: son 6 páginas a dos columnas y entra todo hasta antes de oligopolio.
+Te envié la versión para tu amiga: [2026-11-09-resumen-pep-1-version-simple.pdf](2026-11-09-resumen-pep-1-version-simple.pdf). Son 7 páginas en una sola columna, en hoja vertical, con índice al comienzo y secciones numeradas. Compila sin errores ni líneas que se salgan del margen. Revisé todas las páginas y en el ejemplo de la matriz 3×3 los subrayados y el equilibrio están bien.
 
-**Archivos:**
-- [2026-11-09-resumen-completo-pep-1.pdf](../../Proyecto%20Metodologia%20de%20estudio/datos/material/microeconomia-ii/2026-11-09-resumen-completo-pep-1.pdf)
-- el `.tex` está en la misma carpeta
+**Qué cambia respecto de la versión completa:**
+- Le saqué todo lo tuyo: tus errores de los controles, los chequeos personales, la tabla de predicción con probabilidades, los planes μ y la agenda.
+- Cada tema queda con la idea central, la fórmula clave en una caja y un ejemplo resuelto corto.
+- Los temas son los mismos:
+  - Monopolio, Lerner y elasticidades, bienestar, impuestos y monopolio natural.
+  - Discriminación de 1.er, 2.º y 3.er grado, tarifa en dos partes y paquetes.
+  - Competencia monopolística, con gráfico.
+  - Hotelling, con dibujo.
+  - Juegos: dominancia, Nash, dilema del prisionero, juegos repetidos y árbol con amenaza no creíble.
+- Al final hay una tabla de 11 errores conceptuales frecuentes, como afirmaciones de verdadero o falso, sin referencias a tus pruebas.
+- No incluye resueltos la matriz ni el matemático de la PEP 2026-1.
 
-**Qué trae:**
-- **Cómo rendir la prueba:** el formato de 60 puntos con los tiempos por parte, la plantilla del comente y tus 4 chequeos de errores. Incluye el cierre con ES_CP − ES_m = PIE, porque fallaste esa suma dos veces.
-- **Monopolio:**
-  - la receta del matemático, con gráfico de la PIE y de la transferencia;
-  - **Lerner y elasticidades bien desarrollados**, porque el profesor lo pidió: la derivación completa, |ε| → ∞, el tramo inelástico, cómo leer el margen (1/3 ⇒ ε = −3), la elasticidad a lo largo de una demanda lineal, la demanda isoelástica y cuánto del costo pasa al precio;
-  - bienestar, Pareto, impuestos y subsidios, y monopolio natural.
-- **Discriminación:**
-  - 1.er grado y tarifa en dos partes, para uno y para dos tipos de consumidor;
-  - 2.º grado, con las dos restricciones y un ejemplo con números;
-  - 3.er grado, con el ejemplo del parque y el Lerner de cada grupo;
-  - la exclusión con precio único y Pareto;
-  - paquetes y arbitraje.
-- **Competencia monopolística:** gráfico de la tangencia y un ejemplo de largo plazo con exceso de capacidad.
-- **Hotelling:** el equilibrio en el centro frente al óptimo en ¼ y ¾.
-- **Juegos:**
-  - dominancia estricta y déb
+Además, agregué una fila nueva en el `INDICE.md` de la carpeta de Micro y anoté el trabajo en la bitácora.
+
+El contexto de este chat va alto. Si sigues con otra cosa, conviene `/handoff` y abrir un chat nuevo.
+
+Modelos: todo lo hice yo; no delegué nada.

@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 12:58. 437 archivos, ~131877.3k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 15:08. 440 archivos, ~131892.9k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -50,6 +50,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 12:58. 437 archivos, ~131
 | ⚠ 11.1k | 988 | `trabajo/tex/2026-11-01-caso-intel-asml-control-2.log` |  |
 | ⚠ 10.7k | 384 | `trabajo/macro/pb/final.tex` |  |
 | ⚠ 10.6k | 995 | `trabajo/ficha-streaming/2026-11-03-ficha-caso-streaming-teoria-pep1.log` |  |
+| ⚠ 10.6k | 1015 | `trabajo/build-micro-pep1/resumen/2026-11-09-resumen-completo-pep-1.log` |  |
 | ⚠ 10.5k | 976 | `trabajo/overleaf-etapa1/guion-javier-final.log` |  |
 | ⚠ 10.5k | 976 | `trabajo/overleaf-etapa1/ficha.log` |  |
 | ⚠ 10.5k | 972 | `trabajo/overleaf-etapa1/guion-javier-3-9-10.log` |  |
@@ -113,6 +114,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 12:58. 437 archivos, ~131
 | ⚠ 5.0k | 461 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-david-entrega.tex` |  |
 | ⚠ 5.0k | 411 | `trabajo/econometria-ii-demre/informe/informe-etapa-1-final.tex` |  |
 | ⚠ 5.0k | 252 | `trabajo/guia-ejercicios-libro/txt/c13.txt` |  |
+| ⚠ 5.0k | 327 | `trabajo/build-micro-pep1/resumen/out.txt` |  |
 | ⚠ 4.9k | 122 | `trabajo/espaciado/new.md` | Plan conjunto · PEP 1 de Econometría II  L1; 1. Resultado L7; 2. Las reglas de la literatura que se ap L22; 3. Inventario de Micro L44; 4. Las sesiones, día a día L60; 5. Jueves 12, minuto a minuto L76; 6. Reglas de ajuste L90; 7. Cómo se calculó L99 |
 | ⚠ 4.9k | 122 | `trabajo/espaciado/plan_conjunto_v2_backup.md` | Plan conjunto · PEP 1 de Econometría II  L1; 1. Resultado L7; 2. Las reglas de la literatura que se ap L22; 3. Inventario de Micro L44; 4. Las sesiones, día a día L60; 5. Jueves 12, minuto a minuto L76; 6. Reglas de ajuste L90; 7. Cómo se calculó L99 |
 | ⚠ 4.8k | 341 | `trabajo/econometria-ii-etapa2/informe/informe-etapa-2.tex` |  |
@@ -422,6 +424,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 12:58. 437 archivos, ~131
 | 86 | 15 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/06_monotonia_inicial.csv` |  |
 | 86 | 15 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/07_monotonia_final.csv` |  |
 | 85 | 9 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/10_variables_finales.csv` |  |
+| 83 | 9 | `trabajo/build-micro-pep1/resumen/fix.py` |  |
 | 83 | 8 | `trabajo/econometria-ii-etapa2/fix_pct.py` |  |
 | 79 | 9 | `trabajo/econometria-ii-etapa2/informe-salidas/tukey.csv` |  |
 | 77 | 8 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/11_vif_final.csv` |  |

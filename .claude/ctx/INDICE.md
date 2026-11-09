@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 15:08. 440 archivos, ~131892.9k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 15:59. 441 archivos, ~131903.0k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -57,6 +57,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 15:08. 440 archivos, ~131
 | ⚠ 10.5k | 971 | `trabajo/overleaf-etapa1/lo-que-digo-javier-oscuro.log` |  |
 | ⚠ 10.4k | 971 | `trabajo/overleaf-etapa1/lo-que-digo-javier.log` |  |
 | ⚠ 10.1k | 937 | `trabajo/overleaf-etapa1/guion-presentacion.log` |  |
+| ⚠ 10.1k | 951 | `trabajo/build-micro-pep1/resumen/2026-11-09-resumen-pep-1-version-simple.log` |  |
 | ⚠ 9.8k | 1233 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Motor/items.json` |  |
 | ⚠ 9.7k | 681 | `trabajo/econometria-ii-estudio/2026-11-02-lectura-pep1-casos-reales.tex` |  |
 | ⚠ 9.7k | 681 | `trabajo/respaldo-lectura-pep1/2026-11-02-lectura-pep1-casos-reales.tex` |  |

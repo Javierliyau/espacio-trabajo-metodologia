@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-11 09:53. 446 archivos, ~131933.4k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-11 10:27. 447 archivos, ~131933.9k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -335,6 +335,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-11 09:53. 446 archivos, ~131
 | 504 | 10 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/12_diagnostico_coeficientes.csv` |  |
 | 472 | 37 | `trabajo/etapa2-final/salida2.txt` |  |
 | 466 | 17 | `trabajo/micro/2026-2 Control 1 Mundaca - matematico reconstruido.md` | Control 1 · Microeconomía II · 2026-2 ·  L1; III. Matemático (40 pts) L5; Pauta (resolución propuesta, no oficial) L13 |
+| 464 | 32 | `trabajo/insertar_informe.py` |  |
 | 464 | 30 | `trabajo/scripts/limpiar_c1.py` |  |
 | 463 | 22 | `trabajo/macro/2026-10-26 Control 1 - Droller (reconstruido).md` | Control 1 · Macroeconomía II · Droller · L1; Ejercicio 1 (desarrollo) L7; Pregunta 2 (analice) L12; Comente 1 (verdadero o falso) L15; Comente 2 L18; Comente 3 L21 |
 | 459 | 29 | `trabajo/vif_block.tex` |  |

@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 17:07. 444 archivos, ~131931.8k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-11 08:54. 446 archivos, ~131933.1k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -317,6 +317,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 17:07. 444 archivos, ~131
 | 621 | 33 | `trabajo/libro/pauta_p1.py` | Pauta completa de la P1 (formato libro)  L1 |
 | 603 | 60 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-2-woe-iv.tex` |  |
 | 599 | 33 | `trabajo/espaciado/joint3.py` | Micro hacia 5,2-5,4: franjas extra y top L1 |
+| 592 | 18 | `trabajo/econometria/errores-pep1.md` | Lista de errores · PEP 1 Econometría II L1 |
 | 589 | 46 | `trabajo/micro/2026-11-01-verificar.py` | Compara campeon.json con el respaldo y r L1 |
 | 578 | 39 | `trabajo/tiempo_estudio.py` | tiempo activo: tramos entre mensajes del L24 |
 | 571 | 41 | `trabajo/espaciado/j2_420.txt` |  |
@@ -341,6 +342,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 17:07. 444 archivos, ~131
 | 440 | 15 | `trabajo/revision-etapa2/chequeo2.R` |  |
 | 433 | 37 | `trabajo/econometria-ii-logit/ej1-logit-hoja-domingo.tex` |  |
 | 431 | 21 | `trabajo/econometria-ii-etapa2/grid.py` |  |
+| 428 | 13 | `trabajo/micro/errores-pep1.md` | Lista de errores · PEP 1 Micro II L1 |
 | 424 | 23 | `trabajo/revR/runner3.R` |  |
 | 423 | 23 | `trabajo/lectura-pep1/verif.py` | exact 0.1 change L10; strict >0.5 L22 |
 | 421 | 40 | `trabajo/micro/2026-11-01-descomponer-compuerta.py` | De donde sale el paso de v1.1 sobre v1.0 L1 |
@@ -375,6 +377,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 17:07. 444 archivos, ~131
 | 280 | 21 | `trabajo/econometria-ii-etapa2/informe-salidas/univariado.csv` |  |
 | 278 | 16 | `trabajo/revR/runner.R` |  |
 | 275 | 11 | `trabajo/econometria-ii-etapa2/composicion.R` |  |
+| 271 | 12 | `trabajo/macro/errores-pep1.md` | Lista de errores · PEP 1 Macro II L1 |
 | 249 | 12 | `trabajo/econometria-ii-m1/m1-dummy-log.R` | M1 (19-10): beta con dummy (TP_DUMMY) y  L1 |
 | 241 | 19 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/01_inspeccion.csv` |  |
 | 241 | 19 | `trabajo/econometria-ii-demre/datos/crudos/resultados_parche/01_inspeccion.csv` |  |
@@ -447,5 +450,4 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-09 17:07. 444 archivos, ~131
 | 39 | 12 | `trabajo/micro/respaldo-motor-2026-11-01/banco/Motor/dominio.json` |  |
 | 38 | 2 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/06d_decisiones_retramificacion.csv` |  |
 | 38 | 10 | `trabajo/micro/2026-11-01-manual-control-1-aciertos.json` |  |
-| 33 | 3 | `trabajo/macro/errores-pep1.md` | Lista de errores · PEP 1 Macro II L1 |
 | 6 | 1 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/04b_exclusiones_previas.csv` |  |

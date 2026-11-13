@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 12:31. 447 archivos, ~131934.3k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 17:33. 447 archivos, ~131934.4k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -268,6 +268,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 12:31. 447 archivos, ~131
 | 939 | 59 | `trabajo/revision-05/corregido.R` |  |
 | 934 | 61 | `trabajo/macro/2026-10-25-mini-control-tecnologia.tex` |  |
 | 934 | 38 | `trabajo/macro/2026-11-09-seleccion-final-comentes-pep1.md` | Selección final de comentes literales ·  L1; Los 5 principales (orden probable en la  L6; Reserva 1 (pre-registrada) L15; Reserva 2 (nueva, 9-11): cubre las famil L21; Cuántos salen tal cual (Monte Carlo; 5 y L29; Contraste después de la PEP L37 |
+| 923 | 21 | `trabajo/micro/errores-pep1.md` | Lista de errores · PEP 1 Micro II L1 |
 | 914 | 57 | `trabajo/micro/2026-10-21-simulacro-control-1.tex` |  |
 | 914 | 66 | `trabajo/overleaf-etapa1/laminas-faltantes.tex` |  |
 | 905 | 29 | `trabajo/reajuste_cal.py` |  |
@@ -291,7 +292,6 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 12:31. 447 archivos, ~131
 | 787 | 40 | `CLAUDE.md` | Espacio de trabajo: Metodología de estud L1; Fuente única: `C:/Proyecto Metodologia d L5; Reglas L22; Agenda (fechas, plan del día y bitácora) L28; Informe de Politica Economica (Tema 43) L38 |
 | 781 | 48 | `trabajo/micro/respaldo-motor-2026-11-01/banco/DESEMPENO_MOTOR.md` | Desempeño del motor de predicción L1; Macroeconomía II — predicciones prospect L7; Microeconomía II — predicciones prospect L15; Todos los ramos L23; Calibración de P(entra) (pronósticos pro L27; Walk-forward del campeón (historia sin s L34; Versiones L38 |
 | 779 | 34 | `trabajo/macro/2026-11-09-seleccion-final-matematicos-pep1.md` | Selección final de matemáticos · PEP 1 M L1; Cómo elige Droller (evidencia) L6; Selección L13; Cuántos salen tal cual (Monte Carlo con  L25; Contraste después de la PEP L33 |
-| 777 | 19 | `trabajo/micro/errores-pep1.md` | Lista de errores · PEP 1 Micro II L1 |
 | 770 | 30 | `trabajo/2026-10-25-simulacro-macro-control-1.md` | Simulacro · Control 1 · Macroeconomía II L1; Pregunta 1 (30 puntos) L8; Pregunta 2 (10 puntos) · Gráficos L19; Pregunta 3 (10 puntos) · Verdadero, fals L24; Pregunta 4 (10 puntos) · Verdadero, fals L28 |
 | 753 | 84 | `trabajo/revision-05/06-base-david-corregido.R` |  |
 | 752 | 35 | `trabajo/macro/2026-2 Control 2 - Droller/01-transcripcion.md` | Control 2 · Macroeconomía II · Droller · L1; Pregunta 1 (10 puntos) L5; Pregunta 2 (10 puntos) · Opción múltiple L15; Pregunta 3 (10 puntos) · Opción múltiple L21; Pregunta 4 (30 puntos) L27 |

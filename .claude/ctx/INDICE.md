@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-11 10:27. 447 archivos, ~131933.9k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 12:31. 447 archivos, ~131934.3k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -291,6 +291,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-11 10:27. 447 archivos, ~131
 | 787 | 40 | `CLAUDE.md` | Espacio de trabajo: Metodología de estud L1; Fuente única: `C:/Proyecto Metodologia d L5; Reglas L22; Agenda (fechas, plan del día y bitácora) L28; Informe de Politica Economica (Tema 43) L38 |
 | 781 | 48 | `trabajo/micro/respaldo-motor-2026-11-01/banco/DESEMPENO_MOTOR.md` | Desempeño del motor de predicción L1; Macroeconomía II — predicciones prospect L7; Microeconomía II — predicciones prospect L15; Todos los ramos L23; Calibración de P(entra) (pronósticos pro L27; Walk-forward del campeón (historia sin s L34; Versiones L38 |
 | 779 | 34 | `trabajo/macro/2026-11-09-seleccion-final-matematicos-pep1.md` | Selección final de matemáticos · PEP 1 M L1; Cómo elige Droller (evidencia) L6; Selección L13; Cuántos salen tal cual (Monte Carlo con  L25; Contraste después de la PEP L33 |
+| 777 | 19 | `trabajo/micro/errores-pep1.md` | Lista de errores · PEP 1 Micro II L1 |
 | 770 | 30 | `trabajo/2026-10-25-simulacro-macro-control-1.md` | Simulacro · Control 1 · Macroeconomía II L1; Pregunta 1 (30 puntos) L8; Pregunta 2 (10 puntos) · Gráficos L19; Pregunta 3 (10 puntos) · Verdadero, fals L24; Pregunta 4 (10 puntos) · Verdadero, fals L28 |
 | 753 | 84 | `trabajo/revision-05/06-base-david-corregido.R` |  |
 | 752 | 35 | `trabajo/macro/2026-2 Control 2 - Droller/01-transcripcion.md` | Control 2 · Macroeconomía II · Droller · L1; Pregunta 1 (10 puntos) L5; Pregunta 2 (10 puntos) · Opción múltiple L15; Pregunta 3 (10 puntos) · Opción múltiple L21; Pregunta 4 (30 puntos) L27 |
@@ -316,12 +317,12 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-11 10:27. 447 archivos, ~131
 | 638 | 1 | `trabajo/espaciado/joint2_res.json` |  |
 | 627 | 27 | `trabajo/revR/runner2.R` |  |
 | 621 | 33 | `trabajo/libro/pauta_p1.py` | Pauta completa de la P1 (formato libro)  L1 |
-| 606 | 17 | `trabajo/micro/errores-pep1.md` | Lista de errores · PEP 1 Micro II L1 |
 | 603 | 60 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-2-woe-iv.tex` |  |
 | 599 | 33 | `trabajo/espaciado/joint3.py` | Micro hacia 5,2-5,4: franjas extra y top L1 |
 | 589 | 46 | `trabajo/micro/2026-11-01-verificar.py` | Compara campeon.json con el respaldo y r L1 |
 | 578 | 39 | `trabajo/tiempo_estudio.py` | tiempo activo: tramos entre mensajes del L24 |
 | 571 | 41 | `trabajo/espaciado/j2_420.txt` |  |
+| 571 | 17 | `trabajo/macro/errores-pep1.md` | Lista de errores · PEP 1 Macro II L1 |
 | 569 | 41 | `trabajo/espaciado/j2_360.txt` |  |
 | 569 | 41 | `trabajo/espaciado/joint2_out.txt` |  |
 | 563 | 74 | `trabajo/macro/datos-chile/y.csv` |  |
@@ -358,7 +359,6 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-11 10:27. 447 archivos, ~131
 | 387 | 16 | `trabajo/macro/candidatos-control-2.json` |  |
 | 375 | 19 | `trabajo/econometria-ii-etapa2/replica.py` | variante: solo REG_ANTERIOR, INV_ACTUAL, L19 |
 | 374 | 28 | `trabajo/espaciado/opt2.py` |  |
-| 368 | 14 | `trabajo/macro/errores-pep1.md` | Lista de errores · PEP 1 Macro II L1 |
 | 356 | 15 | `trabajo/revision-etapa2/chequeo.R` |  |
 | 349 | 1 | `trabajo/espaciado/joint_res.json` |  |
 | 349 | 1 | `trabajo/espaciado/opt_res.json` |  |

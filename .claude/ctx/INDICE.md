@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 17:33. 447 archivos, ~131934.4k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 19:01. 448 archivos, ~131936.8k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -180,6 +180,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 17:33. 447 archivos, ~131
 | 2.4k | 63 | `trabajo/espaciado/bot.md` | 4. Las sesiones, día a día L1; 5. Jueves 12, minuto a minuto L17; 6. Reglas de ajuste L31; 7. Cómo se calculó L40 |
 | 2.4k | 86 | `trabajo/semana-2026-10-26.bak2.md` | Semana 26-10 al 1-11-2026 L1 |
 | 2.4k | 204 | `trabajo/micro/2026-10-21-pauta-matematico-control-2026-1.tex` |  |
+| 2.4k | 123 | `trabajo/recalibrar_historia.py` | 12. Historia: fichas para llevar a la PE L34; plan-paro L70; método §9 L86; semana del 9 L97; semana del 16 L106 |
 | 2.4k | 69 | `trabajo/econometria-ii-etapa2/informe-salidas/tramos-woebin.csv` |  |
 | 2.3k | 152 | `trabajo/overleaf-etapa1/lo-que-digo-javier.md` | Lo que digo yo (Javier) L1; Lámina 3 · Fuentes de datos L3; Lámina 9 · Descriptivas (solo si sigue e L13; Lámina 10 · Conclusiones L19; Lámina 11 · Cierre L26; Todas las preguntas que podría hacer el  L33; A. Población y N L37; B. Variable de respuesta L63; +4 |
 | 2.3k | 115 | `trabajo/overleaf-etapa1/guion-presentacion.md` | Guion: Econometría II, Etapa 1 (jue 15-1 L1; Bloque A · Láminas 1 a 4 · 2:30 L17; Bloque B · Láminas 5 y 6 · 2:00 L42; Bloque C · Láminas 7 y 8 · 3:00 L58; Bloque D · Láminas 9 a 11 · 1:00 L75; Preguntas probables L89; Antes de entrar L111 |

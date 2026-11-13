@@ -1,6 +1,6 @@
 ---
 tema: organizar-exposiciones-ingeco26
-fecha: 2026-11-13 13:48
+fecha: 2026-11-13 18:48
 resumen: (auto, fin de sesion) ultimo pedido: @"C:\Users\javie\Downloads\Orientaciones y fechas asignadas para las exposiciones Ingeco26.pdf" organiza esto 
 ---
 Handoff automatico de la sesion `6d982644-0af6-48e3-abb7-3dd0197eebc5` («Organizar exposiciones Ingeco26»), 14 llamadas, contexto final 77.2k. Es mecanico: no interpreta decisiones. Si existe un handoff manual del mismo tema, manda ese.

@@ -20,7 +20,7 @@ Estudiar para las PEP de noviembre (Macro lun 23, Econometría jue 26, Micro jue
 - Si cambian las fechas, se recalcula contando días hacia la prueba (§6 del plan; escenario B = marcha blanca).
 
 ## Próximo paso exacto
-Hoy, mar 17 a las 15:00: sesión base **M1 · M2**, los comentes 1-10 de `material/macroeconomia-ii/2026-11-09-matematicos-tal-cual-pep1.pdf`. Se hacen escritos y sin mirar, se anota la seguridad y se corrigen con `material/macroeconomia-ii/2026-11-06-guia-pep-1-PAUTA-no-abrir.md`, buscando el número de la guía que indica cada comente. Los ✗ van a la lista de errores de Macro.
+Hoy, mar 17 a las 15:00: sesión base **M1 · M2**, solo los comentes 1-5 (principales, ~6 min c/u; los 6-10 pasaron a la cola de extras §4, ítems 1-2) de `material/macroeconomia-ii/2026-11-09-matematicos-tal-cual-pep1.pdf`. Se hacen escritos y sin mirar, se anota la seguridad y se corrigen con `material/macroeconomia-ii/2026-11-06-guia-pep-1-PAUTA-no-abrir.md`, buscando el número de la guía que indica cada comente. Los ✗ van a la lista de errores de Macro.
 
 ## Pendientes
 - Confirmar si la sesión de paro de hoy a las 10:00 se hizo. Si se hizo, marcarla `[x]` en la semana del 16 (ahora está en `[~]`).

@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-17 10:24. 451 archivos, ~131938.4k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-17 12:01. 452 archivos, ~131939.3k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -270,6 +270,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-17 10:24. 451 archivos, ~131
 | 934 | 61 | `trabajo/macro/2026-10-25-mini-control-tecnologia.tex` |  |
 | 934 | 38 | `trabajo/macro/2026-11-09-seleccion-final-comentes-pep1.md` | Selección final de comentes literales ·  L1; Los 5 principales (orden probable en la  L6; Reserva 1 (pre-registrada) L15; Reserva 2 (nueva, 9-11): cubre las famil L21; Cuántos salen tal cual (Monte Carlo; 5 y L29; Contraste después de la PEP L37 |
 | 923 | 21 | `trabajo/micro/errores-pep1.md` | Lista de errores · PEP 1 Micro II L1 |
+| 922 | 26 | `trabajo/2026-11-17-anclas-casos-comentes-macro.md` | Anclas de casos reales para los 10 comen L1; Datos de Chile que se pueden citar (redo L19; Chile frente a la URSS (una línea) L25 |
 | 914 | 57 | `trabajo/micro/2026-10-21-simulacro-control-1.tex` |  |
 | 914 | 66 | `trabajo/overleaf-etapa1/laminas-faltantes.tex` |  |
 | 905 | 29 | `trabajo/reajuste_cal.py` |  |

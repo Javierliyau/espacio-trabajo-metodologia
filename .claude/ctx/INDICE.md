@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 19:01. 448 archivos, ~131936.8k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-17 10:24. 451 archivos, ~131938.4k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -316,11 +316,13 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 19:01. 448 archivos, ~131
 | 651 | 36 | `trabajo/2026-10-14-plan-dia.md` | Borrador · plan del mié 14-10 (v2, 13:08 L1; Hecho hoy L7; Lo que queda L11; Próximos días L28; Pendiente de confirmar L33 |
 | 645 | 68 | `trabajo/p3a-woe-practica/3B-scorecard.tex` |  |
 | 638 | 1 | `trabajo/espaciado/joint2_res.json` |  |
+| 633 | 31 | `trabajo/opt_reservas.py` | Brechas NO cubiertas por la versión fina L2; Óptimo: mínimo n con todas las obligator L27 |
 | 627 | 27 | `trabajo/revR/runner2.R` |  |
 | 621 | 33 | `trabajo/libro/pauta_p1.py` | Pauta completa de la P1 (formato libro)  L1 |
 | 603 | 60 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-2-woe-iv.tex` |  |
 | 599 | 33 | `trabajo/espaciado/joint3.py` | Micro hacia 5,2-5,4: franjas extra y top L1 |
 | 589 | 46 | `trabajo/micro/2026-11-01-verificar.py` | Compara campeon.json con el respaldo y r L1 |
+| 581 | 29 | `trabajo/num_reservas.py` |  |
 | 578 | 39 | `trabajo/tiempo_estudio.py` | tiempo activo: tramos entre mensajes del L24 |
 | 571 | 41 | `trabajo/espaciado/j2_420.txt` |  |
 | 571 | 17 | `trabajo/macro/errores-pep1.md` | Lista de errores · PEP 1 Macro II L1 |
@@ -360,6 +362,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-13 19:01. 448 archivos, ~131
 | 387 | 16 | `trabajo/macro/candidatos-control-2.json` |  |
 | 375 | 19 | `trabajo/econometria-ii-etapa2/replica.py` | variante: solo REG_ANTERIOR, INV_ACTUAL, L19 |
 | 374 | 28 | `trabajo/espaciado/opt2.py` |  |
+| 372 | 18 | `trabajo/w23.py` |  |
 | 356 | 15 | `trabajo/revision-etapa2/chequeo.R` |  |
 | 349 | 1 | `trabajo/espaciado/joint_res.json` |  |
 | 349 | 1 | `trabajo/espaciado/opt_res.json` |  |

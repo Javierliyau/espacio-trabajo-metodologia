@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-17 12:01. 452 archivos, ~131939.3k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-18 08:11. 454 archivos, ~131942.1k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -200,6 +200,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-17 12:01. 452 archivos, ~131
 | 1.8k | 71 | `trabajo/semana-2026-10-26.bak.md` | Semana 26-10 al 1-11-2026 L1 |
 | 1.8k | 179 | `trabajo/econometria-ii-demre/scripts/04-base-grupo.R` | Base de datos de matriculados, proceso d L2; Fuente: DEMRE, https://demre.cl/portales L3; Integrantes: L4; abrir econometria-ii-demre.Rproj para qu L10; df1: datos del estudiante y de su colegi L20; RBD es el codigo del colegio y SITUACION L21; RAMA_EDUCACIONAL, FECHA_NACIMIENTO, ANYO L22; df2: notas de enseñanza media y puntajes L29; +23 |
 | 1.8k | 97 | `trabajo/2026-09-26-macro2-guia-sesion-1.md` | Macro II — Guía de la sesión 1 (sábado 2 L1; Materiales (dejar abiertos antes de empe L7; Paso 0 · Intención (09:00, 2 min) L14; Paso 1 · Reconocimiento Perry + caso (09 L19; Paso 2 · Preguntas predichas (09:10, 5 m L27; Paso 3 · Lectura con propósito (09:15, 2 L35; Paso 4 · Tus 3 respuestas (09:39, 6 min) L47; Paso 5 · ConcepTest solo (09:50, 15 min) L53; +7 |
+| 1.7k | 118 | `trabajo/2026-11-17-respuestas-comentes-macro.md` | Respuestas modelo · Comentes PEP 1 Macro L1; Comente 1 (guía 5) · Verdadero, en valor L7; Comente 2 (guía 7) · Falso L30; Comente 3 (guía 13) · Falso L51; Comente 4 (guía 17) · Verdadero L70; Comente 5 (guía 18) · Falso L89; Lista de errores (vuelven tapados el jue L111 |
 | 1.7k | 118 | `trabajo/macro/M1-comentes-en-frio.tex` |  |
 | 1.6k | 160 | `trabajo/macro/temario-antes-2026-11-04.json` |  |
 | 1.5k | 123 | `trabajo/econometria-ii-demre/scripts/03-base-seleccion.R` | los archivos del DEMRE vienen con ; y co L9; lo que elegimos de cada archivo, mas lo  L15; RBD, SITUACION_EGRESO, RAMA_EDUCACIONAL, L16; PREFERENCIA es para la Y, TIPO_MATRICULA L27; SITUACION_EGRESO: 1 es promocion del año L30; TIPO_PREF: la misma carrera se repite si L35; postulaciones trae una fila por preferen L39; left_join deja a todos los postulantes,  L44; +14 |
@@ -232,6 +233,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-17 12:01. 452 archivos, ~131
 | 1.2k | 87 | `trabajo/macro-control2-prob-mate.py` | id, lineas, ec/fig, laminas, clase, ayud L11; numero de ejercicios matematicos: 1 larg L40 |
 | 1.2k | 47 | `trabajo/solow_svg.py` |  |
 | 1.2k | 105 | `trabajo/macro/ficha-control-2-gemini-original.json` |  |
+| 1.2k | 60 | `trabajo/2026-11-18-sesion-base-1000.tex` |  |
 | 1.2k | 105 | `trabajo/econometria-ii-demre/scripts/09-corregido-local.R` | El 99 es "prefiero no responder": se pas L10; antes de cualquier group_by(RBD) L11; Se sacan los alumnos sin RBD para que no L19; al pegar las variables quedan con NA. L20; Mediana y no promedio: los tramos de ing L21; Y (segun el profesor): 1 si se matriculo L79; 0 si quedo en la 4a o mas abajo L80; Sin RBD no se conoce la rama: queda NA y L84; +1 |
 | 1.1k | 97 | `trabajo/econometria-ii-etapa2/salida-exportar.txt` |  |
 | 1.1k | 78 | `trabajo/macro/M1-comentes-en-frio.md` | M1 · Los 20 comentes en frío · Macro II, L1; Reglas L5; Parte I (del ayudante B. Puntarelli) L13; Hoja de respuestas L45; Corrección (10 min, recién al terminar l L74 |

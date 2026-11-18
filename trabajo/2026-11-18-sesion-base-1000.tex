@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{url}
+\usepackage{amsmath,amssymb,enumitem,xcolor,booktabs}
+\setlength{\parindent}{0pt}
+\newcommand{\pts}[1]{\hfill\textbf{(#1 pts)}}
+\newcommand{\seguridad}{\par\medskip\fbox{\parbox{0.96\linewidth}{\textbf{Seguridad:} \rule{1.5cm}{0.4pt}\,\%\qquad \textbf{Hora inicio:} \rule{1.5cm}{0.4pt}\qquad \textbf{Hora fin:} \rule{1.5cm}{0.4pt}\qquad \textbf{Aciertos:} \rule{1.2cm}{0.4pt}}}\par}
+
+\begin{document}
+
+{\Large\textbf{Sesión base · mié 18-11-2026 · 10:00 (65 min)}}\\[2pt]
+{\small Plan híbrido PEP noviembre (\texttt{agenda/plan-pep-noviembre.md}) · Trozos \textbf{E1} y \textbf{M3}}
+
+\medskip
+\begin{tabular}{@{}lll@{}}
+\toprule
+Minuto & Qué & Cómo \\ \midrule
+0--10 & Errores tapados & Primero los R. Si no hay pendientes, se suman a E1 \\
+10--35 & \textbf{Trozo A · E1} & $\sim$18 sin mirar $\to$ seguridad \% $\to$ $\sim$7 corregir \\
+35--40 & Pausa & De pie, sin pantalla \\
+40--65 & \textbf{Trozo B · M3} & Igual \\
+65 & \textbf{Parar} & Luego 10 min sin pantalla \\ \bottomrule
+\end{tabular}
+
+\smallskip
+{\small Cada \textbf{$\times$} a la lista de errores del ramo: vuelve tapado a los +2 días (vie 20) y +5 días (lun 23).}
+
+%=====================================================
+\section*{Trozo A · E1 · Econometría II, P1 a--c \ {\normalsize\mdseries (14 pts · $\sim$18 min · con calculadora)}}
+
+\textbf{Logit de pago del CAE.} Se estudia el pago del Crédito con Aval del Estado entre egresados y desertores. Se estima un logit donde \textbf{$y=1$ si la persona está al día en sus pagos} y $y=0$ si está en mora. ING: ingreso mensual \textbf{en cientos de miles de pesos} (\$800.000 $\Rightarrow$ ING $=8$); UNIV $=1$ si estudió en universidad (0 si IP o CFT); DESERTO $=1$ si no terminó la carrera. Errores estándar entre paréntesis ($n=3.500$).
+\[
+\hat z=\underset{(0,40)}{-1,2}+\underset{(0,05)}{0,25}\,\text{ING}+\underset{(0,18)}{0,4}\,\text{UNIV}\underset{(0,30)}{-\;1,3}\,\text{DESERTO}
+\]
+\begin{enumerate}[label=\alph*),leftmargin=*,itemsep=4pt]
+\item \textbf{Antes de calcular}, diga qué signo espera para cada variable y por qué. Luego compruebe si calzan y calcule el $z$ de cada una. ¿Cuáles son significativas al 5\,\%? \pts{5}
+\item Para un egresado de universidad con ingreso de \$800.000, calcule la probabilidad de estar al día si terminó la carrera y si desertó. Calcule el efecto parcial de DESERTO e interprételo. \pts{5}
+\item Calcule el efecto marginal del ingreso para esas dos personas y expréselo por cada \$100.000 adicionales. ¿Por qué es mayor para el desertor si el $\hat\beta$ es el mismo? \pts{4}
+\end{enumerate}
+{\small Fuente: \texttt{econometria-ii/2026-11-17-pep1-version-final-2-bloques.pdf}, p.~1 (pauta: \texttt{...-pauta.pdf}).\\ d y e van en E2, a las 15:00.}
+\seguridad
+
+%=====================================================
+\section*{Trozo B · M3 · Macroeconomía II, Principal II a--c \ {\normalsize\mdseries (8 pts · $\sim$18 min)}}
+
+\textbf{Solow con progreso técnico.} $Y=K^{\alpha}(AL)^{1-\alpha}$, \quad $\alpha=1/3$, \ $s=0{,}24$, \ $\delta=0{,}05$, \ $n=0{,}01$, \ $g=0{,}02$, \ $A(0)=1$.
+\begin{enumerate}[label=(\alph*),leftmargin=*,itemsep=4pt]
+\item Derive la tasa de crecimiento de $y=Y/L$ en la senda de crecimiento balanceado. \pts{2}
+\item Muestre que $(k/A)^*=\left(\dfrac{s}{\delta+n+g}\right)^{\frac{1}{1-\alpha}}$, escriba $y^*(t)$ y calcule $(k/A)^*$ e $y(0)$. \pts{4}
+\item ¿A qué tasa crecen $k$, $y$, $K$ e $Y$ en el estado estacionario? \pts{2}
+\end{enumerate}
+{\small Fuente: \texttt{macroeconomia-ii/2026-11-09-matematicos-tal-cual-pep1.pdf}, Principal II.\\ Pauta: \texttt{2026-11-09-pauta-principal-ii-solow-con-a.pdf}. d--f van en M4, a las 15:00.}
+\seguridad
+
+\vfill
+{\small\textbf{Después:} extra 11:30 (opcional; solo si la base está hecha, energía $\geq 3/5$ y $\geq 60$\,\% de aciertos): comentes de reserva 6--8 y 9--10 de Macro. \textbf{15:00:} E2 (P1 d--e y P2 a--b) · M4 (Principal II d--f).}
+
+\end{document}

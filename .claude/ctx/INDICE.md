@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-18 08:11. 454 archivos, ~131942.1k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-18 08:15. 454 archivos, ~131942.1k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -233,7 +233,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-18 08:11. 454 archivos, ~131
 | 1.2k | 87 | `trabajo/macro-control2-prob-mate.py` | id, lineas, ec/fig, laminas, clase, ayud L11; numero de ejercicios matematicos: 1 larg L40 |
 | 1.2k | 47 | `trabajo/solow_svg.py` |  |
 | 1.2k | 105 | `trabajo/macro/ficha-control-2-gemini-original.json` |  |
-| 1.2k | 60 | `trabajo/2026-11-18-sesion-base-1000.tex` |  |
+| 1.2k | 61 | `trabajo/2026-11-18-sesion-base-1000.tex` |  |
 | 1.2k | 105 | `trabajo/econometria-ii-demre/scripts/09-corregido-local.R` | El 99 es "prefiero no responder": se pas L10; antes de cualquier group_by(RBD) L11; Se sacan los alumnos sin RBD para que no L19; al pegar las variables quedan con NA. L20; Mediana y no promedio: los tramos de ing L21; Y (segun el profesor): 1 si se matriculo L79; 0 si quedo en la 4a o mas abajo L80; Sin RBD no se conoce la rama: queda NA y L84; +1 |
 | 1.1k | 97 | `trabajo/econometria-ii-etapa2/salida-exportar.txt` |  |
 | 1.1k | 78 | `trabajo/macro/M1-comentes-en-frio.md` | M1 · Los 20 comentes en frío · Macro II, L1; Reglas L5; Parte I (del ayudante B. Puntarelli) L13; Hoja de respuestas L45; Corrección (10 min, recién al terminar l L74 |

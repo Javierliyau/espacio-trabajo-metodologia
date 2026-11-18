@@ -17,4 +17,8 @@ Formato: ítem · qué escribí · **frase correcta** · marcas. Se pregunta tap
 | 10 | Atrición | Justificada por el tamaño de la muestra | Es problema cuando **no es aleatoria** (salen distintos de tratados y de controles), no por dejar menos datos | |
 | 11 | Muestra pequeña | La llamé sesgo | Es **imprecisión** (más varianza, intervalos anchos), no sesgo | |
 | 12 | V/F MPL vs logit (5B-2) | Faltó cerrar | Los coeficientes no se comparan (pp contra log-odds); se comparan los **efectos marginales** (regla rápida: β_logit/4 ≈ β_MPL) | |
-| 13 | R · Frase de interpretación (19-10, 3 veces) | Faltó «en promedio, con lo demás constante» | «Por cada unidad más de X, Y cambia en β [unidades o pp], en promedio, manteniendo lo demás constante» | |
+| 13 | R · Frase de interpretación (19-10, 3 veces) | Faltó «en promedio, con lo demás constante» | «Por cada unidad más de X, Y cambia en β [unidades o pp], en promedio, manteniendo lo demás constante» | ✗ 18-11 (P1b sin «ceteris paribus» ni pp) |
+| 14 | z de cada coeficiente (PEP final P1a, 18-11) | DESERTO: −1,3/0,40 = 3,25 (ee de la constante y sin signo) | z = β̂ / ee **de su propia fila**: −1,3/0,30 = **−4,33**; se compara \|z\| con 1,96 | ✗ 18-11 |
+| 15 | R · Efecto parcial de una dummy (P1b, 18-11; tablero Ec4) | P₀ − P₁ = +0,293, «aumenta si terminó» | EP de DESERTO = P(D=1) − P(D=0) = 0,4750 − 0,7685 = **−0,2935**: «desertar **reduce** la prob. de estar al día en 29,35 pp, ceteris paribus» | ✗ 18-11 |
+| 16 | Por qué el EM cambia con el mismo β (P1c, 18-11) | «el modelo predice menos ingreso para el desertor» | EM = β·P(1−P), y P(1−P) es máxima (0,25) en P = 0,5. El desertor (P = 0,475) está más cerca de 0,5, donde la logística es más empinada ⇒ EM mayor | ✗ 18-11 |
+| 17 | EM de una continua en unidades (P1c, 18-11) | 0,0445 y 0,0623 sin frase | «Cada \$100.000 más sube la prob. de estar al día en **4,45 pp** (terminó) y **6,23 pp** (desertó), ceteris paribus» | ✗ 18-11 |

@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage[spanish,es-nodecimaldot]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage{amsmath,amssymb,enumitem,xcolor,booktabs}
+\setlength{\parindent}{0pt}
+\newcommand{\pts}[1]{\hfill\textbf{(#1 pts)}}
+\newcommand{\seguridad}{\par\medskip\fbox{\parbox{0.96\linewidth}{\textbf{Seguridad:} \rule{1.5cm}{0.4pt}\,\%\quad \textbf{Inicio:} \rule{1.5cm}{0.4pt}\quad \textbf{Fin:} \rule{1.5cm}{0.4pt}\quad \textbf{Aciertos:} \rule{1.2cm}{0.4pt}}}\par}
+
+\begin{document}
+
+{\Large\textbf{Sesión base · mié 18-11-2026 · tarde (65 min)}}\\[2pt]
+{\small Plan híbrido PEP noviembre (\texttt{agenda/plan-pep-noviembre.md}) · Trozos \textbf{E2} y \textbf{M4}}
+
+\medskip
+\begin{tabular}{@{}lll@{}}
+\toprule
+Minuto & Qué & Cómo \\ \midrule
+0--10 & Errores R tapados & Las 4 preguntas de abajo, sin mirar las listas \\
+10--35 & \textbf{Trozo A · E2} & $\sim$18 sin mirar $\to$ seguridad \% $\to$ $\sim$7 corregir \\
+35--40 & Pausa & De pie, sin pantalla \\
+40--65 & \textbf{Trozo B · M4} & Igual \\
+65 & \textbf{Parar} & Luego 10 min sin pantalla y el día libre \\ \bottomrule
+\end{tabular}
+
+\smallskip
+{\small \textbf{Ojo con lo de la mañana:} frase completa (en pp, ceteris paribus) y anotar la \textbf{seguridad antes} de corregir.}
+
+%=====================================================
+\section*{Errores R tapados (10 min)}
+\begin{enumerate}[label=\arabic*.,leftmargin=*,itemsep=3pt]
+\item \textbf{WOE.} Un tramo tiene el 40\% de los buenos y el 20\% de los malos. Calcule su WOE (formato Siddiqi).
+\item \textbf{Logit.} En el modelo de la P1, interprete $\hat\beta_{ING}=0{,}25$ sin calcular probabilidades: ¿qué cambia y en qué unidad?
+\item \textbf{Amenazas.} Dé una amenaza a la validez de un DiD y diga si sobrestima o subestima el efecto, y por qué.
+\item \textbf{Nivel vs tasa.} V/F/I en 3 líneas: «En Solow con progreso técnico, un aumento permanente de $s$ eleva la tasa de crecimiento de $y$ en el largo plazo».
+\end{enumerate}
+
+%=====================================================
+\section*{Trozo A · E2 · Econometría II, P1 d--e y P2 a--b\\ {\normalsize\mdseries (13 pts · $\sim$18 min · con calculadora)}}
+
+\textbf{P1 (sigue).} Logit con \textbf{$y=1$ si está al día}: \
+$\hat z=\underset{(0{,}40)}{-1{,}2}+\underset{(0{,}05)}{0{,}25}\,\text{ING}+\underset{(0{,}18)}{0{,}4}\,\text{UNIV}\underset{(0{,}30)}{-\;1{,}3}\,\text{DESERTO}$. \
+Egresado de universidad con ING $=8$: $\hat P=0{,}7685$ si terminó y $0{,}4750$ si desertó.
+\begin{enumerate}[label=\alph*),leftmargin=*,itemsep=4pt,start=4]
+\item Un diario titula: «Desertar reduce en 130\% la probabilidad de pagar el CAE». Calcule $e^{-1,3}$, interprételo correctamente y corrija el titular con los resultados de b). \pts{3}
+\item Otro analista estimó el mismo modelo, pero con $y=1$ si la persona está \textbf{en mora}. ¿Qué coeficientes obtuvo? ¿Qué probabilidad de mora obtiene para el egresado de b) que terminó la carrera? \pts{3}
+\end{enumerate}
+
+\textbf{P2. Clasificación y elección del corte.} Con un modelo de riesgo de no pago, en una muestra de validación de 2.000 deudores (\textbf{500 en mora} y 1.500 al día) se marca como «riesgoso» a quien tenga $\hat P(\text{mora})\ge0{,}3$. Positivo = en mora.
+\begin{center}\small
+\begin{tabular}{lcc}\toprule
+ & Marcado riesgoso & Marcado no riesgoso\\\midrule
+En mora (real) & 380 & 120\\
+Al día (real) & 330 & 1.170\\\bottomrule
+\end{tabular}
+\end{center}
+\begin{enumerate}[label=\alph*),leftmargin=*,itemsep=4pt]
+\item Calcule la exactitud, la sensibilidad, la especificidad, la precisión y el F1. Interprete la sensibilidad y la precisión en el contexto. \pts{5}
+\item ¿Qué exactitud tendría el modelo ingenuo «nadie cae en mora»? ¿Qué le dice eso de la exactitud del modelo? \pts{2}
+\end{enumerate}
+{\small Fuente: \texttt{econometria-ii/2026-11-17-pep1-version-final-2-bloques.pdf}, p.~1 (pauta: \texttt{...-pauta.pdf}).}
+\seguridad
+
+%=====================================================
+\section*{Trozo B · M4 · Macroeconomía II, Principal II d--f\\ {\normalsize\mdseries (10 pts · $\sim$18 min)}}
+
+\textbf{Solow con progreso técnico.} $Y=K^{\alpha}(AL)^{1-\alpha}$, \quad $\alpha=1/3$, \ $s=0{,}24$, \ $\delta=0{,}05$, \ $n=0{,}01$, \ $g=0{,}02$, \ $A(0)=1$. \
+De la mañana: $(k/A)^*=5{,}196$, \ $(y/A)^*=1{,}732$, \ $y^*(t)=1{,}732\,e^{0{,}02t}$.
+\begin{enumerate}[label=(\alph*),leftmargin=*,itemsep=4pt,start=4]
+\item La tasa de ahorro sube permanentemente a $s=0{,}32$. Calcule el cambio \% en el nivel de $y/A$ de largo plazo y grafique $\ln y(t)$ y $g_y(t)$ en la transición. \pts{4}
+\item (Vuelva a $s=0{,}24$.) $g$ sube a $0{,}03$. Calcule el cambio \% de $(k/A)^*$ e $(y/A)^*$ y compare $y(50)$ con ambos $g$. \pts{3}
+\item Si $k/A$ está en la mitad de su valor de EE, calcule $\dot k/k$ y $\dot y/y$. Repita al 90\%. ¿Qué predice esto sobre convergencia? \pts{3}
+\end{enumerate}
+{\small \textbf{Gráficos (error R \#7):} ejes con nombre, curvas con nombre, $t_0$ del shock marcado, nivel o tasa inicial y final, y el mecanismo en 2 líneas.}\\
+{\small Fuente: \texttt{macroeconomia-ii/2026-11-09-matematicos-tal-cual-pep1.pdf}, Principal II.\\ Pauta: \texttt{2026-11-09-pauta-principal-ii-solow-con-a.pdf}.}
+\seguridad
+
+\end{document}

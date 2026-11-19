@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-18 08:15. 454 archivos, ~131942.1k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-19 19:23. 455 archivos, ~131944.0k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -207,6 +207,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-18 08:15. 454 archivos, ~131
 | 1.5k | 42 | `trabajo/sociologia/fallos-pep1.md` | Fallos y apuestas para el repaso del mié L1; Marx (sáb 24-10 · bloque 1: 5/5 · ronda  L6; Weber (dom 25-10 · Ronda Weber: 10/10 ·  L13; Durkheim (dom 25-10 · Ronda Durkheim: 8/ L18; Tocqueville (lun 26-10 · Ronda Tocquevil L23; Repaso de reincidentes (lun 26-10 · 5/5  L31; Simulacro de la Prueba 1 (mar 27-10 · 38 L35 |
 | 1.5k | 93 | `trabajo/p1b-logit/1B-pauta.tex` |  |
 | 1.5k | 105 | `trabajo/espaciado/opt.py` | ---------- datos ---------- L3; tema: (peso P(sale), S hoy [0=nuevo], q  L4; franjas (dias desde vie 10:00), cupo max L10 |
+| 1.5k | 79 | `trabajo/2026-11-18-sesion-base-1500.tex` |  |
 | 1.5k | 74 | `trabajo/econometria-ii-etapa2/etapa2-verificacion.R` | Verificación del instructivo Etapa 2 (Ec L1; Reproduce la base del profesor (clase 5, L2; ---------- Paso 0: leer ---------- L7; ---------- Paso 1: filtros en A -------- L14; ---------- Paso 2: B' y flag_postula --- L24; ---------- Paso 3: C' y left_join; I --- L29; ---------- Paso 4: X candidatas -------- L37; ---------- Etapa 2a: univariado -------- L57; +1 |
 | 1.5k | 80 | `trabajo/macro/2026-10-25-guia-tecnologia-tipo-control.tex` |  |
 | 1.5k | 84 | `trabajo/macro/pb/final.py` | --- encabezado y nota L10; --- matemáticos sin el 7 L21; --- definiciones: las 4 primeras L25; --- comentes L36; --- fichas L59 |
@@ -264,6 +265,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-18 08:15. 454 archivos, ~131
 | 1.0k | 42 | `trabajo/etapa2-final/verificar-informe.R` | guardar las bases crudas antes de que el L10 |
 | 994 | 39 | `trabajo/macro/editar_pep1.py` |  |
 | 975 | 26 | `trabajo/espaciado/edit_agenda.py` |  |
+| 971 | 24 | `trabajo/econometria/errores-pep1.md` | Lista de errores · PEP 1 Econometría II L1 |
 | 956 | 76 | `trabajo/p3a-woe-practica/3A-woe-iv.tex` |  |
 | 951 | 56 | `trabajo/overleaf-etapa1/guion-javier-final.md` | Guion final de Javier · láminas 3, 9 y 1 L1; Lámina 3 · Fuentes de datos · 40 s L9; Lámina 9 · Descriptivas · 25 s (solo si  L21; Lámina 10 · Conclusiones · 40 s L29; Lámina 11 · Cierre · 5 s L38; Si te preguntan L44 |
 | 949 | 91 | `trabajo/revision-05/prueba.R` | rutas relativas a la carpeta del proyect L5 |
@@ -307,7 +309,6 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-18 08:15. 454 archivos, ~131
 | 702 | 59 | `trabajo/nota-r-david/salida2.txt` | A tibble: 2 × 3 L19; A tibble: 2 × 3 L24 |
 | 698 | 78 | `trabajo/econometria-ii-demre/scripts/05-base-david.R` |  |
 | 691 | 53 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/01b_frecuencias.csv` |  |
-| 687 | 20 | `trabajo/econometria/errores-pep1.md` | Lista de errores · PEP 1 Econometría II L1 |
 | 679 | 103 | `trabajo/macro/candidatos-pep-1-cimientos.json` |  |
 | 678 | 1 | `trabajo/espaciado/joint2_res_360.json` |  |
 | 677 | 102 | `trabajo/econometria-ii-demre/datos/crudos/8-percentiles/20260102_Percentiles_Pruebas_REG2026.csv` |  |
@@ -318,6 +319,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-18 08:15. 454 archivos, ~131
 | 656 | 50 | `trabajo/micro/2026-10-21-gimnasio-1er-grado-dos-partes.tex` |  |
 | 651 | 36 | `trabajo/2026-10-14-plan-dia.md` | Borrador · plan del mié 14-10 (v2, 13:08 L1; Hecho hoy L7; Lo que queda L11; Próximos días L28; Pendiente de confirmar L33 |
 | 645 | 68 | `trabajo/p3a-woe-practica/3B-scorecard.tex` |  |
+| 641 | 18 | `trabajo/macro/errores-pep1.md` | Lista de errores · PEP 1 Macro II L1 |
 | 638 | 1 | `trabajo/espaciado/joint2_res.json` |  |
 | 633 | 31 | `trabajo/opt_reservas.py` | Brechas NO cubiertas por la versión fina L2; Óptimo: mínimo n con todas las obligator L27 |
 | 627 | 27 | `trabajo/revR/runner2.R` |  |
@@ -328,7 +330,6 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-18 08:15. 454 archivos, ~131
 | 581 | 29 | `trabajo/num_reservas.py` |  |
 | 578 | 39 | `trabajo/tiempo_estudio.py` | tiempo activo: tramos entre mensajes del L24 |
 | 571 | 41 | `trabajo/espaciado/j2_420.txt` |  |
-| 571 | 17 | `trabajo/macro/errores-pep1.md` | Lista de errores · PEP 1 Macro II L1 |
 | 569 | 41 | `trabajo/espaciado/j2_360.txt` |  |
 | 569 | 41 | `trabajo/espaciado/joint2_out.txt` |  |
 | 563 | 74 | `trabajo/macro/datos-chile/y.csv` |  |

@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-19 19:23. 455 archivos, ~131944.0k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-19 19:41. 458 archivos, ~131947.2k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -213,6 +213,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-19 19:23. 455 archivos, ~131
 | 1.5k | 84 | `trabajo/macro/pb/final.py` | --- encabezado y nota L10; --- matemáticos sin el 7 L21; --- definiciones: las 4 primeras L25; --- comentes L36; --- fichas L59 |
 | 1.5k | 68 | `trabajo/espaciado/sem09_bak.md` | Semana 9-11 al 15-11-2026 L1 |
 | 1.4k | 56 | `trabajo/ajuste_pep_econo.py` | 1) calendario L3; 2) protocolo L15; 3) semana actual L21; 4) semana siguiente L40 |
+| 1.4k | 72 | `trabajo/reajuste_19_11.py` |  |
 | 1.4k | 90 | `trabajo/build-repaso/2026-11-01-repaso-matematico-control-2.tex` |  |
 | 1.4k | 33 | `trabajo/econometria-ii-m2/2026-10-24-m2-paes-PAUTA-no-abrir.md` | PAUTA · M2 con la salida PAES · 24-10 (n L1; Hito 1 · ficha L5; Hito 2 L12; Hito 3 · E7 (ítems 1, 2 y 4; el 3 ya es  L26; Puntaje sugerido (por hito, sobre 5) L32 |
 | 1.4k | 39 | `trabajo/espaciado/sec3v3.md` | 3. Las 10 sesiones · versión 3: PEP de d L1 |
@@ -241,6 +242,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-19 19:23. 455 archivos, ~131
 | 1.1k | 175 | `trabajo/micro/respaldo-motor-2026-11-01/scripts/campeon.json` |  |
 | 1.1k | 52 | `trabajo/ayud_numeros.R` | ---- germancredit L30; ---- Fatalities L49 |
 | 1.1k | 114 | `trabajo/md2tex_moore.py` |  |
+| 1.1k | 53 | `trabajo/semana-2026-11-23-antes-del-19-11.md` | Semana 23-11 al 29-11-2026 L1 |
 | 1.1k | 74 | `trabajo/tiempo_dia.py` |  |
 | 1.1k | 69 | `trabajo/tiempo_por_ramo.py` |  |
 | 1.1k | 68 | `trabajo/espaciado/plan2.py` | Calendario de repasos con el modelo FSRS L1; id: (nombre, S días, D 1-10, último repa L11; sesiones disponibles (inicio, minutos, e L28 |
@@ -308,6 +310,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-19 19:23. 455 archivos, ~131
 | 725 | 145 | `trabajo/micro/2026-11-01-manual-control-1.json` |  |
 | 702 | 59 | `trabajo/nota-r-david/salida2.txt` | A tibble: 2 × 3 L19; A tibble: 2 × 3 L24 |
 | 698 | 78 | `trabajo/econometria-ii-demre/scripts/05-base-david.R` |  |
+| 692 | 27 | `trabajo/seccion_3bis.md` | 3 bis. Calendario reajustado (19-11, Esc L1 |
 | 691 | 53 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/01b_frecuencias.csv` |  |
 | 679 | 103 | `trabajo/macro/candidatos-pep-1-cimientos.json` |  |
 | 678 | 1 | `trabajo/espaciado/joint2_res_360.json` |  |

@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-19 19:41. 458 archivos, ~131947.2k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-20 17:16. 459 archivos, ~131947.7k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -344,6 +344,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-19 19:41. 458 archivos, ~131
 | 524 | 24 | `trabajo/econometria-ii-etapa2/cruces.py` | matriculados sin postular? L21; matriculados en C pero otra via, dentro  L23 |
 | 518 | 26 | `trabajo/macro/pb/prio.py` | macros L4; matemáticos L6; definiciones L17 |
 | 504 | 10 | `trabajo/econometria-ii-demre/datos/crudos/resultados_etapa2_david/12_diagnostico_coeficientes.csv` |  |
+| 491 | 23 | `trabajo/reajuste_20_11.py` |  |
 | 472 | 37 | `trabajo/etapa2-final/salida2.txt` |  |
 | 466 | 17 | `trabajo/micro/2026-2 Control 1 Mundaca - matematico reconstruido.md` | Control 1 · Microeconomía II · 2026-2 ·  L1; III. Matemático (40 pts) L5; Pauta (resolución propuesta, no oficial) L13 |
 | 464 | 32 | `trabajo/insertar_informe.py` |  |

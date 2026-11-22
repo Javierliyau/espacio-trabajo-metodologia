@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-20 17:16. 459 archivos, ~131947.7k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-22 13:52. 460 archivos, ~131948.1k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -355,6 +355,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-20 17:16. 459 archivos, ~131
 | 440 | 22 | `trabajo/etapa2-final/correr2.R` |  |
 | 440 | 15 | `trabajo/revision-etapa2/chequeo2.R` |  |
 | 433 | 37 | `trabajo/econometria-ii-logit/ej1-logit-hoja-domingo.tex` |  |
+| 431 | 41 | `trabajo/2026-11-20-m4-principal-ii-d-f.tex` |  |
 | 431 | 21 | `trabajo/econometria-ii-etapa2/grid.py` |  |
 | 424 | 23 | `trabajo/revR/runner3.R` |  |
 | 423 | 23 | `trabajo/lectura-pep1/verif.py` | exact 0.1 change L10; strict >0.5 L22 |

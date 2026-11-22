@@ -1,6 +1,6 @@
 # Indice de costo de contexto
 
-Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-22 13:52. 460 archivos, ~131948.1k tokens en total (estimado).
+Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-22 17:10. 461 archivos, ~131948.8k tokens en total (estimado).
 ⚠ = supera 4.0k tk: el hook bloquea su lectura completa; lee la seccion con Read offset/limit.
 
 | ~tokens | lineas | archivo | secciones (nivel 1-2) |
@@ -327,6 +327,7 @@ Generado por `~/.claude/ctx/ctx.py mapa` el 2026-11-22 13:52. 460 archivos, ~131
 | 633 | 31 | `trabajo/opt_reservas.py` | Brechas NO cubiertas por la versión fina L2; Óptimo: mínimo n con todas las obligator L27 |
 | 627 | 27 | `trabajo/revR/runner2.R` |  |
 | 621 | 33 | `trabajo/libro/pauta_p1.py` | Pauta completa de la P1 (formato libro)  L1 |
+| 620 | 68 | `trabajo/2026-11-22-e3-p3-a-b.tex` |  |
 | 603 | 60 | `trabajo/econometria-ii-estudio/2026-11-01-ejercicio-2-woe-iv.tex` |  |
 | 599 | 33 | `trabajo/espaciado/joint3.py` | Micro hacia 5,2-5,4: franjas extra y top L1 |
 | 589 | 46 | `trabajo/micro/2026-11-01-verificar.py` | Compara campeon.json con el respaldo y r L1 |

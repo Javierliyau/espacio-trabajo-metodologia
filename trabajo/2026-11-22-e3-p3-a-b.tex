@@ -1,0 +1,68 @@
+\documentclass[11pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage[margin=2.2cm]{geometry}
+\usepackage{enumitem}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Econometría II --- E3: P3 (a--b)}\\[2pt]
+Scoring: WOE, IV y escalamiento \quad$\cdot$\quad 25 min con reloj \quad$\cdot$\quad dom 22-11
+\end{center}
+
+\hrule\medskip
+
+Un banco tramifica el \textbf{número de consultas} de otras instituciones a la deuda del cliente en los últimos 6 meses, en una muestra de desarrollo de 10.000 créditos ($y=1$: \textbf{malo}).
+
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{lrr}\toprule
+Consultas & Buenos & Malos\\\midrule
+0 & 3.200 & 500\\
+1 & 2.000 & 400\\
+2-3 & 1.600 & 500\\
+4-5 & 600 & 100\\
+6 o más & 600 & 500\\\midrule
+Total & 8.000 & 2.000\\\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{enumerate}[label=\textbf{\alph*)}, leftmargin=*, itemsep=10pt]
+\item ¿Qué signo de relación espera entre consultas y riesgo, y por qué? Calcule la tasa de malos de la cartera y, para cada tramo, $\%B$, $\%M$, WOE $\big(\ln(\%B/\%M)\cdot 100\big)$ y tasa de malos. \hfill [7 pts]
+
+\item Calcule el IV y clasifique el poder predictivo. \hfill [3 pts]
+\end{enumerate}
+
+\medskip\hrule\medskip
+
+{\small
+\textbf{Fórmulas.}\quad
+$\%B_i = \dfrac{B_i}{8.000}$,\quad $\%M_i = \dfrac{M_i}{2.000}$,\quad
+tasa de malos$_i = \dfrac{M_i}{B_i+M_i}$,\quad
+$\text{IV} = \displaystyle\sum_i (\%B_i-\%M_i)\,\ln\!\frac{\%B_i}{\%M_i}$ \ (sin $\times 100$).
+
+\smallskip
+\textbf{Escala del IV.}\quad $<0{,}02$ inútil \ $\cdot$ \ $0{,}02$--$0{,}1$ débil \ $\cdot$ \ $0{,}1$--$0{,}3$ medio \ $\cdot$ \ $0{,}3$--$0{,}5$ fuerte \ $\cdot$ \ $>0{,}5$ sospechoso.
+}
+
+\bigskip
+\textbf{Tabla de trabajo}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{l|c|c|c|c|c|c}\toprule
+Consultas & $\%B$ & $\%M$ & $\%B-\%M$ & WOE & aporte IV & tasa malos\\\midrule
+0 & & & & & & \\
+1 & & & & & & \\
+2-3 & & & & & & \\
+4-5 & & & & & & \\
+6 o más & & & & & & \\\midrule
+Total & 1 & 1 & 0 & --- & IV $=$ & \\\bottomrule
+\end{tabular}
+\end{center}
+
+\end{document}
